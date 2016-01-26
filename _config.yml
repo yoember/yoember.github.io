@@ -22,6 +22,7 @@ markdown: redcarpet
 permalink: /:categories/:title/
 
 exclude: ['Gemfile', 'Gemfile.lock', 'Readme.md', 'Guardfile', '.asset-cache', '.sass-cache', '.deploy', '.editorconfig', '.gitignore', 'Procfile']
+include: ['.nojekyll']
 
 assets:
   cachebust: hard

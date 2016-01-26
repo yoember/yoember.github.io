@@ -4,12 +4,13 @@ layout: compress
 <!DOCTYPE html>
 <html>
   {% include head.html %}
-  <body>
-      {% include navigation.html %}
-    <div class="container">
-        {{ content }}
-    </div>
-    {% include footer.html %}
+<body>
+  {% include navigation.html %}
+  <div class="container">
+    {{ content }}
+  </div>
+  {% include footer.html %}
+  {% stylesheet app %}
   {% javascript app %}
-  </body>
+</body>
 </html>
