@@ -1,0 +1,66 @@
+---
+layout: default
+---
+
+{% if site.show_header %}
+
+<div class="blog-header">
+  <h1 class="blog-title">{{site.title}}</h1>
+  <p class="lead blog-description">{{site.description}}</p>
+</div>
+
+{% endif %}
+
+{% if page.content.size %}
+
+  {{content}}
+
+{% endif %}
+
+<div class="row">
+  <section class="col-sm-8">
+    {% for post in site.posts %}
+      <article class="blog-post-list-item">
+        <header>
+
+          <p class="blog-post-meta">
+
+            {% for category in post.categories %}
+              <a href="{{ site.baseurl }}/categories/{{ post.categories | cgi_encode }}" title="Other posts from the {{ tag | capitalize }} category">{{ category |
+                upcase }}</a>
+              {% unless forloop.last %}&nbsp;{% endunless %}
+              /
+            {% endfor %}
+
+
+            <time datetime="{{ post.date | date_to_xmlschema }}">
+            <span class="day">
+                {{ post.date | date: "%-d" | upcase }}
+            </span>
+            <span class="month-year">
+                {{ post.date | date: "%b %Y" | upcase }}
+            </span>
+            </time>
+          </p>
+
+          <h2 class="blog-post-title">
+            <a href="{{ post.url | prepend: site.baseurl }}">
+              {{ post.title }}
+            </a>
+          </h2>
+        </header>
+
+        <section>
+          <p>{{ post.content | strip_html | truncatewords:40 }}</p>
+        </section>
+
+
+
+      </article>
+    {% endfor %}
+  </section>
+
+  <aside class="col-sm-4">
+    {% include sidebar.html %}
+  </aside>
+</div>

@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+<h1>{{page.category | capitalize}} category index</h1>
+
+{% for post in site.posts %}
+<ul>
+  {% if post.categories contains page.category %}
+    <li><a href="{{ post.url | prepend: site.baseurl }}">{{post.title}}</a></li>
+  {% endif %}
+</ul>
+{% endfor %}

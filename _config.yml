@@ -1,0 +1,39 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: Ember.js 2 Tutorial - Building a complex web application
+email: zdebre@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  Free Ember.js tutorial for absolute beginners. Build a CRUD application from step by step with Ember.js 2.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://yoember.com" # the base hostname & protocol for your site
+twitter_username: szines
+github_username: szines
+
+# Build settings
+markdown: redcarpet
+
+# Url structure /category-name/title-of-the-post/
+permalink: /:categories/:title/
+
+exclude: ['Gemfile', 'Gemfile.lock', 'Readme.md', 'Guardfile', '.asset-cache', '.sass-cache', '.deploy', '.editorconfig', '.gitignore', 'Procfile']
+
+assets:
+  cachebust: hard
+
+compress_html:
+  ignore:
+    envs: [development]
+  profile: false
+
+####
+#  CUSTOM COMPONENTS
+####
+
+# Show blog-header
+show_header: false
