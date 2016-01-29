@@ -1,7 +1,7 @@
 ---
 layout: home
+last_modified_at: 26/01/2016
 ---
-
 # Ember.js 2 Tutorial - Building a complex web application
 <p class="blog-post-meta">Latest update: <time datetime="2016-01-26" itemprop="datePublished">26 Jan 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
@@ -86,18 +86,6 @@ Run `npm update` and `bower update` in your console:
 
     npm update
     bower update
-
-If you see something similar when you run `bower update`
-
-    Unable to find a suitable version for ember, please choose one:
-        1) ember#>=1.4 <2 which resolved to 1.13.10 and is required by ember-cli-shims#0.0.3, ember-load-initializers#0.1.5
-        2) ember#^2.0.0 which resolved to 2.0.2 and is required by ember-data#2.0.0
-        3) ember#2.2 which resolved to 2.2.1 and is required by library-app
-        4) ember#> 1.5.0-beta.3 which resolved to 2.0.2 and is required by ember-resolver#0.1.21
-
-    Prefix the choice with ! to persist it to bower.json
-
-Select the number with `ember#2.0 which resolved to 2.0.2 and is required by library-app`, in this case the answer is `!3` and hit enter. (`2.0.2` could be different, because there could be newer version later.)
 
 Launch or relaunch your application with `ember server` or with `ember s` and check the version number in browser console.
 

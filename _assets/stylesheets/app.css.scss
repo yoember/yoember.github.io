@@ -7,6 +7,10 @@ html {
   overflow-y: scroll;
 }
 
+h1,h2,h3 {
+  padding-bottom: 15px;
+}
+
 .blog-masthead {
   -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
           box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);

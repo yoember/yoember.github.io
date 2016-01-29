@@ -1,4 +1,16 @@
 <head>
+
+  {% if jekyll.environment == 'development' %}
+    <script>
+      var livereloadPath = 'http://' + location.hostname + ':35729/livereload.js';
+      var scriptElement = document.createElement('script');
+      var thisScript = document.getElementsByTagName('script')[0];
+      scriptElement.async = 1;
+      scriptElement.src = livereloadPath;
+      thisScript.parentNode.insertBefore(scriptElement, thisScript);
+    </script>
+  {% endif %}
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +21,7 @@
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="icon shortcut" href="{{ '/favicon.png?678' }}">
   {% stylesheet app %}
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

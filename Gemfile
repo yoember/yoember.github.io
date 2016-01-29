@@ -22,3 +22,6 @@ gem 'guard-jekyll-plus'
 
 # Foreman to launch two processes together
 gem 'foreman'
+
+# Debugger
+gem 'octopress-debugger'

@@ -8,6 +8,7 @@
   </div>
 </footer>
 
+{% if jekyll.environment == 'production' %}
 <script>
   (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r;
@@ -23,3 +24,4 @@
   ga('create', 'UA-68981696-1', 'auto');
   ga('send', 'pageview');
 </script>
+{% endif %}
