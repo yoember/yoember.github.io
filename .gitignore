@@ -1,1 +1,4 @@
 .idea
+.asset-cache
+.deploy
+_site
