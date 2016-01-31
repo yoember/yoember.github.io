@@ -7,6 +7,7 @@ gem 'jekyll'
 gem 'jekyll-assets'
 gem 'uglifier'
 gem 'sass'
+gem 'redcarpet'
 
 # Add bootstrap and font awesome
 gem 'bootstrap-sass'

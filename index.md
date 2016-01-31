@@ -1,23 +1,37 @@
 ---
 layout: home
-last_modified_at: 26/01/2016
+last_modified_at: 31/01/2016
 ---
-# Ember.js 2 Tutorial - Building a complex web application
-<p class="blog-post-meta">Latest update: <time datetime="2016-01-26" itemprop="datePublished">26 Jan 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+# Ember.js 2 Tutorial 
+## Building a complex web application with Ember.js 2.3
+<p class="blog-post-meta">Latest update: <time datetime="2016-01-31" itemprop="datePublished">31 Jan 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
-[Ember.js 2 tutorial](http://yoember.com) from absolute beginners to advance.
+This is an [Ember.js 2 tutorial](http://yoember.com) from absolute beginners to advance.
+
+Welcome! Please check the [Live Demo](https://library-app.firebaseapp.com) page and check out what you are going to build.
 
 * Live demo: [library-app.firebaseapp.com](https://library-app.firebaseapp.com/)
-* Original repo: [https://github.com/szines/library-app](https://github.com/szines/library-app)
-* Twitter: [twitter.com/szines](https://www.twitter.com/szines)
-* Author: [Zoltan](http://zoltan.nz)
 
-#### Previous tutorials
+You can clone the original repository from GitHub and you can launch on your desktop.
+
+* Original repo: [https://github.com/szines/library-app](https://github.com/szines/library-app)
+
+If you have any comment, suggestion or you have a question, please feel free to contact with me.
+
+* My Twitter: [@szines](https://www.twitter.com/szines)
+* My Website: [zoltan.nz](http://zoltan.nz)
+
+Don't hesitate to send me a message on Ember.js community Slack Channel.
+
+* Ember.js Community Slack: [@zoltan](https://embercommunity.slack.com/messages/general/team/zoltan/)
+
+## Other tutorials
 
 * Bookstore API (Ruby on Rails): [https://github.com/szines/bookstore-api](https://github.com/szines/bookstore-api)
 * Bookstore Client (Ember.js): [https://github.com/szines/bookstore-client](https://github.com/szines/bookstore-client)
 * Contacts App Client (Ember.js): [https://github.com/szines/contacts-app-client](https://github.com/szines/contacts-app-client)
+* Chat App (Ember.js): [https://github.com/szines/chat-app-v2](https://github.com/szines/chat-app-v2) 
 
 ## Contents
 
@@ -30,7 +44,7 @@ last_modified_at: 26/01/2016
 
 ## Prerequisites
 
-* node.js 0.12.0 or newer
+* node.js: at least 0.12, but the best if you install the latest 5.5.0.
 
 Suggested way to install node.js: [https://github.com/creationix/nvm](https://github.com/creationix/nvm)
 
@@ -38,62 +52,70 @@ Suggested way to install node.js: [https://github.com/creationix/nvm](https://gi
 
 Install Ember Inspector Chrome extension in your Chrome Browser: [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi?hl=en)
 
+* (Optional) Watchman from Facebook
+
+Install Watchman on Mac: `brew install watchman`
+More info: https://facebook.github.io/watchman/
+
 ## <a name='lesson-1'></a>Lesson 1
+
+This tutorial uses the latest Ember-CLI tool (v2.3.0-beta.1 at end of Jan 2016).
 
 ### Install ember-cli
 
-    npm install -g ember-cli
+The following `npm` command installs Ember-CLI specified version in the global namespace. At the moment Ember-CLI version 2.3 is still in Beta phase, but it is perfect to create new Ember applications. (The Ember.js and Ember Data packages are stable and production ready.)
+
+    $ npm install -g ember-cli@2.3.0-beta.1
+
+You have now a new `ember` command in your console. Check with
+
+    $ ember -v
+    
+You should see something similar:
+
+``` bash {% raw %}
+version: 2.3.0-beta.1
+node: 5.5.0
+npm: 2.14.10
+os: darwin x64{% endraw %}
+```
+
+(Node version, npm version and os version may be different in your configuration.)
+
+Please read more about Ember-CLI here: [www.ember-cli.com](http://www.ember-cli.com)
 
 ### Create the app
 
-    ember new library-app
+In your terminal, navigate in the folder where you usually create your web applications.
+For example, if you have a `project` folder use `cd ~/project`.
+
+Insider this folder run the following command.
+
+    $ ember new library-app
+
+This command will create the new app for you.
+Please enter in your new app with `cd library-app`.
+
+Open this folder in your favourite code editor and look around. You will see a couple of files and folders. Ember-CLI is scaffolded for you everything what need to run and create an amazing web application. 
 
 ### Launch the app
 
-    ember server
+Your skeleton app is ready and you can run it with the following command. Type in your terminal:
 
-### Update Ember.js and Ember-Data to 2.2
+    $ ember server
 
-Update version number of `"ember"` and `"ember-data"` in `./bower.json`:
+Open your new empty app in your browser: <a href="http://localhost:4200" target="_blank">http://localhost:4200</a>
 
-```json
-    {
-      "name": "library-app",
-      "dependencies": {
-        "ember": "2.2",
-
-        "ember-data": "2.2"
-
-      }
-    }
-```
-
-Update version number of `"ember-data"` in `./package.json`:
-
-```json
-    {
-      "name": "library-app",
-
-      "devDependencies": {
-          
-        "ember-data": "2.2"
-         
-      }
-    }
-```
-
-Run `npm update` and `bower update` in your console:
-
-    npm update
-    bower update
-
-Launch or relaunch your application with `ember server` or with `ember s` and check the version number in browser console.
+You should see a "Welcome to Ember" message on your website. Well Done! You have your first Ember.js application. :)
+You can open Ember Inspector in your Browser. Hope you've already installed it. Ember Inspector exists in Chrome and in Firefox as an extension. After installation you should have a new tab in your developer console in your browser. Check it out, look around. [More details about Ember Inspector here](https://guides.emberjs.com/v2.3.0/ember-inspector/installation/). 
 
 ### Turn on a couple of debugging option
 
+If you would like to see more in your browser's console, what Ember.js is doing under the hood, you can turn on a couple of debugging option in your configuration file.
+
 You can find a list of debugging options in `./config/environment.js` file. Remove the comment sign as follow:
 
-```javascript
+``` javascript {% raw %}
     //..
     if (environment === 'development') {
       // ENV.APP.LOG_RESOLVER = true;
@@ -102,7 +124,7 @@ You can find a list of debugging options in `./config/environment.js` file. Remo
       ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
       ENV.APP.LOG_VIEW_LOOKUPS = true;
     }
-    //..
+    //..{% endraw %}
 ```
 Check your app and open the Console in Chrome. You will see a couple of extra information what Ember.js automatically doing.
 
@@ -112,14 +134,14 @@ Exit your `ember server` with `Ctrl+C` in your terminal.
 
 Run the following two command in your terminal.
 
-    ember install ember-cli-sass
-    ember install ember-cli-bootstrap-sassy
+    $ ember install ember-cli-sass
+    $ ember install ember-cli-bootstrap-sassy
 
 You will see, that your `./package.json` and `./bower.json` are extended with a couple of lines.
 
 Rename your `app.css` to `app.scss` with the following terminal command or you can use your editor to rename the `./app/styles/app.css` file:
 
-    mv app/styles/app.css app/styles/app.scss
+    $ mv app/styles/app.css app/styles/app.scss
 
 Open `./app/styles/app.scss` file in your editor and add the following line:
 
@@ -127,11 +149,11 @@ Open `./app/styles/app.scss` file in your editor and add the following line:
 
 Relaunch your app with `ember server`. You should see in the browser, that 'Welcome to Ember' uses Bootstrap default font.
 
-Above steps in a one liner. Copy-paste to your console:
+Above steps in a one liner. Copy-paste to your console (without $). This is usefull if you create a new project and you would like to add Bootstrap in a second.
 
-```
-ember install ember-cli-sass && ember install ember-cli-bootstrap-sassy && echo '@import "bootstrap";' > ./app/styles/app.scss && rm ./app/styles/app.css
-```
+``` {% raw %}
+$ ember install ember-cli-sass && ember install ember-cli-bootstrap-sassy && echo '@import "bootstrap";' > ./app/styles/app.scss && rm ./app/styles/app.css
+{% endraw %}```
 
 ### Create a navigation partial
 
@@ -139,39 +161,39 @@ We will use bootstrap navigation bar to create a nice header section for our app
 
 Update your main template file. Delete the example content and add the following code to your `./app/templates/application.hbs`.
 
-```html
-    <div class="container">
-      {{partial 'navbar'}}
-      {{outlet}}
-    </div>
-```
+``` html {% raw %}
+<div class="container">
+  {{partial 'navbar'}}
+  {{outlet}}
+</div>{% endraw %}
+``` 
 
 Generate a `navbar.hbs` file with the following command in you terminal.
 
-    ember generate template navbar
+    $ ember generate template navbar
 
 You can open `./app/templates/navbar.hbs` in your editor and add the following lines:
 
-```html
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          {{#link-to 'index' class="navbar-brand"}}Library App{{/link-to}}
-        </div>
+```html {% raw %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{#link-to 'index' class="navbar-brand"}}Library App{{/link-to}}
+    </div>
 
-        <div class="collapse navbar-collapse" id="main-navbar">
-          <ul class="nav navbar-nav">
-                {{#link-to 'index' tagName="li"}}<a href>Home</a>{{/link-to}}
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav">
+            {{#link-to 'index' tagName="li"}}<a href="">Home</a>{{/link-to}}
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>{% endraw %}
 ```
 
 Launch your application with `ember server`. You should see your new navigation bar in your browser.
@@ -179,51 +201,57 @@ Launch your application with `ember server`. You should see your new navigation 
 You can update your `app.scss` file to add some extra padding to the top. The updated `./app/styles/app.scss` content:
 
 ```css
-    @import "bootstrap";
+@import "bootstrap";
 
-    body {
-      padding-top: 20px;
-    }
+body {
+  padding-top: 20px;
+}
 ```
 
 ### Create a new About page and add the link to the menu bar
 
 Run the following command in your terminal
 
-    ember generate route about
+    $ ember generate route about
 
 A new route and template created in your project.
 
 Open your new `./app/templates/about.hbs` file in your editor, delete its content and add the following line:
 
-    <h1>About Page</h1>
+```html
+<h1>About Page</h1>
+```    
 
 You can launch your app with `ember server` and navigate to http://localhost:4200/about page, you should see the created `About Page` header message. If you click on `Home` in your menu bar, your page will be empty. Let's fix that.
 
 Create a new `index` template with the following command in your terminal:
 
-    ember generate template index
+    $ ember generate template index
 
 Open in your editor the generated `./app/templates/index.hbs` file and add the following:
 
-    <h1>Home Page</h1>
+```html
+<h1>Home Page</h1>
+```
 
 If you launch your app, you should see the above message on your home page, however we still doesn't have About link in our menu bar.
 
 Open your `./app/templates/navbar.hbs` and add the following line to the `ul` section under `Home` link:
 
-    {{#link-to 'about' tagName="li"}}<a href>About</a>{{/link-to}}
+``` handlebars {% raw %}
+    {{#link-to 'about' tagName="li"}}<a href="">About</a>{{/link-to}}{% endraw %}
+```
 
 Your `ul` section in `navbar.hbs` should look like this:
 
-```html
-    <ul class="nav navbar-nav">
-          {{#link-to 'index' tagName="li"}}<a href>Home</a>{{/link-to}}
-          {{#link-to 'about' tagName="li"}}<a href>About</a>{{/link-to}}
-    </ul>
+``` handlebars {% raw %}
+<ul class="nav navbar-nav">
+      {{#link-to 'index' tagName="li"}}<a href="">Home</a>{{/link-to}}
+      {{#link-to 'about' tagName="li"}}<a href="">About</a>{{/link-to}}
+</ul>{% endraw %}
 ```
 
-If you check your app in the browser, you should see `Home` and `About` link in your menu bar, you can click on them and you will see how the page content and the url are changed. The `active` state of the link changes the style of the menu link automatically as well.
+If you check your app in the browser, you should see `Home` and `About` link in your menu bar, you can click on them and you will see how the page content and the url are changed. The `active` state of the link changes the style of the menu link automatically as well. However Bootstrap expect the `active` class in `li` and expects an anchor tag inside the `li` tag. For this reason we have to use  
 
 ### Homework
 
@@ -278,28 +306,27 @@ We would like to cover the following requirements:
 We can add dynamic values to standard html properties using conditionals. We can use our controller to add or modify the value of a variable, what we use in our template. Check the following solution. We create a boolean variable, let's call it `isDisabled` will provide the state of `disabled` html attribute.
 
 From the official guide:
-> Each template has an associated controller: this is where the template finds the properties that it displays.
-> You can display a property from your controller by wrapping the property name in curly braces.
+"Each template has an associated controller: this is where the template finds the properties that it displays. You can display a property from your controller by wrapping the property name in curly braces."
 
-Add `disabled` property with `{{if}}` helper. (Note: adding `disabled` style to the class will not disable the button properly when we will implement an `action` later.)
+Add `disabled` property with {% raw %}`{{if}}`{% endraw %} helper. (Note: adding `disabled` style to the class will not disable the button properly when we will implement an `action` later.)
 
-```html
-    <button class="btn btn-primary btn-lg btn-block" disabled="{{if isDisabled 'disabled'}}">Request invitation</button>
-```
+``` handlebars {% raw %}
+<button class="btn btn-primary btn-lg btn-block" disabled="{{if isDisabled 'disabled'}}">Request invitation</button>{% endraw %}
+``` 
 
-> More about conditionals in templates:
-> http://guides.emberjs.com/v2.0.0/templates/conditionals/
+* More about conditionals in templates: http://guides.emberjs.com/v2.3.0/templates/conditionals/
 
 Create index controller
 
-    ember g controller index
+    $ ember g controller index
 
-> Read more about Ember controllers here:
-> http://guides.emberjs.com/v2.0.0/controllers/
+* Read more about Ember controllers here: http://guides.emberjs.com/v2.3.0/controllers/
+
+Note: Ember.js still uses controllers, however controller layer will be deprecated and will be removed from Ember.js 3.0. We use controller to practice some interesting feature, but later we will refactor our app and we will move most of the logic inside components.
 
 Add `isDisabled` property to the controller. Default value is `true`.
 
-```javascript
+``` javascript {% raw %}
     //app/controllers/index.js
     import Ember from 'ember';
 
@@ -307,7 +334,7 @@ Add `isDisabled` property to the controller. Default value is `true`.
 
       isDisabled: true
 
-    });
+    }); {% endraw %}
 ```
 
 You can check your app, the button will be disabled by default.
@@ -316,17 +343,39 @@ You can check your app, the button will be disabled by default.
 
 Computed Properties and Observers are important features of Ember.js. Please read more about it in the official guide first.
 
-> Computed Properties: http://guides.emberjs.com/v2.0.0/object-model/computed-properties/
-> Observers: http://guides.emberjs.com/v2.0.0/object-model/observers/
+* Computed Properties: http://guides.emberjs.com/v2.3.0/object-model/computed-properties/
+* Observers: http://guides.emberjs.com/v2.3.0/object-model/observers/
 
 Please note, we will use the traditional syntax in the following code, it means `.property()` and `.observes()` will be attached to the functions.
+
+Computed properties and observers could be written in two ways. It is important to know the "old" syntax and the "new" syntax, so when you see older project, you will recognise this pattern.
+
+Old (with ES5):
+
+``` javascript
+//...
+fullName: function() {
+  return this.get('firstName') + ' ' + this.get('lastName');
+}.property('firstName', 'lastName')
+//...
+```
+
+New (with ES6):
+
+``` javascript
+//...
+fullName: Ember.computed('firstName', 'lastName', function() {
+  return `${this.get('firstName')} ${this.get('lastName')}`;
+}
+//...
+```
 
 First, update your html code with input component syntax and add a `value` to our email input box.
 
 Modify `<input>` line as follow in `index.hbs`:
 
-```html
-{{input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"}}
+``` handlebars {% raw %}
+{{input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"}}{% endraw %}
 ```
 
 As you can see, we use `emailAddress` variable, or better word, a "property" where we would like to store the value of the input box.
@@ -335,11 +384,11 @@ If you type something in the input box, it will update this variable in the cont
 
 You can use the following code in your controller to demonstrate the differences between computed properties and observers:
 
-```
+``` javascript
     emailAddress: '',
 
     actualEmailAddress: function() { 
-      console.log(‘actualEmailAddress function is called: ', this.get('emailAddress'));
+      console.log('actualEmailAddress function is called: ', this.get('emailAddress'));
     }.property('emailAddress'),
 
     emailAddressChanged: function() { 
@@ -355,7 +404,7 @@ Please play with the above example and try to create your own observers and comp
 
 We can rewrite our `isDisabled` with computed property as well.
 
-```javascript
+``` javascript
 // app/controllers/index.js
 import Ember from 'ember';
 
@@ -372,9 +421,9 @@ export default Ember.Controller.extend({
 
 But the above solution works only if the input box is not empty. It is not checking how valid the email address.
 
-You can use the Ember.js 2.0 syntax as well.
+You can use the new Ember.js 2 syntax as well.
 
-```javascript
+``` javascript
 // app/controllers/index.js
 import Ember from 'ember';
 
@@ -391,7 +440,7 @@ export default Ember.Controller.extend({
 
 Or you can use the short version:
 
-```javascript
+``` javascript
 // app/controllers/index.js
 import Ember from 'ember';
 
@@ -403,13 +452,13 @@ export default Ember.Controller.extend({
 
 });
 ```
-> More about `Ember.computed` short versions: http://emberjs.com/api/classes/Ember.computed.html
+* More about `Ember.computed` short versions: http://emberjs.com/api/classes/Ember.computed.html
 
 #### isValid
 
-More elegant solution if we enable our "Invite me" button only that case when the content of input box contains valid email address.
+More elegant solution if we enable our "Invite me" button only when input box contains a valid email address.
 
-```javascript
+``` javascript
 // app/controllers/index.js
 import Ember from 'ember';
 
@@ -422,23 +471,23 @@ export default Ember.Controller.extend({
 });
 ```
 
-We deleted the `isDisabled` property instead we will use `isValid`. Update your `index.hbs` `<button>` as below.
+We deleted the `isDisabled` property instead we will use `isValid`. Update your `index.hbs` `<button>` tag as below.
 
-```html
-<button class="btn btn-primary btn-lg btn-block" disabled="{{unless isValid 'disabled'}}">Request invitation</button>
+``` handlebars {% raw %}
+<button class="btn btn-primary btn-lg btn-block" disabled="{{unless isValid 'disabled'}}">Request invitation</button>{% endraw %}
 ```
 
 #### Add our first Action
 
 Update your `<button>` line again.
 
-```html
-<button class="btn btn-primary btn-lg btn-block" disabled="{{unless isValid 'disabled'}}" {{action 'saveInvitation'}}>Request invitation</button>
+``` handlebars {% raw %}
+<button class="btn btn-primary btn-lg btn-block" disabled="{{unless isValid 'disabled'}}" {{action 'saveInvitation'}}>Request invitation</button>{% endraw %}
 ```
 
-You can try out in your browser, that if you click on the button, you will get a nice error message, which explaines you has to implement this action in your controller. Let's do that.
+You can try out in your browser, that if you click on the button, you will get a nice error message, which alerts you, that you have to implement this action in your controller. Let's do that.
 
-```javascript
+``` javascript
 // app/controllers/index.js
 import Ember from 'ember';
 
@@ -460,7 +509,7 @@ export default Ember.Controller.extend({
 ```
 If you click on the button, `saveInvitation` action will be called and show an alert box, after it will setup a responseMessage, finally delete the content of `emailAddress`.
 
-```html
+``` handlebars {% raw %}
 <!-- app/templates/index.hbs -->
 <div class="jumbotron text-center">
     <h1>Coming Soon</h1>
@@ -486,32 +535,34 @@ If you click on the button, `saveInvitation` action will be called and show an a
 
     <br/><br/>
 
-</div>
+</div>{% endraw %}
 ```
 
 ### Homework
 
-You already have an amazing `Contact` page, where we would like to add a contact form. In this contact form would be two fields. One field for email address and one field for text message. And there would be a “Send message” button. This button should be active only if email address field not empty and valid and there is some message in the text box. After clicking on that “Send message” button should appear an Alert with the email address and the message. When you close the alert message, the form should be cleared and a message should appear in the page in green box, that we got your message and get in touch soon.
+You already have an amazing `Contact` page, where we would like to add a contact form. In this contact form would be two fields. One field for email address and one field for text message. And there would be a “Send message” button. This button should be active only if email address field not empty and valid and there is some message in the text box. After clicking on “Send message” button should appear an Alert with the email address and the message. When you close the alert message, the form should be cleared and a message should appear in the page in green box, this message could be something about "we got your message and get in touch soon".
 
 Hint: you already have a `contact.hbs` but you need a controller where you manage these logics.
 
 Bonus point if you can add validation to `textarea`. One option, the textarea shouldn't be empty, other option, the length of the message at least 5 character long.
 
-    {{textarea class="form-control" placeholder="Your message. (At least 5 characters.)" rows=“7" value=message}}
+``` handlebars
+{% raw %}{{textarea class="form-control" placeholder="Your message. (At least 5 characters.)" rows="7" value=message}}{% endraw %}
+```
 
-Short version of computed property for greater than or equal:
+Short version of computed property for `greater than or equal`:
 
     Ember.computed.gte('yourProperty', number)
 
 (Please note, it is `computed.gte` and not `computed.get`.)
 
-If you have two computed property, and both has to be true you can use a third computed property with `and`.
+If you have two computed property, and both has to be `true` you can use a third computed property with `and`.
 
     Ember.computed.and('firstComputedProperty', 'secondComputedProperty')
 
 You can get a string computed property length with `.length`. If your computed property is `message`, the length of that message is `message.length`.
 
-In terms of feedback on a form, this is a really cool solution on bootstrap. http://getbootstrap.com/css/#with-optional-icons
+* In terms of feedback on a form, there is a really cool solution on bootstrap: http://getbootstrap.com/css/#forms-control-validation (Check the "With optional icons" section.)
 
 ## <a name='lesson-3'></a>Lesson 3
 
@@ -519,17 +570,17 @@ In terms of feedback on a form, this is a really cool solution on bootstrap. htt
 
 We ask email addresses on the home page, but we don't save them at the moment in the database. It is time to implement this feature in our website.
 
-> Please read the detailed introduction on Ember.js website about Ember.js Models: http://guides.emberjs.com/v2.0.0/models/
+* Please read the detailed introduction on Ember.js website about Ember.js Models: http://guides.emberjs.com/v2.3.0/models/
 
 Let's create our first model where we save email addresses for invitation. Type the following command in your command line.
 
-    ember g model invitation email:string
+    $ ember g model invitation email:string
 
 Hope you read about `store` in the official Guide. Let's use it.
 
 Update your `app/controllers/index.js` controller action. Instead of showing a useless alert message, we try to save our data.
 
-```javascript
+``` javascript {% raw %}
 // app/controllers/index.js
 import Ember from 'ember';
 
@@ -569,7 +620,7 @@ Firebase is a server and API service. Very easy to use. http://www.firebase.com
 4. Go back to Firebase and create an app there. Remember the name of your app.
 5. Update your config file in your Ember.js app. In `config/environment.js` should have a `firebase` property. Update the url with your Firebase app url what you have just created on Firebase website.
 
-```javascript
+``` javascript
 // config/environment.js
 
 var ENV = {
@@ -593,7 +644,7 @@ Promise is a unique asynchronous feature in javascript. Basically an object, whi
 
 In our code, we use a Promise: `.save()`
 
-The `save` method on Ember Data Model is a `Promise`. It promises us that it is trying to save our data. It could be successfull or maybe return with error.
+The `save` method on Ember Data Model is a `Promise`. It promises us that it is trying to save our data. It could be successful or maybe return with error.
 
 We can catch the result of a `Promise` with a chained `.then()`. In our example:
 
@@ -601,9 +652,9 @@ We can catch the result of a `Promise` with a chained `.then()`. In our example:
       console.log('Email address is saved.')
     })
 
-If the saving process is successfull, 'fulfilled', then we will get back a response from the server, what we can catch in our function parameter.
+If the saving process is successful, 'fulfilled', then we will get back a response from the server, what we can catch in our function parameter.
 
-We have to move our lines wich showing our success message inside this new function, because we would like to show that message only, if the data is really saved.
+We have to move our lines, which showing our success message inside this new function, because we would like to show that message only, when the data is really saved.
 
 If you would simply just copy paste, you will realize the code will not work as expected.
 
@@ -618,7 +669,7 @@ We have to save the controller context in a local variable, what we can use insi
 
 Please update your controller.
 
-```javascript
+``` javascript
 // app/controllers/index.js
 
 import Ember from 'ember';
@@ -650,21 +701,23 @@ export default Ember.Controller.extend({
 
 We save the `this` controller context in a `_that` local variable. We use this local variable inside our function after Promise. The above example uses `response` and shows the `id` of the generated database record.
 
-Great, our home home page is ready.
+Great, our home page is ready.
+
+(Please note, there is a new syntax in ES6/ES2015 javascript, where we can use `=>` to pass the context automatically inside an asynchronous function. I will explain this later. If you are new in JavaScript, the best if you know the old and the new syntax as well.)
 
 ### Create an Admin page
 
-We would like to list the saved email addresses.
+We would like to list out from the database the persisted email addresses.
 
 Let's create a new route and page what we can reach with the following url: `http://localhost:4200/admin/invitations`
 
-    ember g route admin/invitations
+    $ ember g route admin/invitations
 
 Add this new page to the `navbar.hbs` with a dropdown.
 
-```html
+``` handlebars
 <!-- app/templates/navbar.hbs -->
-<nav class="navbar navbar-inverse">
+{% raw %}<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
@@ -693,15 +746,15 @@ Add this new page to the `navbar.hbs` with a dropdown.
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-</nav>
+</nav>{% endraw %}
 ```
 
 Add a table to `app/templates/admin/invitations.hbs`
 
-```html
+``` handlebars
 <!-- app/templates/admin/invitations.hbs -->
 
-<h1>Invitations</h1>
+{% raw %}<h1>Invitations</h1>
 
 <table class="table table-bordered table-striped">
     <thead>
@@ -719,18 +772,18 @@ Add a table to `app/templates/admin/invitations.hbs`
     {{/each}}
 
     </tbody>
-</table>
+</table>{% endraw %}
 ```
 
 We use `{{#each}}{{/each}}` handlebar block to generate a list. The `model` variable will contain the array what we download from the server. Ember.js automatically populate responses from the server if we download it in the next step using our route file.
 
 Let's download our data from the server using route and Ember Data.
 
-> Please read more about Routes Model: http://guides.emberjs.com/v2.0.0/routing/specifying-a-routes-model/
+* Please read more about Route's Model: http://guides.emberjs.com/v2.3.0/routing/specifying-a-routes-model/
 
 Add the following code to your `app/routes/admin/invitations.js` file:
 
-```javascript
+``` javascript
 // app/routes/admin/invitations.js
 import Ember from 'ember';
 
@@ -743,7 +796,7 @@ export default Ember.Route.extend({
 });
 ```
 
-Launch your app and check your table in Admin.
+Launch your app and check your table in Admin. Do you like it? :)
 
 ### CRUD interface for libraries
 
@@ -751,11 +804,11 @@ We will create a new section in our app, where we can add new library or list th
 
 Firstly we create our `library` model.
 
-    ember g model library name:string address:string phone:string
+    $ ember g model library name:string address:string phone:string
 
-Secondly we create our new route. At the moment we do it without ember-cli, only manually adding the following lines to our `router.js`:
+Secondly we create our new route. At the moment we do it without Ember-CLI, only manually adding the following lines to our `router.js`:
 
-```javascript
+``` javascript
 // app/router.js
 
 import Ember from 'ember';
@@ -782,29 +835,29 @@ export default Router;
 
 Now we create 3 new templates. Our main `libraries.hbs`, a `libraries/index.hbs` for list and a `libraries/new.hbs` for new form.
 
-    ember g template libraries
-    ember g template libraries/index
-    ember g template libraries/new
+    $ ember g template libraries
+    $ ember g template libraries/index
+    $ ember g template libraries/new
 
 Update your `navbar.hbs` main navigation section as following.
 
-```html
+``` handlebars
 <!-- app/templates/navbar.hbs -->
-
+{% raw %}
       <ul class="nav navbar-nav">
-            {{#link-to 'index' tagName="li"}}<a href>Home</a>{{/link-to}}
-            {{#link-to 'libraries' tagName="li"}}<a href>Libraries</a>{{/link-to}}
-            {{#link-to 'about' tagName="li"}}<a href>About</a>{{/link-to}}
-            {{#link-to 'contact' tagName="li"}}<a href>Contact</a>{{/link-to}}
+            {{#link-to 'index' tagName="li"}}<a href="">Home</a>{{/link-to}}
+            {{#link-to 'libraries' tagName="li"}}<a href="">Libraries</a>{{/link-to}}
+            {{#link-to 'about' tagName="li"}}<a href="">About</a>{{/link-to}}
+            {{#link-to 'contact' tagName="li"}}<a href="">Contact</a>{{/link-to}}
       </ul>
-
+{% endraw %}
 ```
 
 Add a submenu to `libraries.hbs`
 
-```html
+``` handlebars
 <!-- app/templates/libraries.hbs -->
-<h1>Libraries</h1>
+{% raw %}<h1>Libraries</h1>
 
 <div class="well">
     <ul class="nav nav-pills">
@@ -813,16 +866,16 @@ Add a submenu to `libraries.hbs`
     </ul>
 </div>
 
-{{outlet}}
+{{outlet}}{% endraw %}
 ```
 
 Check your app, you should see a new menu point and there could be two submenu.
 
 Other two templates have the following content.
 
-```html
+``` handlebars
 <!-- app/templates/libraries/index.hbs -->
-<h2>List</h2>
+{% raw %}<h2>List</h2>
 
 {{#each model as |library|}}
     <div class="panel panel-default">
@@ -834,14 +887,14 @@ Other two templates have the following content.
             <p>Phone: {{library.phone}}</p>
         </div>
     </div>
-{{/each}}
+{{/each}}{% endraw %}
 ```
 
 We generate a list from our model which will be downloaded in the route. We are using `panel` style from bootstrap here.
 
-```html
+``` handlebars
 <!-- app/templates/libraries/new.hbs -->
-<h2>Add a new local Library</h2>
+{% raw %}<h2>Add a new local Library</h2>
 
 <div class="form-horizontal">
     <div class="form-group">
@@ -867,14 +920,14 @@ We generate a list from our model which will be downloaded in the route. We are 
             <button type="submit" class="btn btn-default" {{action 'saveLibrary' model}}>Add to library list</button>
         </div>
     </div>
-</div>
+</div>{% endraw %}
 ```
 
 We use `model` as our value store. You will see soon, that our model will be created in the route. The action will call `saveLibrary` function and we pass the `model` parameter to that function.
 
 In your `app/routes` folder create `libraries` folder and add two js files: `index.js` and `new.js`
 
-```javascript
+``` javascript
 // app/routes/libraries/index.js
 import Ember from 'ember';
 
@@ -890,7 +943,7 @@ export default Ember.Route.extend({
 We download here all the library from the server.
 
 
-```javascript
+``` javascript
 // app/routes/libraries/new.js
 import Ember from 'ember';
 
@@ -921,14 +974,14 @@ export default Ember.Route.extend({
 
 In the above Route we create a new record and it will be the `model`. It automatically appears in the controller and in the template. In the `saveLibrary` action we accept a param and we save that model, after we send the application back to Libraries home page with `transitionTo`.
 
-There is an Ember.js built in action (event) `willTransition`, which will be called when you leave a page (route). In our case, we use this action to reset the model if we didn't save in the database before.
+There is an Ember.js built in action (event) `willTransition`, which will be called when you leave a page (route). In our case, we use this action to reset the model if we haven't saved in the database before.
 
 ### Homework
 
 Improve further your Contact Page.
 
 1. Create a `contact` model with `email` and with `message` field.
-2. Save that model in the server when someone click on "Send" button on Contact form. Update your contact.js controller.
+2. Save that model in the server when someone click on "Send" button on Contact form. Update your `contact.js` controller.
 3. Create an Admin page under `http://localhost:4200/admin/contacts`
 4. List all saved messages in a table.
 
@@ -940,9 +993,9 @@ Option 2: Refactor your app contact section with usage of model in route. Move v
 
 Follow the [guide on Firebase](https://www.firebase.com/docs/web/libraries/ember/guide.html#section-ember-deploy).
 
-    npm install -g firebase-tools
-    ember build
-    firebase init
+    $ npm install -g firebase-tools
+    $ ember build --prod
+    $ firebase init
 
 Update `firebase.json`
 
@@ -957,7 +1010,7 @@ Update `firebase.json`
 
 And deploy:
 
-    firebase deploy
+    $ firebase deploy
 
 ### Add Delete, Edit button and Edit route
 
@@ -965,9 +1018,9 @@ And deploy:
 
 Let's upgrade our `app/templates/libraries/index.hbs` to show a nice grid layout. We have to add a little tweak to our stylesheet as well. You can see, there are two buttons in `panel-footer`. First button is a link to Edit screen, the second is a Delete button with an action. We send `library` as a param with that action call.
 
-```html
+``` handlebars
 <!-- app/templates/libraries/index.hbs -->
-<h2>List</h2>
+{% raw %}<h2>List</h2>
 <div class="row">
   {{#each model as |library|}}
     <div class="col-md-4">
@@ -986,10 +1039,10 @@ Let's upgrade our `app/templates/libraries/index.hbs` to show a nice grid layout
       </div>
     </div>
   {{/each}}
-</div>
+</div>{% endraw %}
 ```
 
-```css
+``` scss
 # app/styles/app.scss
 @import 'bootstrap';
 
@@ -1012,7 +1065,7 @@ If you would try to launch the app now, probably you will get an error message, 
 
 Add manually the new `edit` route to `router.js`. We setup a unique `path:` in the second parameter of `this.route()`. Because there is a `:` sign before the `library_id`, that part of the url will be copied in that variable as route param, and we can use it in our routes. For example, if the url is `http://example.com/libraries/1234/edit`, than `1234` will be passed as a param to route, so we can use in that route to download the model.
 
-```javascript
+``` javascript
 // app/router.js
 import Ember from 'ember';
 import config from './config/environment';
@@ -1038,9 +1091,9 @@ Router.map(function() {
 export default Router;
 ```
 
-After we inserted this extra line in our router, time to create our `app/routes/libraries/edit.js`. You can use ember-cli or you can create manually. The code should looks like the following. More explanation below. (In this code, I use ES5 syntax, but later I will prefer ES6. If you would like you can use ES6 already.)
+After we inserted this extra line in our router, time to create our `app/routes/libraries/edit.js`. You can use Ember-CLI or you can create manually. The code should looks like the following. More explanation below. (In this code, I use ES5 syntax, but later I will prefer ES6/ES2015. If you would like you can use ES6/ES2015 already.)
 
-```javascript
+``` javascript
 // app/routes/libraries/edit.js
 import Ember from 'ember';
 
@@ -1080,16 +1133,16 @@ export default Ember.Route.extend({
 
 More things happening in this file.
 
-First of all, in the `model` function, we have a `params` parameter. This params will get from the url that id. Simply, we can use it with `params.library_id`. The `this.store.findRecord('library', params.library_id);` line download only one record from the server with the given `id`. The `id` comes from the url.
+First of all, in the `model` function, we have a `params` parameter. This params will get from the url that `id`. Simply, we can use it with `params.library_id`. The `this.store.findRecord('library', params.library_id);` line download only one record from the server with the given `id`. The `id` comes from the url.
 
 We added two actions as well. The first will save the changes and after redirect to the main `libraries` page.
 
-The second event-action will be called, when we are trying to leave this page, because we redirected from the previous action or the user clicked in a link on the website. In the first case, the changes already saved, but in the second case, it could happen, that the user modified something in the form, and haven't saved. It is a typical "dirty checking". We can read the `model` from the controller, we use Ember Model's `hasDirtyAttributes` computed property to check something changed in the model. So we popup an ugly confirmation window. If the user would like to leave the page, we just rollback changes with `model.rollbackAttributes()`. If the user would like to stay in the page we abort the transition with `transition.abort()`. You can see, that we use `transition` variable which is initiated as a param in `willTransition` function. Ember.js automatically provides this for us.
+The second event-action will be called, when we are trying to leave this page, because we redirected from the previous action or the user clicked in a link on the website. In the first case, the changes already saved, but in the second case, it could happen, when the user modified something in the form but haven't saved. It is a typical "dirty checking". We can read the `model` from the controller, we use Ember Model's `hasDirtyAttributes` computed property to check something changed in the model. So we popup an ugly confirmation window. If the user would like to leave the page, we just rollback changes with `model.rollbackAttributes()`. If the user would like to stay in the page we abort the transition with `transition.abort()`. You can see, that we use `transition` variable which is initiated as a param in `willTransition` function. Ember.js automatically provides this for us.
 
 Our template is still missing. Let's use our `new.hbs` and duplicate the code in `edit.hbs` with a little changes. We will fix this problem later with components, because code duplication is not nice.
 
-```html
-<h2>Edit Library</h2>
+``` handlebars
+{% raw %}<h2>Edit Library</h2>
 
 <div class="form-horizontal">
     <div class="form-group">
@@ -1115,16 +1168,16 @@ Our template is still missing. Let's use our `new.hbs` and duplicate the code in
             <button type="submit" class="btn btn-default" {{action 'saveLibrary' model}}>Save changes</button>
         </div>
     </div>
-</div>
+</div>{% endraw %}
 ```
 
-If you launch your app, it should work, and you are able to edit the information from a library. You can check what is happening if you modify the data in the form, but finally click in a link somewhere without saving.
+If you launch your app, it should work, and you are able to edit the information from a library. You can check what is happening if you modify the data in the form, but finally click on a link somewhere (for example link on the menu) without saving the form data.
 
 #### Add delete action
 
 The delete action is still missing. Let's update `app/routes/libraries/index.js`
 
-```javascript
+``` javascript
 // app/routes/libraries/index.js
 import Ember from 'ember';
 
@@ -1147,13 +1200,11 @@ export default Ember.Route.extend({
 })
 ```
 
-###Homework
+### Homework
 
 You can add delete buttons to your lists on Admin pages, so you can delete invitations and contact messages. It would be nice improvement as well if you could clean up `app/controllers/index.js` and add `createRecord` in `app/routes/index.js`. It would be similar to `libraries/new` section.
 
 ## <a name='lesson-5'></a>Lesson 5
-
-
 
 ### Cleaning up our templates with components
 
@@ -1162,17 +1213,17 @@ First of all, please read more about Components in Ember.js Guide: http://guides
 We can generate a component with `ember g component` command. Let's create two components. First for library panel and one for forms.
 
 ```
-ember g component library-item
-ember g component library-item-form
+$ ember g component library-item
+$ ember g component library-item-form
 ```
 
 Each command generates a javascript file and a handlebar file. Javascript part sits in `app/components` folder, the template in `app/templates/components`.
 
 We can insert the following code in the `library-item` template.
 
-```html
+``` handlebars
 <!-- app/templates/components/library-item.hbs -->
-<div class="panel panel-default library-item">
+{% raw %}<div class="panel panel-default library-item">
     <div class="panel-heading">
         <h3 class="panel-title">{{item.name}}</h3>
     </div>
@@ -1183,30 +1234,30 @@ We can insert the following code in the `library-item` template.
     <div class="panel-footer text-right">
       {{yield}}
     </div>
-</div>
+</div>{% endraw %}
 ```
 
 You can see, that this code is quite similar what we have in `app/templates/libraries/index.hbs`, however instead of `model` we use `item`.
 
-The most important concept in terms of components, that they are totally independent from the context. They don't know more, only that what they originally have and what passed inside with attributes.
+The most important concept in terms of components, that they are totally independent from the context. They don't know "other things", other variables, only what they originally have and what passed inside with attributes.
 
-We have a `{{yield}}` which means, that we can use this componenet as a block component. The code which wrapped with this component will be injected there.
+We have a `{% raw %}{{yield}}{% endraw %}` which means, that we can use this component as a block component. The code which wrapped with this component will be injected inside the `{% raw %}{{yield}}{% endraw %}`.
 
 For example:
 
-```html
-     {{#library-item item=model}}
+``` handlebars
+     {% raw %}{{#library-item item=model}}
         Closed
-     {{/library-item}}
+     {{/library-item}}{% endraw %}
 ```
 
 In this case the `Closed` text will appear in the panel footer.
 
 Let's add html to our `library-item-form` component as well.
 
-```html
+``` handlebars
 <!-- app/templates/components/library-item-form.hbs -->
-<div class="form-horizontal">
+{% raw %}<div class="form-horizontal">
     <div class="form-group has-feedback {{if item.isValid 'has-success'}}">
         <label class="col-sm-2 control-label">Name*</label>
         <div class="col-sm-10">
@@ -1231,14 +1282,14 @@ Let's add html to our `library-item-form` component as well.
             <button type="submit" class="btn btn-default" {{action 'buttonClicked' item}} disabled="{{unless item.isValid 'disabled'}}">{{buttonLabel}}</button>
         </div>
     </div>
-</div>
+</div>{% endraw %}
 ```
 
 This code is almost the same what we used more times in our form in `libraries/new.hbs` and in `libraries/edit.hbs` templates.
 
-Some tiny improvement, that we can add a little validation to our `library` model. Please update `app/models/library.js` with a basic validation, where we check that the `name` is not empty.
+Some tiny improvement. We can add a little validation to our `library` model. Please update `app/models/library.js` with a basic validation, where we check that the `name` is not empty.
 
-```js
+``` javascript
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -1252,10 +1303,10 @@ export default DS.Model.extend({
 
 Time to clean up our templates.
 
-Using the `library-item` component in `app/templates/libraries/index.hbs` reduce the code and change our template more clearer.
+Using the `library-item` component in `app/templates/libraries/index.hbs` reduces the code and makes our template more cleaner.
 
-```html
-<h2>List</h2>
+``` handlebars
+{% raw %}<h2>List</h2>
 <div class="row">
   {{#each model as |library|}}
     <div class="col-md-4">
@@ -1265,66 +1316,58 @@ Using the `library-item` component in `app/templates/libraries/index.hbs` reduce
       {{/library-item}}
     </div>
   {{/each}}
-</div>
+</div>{% endraw %}
 ```
 
 We iterate our `model` and we pass deeper in the component that `library` local variable as `item`. The component's variable is always on the left side.
 
-Because this componenet is a block componenet, we can add some extra content to the library item footer. In this case, we add an Edit and a Delete button.
+Because this component is a block component, we can add some extra content to the library item footer. In this case, we add an Edit and a Delete button.
 
-You can check your project, you should see the same as before on the Libraries list page, however, the code is cleaner and we have a componenet, what we can reuse somewhere else as well.
+You can check your project, you should see the same as before on the Libraries list page, however, the code is cleaner and we have a component, what we can reuse somewhere else as well.
 
 Update our `app/templates/libraries/new.hbs`.
 
-```html
+``` handlebars
 <!-- app/templates/libraries/new.hbs -->
-<h2>Add a new local Library</h2>
+{% raw %}<h2>Add a new local Library</h2>
 
 <div class="row">
 
   <div class="col-md-6">
-
       {{library-item-form item=model buttonLabel='Add to library list' action='saveLibrary'}}
-
   </div>
 
   <div class="col-md-4">
-
       {{#library-item item=model}}
           <br/>
       {{/library-item}}
-
   </div>
 
-</div>
+</div>{% endraw %}
 ```
 
 Update `app/templates/libraries/edit.hbs`.
 
-```html
-<h2>Edit Library</h2>
+``` handlebars
+{% raw %}<h2>Edit Library</h2>
 
 <div class="row">
     <div class="col-md-6">
-
       {{library-item-form item=model buttonLabel='Save changes' action='saveLibrary'}}
-
     </div>
 
     <div class="col-md-4">
-
       {{#library-item item=model}}
         <br/>
       {{/library-item}}
-
     </div>
 
-</div>
+</div>{% endraw %}
 ```
 
 Add action to `library-item-form.js`
 
-```javascript
+``` javascript
 import Ember from 'ember';
 
 export default Ember.Component.extend({
@@ -1344,9 +1387,9 @@ As you can see `edit.hbs` and `new.hbs` are almost the same, so we can use the s
 
 Let's create a `form.hbs` which will be our common template in Edit and in New page.
 
-```html
+``` handlebars
 <!-- /app/templates/libraries/form.hbs -->
-<h2>{{title}}</h2>
+{% raw %}<h2>{{title}}</h2>
 
 <div class="row">
     <div class="col-md-6">
@@ -1359,14 +1402,14 @@ Let's create a `form.hbs` which will be our common template in Edit and in New p
       {{/library-item}}
     </div>
 
-</div>
+</div>{% endraw %}
 ```
 
 For using the above common template, we have to do two things. Firstly we have to set `title` and `buttonLabel` params in our controllers, secondly we have to determine somehow, that our template is not the conventional template, we would like to use something unique. Setting controller params in a Route, we can use `setupController` hook, determining a unique template, we can use `renderTemplate` hook.
 
 With the new two hooks our `app/routes/libraries/new.js` would look like this:
 
-```javascript
+``` javascript
 // app/routes/libraries/new.js
 import Ember from 'ember';
 
@@ -1408,7 +1451,7 @@ export default Ember.Route.extend({
 
 And our `edit.js`
 
-```javascript
+``` javascript
 // app/routes/libraries/edit.js
 import Ember from 'ember';
 
@@ -1464,17 +1507,17 @@ More information about `renderTemplate`: http://emberjs.com/api/classes/Ember.Ro
 
 ### Create a tiny bootstrap `nav-link-to` component for `<li><a></a></li>`
 
-Time to clean up our navigation template. We can create a nice component to manage bootstrap navbar links properly.
+Time to clean up our navigation template. We can create a nice component to manage bootstrap `navbar` links properly.
 
-Open your terminal and generate a new component with `ember-cli`.
+Open your terminal and generate a new component with Ember-CLI.
 
-`ember g component nav-link-to`
+    $ ember g component nav-link-to
 
 Because we would like just slightly modify the main `LinkComponent`, we should just `extend` that class. There is a `tagName` property, which determines the main tag of a component.
 
 Update `app/components/nav-link-to.js`:
 
-```javascript
+``` javascript
 // app/components/nav-link-to.js
 import Ember from 'ember';
 
@@ -1486,16 +1529,16 @@ Note: don't forget to rewrite `Ember.Component.extend` to `Ember.LinkComponent.e
 
 Our connected template will be the following:
 
-```html
+``` handlebars
 <!-- app/templates/components/nav-link-to.hbs -->
-<a href="">{{yield}}</a>
+{% raw %}<a href="">{{yield}}</a>{% endraw %}
 ```
 
 After that we are ready to use our component and we can update our `navbar.hbs`.
 
-```html
+``` handlebars
 <!-- app/templates/navbar.hbs -->
-<nav class="navbar navbar-inverse">
+{% raw %}<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
@@ -1526,7 +1569,7 @@ After that we are ready to use our component and we can update our `navbar.hbs`.
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-</nav>
+</nav>{% endraw %}
 ```
 
 ## <a name='lesson-6'></a>Lesson 6
@@ -1535,21 +1578,20 @@ In this lesson we extend our models with `book` and `author`. Setup relation bet
 
 ### Creating some new models and setup relations
 
-In our simple World, we have Libraries. We have Authors, whoes could have a couple of books, however a book only could be in one Library. And one book has only one Author.
+In our simple World, we have Libraries. We have Authors, whose could have a couple of books, however a book could be only in one Library. And one book has only one Author.
 
-To generate new models we use `ember-cli`.
+To generate new models we use Ember-CLI.
 
 Run the followings in your terminal.
 
 ```
-ember g model book title:string releaseYear:date library:belongsTo author:belongsTo
-
-ember g model author name:string books:hasMany
+$ ember g model book title:string releaseYear:date library:belongsTo author:belongsTo
+$ ember g model author name:string books:hasMany
 ```
 
 Add `hasMany` relation to `library` model manually.
 
-```javascript
+``` javascript
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -1565,15 +1607,15 @@ export default DS.Model.extend({
 
 ### Create a new Admin page 'Seeder' and download all models in the same route.
 
-Create a new page using `ember-cli` in your terminal:
+Create a new page using Ember-CLI in your terminal:
 
 ```
-ember g route admin/seeder
+$ ember g route admin/seeder
 ```
 
 Check `router.js`. A new route should be there which point to `seeder`.
 
-```javascript
+``` javascript
 // app/router.js
 import Ember from 'ember';
 import config from './config/environment';
@@ -1602,9 +1644,9 @@ export default Router;
 
 Extend your `navbar.hbs` with the new page.
 
-```html
+``` handlebars
 <!-- app/templates/navbar.hbs -->
-<nav class="navbar navbar-inverse">
+{% raw %}<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
@@ -1636,9 +1678,8 @@ Extend your `navbar.hbs` with the new page.
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-</nav>
+</nav>{% endraw %}
 ```
-
 
 #### Using `Ember.RSVP.hash()` for downloading more models in the same route
 
@@ -1646,7 +1687,7 @@ For downloading more models in the same route we have to use `Ember.RSVP.hash()`
 
 `RSVP.hash` wraps more promises and return a nicely structured hashed object. More information: http://emberjs.com/api/classes/RSVP.html#method_hash
 
-```javascript
+``` javascript
 // app/routes/admin/seeder.js
 import Ember from 'ember';
 
@@ -1668,17 +1709,17 @@ export default Ember.Route.extend({
 });
 ```
 
-RSVP tries to download all model, it will return with fullfield state only if all three download were successfull.
+RSVP tries to download all model, it will return with fulfilled state only if all three download were successful.
 
 In the `setupController` hook, we split the model and setup new controller properties.
 
 ### Little summary about route`s hooks
 
-You already use a couple of hook in routes, which will be called in ceartain sequence.
+You already use a couple of hook in routes, which will be called in certain sequence.
 
 You can play with it and have a little experiment in one of your route.
 
-```javascript
+``` javascript
 import Ember from 'ember';
 
 export default Ember.Route.extend({
@@ -1713,7 +1754,7 @@ export default Ember.Route.extend({
 });
 ```
 
-If you visit the route, where your above experiment code was insterted, and you open inspector console in your web browser, the code will stop for debugging in each call. You can see what is the sequence of hooks. The above code follows the pattern.
+If you visit the route, where your above experiment code was inserted, and you open inspector console in your web browser, the code will stop for debugging in each call. You can see what is the sequence of hooks. The above code follows the pattern.
 
 1. `init()` http://emberjs.com/api/classes/Ember.Route.html#method_init
 2. `beforeModel(transition)` http://emberjs.com/api/classes/Ember.Route.html#method_beforeModel
@@ -1728,12 +1769,12 @@ If you visit the route, where your above experiment code was insterted, and you 
 We use a `number-box` component for visualizing numbers on our page. Let's create our fancy component.
 
 ```
-ember g component number-box
+$ ember g component number-box
 ```
 
-Setup css classes in the component controller.
+Setup `css` classes in the component controller.
 
-```javascript
+``` javascript
 // app/components/number-box.js
 import Ember from 'ember';
 
@@ -1746,47 +1787,46 @@ export default Ember.Component.extend({
 
 And a little html in our component template:
 
-```html
+``` handlebars
 <!-- app/templates/components/number-box.hbs -->
-<div class="panel-heading">
+{% raw %}<div class="panel-heading">
   <h3 class="text-center">{{title}}</h3>
   <h1 class="text-center">{{if number number '...'}}</h1>
-</div>
-
+</div>{% endraw %}
 ```
 
 As you see, we can pass in our component two attributes: `title`, `number`.
-If we have something in `number` shows that, if not shows three dots.
+If we have something in `number` shows that number, if it is empty shows three dots.
 
 Our template is ready, we can use it in our `app/templates/admin/seeder.hbs`
 
-```html
+``` handlebars
 <!-- app/templates/admin/seeder.hbs -->
-<h1>Seeder, our Data Center</h1>
+{% raw %}<h1>Seeder, our Data Center</h1>
 
 <div class="row">
   <div class="col-md-4">{{number-box title="Libraries" number=libraries.length}}</div>
   <div class="col-md-4">{{number-box title="Authors" number=authors.length}}</div>
   <div class="col-md-4">{{number-box title="Books" number=books.length}}</div>
-</div>
+</div>{% endraw %}
 ```
 
 If you open your browser now, you will see three boxes with numbers or with three dots. Remember, we setup `libraries`, `authors` and `books` property in our `setupController` hook, if our `model` hook downloaded our data from the server, those variables are not empty. `.length` method will return a number of the size of that array.
 
 ### Building forms to generate dummy data.
 
-We have to generate two other components what we gonna use in this page. Actually we will use only one component, but inside that component we will use an other component.
+We have to generate two other components what we gonna use in this page. Actually we will use only one component, but inside that component we will use an other component. This part is a little bit advance, I don't have a detailed explanation here, but you can copy paste the code and try out. I would suggest, you should play with this code, try to understand. However, don't forget, if you have any question, don't hesitate to ping me on Slack or on Twitter.
 
-Run `ember-cli` commands in your terminal.
+Run Ember-CLI commands in your terminal.
 
 ```
-ember g component seeder-block
-ember g component fader-label
+$ ember g component seeder-block
+$ ember g component fader-label
 ```
 
 Insert the following codes in your templates.
 
-```javascript
+``` javascript
 // app/components/seeder-block.js
 import Ember from 'ember';
 
@@ -1804,9 +1844,9 @@ export default Ember.Component.extend({
 });
 ```
 
-```html
+``` handlebars
 <!-- app/templates/components/seeder-block.hbs -->
-<div class="row">
+{% raw %}<div class="row">
   <div class="col-md-12">
     <h3>{{sectionTitle}}</h3>
 
@@ -1828,11 +1868,11 @@ export default Ember.Component.extend({
 
     </div>
   </div>
-</div>
+</div>{% endraw %}
 
 ```
 
-```javascript
+``` javascript
 // app/components/fader-label.js
 import Ember from 'ember';
 
@@ -1853,14 +1893,14 @@ export default Ember.Component.extend({
 
 ```
 
-```html
+``` handlebars
 <!-- app/templates/components/fader-label.hbs -->
-{{yield}}
+{% raw %}{{yield}}{% endraw %}
 ```
 
-We need also a little scss snippet.
+We need also a little `scss` snippet.
 
-```css
+``` scss
 // app/styles/app.scss
 @import 'bootstrap';
 
@@ -1888,9 +1928,9 @@ html {
 
 We have our components, let's insert them in `seeder.hbs`
 
-```html
+``` handlebars
 <!-- app/templates/admin/seeder.hbs -->
-<h1>Seeder, our Data Center</h1>
+{% raw %}<h1>Seeder, our Data Center</h1>
 
 <div class="row">
   <div class="col-md-4">{{number-box title="Libraries" number=libraries.length}}</div>
@@ -1914,21 +1954,21 @@ We have our components, let's insert them in `seeder.hbs`
   deleteAction='deleteBooksAndAuthors'
   createReady=authDone
   deleteReady=authDelDone
-}}
+}}{% endraw %}
 ```
 ### Install `faker.js` for dummy data
 
 To generate dummy data we have to install `faker.js`. https://github.com/johnotander/ember-faker
 
 ```
-ember install ember-faker
+$ ember install ember-faker
 ```
 
 We import `faker` in our models, where we extend each of our models with a `randomize()` function for generating dummy data.
 
 Update your models with the followings.
 
-```javascript
+``` javascript
 // app/models/library.js
 import DS from 'ember-data';
 import Faker from 'faker';
@@ -1958,7 +1998,7 @@ export default DS.Model.extend({
 
 ```
 
-```javascript
+``` javascript
 // app/models/book.js
 import DS from 'ember-data';
 import Faker from 'faker';
@@ -1995,7 +2035,7 @@ export default DS.Model.extend({
 
 ```
 
-```javascript
+``` javascript
 // app/models/author.js
 import DS from 'ember-data';
 import Faker from 'faker';
@@ -2016,7 +2056,7 @@ export default DS.Model.extend({
 
 We will implement our actions in our controller.
 
-```javascript
+``` javascript
 // app/controllers/admin/seeder.js
 import Ember from 'ember';
 import Faker from 'faker';

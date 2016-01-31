@@ -140,6 +140,7 @@ DEPENDENCIES
   jekyll-sitemap
   octopress
   octopress-debugger
+  redcarpet
   sass
   uglifier
 

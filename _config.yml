@@ -17,6 +17,8 @@ github_username: szines
 
 # Build settings
 markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
 
 # Url structure /category-name/title-of-the-post/
 permalink: /:categories/:title/
