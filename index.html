@@ -1,27 +1,12 @@
-<!DOCTYPE html> <html> <head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title>Ember.js 2 Tutorial - From absolute beginner to advance</title> <meta name="description" content="Free Ember.js tutorial for absolute beginners. Build a CRUD application from step by step with Ember.js 2. "> <meta name="google-site-verification" content="U42b-ZgXzrF6rhQTCtbrmiSvRBUigl0IoHE-5bhz64c"/> <link rel="canonical" href="http://yoember.com/"> <link rel="alternate" type="application/rss+xml" title="Ember.js 2 Tutorial - Building a complex web application" href="http://yoember.com/feed.xml"> <link rel="icon shortcut" href="/favicon.png?678"> <link type="text/css" rel="stylesheet" href="/assets/app-91cbaa210ed4adf46e260b18b5f20da19d5f088e1ff374de602e1ebc57b51b1f.css"> <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --> <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]--> </head> <body> <header> <nav class="navbar navbar-default blog-masthead"> <div class="container"> <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="/">yoember.com</a> </div> <div class="collapse navbar-collapse" id="main-navbar"> <ul class="nav navbar-nav"> </ul> </div> </div> </nav> </header> <div class="container"> <h1>Ember.js 2 Tutorial - Building a complex web application</h1> <p class="blog-post-meta">Latest update: <time datetime="2016-01-26" itemprop="datePublished">26 Jan 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p> <p><a href="http://yoember.com">Ember.js 2 tutorial</a> from absolute beginners to advance.</p> <ul> <li>Live demo: <a href="https://library-app.firebaseapp.com/">library-app.firebaseapp.com</a></li> <li>Original repo: <a href="https://github.com/szines/library-app">https://github.com/szines/library-app</a></li> <li>Twitter: <a href="https://www.twitter.com/szines">twitter.com/szines</a></li> <li>Author: <a href="http://zoltan.nz">Zoltan</a></li> </ul> <h4>Previous tutorials</h4> <ul> <li>Bookstore API (Ruby on Rails): <a href="https://github.com/szines/bookstore-api">https://github.com/szines/bookstore-api</a></li> <li>Bookstore Client (Ember.js): <a href="https://github.com/szines/bookstore-client">https://github.com/szines/bookstore-client</a></li> <li>Contacts App Client (Ember.js): <a href="https://github.com/szines/contacts-app-client">https://github.com/szines/contacts-app-client</a></li> </ul> <h2>Contents</h2> <ul> <li><a href="#lesson-1">Lesson 1 - Creating our first static page with Ember.js</a></li> <li><a href="#lesson-2">Lesson 2 - Computed property, actions, dynamic content</a></li> <li><a href="#lesson-3">Lesson 3 - Models, saving data in database</a></li> <li><a href="#lesson-4">Lesson 4 - Deploy your app and add more CRUD functionality</a></li> <li><a href="#lesson-5">Lesson 5 - Data down actions up, using components</a></li> <li><a href="#lesson-6">Lesson 6 - Advance model structures and data relationships</a></li> </ul> <h2>Prerequisites</h2> <ul> <li>node.js 0.12.0 or newer</li> </ul> <p>Suggested way to install node.js: <a href="https://github.com/creationix/nvm">https://github.com/creationix/nvm</a></p> <ul> <li>Ember Inspector Chrome Extension</li> </ul> <p>Install Ember Inspector Chrome extension in your Chrome Browser: <a href="https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi?hl=en">Ember Inspector</a></p> <h2><a name='lesson-1'></a>Lesson 1</h2> <h3>Install ember-cli</h3> <div class="highlight"><pre><code class="language-" data-lang="">npm install -g ember-cli
-</code></pre></div> <h3>Create the app</h3> <div class="highlight"><pre><code class="language-" data-lang="">ember new library-app
-</code></pre></div> <h3>Launch the app</h3> <div class="highlight"><pre><code class="language-" data-lang="">ember server
-</code></pre></div> <h3>Update Ember.js and Ember-Data to 2.2</h3> <p>Update version number of <code>&quot;ember&quot;</code> and <code>&quot;ember-data&quot;</code> in <code>./bower.json</code>:</p> <div class="highlight"><pre><code class="language-json" data-lang="json"><span class="w">    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"library-app"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"ember"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.2"</span><span class="p">,</span><span class="w">
-
-        </span><span class="nt">"ember-data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.2"</span><span class="w">
-
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre></div> <p>Update version number of <code>&quot;ember-data&quot;</code> in <code>./package.json</code>:</p> <div class="highlight"><pre><code class="language-json" data-lang="json"><span class="w">    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"library-app"</span><span class="p">,</span><span class="w">
-
-      </span><span class="nt">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-
-        </span><span class="nt">"ember-data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.2"</span><span class="w">
-
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre></div> <p>Run <code>npm update</code> and <code>bower update</code> in your console:</p> <div class="highlight"><pre><code class="language-" data-lang="">npm update
-bower update
-</code></pre></div> <p>Launch or relaunch your application with <code>ember server</code> or with <code>ember s</code> and check the version number in browser console.</p> <h3>Turn on a couple of debugging option</h3> <p>You can find a list of debugging options in <code>./config/environment.js</code> file. Remove the comment sign as follow:</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="c1">//..</span>
+<!DOCTYPE html> <html> <head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title>Ember.js 2 Tutorial - From absolute beginner to advance</title> <meta name="description" content="Free Ember.js tutorial for absolute beginners. Build a CRUD application from step by step with Ember.js 2. "> <meta name="google-site-verification" content="U42b-ZgXzrF6rhQTCtbrmiSvRBUigl0IoHE-5bhz64c"/> <link rel="canonical" href="http://yoember.com/"> <link rel="alternate" type="application/rss+xml" title="Ember.js 2 Tutorial - Building a complex web application" href="http://yoember.com/feed.xml"> <link rel="icon shortcut" href="/favicon.png?678"> <link type="text/css" rel="stylesheet" href="/assets/app-369e3f593ca186b61e768cfba0047629651e3c0a00853b8e1cf3382cb17eaff7.css"> <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --> <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]--> </head> <body> <header> <nav class="navbar navbar-default blog-masthead"> <div class="container"> <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="/">yoember.com</a> </div> <div class="collapse navbar-collapse" id="main-navbar"> <ul class="nav navbar-nav"> </ul> </div> </div> </nav> </header> <div class="container"> <h1>Ember.js 2 Tutorial</h1> <h2>Building a complex web application with Ember.js 2.3</h2> <p class="blog-post-meta">Latest update: <time datetime="2016-01-31" itemprop="datePublished">31 Jan 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p> <p>This is an <a href="http://yoember.com">Ember.js 2 tutorial</a> from absolute beginners to advance.</p> <p>Welcome! Please check the <a href="https://library-app.firebaseapp.com">Live Demo</a> page and check out what you are going to build.</p> <ul> <li>Live demo: <a href="https://library-app.firebaseapp.com/">library-app.firebaseapp.com</a></li> </ul> <p>You can clone the original repository from GitHub and you can launch on your desktop.</p> <ul> <li>Original repo: <a href="https://github.com/szines/library-app">https://github.com/szines/library-app</a></li> </ul> <p>If you have any comment, suggestion or you have a question, please feel free to contact with me.</p> <ul> <li>My Twitter: <a href="https://www.twitter.com/szines">@szines</a></li> <li>My Website: <a href="http://zoltan.nz">zoltan.nz</a></li> </ul> <p>Don&#39;t hesitate to send me a message on Ember.js community Slack Channel.</p> <ul> <li>Ember.js Community Slack: <a href="https://embercommunity.slack.com/messages/general/team/zoltan/">@zoltan</a></li> </ul> <h2>Other tutorials</h2> <ul> <li>Bookstore API (Ruby on Rails): <a href="https://github.com/szines/bookstore-api">https://github.com/szines/bookstore-api</a></li> <li>Bookstore Client (Ember.js): <a href="https://github.com/szines/bookstore-client">https://github.com/szines/bookstore-client</a></li> <li>Contacts App Client (Ember.js): <a href="https://github.com/szines/contacts-app-client">https://github.com/szines/contacts-app-client</a></li> <li>Chat App (Ember.js): <a href="https://github.com/szines/chat-app-v2">https://github.com/szines/chat-app-v2</a> </li> </ul> <h2>Contents</h2> <ul> <li><a href="#lesson-1">Lesson 1 - Creating our first static page with Ember.js</a></li> <li><a href="#lesson-2">Lesson 2 - Computed property, actions, dynamic content</a></li> <li><a href="#lesson-3">Lesson 3 - Models, saving data in database</a></li> <li><a href="#lesson-4">Lesson 4 - Deploy your app and add more CRUD functionality</a></li> <li><a href="#lesson-5">Lesson 5 - Data down actions up, using components</a></li> <li><a href="#lesson-6">Lesson 6 - Advance model structures and data relationships</a></li> </ul> <h2>Prerequisites</h2> <ul> <li>node.js: at least 0.12, but the best if you install the latest 5.5.0.</li> </ul> <p>Suggested way to install node.js: <a href="https://github.com/creationix/nvm">https://github.com/creationix/nvm</a></p> <ul> <li>Ember Inspector Chrome Extension</li> </ul> <p>Install Ember Inspector Chrome extension in your Chrome Browser: <a href="https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi?hl=en">Ember Inspector</a></p> <ul> <li>(Optional) Watchman from Facebook</li> </ul> <p>Install Watchman on Mac: <code>brew install watchman</code> More info: <a href="https://facebook.github.io/watchman/">https://facebook.github.io/watchman/</a></p> <h2><a name='lesson-1'></a>Lesson 1</h2> <p>This tutorial uses the latest Ember-CLI tool (v2.3.0-beta.1 at end of Jan 2016).</p> <h3>Install ember-cli</h3> <p>The following <code>npm</code> command installs Ember-CLI specified version in the global namespace. At the moment Ember-CLI version 2.3 is still in Beta phase, but it is perfect to create new Ember applications. (The Ember.js and Ember Data packages are stable and production ready.)</p> <div class="highlight"><pre><code class="language-" data-lang="">$ npm install -g ember-cli@2.3.0-beta.1
+</code></pre></div> <p>You have now a new <code>ember</code> command in your console. Check with</p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember -v
+</code></pre></div> <p>You should see something similar:</p> <div class="highlight"><pre><code class="language-bash" data-lang="bash">version: 2.3.0-beta.1
+node: 5.5.0
+npm: 2.14.10
+os: darwin x64
+</code></pre></div> <p>(Node version, npm version and os version may be different in your configuration.)</p> <p>Please read more about Ember-CLI here: <a href="http://www.ember-cli.com">www.ember-cli.com</a></p> <h3>Create the app</h3> <p>In your terminal, navigate in the folder where you usually create your web applications. For example, if you have a <code>project</code> folder use <code>cd ~/project</code>.</p> <p>Insider this folder run the following command.</p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember new library-app
+</code></pre></div> <p>This command will create the new app for you. Please enter in your new app with <code>cd library-app</code>.</p> <p>Open this folder in your favourite code editor and look around. You will see a couple of files and folders. Ember-CLI is scaffolded for you everything what need to run and create an amazing web application. </p> <h3>Launch the app</h3> <p>Your skeleton app is ready and you can run it with the following command. Type in your terminal:</p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember server
+</code></pre></div> <p>Open your new empty app in your browser: <a href="http://localhost:4200" target="_blank"><a href="http://localhost:4200">http://localhost:4200</a></a></p> <p>You should see a &quot;Welcome to Ember&quot; message on your website. Well Done! You have your first Ember.js application. :) You can open Ember Inspector in your Browser. Hope you&#39;ve already installed it. Ember Inspector exists in Chrome and in Firefox as an extension. After installation you should have a new tab in your developer console in your browser. Check it out, look around. <a href="https://guides.emberjs.com/v2.3.0/ember-inspector/installation/">More details about Ember Inspector here</a>. </p> <h3>Turn on a couple of debugging option</h3> <p>If you would like to see more in your browser&#39;s console, what Ember.js is doing under the hood, you can turn on a couple of debugging option in your configuration file.</p> <p>You can find a list of debugging options in <code>./config/environment.js</code> file. Remove the comment sign as follow:</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="c1">//..</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">environment</span> <span class="o">===</span> <span class="s1">'development'</span><span class="p">)</span> <span class="p">{</span>
       <span class="c1">// ENV.APP.LOG_RESOLVER = true;</span>
       <span class="nx">ENV</span><span class="p">.</span><span class="nx">APP</span><span class="p">.</span><span class="nx">LOG_ACTIVE_GENERATION</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
@@ -30,50 +15,50 @@ bower update
       <span class="nx">ENV</span><span class="p">.</span><span class="nx">APP</span><span class="p">.</span><span class="nx">LOG_VIEW_LOOKUPS</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="c1">//..</span>
-</code></pre></div> <p>Check your app and open the Console in Chrome. You will see a couple of extra information what Ember.js automatically doing.</p> <h3>Add Sass and Bootstrap to your app</h3> <p>Exit your <code>ember server</code> with <code>Ctrl+C</code> in your terminal.</p> <p>Run the following two command in your terminal.</p> <div class="highlight"><pre><code class="language-" data-lang="">ember install ember-cli-sass
-ember install ember-cli-bootstrap-sassy
-</code></pre></div> <p>You will see, that your <code>./package.json</code> and <code>./bower.json</code> are extended with a couple of lines.</p> <p>Rename your <code>app.css</code> to <code>app.scss</code> with the following terminal command or you can use your editor to rename the <code>./app/styles/app.css</code> file:</p> <div class="highlight"><pre><code class="language-" data-lang="">mv app/styles/app.css app/styles/app.scss
+</code></pre></div> <p>Check your app and open the Console in Chrome. You will see a couple of extra information what Ember.js automatically doing.</p> <h3>Add Sass and Bootstrap to your app</h3> <p>Exit your <code>ember server</code> with <code>Ctrl+C</code> in your terminal.</p> <p>Run the following two command in your terminal.</p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember install ember-cli-sass
+$ ember install ember-cli-bootstrap-sassy
+</code></pre></div> <p>You will see, that your <code>./package.json</code> and <code>./bower.json</code> are extended with a couple of lines.</p> <p>Rename your <code>app.css</code> to <code>app.scss</code> with the following terminal command or you can use your editor to rename the <code>./app/styles/app.css</code> file:</p> <div class="highlight"><pre><code class="language-" data-lang="">$ mv app/styles/app.css app/styles/app.scss
 </code></pre></div> <p>Open <code>./app/styles/app.scss</code> file in your editor and add the following line:</p> <div class="highlight"><pre><code class="language-" data-lang="">@import "bootstrap";
-</code></pre></div> <p>Relaunch your app with <code>ember server</code>. You should see in the browser, that &#39;Welcome to Ember&#39; uses Bootstrap default font.</p> <p>Above steps in a one liner. Copy-paste to your console:</p> <div class="highlight"><pre><code class="language-" data-lang="">ember install ember-cli-sass &amp;&amp; ember install ember-cli-bootstrap-sassy &amp;&amp; echo '@import "bootstrap";' &gt; ./app/styles/app.scss &amp;&amp; rm ./app/styles/app.css
-</code></pre></div> <h3>Create a navigation partial</h3> <p>We will use bootstrap navigation bar to create a nice header section for our app.</p> <p>Update your main template file. Delete the example content and add the following code to your <code>./app/templates/application.hbs</code>.</p> <div class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
-
-
+</code></pre></div> <p>Relaunch your app with <code>ember server</code>. You should see in the browser, that &#39;Welcome to Ember&#39; uses Bootstrap default font.</p> <p>Above steps in a one liner. Copy-paste to your console (without $). This is usefull if you create a new project and you would like to add Bootstrap in a second.</p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember install ember-cli-sass &amp;&amp; ember install ember-cli-bootstrap-sassy &amp;&amp; echo '@import "bootstrap";' &gt; ./app/styles/app.scss &amp;&amp; rm ./app/styles/app.css
+</code></pre></div> <h3>Create a navigation partial</h3> <p>We will use bootstrap navigation bar to create a nice header section for our app.</p> <p>Update your main template file. Delete the example content and add the following code to your <code>./app/templates/application.hbs</code>.</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  {{partial 'navbar'}}
+  {{outlet}}
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div> <p>Generate a <code>navbar.hbs</code> file with the following command in you terminal.</p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember generate template navbar
+</code></pre></div> <p>You can open <code>./app/templates/navbar.hbs</code> in your editor and add the following lines:</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar navbar-inverse"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container-fluid"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"navbar-header"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"navbar-toggle collapsed"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-target=</span><span class="s">"#main-navbar"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Toggle navigation<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+      {{#link-to 'index' class="navbar-brand"}}Library App{{/link-to}}
     <span class="nt">&lt;/div&gt;</span>
-</code></pre></div> <p>Generate a <code>navbar.hbs</code> file with the following command in you terminal.</p> <div class="highlight"><pre><code class="language-" data-lang="">ember generate template navbar
-</code></pre></div> <p>You can open <code>./app/templates/navbar.hbs</code> in your editor and add the following lines:</p> <div class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar navbar-inverse"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container-fluid"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"navbar-header"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"navbar-toggle collapsed"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-target=</span><span class="s">"#main-navbar"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Toggle navigation<span class="nt">&lt;/span&gt;</span>
-            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
-            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
-            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
-          <span class="nt">&lt;/button&gt;</span>
-          Library App
-        <span class="nt">&lt;/div&gt;</span>
 
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"collapse navbar-collapse"</span> <span class="na">id=</span><span class="s">"main-navbar"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav navbar-nav"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;a</span> <span class="na">href</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;</span>
-          <span class="nt">&lt;/ul&gt;</span>
-        <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.navbar-collapse --&gt;</span>
-      <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.container-fluid --&gt;</span>
-    <span class="nt">&lt;/nav&gt;</span>
-</code></pre></div> <p>Launch your application with <code>ember server</code>. You should see your new navigation bar in your browser.</p> <p>You can update your <code>app.scss</code> file to add some extra padding to the top. The updated <code>./app/styles/app.scss</code> content:</p> <div class="highlight"><pre><code class="language-css" data-lang="css">    <span class="k">@import</span> <span class="s1">"bootstrap"</span><span class="p">;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"collapse navbar-collapse"</span> <span class="na">id=</span><span class="s">"main-navbar"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav navbar-nav"</span><span class="nt">&gt;</span>
+            {{#link-to 'index' tagName="li"}}<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;</span>{{/link-to}}
+      <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.navbar-collapse --&gt;</span>
+  <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.container-fluid --&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+</code></pre></div> <p>Launch your application with <code>ember server</code>. You should see your new navigation bar in your browser.</p> <p>You can update your <code>app.scss</code> file to add some extra padding to the top. The updated <code>./app/styles/app.scss</code> content:</p> <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@import</span> <span class="s1">"bootstrap"</span><span class="p">;</span>
 
-    <span class="nt">body</span> <span class="p">{</span>
-      <span class="nl">padding-top</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
-    <span class="p">}</span>
-</code></pre></div> <h3>Create a new About page and add the link to the menu bar</h3> <p>Run the following command in your terminal</p> <div class="highlight"><pre><code class="language-" data-lang="">ember generate route about
-</code></pre></div> <p>A new route and template created in your project.</p> <p>Open your new <code>./app/templates/about.hbs</code> file in your editor, delete its content and add the following line:</p> <div class="highlight"><pre><code class="language-" data-lang="">&lt;h1&gt;About Page&lt;/h1&gt;
-</code></pre></div> <p>You can launch your app with <code>ember server</code> and navigate to http://localhost:4200/about page, you should see the created <code>About Page</code> header message. If you click on <code>Home</code> in your menu bar, your page will be empty. Let&#39;s fix that.</p> <p>Create a new <code>index</code> template with the following command in your terminal:</p> <div class="highlight"><pre><code class="language-" data-lang="">ember generate template index
-</code></pre></div> <p>Open in your editor the generated <code>./app/templates/index.hbs</code> file and add the following:</p> <div class="highlight"><pre><code class="language-" data-lang="">&lt;h1&gt;Home Page&lt;/h1&gt;
-</code></pre></div> <p>If you launch your app, you should see the above message on your home page, however we still doesn&#39;t have About link in our menu bar.</p> <p>Open your <code>./app/templates/navbar.hbs</code> and add the following line to the <code>ul</code> section under <code>Home</code> link:</p> <div class="highlight"><pre><code class="language-" data-lang="">&lt;a href&gt;About&lt;/a&gt;
-</code></pre></div> <p>Your <code>ul</code> section in <code>navbar.hbs</code> should look like this:</p> <div class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav navbar-nav"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">href</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">href</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;</span>
-    <span class="nt">&lt;/ul&gt;</span>
-</code></pre></div> <p>If you check your app in the browser, you should see <code>Home</code> and <code>About</code> link in your menu bar, you can click on them and you will see how the page content and the url are changed. The <code>active</code> state of the link changes the style of the menu link automatically as well.</p> <h3>Homework</h3> <p>Create a <code>Contact</code> page. Extend the navigation bar with &quot;Contact&quot; menu.</p> <h2><a name='lesson-2'></a>Lesson 2</h2> <h3>Coming Soon homepage with an email input box</h3> <p>Let&#39;s create a coming soon jumbotron on the home page with an email input box, where users can subscribe for a newsletter.</p> <ul> <li>Bootstrap&#39;s jumbotron: http://getbootstrap.com/components/#jumbotron</li> <li>Bootstrap&#39;s forms: http://getbootstrap.com/css/#forms</li> </ul> <h4>Only static html5 and style</h4> <p>Add a static jumbotron, an input box and a button to <code>index.hbs</code>.</p> <div class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jumbotron text-center"</span><span class="nt">&gt;</span>
+<span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">padding-top</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div> <h3>Create a new About page and add the link to the menu bar</h3> <p>Run the following command in your terminal</p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember generate route about
+</code></pre></div> <p>A new route and template created in your project.</p> <p>Open your new <code>./app/templates/about.hbs</code> file in your editor, delete its content and add the following line:</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h1&gt;</span>About Page<span class="nt">&lt;/h1&gt;</span>
+</code></pre></div> <p>You can launch your app with <code>ember server</code> and navigate to <a href="http://localhost:4200/about">http://localhost:4200/about</a> page, you should see the created <code>About Page</code> header message. If you click on <code>Home</code> in your menu bar, your page will be empty. Let&#39;s fix that.</p> <p>Create a new <code>index</code> template with the following command in your terminal:</p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember generate template index
+</code></pre></div> <p>Open in your editor the generated <code>./app/templates/index.hbs</code> file and add the following:</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h1&gt;</span>Home Page<span class="nt">&lt;/h1&gt;</span>
+</code></pre></div> <p>If you launch your app, you should see the above message on your home page, however we still doesn&#39;t have About link in our menu bar.</p> <p>Open your <code>./app/templates/navbar.hbs</code> and add the following line to the <code>ul</code> section under <code>Home</code> link:</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars">    <span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'about'</span> <span class="nv">tagName</span><span class="o">=</span><span class="s2">"li"</span><span class="k">}}</span><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;</span><span class="k">{{/</span><span class="nn">link-to</span><span class="k">}}</span>
+</code></pre></div> <p>Your <code>ul</code> section in <code>navbar.hbs</code> should look like this:</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav navbar-nav"</span><span class="nt">&gt;</span>
+      <span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'index'</span> <span class="nv">tagName</span><span class="o">=</span><span class="s2">"li"</span><span class="k">}}</span><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;</span><span class="k">{{/</span><span class="nn">link-to</span><span class="k">}}</span>
+      <span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'about'</span> <span class="nv">tagName</span><span class="o">=</span><span class="s2">"li"</span><span class="k">}}</span><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;</span><span class="k">{{/</span><span class="nn">link-to</span><span class="k">}}</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div> <p>If you check your app in the browser, you should see <code>Home</code> and <code>About</code> link in your menu bar, you can click on them and you will see how the page content and the url are changed. The <code>active</code> state of the link changes the style of the menu link automatically as well. However Bootstrap expect the <code>active</code> class in <code>li</code> and expects an anchor tag inside the <code>li</code> tag. For this reason we have to use </p> <h3>Homework</h3> <p>Create a <code>Contact</code> page. Extend the navigation bar with &quot;Contact&quot; menu.</p> <h2><a name='lesson-2'></a>Lesson 2</h2> <h3>Coming Soon homepage with an email input box</h3> <p>Let&#39;s create a coming soon jumbotron on the home page with an email input box, where users can subscribe for a newsletter.</p> <ul> <li>Bootstrap&#39;s jumbotron: <a href="http://getbootstrap.com/components/#jumbotron">http://getbootstrap.com/components/#jumbotron</a></li> <li>Bootstrap&#39;s forms: <a href="http://getbootstrap.com/css/#forms">http://getbootstrap.com/css/#forms</a></li> </ul> <h4>Only static html5 and style</h4> <p>Add a static jumbotron, an input box and a button to <code>index.hbs</code>.</p> <div class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jumbotron text-center"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;h1&gt;</span>Coming Soon<span class="nt">&lt;/h1&gt;</span>
 
         <span class="nt">&lt;br/&gt;&lt;br/&gt;</span>
@@ -92,26 +77,36 @@ ember install ember-cli-bootstrap-sassy
 
         <span class="nt">&lt;br/&gt;&lt;br/&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
-</code></pre></div> <h4>Requirements</h4> <p>We would like to cover the following requirements:</p> <ul> <li>&quot;Invite me&quot; button should be inactive when input box is empty</li> <li>&quot;Invite me&quot; button should be inactive when the content in the input box is not valid email address.</li> <li>Show a response message after clicking of &quot;Invite me&quot; button.</li> <li>Clear the input box when invitation sent.</li> </ul> <h4>isDisabled</h4> <p>We can add dynamic values to standard html properties using conditionals. We can use our controller to add or modify the value of a variable, what we use in our template. Check the following solution. We create a boolean variable, let&#39;s call it <code>isDisabled</code> will provide the state of <code>disabled</code> html attribute.</p> <p>From the official guide:</p> <blockquote> <p>Each template has an associated controller: this is where the template finds the properties that it displays. You can display a property from your controller by wrapping the property name in curly braces.</p> </blockquote> <p>Add <code>disabled</code> property with `<code>helper. (Note: adding</code>disabled<code>style to the class will not disable the button properly when we will implement an</code>action` later.)</p> <div class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg btn-block"</span> <span class="na">disabled=</span><span class="s">""</span><span class="nt">&gt;</span>Request invitation<span class="nt">&lt;/button&gt;</span>
-</code></pre></div> <blockquote> <p>More about conditionals in templates: http://guides.emberjs.com/v2.0.0/templates/conditionals/</p> </blockquote> <p>Create index controller</p> <div class="highlight"><pre><code class="language-" data-lang="">ember g controller index
-</code></pre></div> <blockquote> <p>Read more about Ember controllers here: http://guides.emberjs.com/v2.0.0/controllers/</p> </blockquote> <p>Add <code>isDisabled</code> property to the controller. Default value is <code>true</code>.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="c1">//app/controllers/index.js</span>
+</code></pre></div> <h4>Requirements</h4> <p>We would like to cover the following requirements:</p> <ul> <li>&quot;Invite me&quot; button should be inactive when input box is empty</li> <li>&quot;Invite me&quot; button should be inactive when the content in the input box is not valid email address.</li> <li>Show a response message after clicking of &quot;Invite me&quot; button.</li> <li>Clear the input box when invitation sent.</li> </ul> <h4>isDisabled</h4> <p>We can add dynamic values to standard html properties using conditionals. We can use our controller to add or modify the value of a variable, what we use in our template. Check the following solution. We create a boolean variable, let&#39;s call it <code>isDisabled</code> will provide the state of <code>disabled</code> html attribute.</p> <p>From the official guide: &quot;Each template has an associated controller: this is where the template finds the properties that it displays. You can display a property from your controller by wrapping the property name in curly braces.&quot;</p> <p>Add <code>disabled</code> property with <code>{{if}}</code> helper. (Note: adding <code>disabled</code> style to the class will not disable the button properly when we will implement an <code>action</code> later.)</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg btn-block"</span> <span class="na">disabled=</span><span class="s">"</span><span class="k">{{</span><span class="nv">if</span> <span class="nv">isDisabled</span> <span class="s1">'disabled'</span><span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span>Request invitation<span class="nt">&lt;/button&gt;</span>
+</code></pre></div> <ul> <li>More about conditionals in templates: <a href="http://guides.emberjs.com/v2.3.0/templates/conditionals/">http://guides.emberjs.com/v2.3.0/templates/conditionals/</a></li> </ul> <p>Create index controller</p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember g controller index
+</code></pre></div> <ul> <li>Read more about Ember controllers here: <a href="http://guides.emberjs.com/v2.3.0/controllers/">http://guides.emberjs.com/v2.3.0/controllers/</a></li> </ul> <p>Note: Ember.js still uses controllers, however controller layer will be deprecated and will be removed from Ember.js 3.0. We use controller to practice some interesting feature, but later we will refactor our app and we will move most of the logic inside components.</p> <p>Add <code>isDisabled</code> property to the controller. Default value is <code>true</code>.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="c1">//app/controllers/index.js</span>
     <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
     <span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
 
       <span class="na">isDisabled</span><span class="p">:</span> <span class="kc">true</span>
 
-    <span class="p">});</span>
-</code></pre></div> <p>You can check your app, the button will be disabled by default.</p> <h4>Computed Properties and Observers</h4> <p>Computed Properties and Observers are important features of Ember.js. Please read more about it in the official guide first.</p> <blockquote> <p>Computed Properties: http://guides.emberjs.com/v2.0.0/object-model/computed-properties/ Observers: http://guides.emberjs.com/v2.0.0/object-model/observers/</p> </blockquote> <p>Please note, we will use the traditional syntax in the following code, it means <code>.property()</code> and <code>.observes()</code> will be attached to the functions.</p> <p>First, update your html code with input component syntax and add a <code>value</code> to our email input box.</p> <p>Modify <code>&lt;input&gt;</code> line as follow in <code>index.hbs</code>:</p> <div class="highlight"><pre><code class="language-html" data-lang="html">
-</code></pre></div> <p>As you can see, we use <code>emailAddress</code> variable, or better word, a &quot;property&quot; where we would like to store the value of the input box.</p> <p>If you type something in the input box, it will update this variable in the controller as well.</p> <p>You can use the following code in your controller to demonstrate the differences between computed properties and observers:</p> <div class="highlight"><pre><code class="language-" data-lang="">    emailAddress: '',
+    <span class="p">});</span> 
+</code></pre></div> <p>You can check your app, the button will be disabled by default.</p> <h4>Computed Properties and Observers</h4> <p>Computed Properties and Observers are important features of Ember.js. Please read more about it in the official guide first.</p> <ul> <li>Computed Properties: <a href="http://guides.emberjs.com/v2.3.0/object-model/computed-properties/">http://guides.emberjs.com/v2.3.0/object-model/computed-properties/</a></li> <li>Observers: <a href="http://guides.emberjs.com/v2.3.0/object-model/observers/">http://guides.emberjs.com/v2.3.0/object-model/observers/</a></li> </ul> <p>Please note, we will use the traditional syntax in the following code, it means <code>.property()</code> and <code>.observes()</code> will be attached to the functions.</p> <p>Computed properties and observers could be written in two ways. It is important to know the &quot;old&quot; syntax and the &quot;new&quot; syntax, so when you see older project, you will recognise this pattern.</p> <p>Old (with ES5):</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">//...</span>
+<span class="nl">fullName</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'firstName'</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'lastName'</span><span class="p">);</span>
+<span class="p">}.</span><span class="nx">property</span><span class="p">(</span><span class="s1">'firstName'</span><span class="p">,</span> <span class="s1">'lastName'</span><span class="p">)</span>
+<span class="c1">//...</span>
+</code></pre></div> <p>New (with ES6):</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">//...</span>
+<span class="nl">fullName</span><span class="p">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">computed</span><span class="p">(</span><span class="s1">'firstName'</span><span class="p">,</span> <span class="s1">'lastName'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'firstName'</span><span class="p">)}</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'lastName'</span><span class="p">)}</span><span class="err">`</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//...</span>
+</code></pre></div> <p>First, update your html code with input component syntax and add a <code>value</code> to our email input box.</p> <p>Modify <code>&lt;input&gt;</code> line as follow in <code>index.hbs</code>:</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="k">{{</span><span class="nv">input</span> <span class="nv">type</span><span class="o">=</span><span class="s2">"email"</span> <span class="nv">value</span><span class="o">=</span><span class="nv">emailAddress</span> <span class="nv">class</span><span class="o">=</span><span class="s2">"form-control"</span> <span class="nv">placeholder</span><span class="o">=</span><span class="s2">"Please type your e-mail address."</span> <span class="nv">autofocus</span><span class="o">=</span><span class="s2">"autofocus"</span><span class="k">}}</span>
+</code></pre></div> <p>As you can see, we use <code>emailAddress</code> variable, or better word, a &quot;property&quot; where we would like to store the value of the input box.</p> <p>If you type something in the input box, it will update this variable in the controller as well.</p> <p>You can use the following code in your controller to demonstrate the differences between computed properties and observers:</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">emailAddress</span><span class="err">:</span> <span class="s1">''</span><span class="p">,</span>
 
-    actualEmailAddress: function() { 
-      console.log(‘actualEmailAddress function is called: ', this.get('emailAddress'));
-    }.property('emailAddress'),
+    <span class="nx">actualEmailAddress</span><span class="err">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="err"> </span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'actualEmailAddress function is called: '</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'emailAddress'</span><span class="p">));</span>
+    <span class="p">}.</span><span class="nx">property</span><span class="p">(</span><span class="s1">'emailAddress'</span><span class="p">),</span>
 
-    emailAddressChanged: function() { 
-      console.log('observer is called', this.get('emailAddress')); 
-    }.observes('emailAddress')
+    <span class="nx">emailAddressChanged</span><span class="err">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="err"> </span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'observer is called'</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'emailAddress'</span><span class="p">));</span><span class="err"> </span>
+    <span class="p">}.</span><span class="nx">observes</span><span class="p">(</span><span class="s1">'emailAddress'</span><span class="p">)</span>
 </code></pre></div> <p>Observers will be called always when the value of the <code>emailAddress</code> changes, the computed property only when you use it. Use Ember Inspector, click on <code>/# Routes</code> section, find the <code>index</code> route, in the same line, under <code>Controller</code> column, you will see an <code>&gt;$E</code> sign, click on it. Open the console in Chrome and you will see something like this: <code>Ember Inspector ($E): Class {__nextSuper: undefined, __ember_meta__: Object, __ember1442491471913: &quot;ember443&quot;}</code></p> <p>If you type the following in the console: <code>$E.get(&#39;actualEmailAddress&#39;)</code>, you should see the above created <code>console.log</code> message, that &quot;actualEmailAddress is called&quot;.</p> <p>Please play with the above example and try to create your own observers and computed properties.</p> <p>We can rewrite our <code>isDisabled</code> with computed property as well.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/controllers/index.js</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
@@ -124,7 +119,7 @@ ember install ember-cli-bootstrap-sassy
   <span class="p">}.</span><span class="nx">property</span><span class="p">(</span><span class="s1">'emailAddress'</span><span class="p">)</span>
 
 <span class="p">});</span>
-</code></pre></div> <p>But the above solution works only if the input box is not empty. It is not checking how valid the email address.</p> <p>You can use the Ember.js 2.0 syntax as well.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/controllers/index.js</span>
+</code></pre></div> <p>But the above solution works only if the input box is not empty. It is not checking how valid the email address.</p> <p>You can use the new Ember.js 2 syntax as well.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/controllers/index.js</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
@@ -146,7 +141,7 @@ ember install ember-cli-bootstrap-sassy
   <span class="na">isDisabled</span><span class="p">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">computed</span><span class="p">.</span><span class="nx">empty</span><span class="p">(</span><span class="s1">'emailAddress'</span><span class="p">)</span>
 
 <span class="p">});</span>
-</code></pre></div> <blockquote> <p>More about <code>Ember.computed</code> short versions: http://emberjs.com/api/classes/Ember.computed.html</p> </blockquote> <h4>isValid</h4> <p>More elegant solution if we enable our &quot;Invite me&quot; button only that case when the content of input box contains valid email address.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/controllers/index.js</span>
+</code></pre></div> <ul> <li>More about <code>Ember.computed</code> short versions: <a href="http://emberjs.com/api/classes/Ember.computed.html">http://emberjs.com/api/classes/Ember.computed.html</a></li> </ul> <h4>isValid</h4> <p>More elegant solution if we enable our &quot;Invite me&quot; button only when input box contains a valid email address.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/controllers/index.js</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
@@ -156,9 +151,9 @@ ember install ember-cli-bootstrap-sassy
   <span class="na">isValid</span><span class="p">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">computed</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="s1">'emailAddress'</span><span class="p">,</span> <span class="sr">/^.+@.+</span><span class="se">\.</span><span class="sr">.+$/</span><span class="p">),</span>
 
 <span class="p">});</span>
-</code></pre></div> <p>We deleted the <code>isDisabled</code> property instead we will use <code>isValid</code>. Update your <code>index.hbs</code> <code>&lt;button&gt;</code> as below.</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg btn-block"</span> <span class="na">disabled=</span><span class="s">""</span><span class="nt">&gt;</span>Request invitation<span class="nt">&lt;/button&gt;</span>
-</code></pre></div> <h4>Add our first Action</h4> <p>Update your <code>&lt;button&gt;</code> line again.</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg btn-block"</span> <span class="na">disabled=</span><span class="s">""</span> <span class="nt">&gt;</span>Request invitation<span class="nt">&lt;/button&gt;</span>
-</code></pre></div> <p>You can try out in your browser, that if you click on the button, you will get a nice error message, which explaines you has to implement this action in your controller. Let&#39;s do that.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/controllers/index.js</span>
+</code></pre></div> <p>We deleted the <code>isDisabled</code> property instead we will use <code>isValid</code>. Update your <code>index.hbs</code> <code>&lt;button&gt;</code> tag as below.</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg btn-block"</span> <span class="na">disabled=</span><span class="s">"</span><span class="k">{{</span><span class="nv">unless</span> <span class="nv">isValid</span> <span class="s1">'disabled'</span><span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span>Request invitation<span class="nt">&lt;/button&gt;</span>
+</code></pre></div> <h4>Add our first Action</h4> <p>Update your <code>&lt;button&gt;</code> line again.</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg btn-block"</span> <span class="na">disabled=</span><span class="s">"</span><span class="k">{{</span><span class="nv">unless</span> <span class="nv">isValid</span> <span class="s1">'disabled'</span><span class="k">}}</span><span class="s">"</span> <span class="k">{{</span><span class="nv">action</span> <span class="s1">'saveInvitation'</span><span class="k">}}</span><span class="nt">&gt;</span>Request invitation<span class="nt">&lt;/button&gt;</span>
+</code></pre></div> <p>You can try out in your browser, that if you click on the button, you will get a nice error message, which alerts you, that you have to implement this action in your controller. Let&#39;s do that.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/controllers/index.js</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
@@ -176,7 +171,7 @@ ember install ember-cli-bootstrap-sassy
   <span class="p">}</span>
 
 <span class="p">});</span>
-</code></pre></div> <p>If you click on the button, <code>saveInvitation</code> action will be called and show an alert box, after it will setup a responseMessage, finally delete the content of <code>emailAddress</code>.</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/templates/index.hbs --&gt;</span>
+</code></pre></div> <p>If you click on the button, <code>saveInvitation</code> action will be called and show an alert box, after it will setup a responseMessage, finally delete the content of <code>emailAddress</code>.</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- app/templates/index.hbs --&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jumbotron text-center"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;h1&gt;</span>Coming Soon<span class="nt">&lt;/h1&gt;</span>
 
@@ -186,25 +181,26 @@ ember install ember-cli-bootstrap-sassy
 
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-horizontal form-group form-group-lg row"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2"</span><span class="nt">&gt;</span>
-
+            <span class="k">{{</span><span class="nv">input</span> <span class="nv">type</span><span class="o">=</span><span class="s2">"email"</span> <span class="nv">value</span><span class="o">=</span><span class="nv">emailAddress</span> <span class="nv">class</span><span class="o">=</span><span class="s2">"form-control"</span> <span class="nv">placeholder</span><span class="o">=</span><span class="s2">"Please type your e-mail address."</span> <span class="nv">autofocus</span><span class="o">=</span><span class="s2">"autofocus"</span><span class="k">}}</span>
         <span class="nt">&lt;/div&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg btn-block"</span>  <span class="na">disabled=</span><span class="s">""</span><span class="nt">&gt;</span>Request invitation<span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg btn-block"</span> <span class="k">{{</span><span class="nv">action</span> <span class="s1">'sendInvitation'</span><span class="k">}}</span> <span class="na">disabled=</span><span class="s">"</span><span class="k">{{</span><span class="nv">unless</span> <span class="nv">isValid</span> <span class="s1">'disabled'</span><span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span>Request invitation<span class="nt">&lt;/button&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
 
     <span class="nt">&lt;/div&gt;</span>
 
-
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-success"</span><span class="nt">&gt;&lt;/div&gt;</span>
-
+    <span class="k">{{#if</span> <span class="nv">responseMessage</span><span class="k">}}</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-success"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">responseMessage</span><span class="k">}}</span><span class="nt">&lt;/div&gt;</span>
+    <span class="k">{{/if}}</span>
 
 
     <span class="nt">&lt;br/&gt;&lt;br/&gt;</span>
 
 <span class="nt">&lt;/div&gt;</span>
-</code></pre></div> <h3>Homework</h3> <p>You already have an amazing <code>Contact</code> page, where we would like to add a contact form. In this contact form would be two fields. One field for email address and one field for text message. And there would be a “Send message” button. This button should be active only if email address field not empty and valid and there is some message in the text box. After clicking on that “Send message” button should appear an Alert with the email address and the message. When you close the alert message, the form should be cleared and a message should appear in the page in green box, that we got your message and get in touch soon.</p> <p>Hint: you already have a <code>contact.hbs</code> but you need a controller where you manage these logics.</p> <p>Bonus point if you can add validation to <code>textarea</code>. One option, the textarea shouldn&#39;t be empty, other option, the length of the message at least 5 character long.</p> <p>Short version of computed property for greater than or equal:</p> <div class="highlight"><pre><code class="language-" data-lang="">Ember.computed.gte('yourProperty', number)
-</code></pre></div> <p>(Please note, it is <code>computed.gte</code> and not <code>computed.get</code>.)</p> <p>If you have two computed property, and both has to be true you can use a third computed property with <code>and</code>.</p> <div class="highlight"><pre><code class="language-" data-lang="">Ember.computed.and('firstComputedProperty', 'secondComputedProperty')
-</code></pre></div> <p>You can get a string computed property length with <code>.length</code>. If your computed property is <code>message</code>, the length of that message is <code>message.length</code>.</p> <p>In terms of feedback on a form, this is a really cool solution on bootstrap. http://getbootstrap.com/css/#with-optional-icons</p> <h2><a name='lesson-3'></a>Lesson 3</h2> <h3>Our first Ember.js Model</h3> <p>We ask email addresses on the home page, but we don&#39;t save them at the moment in the database. It is time to implement this feature in our website.</p> <blockquote> <p>Please read the detailed introduction on Ember.js website about Ember.js Models: http://guides.emberjs.com/v2.0.0/models/</p> </blockquote> <p>Let&#39;s create our first model where we save email addresses for invitation. Type the following command in your command line.</p> <div class="highlight"><pre><code class="language-" data-lang="">ember g model invitation email:string
+</code></pre></div> <h3>Homework</h3> <p>You already have an amazing <code>Contact</code> page, where we would like to add a contact form. In this contact form would be two fields. One field for email address and one field for text message. And there would be a “Send message” button. This button should be active only if email address field not empty and valid and there is some message in the text box. After clicking on “Send message” button should appear an Alert with the email address and the message. When you close the alert message, the form should be cleared and a message should appear in the page in green box, this message could be something about &quot;we got your message and get in touch soon&quot;.</p> <p>Hint: you already have a <code>contact.hbs</code> but you need a controller where you manage these logics.</p> <p>Bonus point if you can add validation to <code>textarea</code>. One option, the textarea shouldn&#39;t be empty, other option, the length of the message at least 5 character long.</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="k">{{</span><span class="nv">textarea</span> <span class="nv">class</span><span class="o">=</span><span class="s2">"form-control"</span> <span class="nv">placeholder</span><span class="o">=</span><span class="s2">"Your message. (At least 5 characters.)"</span> <span class="nv">rows</span><span class="o">=</span><span class="s2">"7"</span> <span class="nv">value</span><span class="o">=</span><span class="nv">message</span><span class="k">}}</span>
+</code></pre></div> <p>Short version of computed property for <code>greater than or equal</code>:</p> <div class="highlight"><pre><code class="language-" data-lang="">Ember.computed.gte('yourProperty', number)
+</code></pre></div> <p>(Please note, it is <code>computed.gte</code> and not <code>computed.get</code>.)</p> <p>If you have two computed property, and both has to be <code>true</code> you can use a third computed property with <code>and</code>.</p> <div class="highlight"><pre><code class="language-" data-lang="">Ember.computed.and('firstComputedProperty', 'secondComputedProperty')
+</code></pre></div> <p>You can get a string computed property length with <code>.length</code>. If your computed property is <code>message</code>, the length of that message is <code>message.length</code>.</p> <ul> <li>In terms of feedback on a form, there is a really cool solution on bootstrap: <a href="http://getbootstrap.com/css/#forms-control-validation">http://getbootstrap.com/css/#forms-control-validation</a> (Check the &quot;With optional icons&quot; section.)</li> </ul> <h2><a name='lesson-3'></a>Lesson 3</h2> <h3>Our first Ember.js Model</h3> <p>We ask email addresses on the home page, but we don&#39;t save them at the moment in the database. It is time to implement this feature in our website.</p> <ul> <li>Please read the detailed introduction on Ember.js website about Ember.js Models: <a href="http://guides.emberjs.com/v2.3.0/models/">http://guides.emberjs.com/v2.3.0/models/</a></li> </ul> <p>Let&#39;s create our first model where we save email addresses for invitation. Type the following command in your command line.</p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember g model invitation email:string
 </code></pre></div> <p>Hope you read about <code>store</code> in the official Guide. Let&#39;s use it.</p> <p>Update your <code>app/controllers/index.js</code> controller action. Instead of showing a useless alert message, we try to save our data.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/controllers/index.js</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
@@ -228,7 +224,7 @@ ember install ember-cli-bootstrap-sassy
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</code></pre></div> <p>Check your browser, open the browser&#39;s console. Try to save an invitation email address on home page. You will see an error message in the console.</p> <p>Ember.js tried to send that data to a server, but we don&#39;t have a server yet. Let&#39;s build one.</p> <h3>Setup a server on Firebase</h3> <p>Firebase is a server and API service. Very easy to use. http://www.firebase.com</p> <ol> <li>Create an account.</li> <li>Read the guide and help section, especially the instructions about EmberFire: https://www.firebase.com/docs/web/libraries/ember/guide.html</li> <li>Follow the instructions. First, run the following command in your terminal: <code>ember install emberfire</code></li> <li>Go back to Firebase and create an app there. Remember the name of your app.</li> <li>Update your config file in your Ember.js app. In <code>config/environment.js</code> should have a <code>firebase</code> property. Update the url with your Firebase app url what you have just created on Firebase website.</li> </ol> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// config/environment.js</span>
+</code></pre></div> <p>Check your browser, open the browser&#39;s console. Try to save an invitation email address on home page. You will see an error message in the console.</p> <p>Ember.js tried to send that data to a server, but we don&#39;t have a server yet. Let&#39;s build one.</p> <h3>Setup a server on Firebase</h3> <p>Firebase is a server and API service. Very easy to use. <a href="http://www.firebase.com">http://www.firebase.com</a></p> <ol> <li>Create an account.</li> <li>Read the guide and help section, especially the instructions about EmberFire: <a href="https://www.firebase.com/docs/web/libraries/ember/guide.html">https://www.firebase.com/docs/web/libraries/ember/guide.html</a></li> <li>Follow the instructions. First, run the following command in your terminal: <code>ember install emberfire</code></li> <li>Go back to Firebase and create an app there. Remember the name of your app.</li> <li>Update your config file in your Ember.js app. In <code>config/environment.js</code> should have a <code>firebase</code> property. Update the url with your Firebase app url what you have just created on Firebase website.</li> </ol> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// config/environment.js</span>
 
 <span class="kd">var</span> <span class="nx">ENV</span> <span class="o">=</span> <span class="p">{</span>
         <span class="na">modulePrefix</span><span class="p">:</span> <span class="s1">'library-app'</span><span class="p">,</span>
@@ -239,14 +235,14 @@ ember install ember-cli-bootstrap-sassy
         <span class="na">firebase</span><span class="p">:</span> <span class="s1">'https://WRITE_HERE_YOUR_APP_NAME.firebaseio.com/'</span><span class="p">,</span>
         <span class="na">baseURL</span><span class="p">:</span> <span class="s1">'/'</span><span class="p">,</span>
         <span class="na">locationType</span><span class="p">:</span> <span class="s1">'auto'</span><span class="p">,</span>
-</code></pre></div> <p>Try out Request Invitation button again, check the browser&#39;s console messages and open the Firebase website, and check your app dashboard. You will see, that the email address, what you just saved on your home page, is sent to Firebase and it is saved on the server.</p> <p>Well done!</p> <h3>Promise and the <code>this</code> context in javascript</h3> <p>Promise is a unique asynchronous feature in javascript. Basically an object, which hasn&#39;t completed yet, but is expected in the future. You can read more about it on Mozilla website: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise</p> <p>In our code, we use a Promise: <code>.save()</code></p> <p>The <code>save</code> method on Ember Data Model is a <code>Promise</code>. It promises us that it is trying to save our data. It could be successfull or maybe return with error.</p> <p>We can catch the result of a <code>Promise</code> with a chained <code>.then()</code>. In our example:</p> <div class="highlight"><pre><code class="language-" data-lang="">newInvitation.save().then(function(response) {
+</code></pre></div> <p>Try out Request Invitation button again, check the browser&#39;s console messages and open the Firebase website, and check your app dashboard. You will see, that the email address, what you just saved on your home page, is sent to Firebase and it is saved on the server.</p> <p>Well done!</p> <h3>Promise and the <code>this</code> context in javascript</h3> <p>Promise is a unique asynchronous feature in javascript. Basically an object, which hasn&#39;t completed yet, but is expected in the future. You can read more about it on Mozilla website: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise">https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise</a></p> <p>In our code, we use a Promise: <code>.save()</code></p> <p>The <code>save</code> method on Ember Data Model is a <code>Promise</code>. It promises us that it is trying to save our data. It could be successful or maybe return with error.</p> <p>We can catch the result of a <code>Promise</code> with a chained <code>.then()</code>. In our example:</p> <div class="highlight"><pre><code class="language-" data-lang="">newInvitation.save().then(function(response) {
   console.log('Email address is saved.')
 })
-</code></pre></div> <p>If the saving process is successfull, &#39;fulfilled&#39;, then we will get back a response from the server, what we can catch in our function parameter.</p> <p>We have to move our lines wich showing our success message inside this new function, because we would like to show that message only, if the data is really saved.</p> <p>If you would simply just copy paste, you will realize the code will not work as expected.</p> <div class="highlight"><pre><code class="language-" data-lang="">newInvitation.save().then(function(response) {
+</code></pre></div> <p>If the saving process is successful, &#39;fulfilled&#39;, then we will get back a response from the server, what we can catch in our function parameter.</p> <p>We have to move our lines, which showing our success message inside this new function, because we would like to show that message only, when the data is really saved.</p> <p>If you would simply just copy paste, you will realize the code will not work as expected.</p> <div class="highlight"><pre><code class="language-" data-lang="">newInvitation.save().then(function(response) {
   this.set('responseMessage', "Thank you! We've just saved your email address: " + this.get('emailAddress'));
   this.set('emailAddress', '');
 })
-</code></pre></div> <p>In javascript the <code>this</code> points always to the object which is wrapping around. In the above example, the <code>this</code> will be undefined, because we are in a function after the Promise. Please learn more about it here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this</p> <p>We have to save the controller context in a local variable, what we can use inside our <code>then</code>.</p> <p>Please update your controller.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/controllers/index.js</span>
+</code></pre></div> <p>In javascript the <code>this</code> points always to the object which is wrapping around. In the above example, the <code>this</code> will be undefined, because we are in a function after the Promise. Please learn more about it here: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this</a></p> <p>We have to save the controller context in a local variable, what we can use inside our <code>then</code>.</p> <p>Please update your controller.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/controllers/index.js</span>
 
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
@@ -273,9 +269,9 @@ ember install ember-cli-bootstrap-sassy
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">});</span>
-</code></pre></div> <p>We save the <code>this</code> controller context in a <code>_that</code> local variable. We use this local variable inside our function after Promise. The above example uses <code>response</code> and shows the <code>id</code> of the generated database record.</p> <p>Great, our home home page is ready.</p> <h3>Create an Admin page</h3> <p>We would like to list the saved email addresses.</p> <p>Let&#39;s create a new route and page what we can reach with the following url: <code>http://localhost:4200/admin/invitations</code></p> <div class="highlight"><pre><code class="language-" data-lang="">ember g route admin/invitations
-</code></pre></div> <p>Add this new page to the <code>navbar.hbs</code> with a dropdown.</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/templates/navbar.hbs --&gt;</span>
-<span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar navbar-inverse"</span><span class="nt">&gt;</span>
+</code></pre></div> <p>We save the <code>this</code> controller context in a <code>_that</code> local variable. We use this local variable inside our function after Promise. The above example uses <code>response</code> and shows the <code>id</code> of the generated database record.</p> <p>Great, our home page is ready.</p> <p>(Please note, there is a new syntax in ES6/ES2015 javascript, where we can use <code>=&gt;</code> to pass the context automatically inside an asynchronous function. I will explain this later. If you are new in JavaScript, the best if you know the old and the new syntax as well.)</p> <h3>Create an Admin page</h3> <p>We would like to list out from the database the persisted email addresses.</p> <p>Let&#39;s create a new route and page what we can reach with the following url: <code>http://localhost:4200/admin/invitations</code></p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember g route admin/invitations
+</code></pre></div> <p>Add this new page to the <code>navbar.hbs</code> with a dropdown.</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- app/templates/navbar.hbs --&gt;</span>
+{% raw %}<span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar navbar-inverse"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container-fluid"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"navbar-header"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"navbar-toggle collapsed"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-target=</span><span class="s">"#main-navbar"</span><span class="nt">&gt;</span>
@@ -284,28 +280,28 @@ ember install ember-cli-bootstrap-sassy
         <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
         <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
       <span class="nt">&lt;/button&gt;</span>
-      Library App
+      <span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'index'</span> <span class="nv">class</span><span class="o">=</span><span class="s2">"navbar-brand"</span><span class="k">}}</span>Library App<span class="k">{{/</span><span class="nn">link-to</span><span class="k">}}</span>
     <span class="nt">&lt;/div&gt;</span>
 
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"collapse navbar-collapse"</span> <span class="na">id=</span><span class="s">"main-navbar"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav navbar-nav"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;a</span> <span class="na">href</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;</span>
-            <span class="nt">&lt;a</span> <span class="na">href</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;</span>
-            <span class="nt">&lt;a</span> <span class="na">href</span><span class="nt">&gt;</span>Contact<span class="nt">&lt;/a&gt;</span>
+            <span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'index'</span> <span class="nv">tagName</span><span class="o">=</span><span class="s2">"li"</span><span class="k">}}</span><span class="nt">&lt;a</span> <span class="na">href</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;</span><span class="k">{{/</span><span class="nn">link-to</span><span class="k">}}</span>
+            <span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'about'</span> <span class="nv">tagName</span><span class="o">=</span><span class="s2">"li"</span><span class="k">}}</span><span class="nt">&lt;a</span> <span class="na">href</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;</span><span class="k">{{/</span><span class="nn">link-to</span><span class="k">}}</span>
+            <span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'contact'</span> <span class="nv">tagName</span><span class="o">=</span><span class="s2">"li"</span><span class="k">}}</span><span class="nt">&lt;a</span> <span class="na">href</span><span class="nt">&gt;</span>Contact<span class="nt">&lt;/a&gt;</span><span class="k">{{/</span><span class="nn">link-to</span><span class="k">}}</span>
       <span class="nt">&lt;/ul&gt;</span>
 
       <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav navbar-nav navbar-right"</span><span class="nt">&gt;</span>
           <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"dropdown"</span><span class="nt">&gt;</span>
               <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-toggle"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>Admin<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"caret"</span><span class="nt">&gt;&lt;/span&gt;&lt;/a&gt;</span>
               <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span><span class="nt">&gt;</span>
-                  <span class="nt">&lt;a</span> <span class="na">href</span><span class="nt">&gt;</span>Invitations<span class="nt">&lt;/a&gt;</span>
+                  <span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'admin.invitations'</span> <span class="nv">tagName</span><span class="o">=</span><span class="s2">"li"</span><span class="k">}}</span><span class="nt">&lt;a</span> <span class="na">href</span><span class="nt">&gt;</span>Invitations<span class="nt">&lt;/a&gt;</span><span class="k">{{/</span><span class="nn">link-to</span><span class="k">}}</span>
               <span class="nt">&lt;/ul&gt;</span>
           <span class="nt">&lt;/li&gt;</span>
       <span class="nt">&lt;/ul&gt;</span>
     <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.navbar-collapse --&gt;</span>
   <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.container-fluid --&gt;</span>
 <span class="nt">&lt;/nav&gt;</span>
-</code></pre></div> <p>Add a table to <code>app/templates/admin/invitations.hbs</code></p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/templates/admin/invitations.hbs --&gt;</span>
+</code></pre></div> <p>Add a table to <code>app/templates/admin/invitations.hbs</code></p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- app/templates/admin/invitations.hbs --&gt;</span>
 
 <span class="nt">&lt;h1&gt;</span>Invitations<span class="nt">&lt;/h1&gt;</span>
 
@@ -317,16 +313,16 @@ ember install ember-cli-bootstrap-sassy
       <span class="nt">&lt;/tr&gt;</span>
     <span class="nt">&lt;/thead&gt;</span>
     <span class="nt">&lt;tbody&gt;</span>
-
+    <span class="k">{{#</span><span class="nn">each</span> <span class="nv">model</span> <span class="nv">as</span> <span class="err">|</span><span class="nv">invitation</span><span class="err">|</span><span class="k">}}</span>
         <span class="nt">&lt;tr&gt;</span>
-            <span class="nt">&lt;th&gt;&lt;/th&gt;</span>
-            <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;th&gt;</span><span class="k">{{</span><span class="nv">invitation</span><span class="p">.</span><span class="nv">id</span><span class="k">}}</span><span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;td&gt;</span><span class="k">{{</span><span class="nv">invitation</span><span class="p">.</span><span class="nv">email</span><span class="k">}}</span><span class="nt">&lt;/td&gt;</span>
         <span class="nt">&lt;/tr&gt;</span>
-
+    <span class="k">{{/</span><span class="nn">each</span><span class="k">}}</span>
 
     <span class="nt">&lt;/tbody&gt;</span>
 <span class="nt">&lt;/table&gt;</span>
-</code></pre></div> <p>We use `<code>handlebar block to generate a list. The</code>model` variable will contain the array what we download from the server. Ember.js automatically populate responses from the server if we download it in the next step using our route file.</p> <p>Let&#39;s download our data from the server using route and Ember Data.</p> <blockquote> <p>Please read more about Routes Model: http://guides.emberjs.com/v2.0.0/routing/specifying-a-routes-model/</p> </blockquote> <p>Add the following code to your <code>app/routes/admin/invitations.js</code> file:</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/routes/admin/invitations.js</span>
+</code></pre></div> <p>We use `<code>handlebar block to generate a list. The</code>model` variable will contain the array what we download from the server. Ember.js automatically populate responses from the server if we download it in the next step using our route file.</p> <p>Let&#39;s download our data from the server using route and Ember Data.</p> <ul> <li>Please read more about Route&#39;s Model: <a href="http://guides.emberjs.com/v2.3.0/routing/specifying-a-routes-model/">http://guides.emberjs.com/v2.3.0/routing/specifying-a-routes-model/</a></li> </ul> <p>Add the following code to your <code>app/routes/admin/invitations.js</code> file:</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/routes/admin/invitations.js</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
@@ -336,8 +332,8 @@ ember install ember-cli-bootstrap-sassy
   <span class="p">}</span>
 
 <span class="p">});</span>
-</code></pre></div> <p>Launch your app and check your table in Admin.</p> <h3>CRUD interface for libraries</h3> <p>We will create a new section in our app, where we can add new library or list the created libraries.</p> <p>Firstly we create our <code>library</code> model.</p> <div class="highlight"><pre><code class="language-" data-lang="">ember g model library name:string address:string phone:string
-</code></pre></div> <p>Secondly we create our new route. At the moment we do it without ember-cli, only manually adding the following lines to our <code>router.js</code>:</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/router.js</span>
+</code></pre></div> <p>Launch your app and check your table in Admin. Do you like it? :)</p> <h3>CRUD interface for libraries</h3> <p>We will create a new section in our app, where we can add new library or list the created libraries.</p> <p>Firstly we create our <code>library</code> model.</p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember g model library name:string address:string phone:string
+</code></pre></div> <p>Secondly we create our new route. At the moment we do it without Ember-CLI, only manually adding the following lines to our <code>router.js</code>:</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/router.js</span>
 
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">config</span> <span class="nx">from</span> <span class="s1">'./config/environment'</span><span class="p">;</span>
@@ -359,68 +355,68 @@ ember install ember-cli-bootstrap-sassy
 <span class="p">});</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Router</span><span class="p">;</span>
-</code></pre></div> <p>Now we create 3 new templates. Our main <code>libraries.hbs</code>, a <code>libraries/index.hbs</code> for list and a <code>libraries/new.hbs</code> for new form.</p> <div class="highlight"><pre><code class="language-" data-lang="">ember g template libraries
-ember g template libraries/index
-ember g template libraries/new
-</code></pre></div> <p>Update your <code>navbar.hbs</code> main navigation section as following.</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/templates/navbar.hbs --&gt;</span>
+</code></pre></div> <p>Now we create 3 new templates. Our main <code>libraries.hbs</code>, a <code>libraries/index.hbs</code> for list and a <code>libraries/new.hbs</code> for new form.</p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember g template libraries
+$ ember g template libraries/index
+$ ember g template libraries/new
+</code></pre></div> <p>Update your <code>navbar.hbs</code> main navigation section as following.</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- app/templates/navbar.hbs --&gt;</span>
 
       <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav navbar-nav"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;a</span> <span class="na">href</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;</span>
-            <span class="nt">&lt;a</span> <span class="na">href</span><span class="nt">&gt;</span>Libraries<span class="nt">&lt;/a&gt;</span>
-            <span class="nt">&lt;a</span> <span class="na">href</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;</span>
-            <span class="nt">&lt;a</span> <span class="na">href</span><span class="nt">&gt;</span>Contact<span class="nt">&lt;/a&gt;</span>
+            <span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'index'</span> <span class="nv">tagName</span><span class="o">=</span><span class="s2">"li"</span><span class="k">}}</span><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;</span><span class="k">{{/</span><span class="nn">link-to</span><span class="k">}}</span>
+            <span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'libraries'</span> <span class="nv">tagName</span><span class="o">=</span><span class="s2">"li"</span><span class="k">}}</span><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>Libraries<span class="nt">&lt;/a&gt;</span><span class="k">{{/</span><span class="nn">link-to</span><span class="k">}}</span>
+            <span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'about'</span> <span class="nv">tagName</span><span class="o">=</span><span class="s2">"li"</span><span class="k">}}</span><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;</span><span class="k">{{/</span><span class="nn">link-to</span><span class="k">}}</span>
+            <span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'contact'</span> <span class="nv">tagName</span><span class="o">=</span><span class="s2">"li"</span><span class="k">}}</span><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>Contact<span class="nt">&lt;/a&gt;</span><span class="k">{{/</span><span class="nn">link-to</span><span class="k">}}</span>
       <span class="nt">&lt;/ul&gt;</span>
 
-</code></pre></div> <p>Add a submenu to <code>libraries.hbs</code></p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/templates/libraries.hbs --&gt;</span>
+</code></pre></div> <p>Add a submenu to <code>libraries.hbs</code></p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- app/templates/libraries.hbs --&gt;</span>
 <span class="nt">&lt;h1&gt;</span>Libraries<span class="nt">&lt;/h1&gt;</span>
 
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"well"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav nav-pills"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;a</span> <span class="na">href</span><span class="nt">&gt;</span>List all<span class="nt">&lt;/a&gt;</span>
-      <span class="nt">&lt;a</span> <span class="na">href</span><span class="nt">&gt;</span>Add new<span class="nt">&lt;/a&gt;</span>
+      <span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'libraries.index'</span> <span class="nv">tagName</span><span class="o">=</span><span class="s2">"li"</span><span class="k">}}</span><span class="nt">&lt;a</span> <span class="na">href</span><span class="nt">&gt;</span>List all<span class="nt">&lt;/a&gt;</span><span class="k">{{/</span><span class="nn">link-to</span><span class="k">}}</span>
+      <span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'libraries.new'</span> <span class="nv">tagName</span><span class="o">=</span><span class="s2">"li"</span><span class="k">}}</span><span class="nt">&lt;a</span> <span class="na">href</span><span class="nt">&gt;</span>Add new<span class="nt">&lt;/a&gt;</span><span class="k">{{/</span><span class="nn">link-to</span><span class="k">}}</span>
     <span class="nt">&lt;/ul&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 
-
-</code></pre></div> <p>Check your app, you should see a new menu point and there could be two submenu.</p> <p>Other two templates have the following content.</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/templates/libraries/index.hbs --&gt;</span>
+<span class="k">{{</span><span class="nv">outlet</span><span class="k">}}</span>
+</code></pre></div> <p>Check your app, you should see a new menu point and there could be two submenu.</p> <p>Other two templates have the following content.</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- app/templates/libraries/index.hbs --&gt;</span>
 <span class="nt">&lt;h2&gt;</span>List<span class="nt">&lt;/h2&gt;</span>
 
-
+<span class="k">{{#</span><span class="nn">each</span> <span class="nv">model</span> <span class="nv">as</span> <span class="err">|</span><span class="nv">library</span><span class="err">|</span><span class="k">}}</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-default"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-heading"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"panel-title"</span><span class="nt">&gt;&lt;/h3&gt;</span>
+            <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"panel-title"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">library</span><span class="p">.</span><span class="nv">name</span><span class="k">}}</span><span class="nt">&lt;/h3&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;p&gt;</span>Address: <span class="nt">&lt;/p&gt;</span>
-            <span class="nt">&lt;p&gt;</span>Phone: <span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;p&gt;</span>Address: <span class="k">{{</span><span class="nv">library</span><span class="p">.</span><span class="nv">address</span><span class="k">}}</span><span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;p&gt;</span>Phone: <span class="k">{{</span><span class="nv">library</span><span class="p">.</span><span class="nv">phone</span><span class="k">}}</span><span class="nt">&lt;/p&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
-
-</code></pre></div> <p>We generate a list from our model which will be downloaded in the route. We are using <code>panel</code> style from bootstrap here.</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/templates/libraries/new.hbs --&gt;</span>
+<span class="k">{{/</span><span class="nn">each</span><span class="k">}}</span>
+</code></pre></div> <p>We generate a list from our model which will be downloaded in the route. We are using <code>panel</code> style from bootstrap here.</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- app/templates/libraries/new.hbs --&gt;</span>
 <span class="nt">&lt;h2&gt;</span>Add a new local Library<span class="nt">&lt;/h2&gt;</span>
 
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-horizontal"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"col-sm-2 control-label"</span><span class="nt">&gt;</span>Name<span class="nt">&lt;/label&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-10"</span><span class="nt">&gt;</span>
-
+            <span class="k">{{</span><span class="nv">input</span> <span class="nv">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nv">value</span><span class="o">=</span><span class="nv">model</span><span class="p">.</span><span class="nv">name</span> <span class="nv">class</span><span class="o">=</span><span class="s2">"form-control"</span> <span class="nv">placeholder</span><span class="o">=</span><span class="s2">"The name of the Library"</span><span class="k">}}</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"col-sm-2 control-label"</span><span class="nt">&gt;</span>Address<span class="nt">&lt;/label&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-10"</span><span class="nt">&gt;</span>
-
+            <span class="k">{{</span><span class="nv">input</span> <span class="nv">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nv">value</span><span class="o">=</span><span class="nv">model</span><span class="p">.</span><span class="nv">address</span> <span class="nv">class</span><span class="o">=</span><span class="s2">"form-control"</span> <span class="nv">placeholder</span><span class="o">=</span><span class="s2">"The address of the Library"</span><span class="k">}}</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"col-sm-2 control-label"</span><span class="nt">&gt;</span>Phone<span class="nt">&lt;/label&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-10"</span><span class="nt">&gt;</span>
-
+            <span class="k">{{</span><span class="nv">input</span> <span class="nv">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nv">value</span><span class="o">=</span><span class="nv">model</span><span class="p">.</span><span class="nv">phone</span> <span class="nv">class</span><span class="o">=</span><span class="s2">"form-control"</span> <span class="nv">placeholder</span><span class="o">=</span><span class="s2">"The phone number of the Library"</span><span class="k">}}</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-offset-2 col-sm-10"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="nt">&gt;</span>Add to library list<span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="k">{{</span><span class="nv">action</span> <span class="s1">'saveLibrary'</span> <span class="nv">model</span><span class="k">}}</span><span class="nt">&gt;</span>Add to library list<span class="nt">&lt;/button&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
@@ -460,9 +456,9 @@ ember g template libraries/new
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</code></pre></div> <p>In the above Route we create a new record and it will be the <code>model</code>. It automatically appears in the controller and in the template. In the <code>saveLibrary</code> action we accept a param and we save that model, after we send the application back to Libraries home page with <code>transitionTo</code>.</p> <p>There is an Ember.js built in action (event) <code>willTransition</code>, which will be called when you leave a page (route). In our case, we use this action to reset the model if we didn&#39;t save in the database before.</p> <h3>Homework</h3> <p>Improve further your Contact Page.</p> <ol> <li>Create a <code>contact</code> model with <code>email</code> and with <code>message</code> field.</li> <li>Save that model in the server when someone click on &quot;Send&quot; button on Contact form. Update your contact.js controller.</li> <li>Create an Admin page under <code>http://localhost:4200/admin/contacts</code></li> <li>List all saved messages in a table.</li> </ol> <p>Option 2: Refactor your app contact section with usage of model in route. Move validation in model, move action in route and remove contact controller.</p> <h2><a name='lesson-4'></a>Lesson 4</h2> <h3>Deploy your app on Firebase</h3> <p>Follow the <a href="https://www.firebase.com/docs/web/libraries/ember/guide.html#section-ember-deploy">guide on Firebase</a>.</p> <div class="highlight"><pre><code class="language-" data-lang="">npm install -g firebase-tools
-ember build
-firebase init
+</code></pre></div> <p>In the above Route we create a new record and it will be the <code>model</code>. It automatically appears in the controller and in the template. In the <code>saveLibrary</code> action we accept a param and we save that model, after we send the application back to Libraries home page with <code>transitionTo</code>.</p> <p>There is an Ember.js built in action (event) <code>willTransition</code>, which will be called when you leave a page (route). In our case, we use this action to reset the model if we haven&#39;t saved in the database before.</p> <h3>Homework</h3> <p>Improve further your Contact Page.</p> <ol> <li>Create a <code>contact</code> model with <code>email</code> and with <code>message</code> field.</li> <li>Save that model in the server when someone click on &quot;Send&quot; button on Contact form. Update your <code>contact.js</code> controller.</li> <li>Create an Admin page under <code>http://localhost:4200/admin/contacts</code></li> <li>List all saved messages in a table.</li> </ol> <p>Option 2: Refactor your app contact section with usage of model in route. Move validation in model, move action in route and remove contact controller.</p> <h2><a name='lesson-4'></a>Lesson 4</h2> <h3>Deploy your app on Firebase</h3> <p>Follow the <a href="https://www.firebase.com/docs/web/libraries/ember/guide.html#section-ember-deploy">guide on Firebase</a>.</p> <div class="highlight"><pre><code class="language-" data-lang="">$ npm install -g firebase-tools
+$ ember build --prod
+$ firebase init
 </code></pre></div> <p>Update <code>firebase.json</code></p> <div class="highlight"><pre><code class="language-" data-lang=""><span class="p">{</span><span class="w">
   </span><span class="nt">"firebase"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your-app-name"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"public"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dist"</span><span class="p">,</span><span class="w">
@@ -471,30 +467,30 @@ firebase init
     </span><span class="nt">"destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/index.html"</span><span class="w">
   </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div> <p>And deploy:</p> <div class="highlight"><pre><code class="language-" data-lang="">firebase deploy
-</code></pre></div> <h3>Add Delete, Edit button and Edit route</h3> <h4>Upgrading library list view to grid view</h4> <p>Let&#39;s upgrade our <code>app/templates/libraries/index.hbs</code> to show a nice grid layout. We have to add a little tweak to our stylesheet as well. You can see, there are two buttons in <code>panel-footer</code>. First button is a link to Edit screen, the second is a Delete button with an action. We send <code>library</code> as a param with that action call.</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/templates/libraries/index.hbs --&gt;</span>
+</span></code></pre></div> <p>And deploy:</p> <div class="highlight"><pre><code class="language-" data-lang="">$ firebase deploy
+</code></pre></div> <h3>Add Delete, Edit button and Edit route</h3> <h4>Upgrading library list view to grid view</h4> <p>Let&#39;s upgrade our <code>app/templates/libraries/index.hbs</code> to show a nice grid layout. We have to add a little tweak to our stylesheet as well. You can see, there are two buttons in <code>panel-footer</code>. First button is a link to Edit screen, the second is a Delete button with an action. We send <code>library</code> as a param with that action call.</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- app/templates/libraries/index.hbs --&gt;</span>
 <span class="nt">&lt;h2&gt;</span>List<span class="nt">&lt;/h2&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
-
+  <span class="k">{{#</span><span class="nn">each</span> <span class="nv">model</span> <span class="nv">as</span> <span class="err">|</span><span class="nv">library</span><span class="err">|</span><span class="k">}}</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-default library-item"</span><span class="nt">&gt;</span>
           <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-heading"</span><span class="nt">&gt;</span>
-              <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"panel-title"</span><span class="nt">&gt;&lt;/h3&gt;</span>
+              <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"panel-title"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">library</span><span class="p">.</span><span class="nv">name</span><span class="k">}}</span><span class="nt">&lt;/h3&gt;</span>
           <span class="nt">&lt;/div&gt;</span>
           <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
-              <span class="nt">&lt;p&gt;</span>Address: <span class="nt">&lt;/p&gt;</span>
-              <span class="nt">&lt;p&gt;</span>Phone: <span class="nt">&lt;/p&gt;</span>
+              <span class="nt">&lt;p&gt;</span>Address: <span class="k">{{</span><span class="nv">library</span><span class="p">.</span><span class="nv">address</span><span class="k">}}</span><span class="nt">&lt;/p&gt;</span>
+              <span class="nt">&lt;p&gt;</span>Phone: <span class="k">{{</span><span class="nv">library</span><span class="p">.</span><span class="nv">phone</span><span class="k">}}</span><span class="nt">&lt;/p&gt;</span>
           <span class="nt">&lt;/div&gt;</span>
           <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-footer text-right"</span><span class="nt">&gt;</span>
-              Edit
-              <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger btn-xs"</span> <span class="nt">&gt;</span>Delete<span class="nt">&lt;/button&gt;</span>
+              <span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'libraries.edit'</span> <span class="nv">library</span><span class="p">.</span><span class="nv">id</span> <span class="nv">class</span><span class="o">=</span><span class="s1">'btn btn-success btn-xs'</span><span class="k">}}</span>Edit<span class="k">{{/</span><span class="nn">link-to</span><span class="k">}}</span>
+              <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger btn-xs"</span> <span class="k">{{</span><span class="nv">action</span> <span class="s1">'deleteLibrary'</span> <span class="nv">library</span><span class="k">}}</span><span class="nt">&gt;</span>Delete<span class="nt">&lt;/button&gt;</span>
           <span class="nt">&lt;/div&gt;</span>
       <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
-
+  <span class="k">{{/</span><span class="nn">each</span><span class="k">}}</span>
 <span class="nt">&lt;/div&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-css" data-lang="css"><span class="err">#</span> <span class="nt">app</span><span class="o">/</span><span class="nt">styles</span><span class="o">/</span><span class="nt">app</span><span class="nc">.scss</span>
-<span class="k">@import</span> <span class="s2">'bootstrap'</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nn">#</span> <span class="nt">app</span><span class="o">/</span><span class="nt">styles</span><span class="o">/</span><span class="nt">app</span><span class="nc">.scss</span>
+<span class="o">@</span><span class="nt">import</span> <span class="s1">'bootstrap'</span><span class="p">;</span>
 
 <span class="nt">body</span> <span class="p">{</span>
   <span class="nl">padding-top</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
@@ -530,7 +526,7 @@ firebase init
 <span class="p">});</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Router</span><span class="p">;</span>
-</code></pre></div> <p>After we inserted this extra line in our router, time to create our <code>app/routes/libraries/edit.js</code>. You can use ember-cli or you can create manually. The code should looks like the following. More explanation below. (In this code, I use ES5 syntax, but later I will prefer ES6. If you would like you can use ES6 already.)</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/routes/libraries/edit.js</span>
+</code></pre></div> <p>After we inserted this extra line in our router, time to create our <code>app/routes/libraries/edit.js</code>. You can use Ember-CLI or you can create manually. The code should looks like the following. More explanation below. (In this code, I use ES5 syntax, but later I will prefer ES6/ES2015. If you would like you can use ES6/ES2015 already.)</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/routes/libraries/edit.js</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
@@ -565,34 +561,34 @@ firebase init
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</code></pre></div> <p>More things happening in this file.</p> <p>First of all, in the <code>model</code> function, we have a <code>params</code> parameter. This params will get from the url that id. Simply, we can use it with <code>params.library_id</code>. The <code>this.store.findRecord(&#39;library&#39;, params.library_id);</code> line download only one record from the server with the given <code>id</code>. The <code>id</code> comes from the url.</p> <p>We added two actions as well. The first will save the changes and after redirect to the main <code>libraries</code> page.</p> <p>The second event-action will be called, when we are trying to leave this page, because we redirected from the previous action or the user clicked in a link on the website. In the first case, the changes already saved, but in the second case, it could happen, that the user modified something in the form, and haven&#39;t saved. It is a typical &quot;dirty checking&quot;. We can read the <code>model</code> from the controller, we use Ember Model&#39;s <code>hasDirtyAttributes</code> computed property to check something changed in the model. So we popup an ugly confirmation window. If the user would like to leave the page, we just rollback changes with <code>model.rollbackAttributes()</code>. If the user would like to stay in the page we abort the transition with <code>transition.abort()</code>. You can see, that we use <code>transition</code> variable which is initiated as a param in <code>willTransition</code> function. Ember.js automatically provides this for us.</p> <p>Our template is still missing. Let&#39;s use our <code>new.hbs</code> and duplicate the code in <code>edit.hbs</code> with a little changes. We will fix this problem later with components, because code duplication is not nice.</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h2&gt;</span>Edit Library<span class="nt">&lt;/h2&gt;</span>
+</code></pre></div> <p>More things happening in this file.</p> <p>First of all, in the <code>model</code> function, we have a <code>params</code> parameter. This params will get from the url that <code>id</code>. Simply, we can use it with <code>params.library_id</code>. The <code>this.store.findRecord(&#39;library&#39;, params.library_id);</code> line download only one record from the server with the given <code>id</code>. The <code>id</code> comes from the url.</p> <p>We added two actions as well. The first will save the changes and after redirect to the main <code>libraries</code> page.</p> <p>The second event-action will be called, when we are trying to leave this page, because we redirected from the previous action or the user clicked in a link on the website. In the first case, the changes already saved, but in the second case, it could happen, when the user modified something in the form but haven&#39;t saved. It is a typical &quot;dirty checking&quot;. We can read the <code>model</code> from the controller, we use Ember Model&#39;s <code>hasDirtyAttributes</code> computed property to check something changed in the model. So we popup an ugly confirmation window. If the user would like to leave the page, we just rollback changes with <code>model.rollbackAttributes()</code>. If the user would like to stay in the page we abort the transition with <code>transition.abort()</code>. You can see, that we use <code>transition</code> variable which is initiated as a param in <code>willTransition</code> function. Ember.js automatically provides this for us.</p> <p>Our template is still missing. Let&#39;s use our <code>new.hbs</code> and duplicate the code in <code>edit.hbs</code> with a little changes. We will fix this problem later with components, because code duplication is not nice.</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="nt">&lt;h2&gt;</span>Edit Library<span class="nt">&lt;/h2&gt;</span>
 
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-horizontal"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"col-sm-2 control-label"</span><span class="nt">&gt;</span>Name<span class="nt">&lt;/label&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-10"</span><span class="nt">&gt;</span>
-
+          <span class="k">{{</span><span class="nv">input</span> <span class="nv">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nv">value</span><span class="o">=</span><span class="nv">model</span><span class="p">.</span><span class="nv">name</span> <span class="nv">class</span><span class="o">=</span><span class="s2">"form-control"</span> <span class="nv">placeholder</span><span class="o">=</span><span class="s2">"The name of the Library"</span><span class="k">}}</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"col-sm-2 control-label"</span><span class="nt">&gt;</span>Address<span class="nt">&lt;/label&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-10"</span><span class="nt">&gt;</span>
-
+          <span class="k">{{</span><span class="nv">input</span> <span class="nv">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nv">value</span><span class="o">=</span><span class="nv">model</span><span class="p">.</span><span class="nv">address</span> <span class="nv">class</span><span class="o">=</span><span class="s2">"form-control"</span> <span class="nv">placeholder</span><span class="o">=</span><span class="s2">"The address of the Library"</span><span class="k">}}</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"col-sm-2 control-label"</span><span class="nt">&gt;</span>Phone<span class="nt">&lt;/label&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-10"</span><span class="nt">&gt;</span>
-
+          <span class="k">{{</span><span class="nv">input</span> <span class="nv">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nv">value</span><span class="o">=</span><span class="nv">model</span><span class="p">.</span><span class="nv">phone</span> <span class="nv">class</span><span class="o">=</span><span class="s2">"form-control"</span> <span class="nv">placeholder</span><span class="o">=</span><span class="s2">"The phone number of the Library"</span><span class="k">}}</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-offset-2 col-sm-10"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="nt">&gt;</span>Save changes<span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="k">{{</span><span class="nv">action</span> <span class="s1">'saveLibrary'</span> <span class="nv">model</span><span class="k">}}</span><span class="nt">&gt;</span>Save changes<span class="nt">&lt;/button&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</code></pre></div> <p>If you launch your app, it should work, and you are able to edit the information from a library. You can check what is happening if you modify the data in the form, but finally click in a link somewhere without saving.</p> <h4>Add delete action</h4> <p>The delete action is still missing. Let&#39;s update <code>app/routes/libraries/index.js</code></p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/routes/libraries/index.js</span>
+</code></pre></div> <p>If you launch your app, it should work, and you are able to edit the information from a library. You can check what is happening if you modify the data in the form, but finally click on a link somewhere (for example link on the menu) without saving the form data.</p> <h4>Add delete action</h4> <p>The delete action is still missing. Let&#39;s update <code>app/routes/libraries/index.js</code></p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/routes/libraries/index.js</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
@@ -612,52 +608,52 @@ firebase init
   <span class="p">}</span>
 
 <span class="p">})</span>
-</code></pre></div> <h3>Homework</h3> <p>You can add delete buttons to your lists on Admin pages, so you can delete invitations and contact messages. It would be nice improvement as well if you could clean up <code>app/controllers/index.js</code> and add <code>createRecord</code> in <code>app/routes/index.js</code>. It would be similar to <code>libraries/new</code> section.</p> <h2><a name='lesson-5'></a>Lesson 5</h2> <h3>Cleaning up our templates with components</h3> <p>First of all, please read more about Components in Ember.js Guide: http://guides.emberjs.com/v2.1.0/components/defining-a-component/</p> <p>We can generate a component with <code>ember g component</code> command. Let&#39;s create two components. First for library panel and one for forms.</p> <div class="highlight"><pre><code class="language-" data-lang="">ember g component library-item
-ember g component library-item-form
-</code></pre></div> <p>Each command generates a javascript file and a handlebar file. Javascript part sits in <code>app/components</code> folder, the template in <code>app/templates/components</code>.</p> <p>We can insert the following code in the <code>library-item</code> template.</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/templates/components/library-item.hbs --&gt;</span>
+</code></pre></div> <h3>Homework</h3> <p>You can add delete buttons to your lists on Admin pages, so you can delete invitations and contact messages. It would be nice improvement as well if you could clean up <code>app/controllers/index.js</code> and add <code>createRecord</code> in <code>app/routes/index.js</code>. It would be similar to <code>libraries/new</code> section.</p> <h2><a name='lesson-5'></a>Lesson 5</h2> <h3>Cleaning up our templates with components</h3> <p>First of all, please read more about Components in Ember.js Guide: <a href="http://guides.emberjs.com/v2.1.0/components/defining-a-component/">http://guides.emberjs.com/v2.1.0/components/defining-a-component/</a></p> <p>We can generate a component with <code>ember g component</code> command. Let&#39;s create two components. First for library panel and one for forms.</p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember g component library-item
+$ ember g component library-item-form
+</code></pre></div> <p>Each command generates a javascript file and a handlebar file. Javascript part sits in <code>app/components</code> folder, the template in <code>app/templates/components</code>.</p> <p>We can insert the following code in the <code>library-item</code> template.</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- app/templates/components/library-item.hbs --&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-default library-item"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-heading"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"panel-title"</span><span class="nt">&gt;&lt;/h3&gt;</span>
+        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"panel-title"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">item</span><span class="p">.</span><span class="nv">name</span><span class="k">}}</span><span class="nt">&lt;/h3&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;p&gt;</span>Address: <span class="nt">&lt;/p&gt;</span>
-        <span class="nt">&lt;p&gt;</span>Phone: <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Address: <span class="k">{{</span><span class="nv">item</span><span class="p">.</span><span class="nv">address</span><span class="k">}}</span><span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Phone: <span class="k">{{</span><span class="nv">item</span><span class="p">.</span><span class="nv">phone</span><span class="k">}}</span><span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-footer text-right"</span><span class="nt">&gt;</span>
-
+      <span class="k">{{</span><span class="nv">yield</span><span class="k">}}</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</code></pre></div> <p>You can see, that this code is quite similar what we have in <code>app/templates/libraries/index.hbs</code>, however instead of <code>model</code> we use <code>item</code>.</p> <p>The most important concept in terms of components, that they are totally independent from the context. They don&#39;t know more, only that what they originally have and what passed inside with attributes.</p> <p>We have a `` which means, that we can use this componenet as a block component. The code which wrapped with this component will be injected there.</p> <p>For example:</p> <div class="highlight"><pre><code class="language-html" data-lang="html">
+</code></pre></div> <p>You can see, that this code is quite similar what we have in <code>app/templates/libraries/index.hbs</code>, however instead of <code>model</code> we use <code>item</code>.</p> <p>The most important concept in terms of components, that they are totally independent from the context. They don&#39;t know &quot;other things&quot;, other variables, only what they originally have and what passed inside with attributes.</p> <p>We have a <code>{{yield}}</code> which means, that we can use this component as a block component. The code which wrapped with this component will be injected inside the <code>{{yield}}</code>.</p> <p>For example:</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars">     <span class="k">{{#</span><span class="nn">library-item</span> <span class="nv">item</span><span class="o">=</span><span class="nv">model</span><span class="k">}}</span>
         Closed
-
-</code></pre></div> <p>In this case the <code>Closed</code> text will appear in the panel footer.</p> <p>Let&#39;s add html to our <code>library-item-form</code> component as well.</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/templates/components/library-item-form.hbs --&gt;</span>
+     <span class="k">{{/</span><span class="nn">library-item</span><span class="k">}}</span>
+</code></pre></div> <p>In this case the <code>Closed</code> text will appear in the panel footer.</p> <p>Let&#39;s add html to our <code>library-item-form</code> component as well.</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- app/templates/components/library-item-form.hbs --&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-horizontal"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group has-feedback "</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group has-feedback </span><span class="k">{{</span><span class="nv">if</span> <span class="nv">item</span><span class="p">.</span><span class="nv">isValid</span> <span class="s1">'has-success'</span><span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"col-sm-2 control-label"</span><span class="nt">&gt;</span>Name*<span class="nt">&lt;/label&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-10"</span><span class="nt">&gt;</span>
-
-          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-ok form-control-feedback"</span><span class="nt">&gt;&lt;/span&gt;</span>
+          <span class="k">{{</span><span class="nv">input</span> <span class="nv">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nv">value</span><span class="o">=</span><span class="nv">item</span><span class="p">.</span><span class="nv">name</span> <span class="nv">class</span><span class="o">=</span><span class="s2">"form-control"</span> <span class="nv">placeholder</span><span class="o">=</span><span class="s2">"The name of the Library"</span><span class="k">}}</span>
+          <span class="k">{{#if</span> <span class="nv">item</span><span class="p">.</span><span class="nv">isValid</span><span class="k">}}</span><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-ok form-control-feedback"</span><span class="nt">&gt;&lt;/span&gt;</span><span class="k">{{/if}}</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"col-sm-2 control-label"</span><span class="nt">&gt;</span>Address<span class="nt">&lt;/label&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-10"</span><span class="nt">&gt;</span>
-
+          <span class="k">{{</span><span class="nv">input</span> <span class="nv">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nv">value</span><span class="o">=</span><span class="nv">item</span><span class="p">.</span><span class="nv">address</span> <span class="nv">class</span><span class="o">=</span><span class="s2">"form-control"</span> <span class="nv">placeholder</span><span class="o">=</span><span class="s2">"The address of the Library"</span><span class="k">}}</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"col-sm-2 control-label"</span><span class="nt">&gt;</span>Phone<span class="nt">&lt;/label&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-10"</span><span class="nt">&gt;</span>
-
+          <span class="k">{{</span><span class="nv">input</span> <span class="nv">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nv">value</span><span class="o">=</span><span class="nv">item</span><span class="p">.</span><span class="nv">phone</span> <span class="nv">class</span><span class="o">=</span><span class="s2">"form-control"</span> <span class="nv">placeholder</span><span class="o">=</span><span class="s2">"The phone number of the Library"</span><span class="k">}}</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-offset-2 col-sm-10"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span>  <span class="na">disabled=</span><span class="s">""</span><span class="nt">&gt;&lt;/button&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="k">{{</span><span class="nv">action</span> <span class="s1">'buttonClicked'</span> <span class="nv">item</span><span class="k">}}</span> <span class="na">disabled=</span><span class="s">"</span><span class="k">{{</span><span class="nv">unless</span> <span class="nv">item</span><span class="p">.</span><span class="nv">isValid</span> <span class="s1">'disabled'</span><span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">buttonLabel</span><span class="k">}}</span><span class="nt">&lt;/button&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</code></pre></div> <p>This code is almost the same what we used more times in our form in <code>libraries/new.hbs</code> and in <code>libraries/edit.hbs</code> templates.</p> <p>Some tiny improvement, that we can add a little validation to our <code>library</code> model. Please update <code>app/models/library.js</code> with a basic validation, where we check that the <code>name</code> is not empty.</p> <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">DS</span> <span class="nx">from</span> <span class="s1">'ember-data'</span><span class="p">;</span>
+</code></pre></div> <p>This code is almost the same what we used more times in our form in <code>libraries/new.hbs</code> and in <code>libraries/edit.hbs</code> templates.</p> <p>Some tiny improvement. We can add a little validation to our <code>library</code> model. Please update <code>app/models/library.js</code> with a basic validation, where we check that the <code>name</code> is not empty.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">DS</span> <span class="nx">from</span> <span class="s1">'ember-data'</span><span class="p">;</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="na">name</span><span class="p">:</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
@@ -666,52 +662,44 @@ ember g component library-item-form
 
   <span class="na">isValid</span><span class="p">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">computed</span><span class="p">.</span><span class="nx">notEmpty</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span>
 <span class="p">});</span>
-</code></pre></div> <p>Time to clean up our templates.</p> <p>Using the <code>library-item</code> component in <code>app/templates/libraries/index.hbs</code> reduce the code and change our template more clearer.</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h2&gt;</span>List<span class="nt">&lt;/h2&gt;</span>
+</code></pre></div> <p>Time to clean up our templates.</p> <p>Using the <code>library-item</code> component in <code>app/templates/libraries/index.hbs</code> reduces the code and makes our template more cleaner.</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="nt">&lt;h2&gt;</span>List<span class="nt">&lt;/h2&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
-
+  <span class="k">{{#</span><span class="nn">each</span> <span class="nv">model</span> <span class="nv">as</span> <span class="err">|</span><span class="nv">library</span><span class="err">|</span><span class="k">}}</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span>
-
-        Edit
-        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger btn-xs"</span> <span class="nt">&gt;</span>Delete<span class="nt">&lt;/button&gt;</span>
-
+      <span class="k">{{#</span><span class="nn">library-item</span> <span class="nv">item</span><span class="o">=</span><span class="nv">library</span><span class="k">}}</span>
+        <span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'libraries.edit'</span> <span class="nv">library</span><span class="p">.</span><span class="nv">id</span> <span class="nv">class</span><span class="o">=</span><span class="s1">'btn btn-success btn-xs'</span><span class="k">}}</span>Edit<span class="k">{{/</span><span class="nn">link-to</span><span class="k">}}</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger btn-xs"</span> <span class="k">{{</span><span class="nv">action</span> <span class="s1">'deleteLibrary'</span> <span class="nv">library</span><span class="k">}}</span><span class="nt">&gt;</span>Delete<span class="nt">&lt;/button&gt;</span>
+      <span class="k">{{/</span><span class="nn">library-item</span><span class="k">}}</span>
     <span class="nt">&lt;/div&gt;</span>
-
+  <span class="k">{{/</span><span class="nn">each</span><span class="k">}}</span>
 <span class="nt">&lt;/div&gt;</span>
-</code></pre></div> <p>We iterate our <code>model</code> and we pass deeper in the component that <code>library</code> local variable as <code>item</code>. The component&#39;s variable is always on the left side.</p> <p>Because this componenet is a block componenet, we can add some extra content to the library item footer. In this case, we add an Edit and a Delete button.</p> <p>You can check your project, you should see the same as before on the Libraries list page, however, the code is cleaner and we have a componenet, what we can reuse somewhere else as well.</p> <p>Update our <code>app/templates/libraries/new.hbs</code>.</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/templates/libraries/new.hbs --&gt;</span>
+</code></pre></div> <p>We iterate our <code>model</code> and we pass deeper in the component that <code>library</code> local variable as <code>item</code>. The component&#39;s variable is always on the left side.</p> <p>Because this component is a block component, we can add some extra content to the library item footer. In this case, we add an Edit and a Delete button.</p> <p>You can check your project, you should see the same as before on the Libraries list page, however, the code is cleaner and we have a component, what we can reuse somewhere else as well.</p> <p>Update our <code>app/templates/libraries/new.hbs</code>.</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- app/templates/libraries/new.hbs --&gt;</span>
 <span class="nt">&lt;h2&gt;</span>Add a new local Library<span class="nt">&lt;/h2&gt;</span>
 
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
 
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6"</span><span class="nt">&gt;</span>
-
-
-
+      <span class="k">{{</span><span class="nv">library-item-form</span> <span class="nv">item</span><span class="o">=</span><span class="nv">model</span> <span class="nv">buttonLabel</span><span class="o">=</span><span class="s1">'Add to library list'</span> <span class="nv">action</span><span class="o">=</span><span class="s1">'saveLibrary'</span><span class="k">}}</span>
   <span class="nt">&lt;/div&gt;</span>
 
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span>
-
-
+      <span class="k">{{#</span><span class="nn">library-item</span> <span class="nv">item</span><span class="o">=</span><span class="nv">model</span><span class="k">}}</span>
           <span class="nt">&lt;br/&gt;</span>
-
-
+      <span class="k">{{/</span><span class="nn">library-item</span><span class="k">}}</span>
   <span class="nt">&lt;/div&gt;</span>
 
 <span class="nt">&lt;/div&gt;</span>
-</code></pre></div> <p>Update <code>app/templates/libraries/edit.hbs</code>.</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h2&gt;</span>Edit Library<span class="nt">&lt;/h2&gt;</span>
+</code></pre></div> <p>Update <code>app/templates/libraries/edit.hbs</code>.</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="nt">&lt;h2&gt;</span>Edit Library<span class="nt">&lt;/h2&gt;</span>
 
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6"</span><span class="nt">&gt;</span>
-
-
-
+      <span class="k">{{</span><span class="nv">library-item-form</span> <span class="nv">item</span><span class="o">=</span><span class="nv">model</span> <span class="nv">buttonLabel</span><span class="o">=</span><span class="s1">'Save changes'</span> <span class="nv">action</span><span class="o">=</span><span class="s1">'saveLibrary'</span><span class="k">}}</span>
     <span class="nt">&lt;/div&gt;</span>
 
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span>
-
-
+      <span class="k">{{#</span><span class="nn">library-item</span> <span class="nv">item</span><span class="o">=</span><span class="nv">model</span><span class="k">}}</span>
         <span class="nt">&lt;br/&gt;</span>
-
-
+      <span class="k">{{/</span><span class="nn">library-item</span><span class="k">}}</span>
     <span class="nt">&lt;/div&gt;</span>
 
 <span class="nt">&lt;/div&gt;</span>
@@ -726,18 +714,18 @@ ember g component library-item-form
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</code></pre></div> <h3>Merging <code>edit.hbs</code> and <code>new.hbs</code> to <code>form.hbs</code> and use <code>renderTemplate()</code> and <code>setupController()</code></h3> <p>As you can see <code>edit.hbs</code> and <code>new.hbs</code> are almost the same, so we can use the same template in both route.</p> <p>Let&#39;s create a <code>form.hbs</code> which will be our common template in Edit and in New page.</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- /app/templates/libraries/form.hbs --&gt;</span>
-<span class="nt">&lt;h2&gt;&lt;/h2&gt;</span>
+</code></pre></div> <h3>Merging <code>edit.hbs</code> and <code>new.hbs</code> to <code>form.hbs</code> and use <code>renderTemplate()</code> and <code>setupController()</code></h3> <p>As you can see <code>edit.hbs</code> and <code>new.hbs</code> are almost the same, so we can use the same template in both route.</p> <p>Let&#39;s create a <code>form.hbs</code> which will be our common template in Edit and in New page.</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- /app/templates/libraries/form.hbs --&gt;</span>
+<span class="nt">&lt;h2&gt;</span><span class="k">{{</span><span class="nv">title</span><span class="k">}}</span><span class="nt">&lt;/h2&gt;</span>
 
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6"</span><span class="nt">&gt;</span>
-
+      <span class="k">{{</span><span class="nv">library-item-form</span> <span class="nv">item</span><span class="o">=</span><span class="nv">model</span> <span class="nv">buttonLabel</span><span class="o">=</span><span class="nv">buttonLabel</span> <span class="nv">action</span><span class="o">=</span><span class="s1">'saveLibrary'</span><span class="k">}}</span>
     <span class="nt">&lt;/div&gt;</span>
 
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span>
-
+      <span class="k">{{#</span><span class="nn">library-item</span> <span class="nv">item</span><span class="o">=</span><span class="nv">model</span><span class="k">}}</span>
         <span class="nt">&lt;br/&gt;</span>
-
+      <span class="k">{{/</span><span class="nn">library-item</span><span class="k">}}</span>
     <span class="nt">&lt;/div&gt;</span>
 
 <span class="nt">&lt;/div&gt;</span>
@@ -824,15 +812,16 @@ ember g component library-item-form
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</code></pre></div> <p>You can delete the <code>edit.hbs</code> and <code>new.hbs</code> from <code>app/templates/libraries/</code> folder. We don&#39;t need them anymore.</p> <p>More information about <code>setupController</code>: http://emberjs.com/api/classes/Ember.Route.html#method_setupController</p> <p>More information about <code>renderTemplate</code>: http://emberjs.com/api/classes/Ember.Route.html#method_renderTemplate</p> <h3>Create a tiny bootstrap <code>nav-link-to</code> component for <code>&lt;li&gt;&lt;a&gt;&lt;/a&gt;&lt;/li&gt;</code></h3> <p>Time to clean up our navigation template. We can create a nice component to manage bootstrap navbar links properly.</p> <p>Open your terminal and generate a new component with <code>ember-cli</code>.</p> <p><code>ember g component nav-link-to</code></p> <p>Because we would like just slightly modify the main <code>LinkComponent</code>, we should just <code>extend</code> that class. There is a <code>tagName</code> property, which determines the main tag of a component.</p> <p>Update <code>app/components/nav-link-to.js</code>:</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/components/nav-link-to.js</span>
+</code></pre></div> <p>You can delete the <code>edit.hbs</code> and <code>new.hbs</code> from <code>app/templates/libraries/</code> folder. We don&#39;t need them anymore.</p> <p>More information about <code>setupController</code>: <a href="http://emberjs.com/api/classes/Ember.Route.html#method_setupController">http://emberjs.com/api/classes/Ember.Route.html#method_setupController</a></p> <p>More information about <code>renderTemplate</code>: <a href="http://emberjs.com/api/classes/Ember.Route.html#method_renderTemplate">http://emberjs.com/api/classes/Ember.Route.html#method_renderTemplate</a></p> <h3>Create a tiny bootstrap <code>nav-link-to</code> component for <code>&lt;li&gt;&lt;a&gt;&lt;/a&gt;&lt;/li&gt;</code></h3> <p>Time to clean up our navigation template. We can create a nice component to manage bootstrap <code>navbar</code> links properly.</p> <p>Open your terminal and generate a new component with Ember-CLI.</p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember g component nav-link-to
+</code></pre></div> <p>Because we would like just slightly modify the main <code>LinkComponent</code>, we should just <code>extend</code> that class. There is a <code>tagName</code> property, which determines the main tag of a component.</p> <p>Update <code>app/components/nav-link-to.js</code>:</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/components/nav-link-to.js</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">LinkComponent</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="na">tagName</span><span class="p">:</span> <span class="s1">'li'</span>
 <span class="p">});</span>
-</code></pre></div> <p>Note: don&#39;t forget to rewrite <code>Ember.Component.extend</code> to <code>Ember.LinkComponent.extend</code>.</p> <p>Our connected template will be the following:</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/templates/components/nav-link-to.hbs --&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;&lt;/a&gt;</span>
-</code></pre></div> <p>After that we are ready to use our component and we can update our <code>navbar.hbs</code>.</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/templates/navbar.hbs --&gt;</span>
+</code></pre></div> <p>Note: don&#39;t forget to rewrite <code>Ember.Component.extend</code> to <code>Ember.LinkComponent.extend</code>.</p> <p>Our connected template will be the following:</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- app/templates/components/nav-link-to.hbs --&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">yield</span><span class="k">}}</span><span class="nt">&lt;/a&gt;</span>
+</code></pre></div> <p>After that we are ready to use our component and we can update our <code>navbar.hbs</code>.</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- app/templates/navbar.hbs --&gt;</span>
 <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar navbar-inverse"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container-fluid"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"navbar-header"</span><span class="nt">&gt;</span>
@@ -842,32 +831,31 @@ ember g component library-item-form
         <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
         <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
       <span class="nt">&lt;/button&gt;</span>
-      Library App
+      <span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'index'</span> <span class="nv">class</span><span class="o">=</span><span class="s2">"navbar-brand"</span><span class="k">}}</span>Library App<span class="k">{{/</span><span class="nn">link-to</span><span class="k">}}</span>
     <span class="nt">&lt;/div&gt;</span>
 
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"collapse navbar-collapse"</span> <span class="na">id=</span><span class="s">"main-navbar"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav navbar-nav"</span><span class="nt">&gt;</span>
-            Home
-            Libraries
-            About
-            Contact
+            <span class="k">{{#</span><span class="nn">nav-link-to</span> <span class="s1">'index'</span><span class="k">}}</span>Home<span class="k">{{/</span><span class="nn">nav-link-to</span><span class="k">}}</span>
+            <span class="k">{{#</span><span class="nn">nav-link-to</span> <span class="s1">'libraries'</span><span class="k">}}</span>Libraries<span class="k">{{/</span><span class="nn">nav-link-to</span><span class="k">}}</span>
+            <span class="k">{{#</span><span class="nn">nav-link-to</span> <span class="s1">'about'</span><span class="k">}}</span>About<span class="k">{{/</span><span class="nn">nav-link-to</span><span class="k">}}</span>
+            <span class="k">{{#</span><span class="nn">nav-link-to</span> <span class="s1">'contact'</span><span class="k">}}</span>Contact<span class="k">{{/</span><span class="nn">nav-link-to</span><span class="k">}}</span>
       <span class="nt">&lt;/ul&gt;</span>
 
       <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav navbar-nav navbar-right"</span><span class="nt">&gt;</span>
           <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"dropdown"</span><span class="nt">&gt;</span>
               <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-toggle"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>Admin<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"caret"</span><span class="nt">&gt;&lt;/span&gt;&lt;/a&gt;</span>
               <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span><span class="nt">&gt;</span>
-                  Invitations
-                  Contacts
+                  <span class="k">{{#</span><span class="nn">nav-link-to</span> <span class="s1">'admin.invitations'</span><span class="k">}}</span>Invitations<span class="k">{{/</span><span class="nn">nav-link-to</span><span class="k">}}</span>
+                  <span class="k">{{#</span><span class="nn">nav-link-to</span> <span class="s1">'admin.contacts'</span><span class="k">}}</span>Contacts<span class="k">{{/</span><span class="nn">nav-link-to</span><span class="k">}}</span>
               <span class="nt">&lt;/ul&gt;</span>
           <span class="nt">&lt;/li&gt;</span>
       <span class="nt">&lt;/ul&gt;</span>
     <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.navbar-collapse --&gt;</span>
   <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.container-fluid --&gt;</span>
 <span class="nt">&lt;/nav&gt;</span>
-</code></pre></div> <h2><a name='lesson-6'></a>Lesson 6</h2> <p>In this lesson we extend our models with <code>book</code> and <code>author</code>. Setup relation between models. We create a new page, where we using an external js library to generate dummy data to fill up our database automatically.</p> <h3>Creating some new models and setup relations</h3> <p>In our simple World, we have Libraries. We have Authors, whoes could have a couple of books, however a book only could be in one Library. And one book has only one Author.</p> <p>To generate new models we use <code>ember-cli</code>.</p> <p>Run the followings in your terminal.</p> <div class="highlight"><pre><code class="language-" data-lang="">ember g model book title:string releaseYear:date library:belongsTo author:belongsTo
-
-ember g model author name:string books:hasMany
+</code></pre></div> <h2><a name='lesson-6'></a>Lesson 6</h2> <p>In this lesson we extend our models with <code>book</code> and <code>author</code>. Setup relation between models. We create a new page, where we using an external js library to generate dummy data to fill up our database automatically.</p> <h3>Creating some new models and setup relations</h3> <p>In our simple World, we have Libraries. We have Authors, whose could have a couple of books, however a book could be only in one Library. And one book has only one Author.</p> <p>To generate new models we use Ember-CLI.</p> <p>Run the followings in your terminal.</p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember g model book title:string releaseYear:date library:belongsTo author:belongsTo
+$ ember g model author name:string books:hasMany
 </code></pre></div> <p>Add <code>hasMany</code> relation to <code>library</code> model manually.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">DS</span> <span class="nx">from</span> <span class="s1">'ember-data'</span><span class="p">;</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
@@ -879,7 +867,7 @@ ember g model author name:string books:hasMany
 
   <span class="na">isValid</span><span class="p">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">computed</span><span class="p">.</span><span class="nx">notEmpty</span><span class="p">(</span><span class="s1">'name'</span><span class="p">),</span>
 <span class="p">});</span>
-</code></pre></div> <h3>Create a new Admin page &#39;Seeder&#39; and download all models in the same route.</h3> <p>Create a new page using <code>ember-cli</code> in your terminal:</p> <div class="highlight"><pre><code class="language-" data-lang="">ember g route admin/seeder
+</code></pre></div> <h3>Create a new Admin page &#39;Seeder&#39; and download all models in the same route.</h3> <p>Create a new page using Ember-CLI in your terminal:</p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember g route admin/seeder
 </code></pre></div> <p>Check <code>router.js</code>. A new route should be there which point to <code>seeder</code>.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/router.js</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">config</span> <span class="nx">from</span> <span class="s1">'./config/environment'</span><span class="p">;</span>
@@ -904,7 +892,7 @@ ember g model author name:string books:hasMany
 <span class="p">});</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Router</span><span class="p">;</span>
-</code></pre></div> <p>Extend your <code>navbar.hbs</code> with the new page.</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/templates/navbar.hbs --&gt;</span>
+</code></pre></div> <p>Extend your <code>navbar.hbs</code> with the new page.</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- app/templates/navbar.hbs --&gt;</span>
 <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar navbar-inverse"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container-fluid"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"navbar-header"</span><span class="nt">&gt;</span>
@@ -914,31 +902,31 @@ ember g model author name:string books:hasMany
         <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
         <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-bar"</span><span class="nt">&gt;&lt;/span&gt;</span>
       <span class="nt">&lt;/button&gt;</span>
-      Library App
+      <span class="k">{{#</span><span class="nn">link-to</span> <span class="s1">'index'</span> <span class="nv">class</span><span class="o">=</span><span class="s2">"navbar-brand"</span><span class="k">}}</span>Library App<span class="k">{{/</span><span class="nn">link-to</span><span class="k">}}</span>
     <span class="nt">&lt;/div&gt;</span>
 
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"collapse navbar-collapse"</span> <span class="na">id=</span><span class="s">"main-navbar"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav navbar-nav"</span><span class="nt">&gt;</span>
-            Home
-            Libraries
-            About
-            Contact
+            <span class="k">{{#</span><span class="nn">nav-link-to</span> <span class="s1">'index'</span><span class="k">}}</span>Home<span class="k">{{/</span><span class="nn">nav-link-to</span><span class="k">}}</span>
+            <span class="k">{{#</span><span class="nn">nav-link-to</span> <span class="s1">'libraries'</span><span class="k">}}</span>Libraries<span class="k">{{/</span><span class="nn">nav-link-to</span><span class="k">}}</span>
+            <span class="k">{{#</span><span class="nn">nav-link-to</span> <span class="s1">'about'</span><span class="k">}}</span>About<span class="k">{{/</span><span class="nn">nav-link-to</span><span class="k">}}</span>
+            <span class="k">{{#</span><span class="nn">nav-link-to</span> <span class="s1">'contact'</span><span class="k">}}</span>Contact<span class="k">{{/</span><span class="nn">nav-link-to</span><span class="k">}}</span>
       <span class="nt">&lt;/ul&gt;</span>
 
       <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav navbar-nav navbar-right"</span><span class="nt">&gt;</span>
           <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"dropdown"</span><span class="nt">&gt;</span>
               <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-toggle"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>Admin<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"caret"</span><span class="nt">&gt;&lt;/span&gt;&lt;/a&gt;</span>
               <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span><span class="nt">&gt;</span>
-                  Invitations
-                  Contacts
-                  Seeder
+                  <span class="k">{{#</span><span class="nn">nav-link-to</span> <span class="s1">'admin.invitations'</span><span class="k">}}</span>Invitations<span class="k">{{/</span><span class="nn">nav-link-to</span><span class="k">}}</span>
+                  <span class="k">{{#</span><span class="nn">nav-link-to</span> <span class="s1">'admin.contacts'</span><span class="k">}}</span>Contacts<span class="k">{{/</span><span class="nn">nav-link-to</span><span class="k">}}</span>
+                  <span class="k">{{#</span><span class="nn">nav-link-to</span> <span class="s1">'admin.seeder'</span><span class="k">}}</span>Seeder<span class="k">{{/</span><span class="nn">nav-link-to</span><span class="k">}}</span>
               <span class="nt">&lt;/ul&gt;</span>
           <span class="nt">&lt;/li&gt;</span>
       <span class="nt">&lt;/ul&gt;</span>
     <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.navbar-collapse --&gt;</span>
   <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.container-fluid --&gt;</span>
 <span class="nt">&lt;/nav&gt;</span>
-</code></pre></div> <h4>Using <code>Ember.RSVP.hash()</code> for downloading more models in the same route</h4> <p>For downloading more models in the same route we have to use <code>Ember.RSVP.hash()</code> function in <code>model</code> hook.</p> <p><code>RSVP.hash</code> wraps more promises and return a nicely structured hashed object. More information: http://emberjs.com/api/classes/RSVP.html#method_hash</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/routes/admin/seeder.js</span>
+</code></pre></div> <h4>Using <code>Ember.RSVP.hash()</code> for downloading more models in the same route</h4> <p>For downloading more models in the same route we have to use <code>Ember.RSVP.hash()</code> function in <code>model</code> hook.</p> <p><code>RSVP.hash</code> wraps more promises and return a nicely structured hashed object. More information: <a href="http://emberjs.com/api/classes/RSVP.html#method_hash">http://emberjs.com/api/classes/RSVP.html#method_hash</a></p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/routes/admin/seeder.js</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
@@ -957,7 +945,7 @@ ember g model author name:string books:hasMany
     <span class="nx">controller</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'authors'</span><span class="p">,</span> <span class="nx">model</span><span class="p">.</span><span class="nx">authors</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</code></pre></div> <p>RSVP tries to download all model, it will return with fullfield state only if all three download were successfull.</p> <p>In the <code>setupController</code> hook, we split the model and setup new controller properties.</p> <h3>Little summary about route`s hooks</h3> <p>You already use a couple of hook in routes, which will be called in ceartain sequence.</p> <p>You can play with it and have a little experiment in one of your route.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
+</code></pre></div> <p>RSVP tries to download all model, it will return with fulfilled state only if all three download were successful.</p> <p>In the <code>setupController</code> hook, we split the model and setup new controller properties.</p> <h3>Little summary about route`s hooks</h3> <p>You already use a couple of hook in routes, which will be called in certain sequence.</p> <p>You can play with it and have a little experiment in one of your route.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
 
@@ -989,8 +977,8 @@ ember g model author name:string books:hasMany
     <span class="kr">debugger</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</code></pre></div> <p>If you visit the route, where your above experiment code was insterted, and you open inspector console in your web browser, the code will stop for debugging in each call. You can see what is the sequence of hooks. The above code follows the pattern.</p> <ol> <li><code>init()</code> http://emberjs.com/api/classes/Ember.Route.html#method_init</li> <li><code>beforeModel(transition)</code> http://emberjs.com/api/classes/Ember.Route.html#method_beforeModel</li> <li><code>model(params, transition)</code> http://emberjs.com/api/classes/Ember.Route.html#method_model</li> <li><code>afterModel(model, transition)</code> http://emberjs.com/api/classes/Ember.Route.html#method_afterModel</li> <li><code>activate()</code> http://emberjs.com/api/classes/Ember.Route.html#method_activate</li> <li><code>setupController(controller, model)</code> http://emberjs.com/api/classes/Ember.Route.html#method_setupController</li> <li><code>renderTemplate(controller, model)</code> http://emberjs.com/api/classes/Ember.Route.html#method_renderTemplate</li> </ol> <h3>Create number boxes on Admin/Seeder page to see how much data we have in our database</h3> <p>We use a <code>number-box</code> component for visualizing numbers on our page. Let&#39;s create our fancy component.</p> <div class="highlight"><pre><code class="language-" data-lang="">ember g component number-box
-</code></pre></div> <p>Setup css classes in the component controller.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/components/number-box.js</span>
+</code></pre></div> <p>If you visit the route, where your above experiment code was inserted, and you open inspector console in your web browser, the code will stop for debugging in each call. You can see what is the sequence of hooks. The above code follows the pattern.</p> <ol> <li><code>init()</code> <a href="http://emberjs.com/api/classes/Ember.Route.html#method_init">http://emberjs.com/api/classes/Ember.Route.html#method_init</a></li> <li><code>beforeModel(transition)</code> <a href="http://emberjs.com/api/classes/Ember.Route.html#method_beforeModel">http://emberjs.com/api/classes/Ember.Route.html#method_beforeModel</a></li> <li><code>model(params, transition)</code> <a href="http://emberjs.com/api/classes/Ember.Route.html#method_model">http://emberjs.com/api/classes/Ember.Route.html#method_model</a></li> <li><code>afterModel(model, transition)</code> <a href="http://emberjs.com/api/classes/Ember.Route.html#method_afterModel">http://emberjs.com/api/classes/Ember.Route.html#method_afterModel</a></li> <li><code>activate()</code> <a href="http://emberjs.com/api/classes/Ember.Route.html#method_activate">http://emberjs.com/api/classes/Ember.Route.html#method_activate</a></li> <li><code>setupController(controller, model)</code> <a href="http://emberjs.com/api/classes/Ember.Route.html#method_setupController">http://emberjs.com/api/classes/Ember.Route.html#method_setupController</a></li> <li><code>renderTemplate(controller, model)</code> <a href="http://emberjs.com/api/classes/Ember.Route.html#method_renderTemplate">http://emberjs.com/api/classes/Ember.Route.html#method_renderTemplate</a></li> </ol> <h3>Create number boxes on Admin/Seeder page to see how much data we have in our database</h3> <p>We use a <code>number-box</code> component for visualizing numbers on our page. Let&#39;s create our fancy component.</p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember g component number-box
+</code></pre></div> <p>Setup <code>css</code> classes in the component controller.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/components/number-box.js</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Component</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
@@ -998,22 +986,21 @@ ember g model author name:string books:hasMany
   <span class="na">classNames</span><span class="p">:</span> <span class="p">[</span><span class="s1">'panel'</span><span class="p">,</span> <span class="s1">'panel-warning'</span><span class="p">]</span>
 
 <span class="p">});</span>
-</code></pre></div> <p>And a little html in our component template:</p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/templates/components/number-box.hbs --&gt;</span>
+</code></pre></div> <p>And a little html in our component template:</p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- app/templates/components/number-box.hbs --&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-heading"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"text-center"</span><span class="nt">&gt;&lt;/h3&gt;</span>
-  <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"text-center"</span><span class="nt">&gt;&lt;/h1&gt;</span>
+  <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"text-center"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">title</span><span class="k">}}</span><span class="nt">&lt;/h3&gt;</span>
+  <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"text-center"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">if</span> <span class="nv">number</span> <span class="nv">number</span> <span class="s1">'...'</span><span class="k">}}</span><span class="nt">&lt;/h1&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-
-</code></pre></div> <p>As you see, we can pass in our component two attributes: <code>title</code>, <code>number</code>. If we have something in <code>number</code> shows that, if not shows three dots.</p> <p>Our template is ready, we can use it in our <code>app/templates/admin/seeder.hbs</code></p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/templates/admin/seeder.hbs --&gt;</span>
+</code></pre></div> <p>As you see, we can pass in our component two attributes: <code>title</code>, <code>number</code>. If we have something in <code>number</code> shows that number, if it is empty shows three dots.</p> <p>Our template is ready, we can use it in our <code>app/templates/admin/seeder.hbs</code></p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- app/templates/admin/seeder.hbs --&gt;</span>
 <span class="nt">&lt;h1&gt;</span>Seeder, our Data Center<span class="nt">&lt;/h1&gt;</span>
 
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">number-box</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"Libraries"</span> <span class="nv">number</span><span class="o">=</span><span class="nv">libraries</span><span class="p">.</span><span class="nv">length</span><span class="k">}}</span><span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">number-box</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"Authors"</span> <span class="nv">number</span><span class="o">=</span><span class="nv">authors</span><span class="p">.</span><span class="nv">length</span><span class="k">}}</span><span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">number-box</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"Books"</span> <span class="nv">number</span><span class="o">=</span><span class="nv">books</span><span class="p">.</span><span class="nv">length</span><span class="k">}}</span><span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</code></pre></div> <p>If you open your browser now, you will see three boxes with numbers or with three dots. Remember, we setup <code>libraries</code>, <code>authors</code> and <code>books</code> property in our <code>setupController</code> hook, if our <code>model</code> hook downloaded our data from the server, those variables are not empty. <code>.length</code> method will return a number of the size of that array.</p> <h3>Building forms to generate dummy data.</h3> <p>We have to generate two other components what we gonna use in this page. Actually we will use only one component, but inside that component we will use an other component.</p> <p>Run <code>ember-cli</code> commands in your terminal.</p> <div class="highlight"><pre><code class="language-" data-lang="">ember g component seeder-block
-ember g component fader-label
+</code></pre></div> <p>If you open your browser now, you will see three boxes with numbers or with three dots. Remember, we setup <code>libraries</code>, <code>authors</code> and <code>books</code> property in our <code>setupController</code> hook, if our <code>model</code> hook downloaded our data from the server, those variables are not empty. <code>.length</code> method will return a number of the size of that array.</p> <h3>Building forms to generate dummy data.</h3> <p>We have to generate two other components what we gonna use in this page. Actually we will use only one component, but inside that component we will use an other component. This part is a little bit advance, I don&#39;t have a detailed explanation here, but you can copy paste the code and try out. I would suggest, you should play with this code, try to understand. However, don&#39;t forget, if you have any question, don&#39;t hesitate to ping me on Slack or on Twitter.</p> <p>Run Ember-CLI commands in your terminal.</p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember g component seeder-block
+$ ember g component fader-label
 </code></pre></div> <p>Insert the following codes in your templates.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/components/seeder-block.js</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
@@ -1029,24 +1016,24 @@ ember g component fader-label
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</code></pre></div><div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/templates/components/seeder-block.hbs --&gt;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- app/templates/components/seeder-block.hbs --&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;h3&gt;&lt;/h3&gt;</span>
+    <span class="nt">&lt;h3&gt;</span><span class="k">{{</span><span class="nv">sectionTitle</span><span class="k">}}</span><span class="nt">&lt;/h3&gt;</span>
 
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-horizontal"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"col-sm-2 control-label"</span><span class="nt">&gt;</span>Number of new records:<span class="nt">&lt;/label&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-2"</span><span class="nt">&gt;</span>
-
+          <span class="k">{{</span><span class="nv">input</span> <span class="nv">value</span><span class="o">=</span><span class="nv">counter</span> <span class="nv">class</span><span class="o">=</span><span class="s1">'form-control'</span><span class="k">}}</span>
         <span class="nt">&lt;/div&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="nt">&gt;</span>Generate <span class="nt">&lt;/button&gt;</span>
-          Created!
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="k">{{</span><span class="nv">action</span> <span class="s1">'generateAction'</span><span class="k">}}</span><span class="nt">&gt;</span>Generate <span class="k">{{</span><span class="nv">sectionTitle</span><span class="k">}}</span><span class="nt">&lt;/button&gt;</span>
+          <span class="k">{{#</span><span class="nn">fader-label</span> <span class="nv">isShowing</span><span class="o">=</span><span class="nv">createReady</span><span class="k">}}</span>Created!<span class="k">{{/</span><span class="nn">fader-label</span><span class="k">}}</span>
         <span class="nt">&lt;/div&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger"</span> <span class="nt">&gt;</span>Delete All <span class="nt">&lt;/button&gt;</span>
-          Deleted!
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger"</span> <span class="k">{{</span><span class="nv">action</span> <span class="s1">'deleteAction'</span><span class="k">}}</span><span class="nt">&gt;</span>Delete All <span class="k">{{</span><span class="nv">sectionTitle</span><span class="k">}}</span><span class="nt">&lt;/button&gt;</span>
+          <span class="k">{{#</span><span class="nn">fader-label</span> <span class="nv">isShowing</span><span class="o">=</span><span class="nv">deleteReady</span><span class="k">}}</span>Deleted!<span class="k">{{/</span><span class="nn">fader-label</span><span class="k">}}</span>
         <span class="nt">&lt;/div&gt;</span>
       <span class="nt">&lt;/div&gt;</span>
 
@@ -1072,10 +1059,10 @@ ember g component fader-label
   <span class="p">})</span>
 <span class="p">});</span>
 
-</code></pre></div><div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/templates/components/fader-label.hbs --&gt;</span>
-
-</code></pre></div> <p>We need also a little scss snippet.</p> <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="o">//</span> <span class="nt">app</span><span class="o">/</span><span class="nt">styles</span><span class="o">/</span><span class="nt">app</span><span class="nc">.scss</span>
-<span class="k">@import</span> <span class="s2">'bootstrap'</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- app/templates/components/fader-label.hbs --&gt;</span>
+<span class="k">{{</span><span class="nv">yield</span><span class="k">}}</span>
+</code></pre></div> <p>We need also a little <code>scss</code> snippet.</p> <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// app/styles/app.scss
+</span><span class="k">@import</span> <span class="s1">'bootstrap'</span><span class="p">;</span>
 
 <span class="nt">body</span> <span class="p">{</span>
   <span class="nl">padding-top</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
@@ -1091,25 +1078,39 @@ ember g component fader-label
 
 <span class="nc">.label-fade</span> <span class="p">{</span>
   <span class="nl">opacity</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-  <span class="err">@include</span> <span class="err">transition(all</span> <span class="err">0.5s);</span>
-  <span class="err">&amp;.label-show</span> <span class="err">{</span>
+  <span class="k">@include</span> <span class="nd">transition</span><span class="p">(</span><span class="n">all</span> <span class="m">0</span><span class="mi">.5s</span><span class="p">);</span>
+  <span class="k">&amp;</span><span class="nc">.label-show</span> <span class="p">{</span>
     <span class="nl">opacity</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="err">}</span>
+<span class="p">}</span>
 
-</code></pre></div> <p>We have our components, let&#39;s insert them in <code>seeder.hbs</code></p> <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/templates/admin/seeder.hbs --&gt;</span>
+</code></pre></div> <p>We have our components, let&#39;s insert them in <code>seeder.hbs</code></p> <div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="c">&lt;!-- app/templates/admin/seeder.hbs --&gt;</span>
 <span class="nt">&lt;h1&gt;</span>Seeder, our Data Center<span class="nt">&lt;/h1&gt;</span>
 
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">number-box</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"Libraries"</span> <span class="nv">number</span><span class="o">=</span><span class="nv">libraries</span><span class="p">.</span><span class="nv">length</span><span class="k">}}</span><span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">number-box</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"Authors"</span> <span class="nv">number</span><span class="o">=</span><span class="nv">authors</span><span class="p">.</span><span class="nv">length</span><span class="k">}}</span><span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">number-box</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"Books"</span> <span class="nv">number</span><span class="o">=</span><span class="nv">books</span><span class="p">.</span><span class="nv">length</span><span class="k">}}</span><span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 
+<span class="k">{{</span><span class="nv">seeder-block</span>
+    <span class="nv">sectionTitle</span><span class="o">=</span><span class="s1">'Libraries'</span>
+    <span class="nv">counter</span><span class="o">=</span><span class="nv">librariesCounter</span>
+    <span class="nv">generateAction</span><span class="o">=</span><span class="s1">'generateLibraries'</span>
+    <span class="nv">deleteAction</span><span class="o">=</span><span class="s1">'deleteLibraries'</span>
+    <span class="nv">createReady</span><span class="o">=</span><span class="nv">libDone</span>
+    <span class="nv">deleteReady</span><span class="o">=</span><span class="nv">libDelDone</span>
+<span class="k">}}</span>
 
-
-
-</code></pre></div> <h3>Install <code>faker.js</code> for dummy data</h3> <p>To generate dummy data we have to install <code>faker.js</code>. https://github.com/johnotander/ember-faker</p> <div class="highlight"><pre><code class="language-" data-lang="">ember install ember-faker
+<span class="k">{{</span><span class="nv">seeder-block</span>
+  <span class="nv">sectionTitle</span><span class="o">=</span><span class="s1">'Authors with Books'</span>
+  <span class="nv">counter</span><span class="o">=</span><span class="nv">authorCounter</span>
+  <span class="nv">generateAction</span><span class="o">=</span><span class="s1">'generateBooksAndAuthors'</span>
+  <span class="nv">deleteAction</span><span class="o">=</span><span class="s1">'deleteBooksAndAuthors'</span>
+  <span class="nv">createReady</span><span class="o">=</span><span class="nv">authDone</span>
+  <span class="nv">deleteReady</span><span class="o">=</span><span class="nv">authDelDone</span>
+<span class="k">}}</span>
+</code></pre></div> <h3>Install <code>faker.js</code> for dummy data</h3> <p>To generate dummy data we have to install <code>faker.js</code>. <a href="https://github.com/johnotander/ember-faker">https://github.com/johnotander/ember-faker</a></p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember install ember-faker
 </code></pre></div> <p>We import <code>faker</code> in our models, where we extend each of our models with a <code>randomize()</code> function for generating dummy data.</p> <p>Update your models with the followings.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/models/library.js</span>
 <span class="kr">import</span> <span class="nx">DS</span> <span class="nx">from</span> <span class="s1">'ember-data'</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">Faker</span> <span class="nx">from</span> <span class="s1">'faker'</span><span class="p">;</span>
