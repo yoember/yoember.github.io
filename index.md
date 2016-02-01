@@ -1,19 +1,19 @@
 ---
 layout: home
-last_modified_at: 31/01/2016
+last_modified_at: 01/02/2016
 ---
 # Ember.js 2 Tutorial 
 ## Building a complex web application with Ember.js 2.3
-<p class="blog-post-meta">Latest update: <time datetime="2016-01-31" itemprop="datePublished">31 Jan 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-02-01" itemprop="datePublished">01 Feb 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
-This is an [Ember.js 2 tutorial](http://yoember.com) from absolute beginners to advance.
+This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
 
-Welcome! Please check the [Live Demo](https://library-app.firebaseapp.com) page and check out what you are going to build.
+Welcome! Please check the [Live Demo](https://library-app.firebaseapp.com) page and play with the app what we are going to build together.
 
 * Live demo: [library-app.firebaseapp.com](https://library-app.firebaseapp.com/)
 
-You can clone the original repository from GitHub and you can launch on your desktop.
+You can clone the original repository from GitHub and launch on your desktop any time.
 
 * Original repo: [https://github.com/szines/library-app](https://github.com/szines/library-app)
 
@@ -25,6 +25,8 @@ If you have any comment, suggestion or you have a question, please feel free to 
 Don't hesitate to send me a message on Ember.js community Slack Channel.
 
 * Ember.js Community Slack: [@zoltan](https://embercommunity.slack.com/messages/general/team/zoltan/)
+
+Or leave a comment at the [bottom of this page](#disqus). 
 
 ## Other tutorials
 
@@ -87,9 +89,13 @@ Please read more about Ember-CLI here: [www.ember-cli.com](http://www.ember-cli.
 ### Create the app
 
 In your terminal, navigate in the folder where you usually create your web applications.
-For example, if you have a `project` folder use `cd ~/project`.
+For example, if you have a `project` folder use 
 
-Insider this folder run the following command.
+```
+$ cd ~/project
+```
+
+Inside this folder run the following command.
 
     $ ember new library-app
 
@@ -107,11 +113,12 @@ Your skeleton app is ready and you can run it with the following command. Type i
 Open your new empty app in your browser: <a href="http://localhost:4200" target="_blank">http://localhost:4200</a>
 
 You should see a "Welcome to Ember" message on your website. Well Done! You have your first Ember.js application. :)
+
 You can open Ember Inspector in your Browser. Hope you've already installed it. Ember Inspector exists in Chrome and in Firefox as an extension. After installation you should have a new tab in your developer console in your browser. Check it out, look around. [More details about Ember Inspector here](https://guides.emberjs.com/v2.3.0/ember-inspector/installation/). 
 
-### Turn on a couple of debugging option
+### Turn on a couple of debugging options
 
-If you would like to see more in your browser's console, what Ember.js is doing under the hood, you can turn on a couple of debugging option in your configuration file.
+If you would like to see more information in your browser's console about what Ember.js is doing under the hood, you can turn on a couple of debugging options in your configuration file.
 
 You can find a list of debugging options in `./config/environment.js` file. Remove the comment sign as follow:
 
@@ -126,13 +133,17 @@ You can find a list of debugging options in `./config/environment.js` file. Remo
     }
     //..{% endraw %}
 ```
-Check your app and open the Console in Chrome. You will see a couple of extra information what Ember.js automatically doing.
+Check your app and open the Console in Chrome/Firefox. You will see extra information what Ember.js automatically doing. Don't worry if you don't understand those debug messages at this stage. As you spend more and more time with Ember.js development, these lines going to be clearer from time to time.
 
 ### Add Sass and Bootstrap to your app
 
+Let's add some basic style to our application. We use Bootstrap with Sass. Ember-CLI can install for us add-ons and useful packages. These add-ons are simplify our development process, because we don't have to reinvent the wheel, we get more out of the box. You can find various packages, add-ons on the following databases: http://www.emberaddons.com or http://www.emberobserver.com
+
+We install an add-on for Sass and other for Bootstrap.
+
 Exit your `ember server` with `Ctrl+C` in your terminal.
 
-Run the following two command in your terminal.
+Run the following two commands:
 
     $ ember install ember-cli-sass
     $ ember install ember-cli-bootstrap-sassy
@@ -149,7 +160,7 @@ Open `./app/styles/app.scss` file in your editor and add the following line:
 
 Relaunch your app with `ember server`. You should see in the browser, that 'Welcome to Ember' uses Bootstrap default font.
 
-Above steps in a one liner. Copy-paste to your console (without $). This is usefull if you create a new project and you would like to add Bootstrap in a second.
+Above steps in a one liner. Copy-paste to your console (without $). This is useful if you create a new project and you would like to add Bootstrap in a second.
 
 ``` {% raw %}
 $ ember install ember-cli-sass && ember install ember-cli-bootstrap-sassy && echo '@import "bootstrap";' > ./app/styles/app.scss && rm ./app/styles/app.css
@@ -2149,3 +2160,4 @@ export default Ember.Controller.extend({
 
 });
 ```
+<a name='disqus'></a>
