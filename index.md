@@ -1,10 +1,10 @@
 ---
 layout: home
-last_modified_at: 01/02/2016
+last_modified_at: 05/02/2016
 ---
 # Ember.js 2 Tutorial 
 ## Building a complex web application with Ember.js 2.3
-<p class="blog-post-meta">Latest update: <time datetime="2016-02-01" itemprop="datePublished">01 Feb 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-02-05" itemprop="datePublished">5 Feb 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
@@ -48,7 +48,7 @@ Or leave a comment at the [bottom of this page](#disqus).
 
 * node.js: at least 0.12, but the best if you install the latest 5.5.0.
 
-Suggested way to install node.js: [https://github.com/creationix/nvm](https://github.com/creationix/nvm)
+[The best way to install Node.js on Mac, Linux and on Windows]({% post_url 2016-02-05-the-best-way-to-install-node-js %})
 
 * Ember Inspector Chrome Extension
 
@@ -68,6 +68,10 @@ This tutorial uses the latest Ember-CLI tool (v2.3.0-beta.1 at end of Jan 2016).
 The following `npm` command installs Ember-CLI specified version in the global namespace. At the moment Ember-CLI version 2.3 is still in Beta phase, but it is perfect to create new Ember applications. (The Ember.js and Ember Data packages are stable and production ready.)
 
     $ npm install -g ember-cli@2.3.0-beta.1
+    
+or 
+
+    $ npm install -g ember-cli@beta
 
 You have now a new `ember` command in your console. Check with
 
@@ -116,9 +120,9 @@ You should see a "Welcome to Ember" message on your website. Well Done! You have
 
 You can open Ember Inspector in your Browser. Hope you've already installed it. Ember Inspector exists in Chrome and in Firefox as an extension. After installation you should have a new tab in your developer console in your browser. Check it out, look around. [More details about Ember Inspector here](https://guides.emberjs.com/v2.3.0/ember-inspector/installation/). 
 
-### Turn on a couple of debugging options
+### Turn on a few debugging options
 
-If you would like to see more information in your browser's console about what Ember.js is doing under the hood, you can turn on a couple of debugging options in your configuration file.
+If you would like to see more information in your browser's console about what Ember.js is doing under the hood, you can turn on a few debugging options in your configuration file.
 
 You can find a list of debugging options in `./config/environment.js` file. Remove the comment sign as follow:
 
@@ -361,7 +365,7 @@ Please note, we will use the traditional syntax in the following code, it means 
 
 Computed properties and observers could be written in two ways. It is important to know the "old" syntax and the "new" syntax, so when you see older project, you will recognise this pattern.
 
-Old (with ES5):
+Old (with ES5 string concatenation):
 
 ``` javascript
 //...
@@ -371,7 +375,7 @@ fullName: function() {
 //...
 ```
 
-New (with ES6):
+New (with ES6 string interpolation):
 
 ``` javascript
 //...
@@ -786,7 +790,7 @@ Add a table to `app/templates/admin/invitations.hbs`
 </table>{% endraw %}
 ```
 
-We use `{{#each}}{{/each}}` handlebar block to generate a list. The `model` variable will contain the array what we download from the server. Ember.js automatically populate responses from the server if we download it in the next step using our route file.
+We use `{% raw %}{{#each}}{{/each}}{% endraw %}` handlebar block to generate a list. The `model` variable will contain the array what we download from the server. Ember.js automatically populate responses from the server if we download it in the next step using our route file.
 
 Let's download our data from the server using route and Ember Data.
 
@@ -986,6 +990,10 @@ export default Ember.Route.extend({
 In the above Route we create a new record and it will be the `model`. It automatically appears in the controller and in the template. In the `saveLibrary` action we accept a param and we save that model, after we send the application back to Libraries home page with `transitionTo`.
 
 There is an Ember.js built in action (event) `willTransition`, which will be called when you leave a page (route). In our case, we use this action to reset the model if we haven't saved in the database before.
+
+As you can see, we can access to the controller from the route handler, with `this.controller` method, however we don't have a real controller file for this route (`/libraries/new`). Ember.js dynamic code generation feature automatically creates controllers and route handlers for each route. They exists in memory. In this example `model` property exists in this "virtual" controller and in our template, so we can "destroy" it.
+
+Open your browser and please check these automatically generated routes and controllers in Ember Inspector, under the "Routes" section. You will see how many different elements dynamically created.
 
 ### Homework
 
@@ -1589,7 +1597,7 @@ In this lesson we extend our models with `book` and `author`. Setup relation bet
 
 ### Creating some new models and setup relations
 
-In our simple World, we have Libraries. We have Authors, whose could have a couple of books, however a book could be only in one Library. And one book has only one Author.
+In our simple World, we have Libraries. We have Authors, whose could have a few books, however a book could be only in one Library. And one book has only one Author.
 
 To generate new models we use Ember-CLI.
 

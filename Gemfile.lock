@@ -8,7 +8,7 @@ GEM
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
-    byebug (8.2.1)
+    byebug (8.2.2)
     coderay (1.1.0)
     colorator (0.1)
     concurrent-ruby (1.0.0)
@@ -39,7 +39,7 @@ GEM
       guard (~> 2.10, >= 2.10.3)
       guard-compat (~> 1.1)
       jekyll (>= 1.0.0)
-    guard-livereload (2.5.1)
+    guard-livereload (2.5.2)
       em-websocket (~> 0.5)
       guard (~> 2.8)
       guard-compat (~> 1.0)
@@ -138,9 +138,11 @@ DEPENDENCIES
   jekyll
   jekyll-assets
   jekyll-sitemap
+  kramdown
   octopress
   octopress-debugger
   redcarpet
+  rouge
   sass
   uglifier
 

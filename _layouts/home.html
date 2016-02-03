@@ -15,27 +15,10 @@ layout: default
 
   {{content}}
 
-  <div id="disqus_thread"></div>
-  <script>
-   var disqus_config = function () {
-    this.page.url = 'http://yoember.com';
-    this.page.identifier = 'library-app';
-   };
-
-  (function() {
-    var d = document, s = d.createElement('script');
-
-    s.src = '//yoember.disqus.com/embed.js';
-
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
-  </script>
-
 {% endif %}
 
 <div class="row">
-  <section class="col-sm-8">
+  <section class="col-sm-12">
     {% for post in site.posts %}
       <article class="blog-post-list-item">
         <header>
@@ -81,3 +64,20 @@ layout: default
     {% include sidebar.html %}
   </aside>
 </div>
+
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function () {
+    this.page.url = 'http://yoember.com';
+    this.page.identifier = 'library-app';
+  };
+
+  (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//yoember.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
