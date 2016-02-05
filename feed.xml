@@ -6,8 +6,8 @@
 </description>
     <link>http://yoember.com/</link>
     <atom:link href="http://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 05 Feb 2016 13:03:36 +1300</pubDate>
-    <lastBuildDate>Fri, 05 Feb 2016 13:03:36 +1300</lastBuildDate>
+    <pubDate>Fri, 05 Feb 2016 13:51:17 +1300</pubDate>
+    <lastBuildDate>Fri, 05 Feb 2016 13:51:17 +1300</lastBuildDate>
     <generator>Jekyll v3.1.1</generator>
     
       <item>
@@ -21,12 +21,12 @@
 &lt;p&gt;&lt;a href=&quot;https://github.com/creationix/nvm&quot;&gt;https://github.com/creationix/nvm&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;You have to have on your Mac the Command Line Tools. Or you install the full XCode from App Store either just use the small Command Line Tools installer:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt; xcode-select --install
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt; $ xcode-select --install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;(If you&amp;#39;ve just installed XCode, don&amp;#39;t forget to launch it first and accepting the Terms and Conditions.)&lt;/p&gt;
 
 &lt;p&gt;You can use the install script for &lt;code&gt;nvm&lt;/code&gt; installation.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (&lt;code&gt;~/.nvm&lt;/code&gt;) Secondly, you add two extra lines to your console script.&lt;/p&gt;
 
