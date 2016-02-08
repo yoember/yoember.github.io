@@ -6,8 +6,8 @@
 </description>
     <link>http://yoember.com/</link>
     <atom:link href="http://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 08 Feb 2016 13:07:25 +1300</pubDate>
-    <lastBuildDate>Mon, 08 Feb 2016 13:07:25 +1300</lastBuildDate>
+    <pubDate>Mon, 08 Feb 2016 15:23:34 +1300</pubDate>
+    <lastBuildDate>Mon, 08 Feb 2016 15:23:34 +1300</lastBuildDate>
     <generator>Jekyll v3.1.1</generator>
     
       <item>
@@ -82,6 +82,9 @@ $ node -v
 $ npm install -g npm
 $ npm -v
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;One more thing! Don&amp;#39;t forget to run the following command, which increases the amount of inotify watches.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf &amp;amp;&amp;amp; sudo sysctl -p
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;On Windows&lt;/h3&gt;
 
 &lt;p&gt;On Windows, if you don&amp;#39;t need more version from Node.js, you can use the &lt;a href=&quot;https://nodejs.org/en/download/stable/&quot;&gt;official installer&lt;/a&gt;.&lt;/p&gt;
@@ -94,6 +97,22 @@ $ npm -v
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ npm install -g ember-cli-windows
 $ ember-cli-windows
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;More here: &lt;a href=&quot;https://github.com/felixrieseberg/ember-cli-windows&quot;&gt;https://github.com/felixrieseberg/ember-cli-windows&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Always run your PowerShell or CMD.exe as Administrator.&lt;/p&gt;
+
+&lt;p&gt;Don&amp;#39;t forget to run these two commands in PowerShell (as Administrator):&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ Set-ExecutionPolicy Unrestricted -scope Process
+$ ember-cli-windows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Log out and log back in Windows.&lt;/p&gt;
+
+&lt;p&gt;Try to upgrade &lt;code&gt;npm&lt;/code&gt; and after install the latest &lt;code&gt;ember-cli&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ npm install -g npm
+$ npm install -g ember-cli@beta
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I would suggest, experiment with different shells. Which worked better for you? PowerShell, Git Shell, the original CMD.exe? Please, share your Windows experiment in a comment.&lt;/p&gt;
+
 &lt;blockquote&gt;
 &lt;p&gt;Now, you have Node.js on your machine, it&amp;#39;s time to go back to the &lt;a href=&quot;http://yoember.com&quot;&gt;Ember.js Tutorial&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -102,8 +121,7 @@ $ ember-cli-windows
 
 &lt;script&gt;
   var disqus_config = function () {
-    this.page.url = &#39;http://yoember.com/nodejs/the-best-way-to-install-node-js/&#39;;
-    this.page.identifier = &#39;install-node-js&#39;;
+    this.page.identifier = &#39;install-nodejs&#39;;
   };
 
   (function() {
@@ -116,7 +134,7 @@ $ ember-cli-windows
   })();
 &lt;/script&gt;
 </description>
-        <pubDate>Fri, 05 Feb 2016 02:19:03 +1300</pubDate>
+        <pubDate>Mon, 08 Feb 2016 02:19:03 +1300</pubDate>
         <link>http://yoember.com/nodejs/the-best-way-to-install-node-js/</link>
         <guid isPermaLink="true">http://yoember.com/nodejs/the-best-way-to-install-node-js/</guid>
         
