@@ -1,10 +1,11 @@
 ---
 layout: home
-last_modified_at: 05/02/2016
+last_modified_at: 08/02/2016
+title: 'Ember.js 2 Tutorial - From beginner to advance'
 ---
 # Ember.js 2 Tutorial 
 ## Building a complex web application with Ember.js 2.3
-<p class="blog-post-meta">Latest update: <time datetime="2016-02-05" itemprop="datePublished">5 Feb 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-02-08" itemprop="datePublished">8 Feb 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
@@ -15,29 +16,30 @@ Welcome! Please check the [Live Demo](https://library-app.firebaseapp.com) page 
 
 You can clone the original repository from GitHub and launch on your desktop any time.
 
-* Original repo: [https://github.com/szines/library-app](https://github.com/szines/library-app)
+* Original repo: [https://github.com/zoltan-nz/library-app](https://github.com/zoltan-nz/library-app)
 
 If you have any comment, suggestion or you have a question, please feel free to contact with me.
 
-* My Twitter: [@szines](https://www.twitter.com/szines)
+* My Twitter: [@zoltan_nz](https://www.twitter.com/zoltan_nz)
 * My Website: [zoltan.nz](http://zoltan.nz)
 
 Don't hesitate to send me a message on Ember.js community Slack Channel.
 
 * Ember.js Community Slack: [@zoltan](https://embercommunity.slack.com/messages/general/team/zoltan/)
 
-Or leave a comment at the [bottom of this page](#disqus). 
+Or leave a comment at the [bottom of this page](#disqus_thread). 
 
 ## Other tutorials
 
-* Bookstore API (Ruby on Rails): [https://github.com/szines/bookstore-api](https://github.com/szines/bookstore-api)
-* Bookstore Client (Ember.js): [https://github.com/szines/bookstore-client](https://github.com/szines/bookstore-client)
-* Contacts App Client (Ember.js): [https://github.com/szines/contacts-app-client](https://github.com/szines/contacts-app-client)
-* Chat App (Ember.js): [https://github.com/szines/chat-app-v2](https://github.com/szines/chat-app-v2) 
+* Bookstore API (Ruby on Rails): [https://github.com/zoltan-nz/bookstore-api](https://github.com/zoltan-nz/bookstore-api)
+* Bookstore Client (Ember.js): [https://github.com/zoltan-nz/bookstore-client](https://github.com/zoltan-nz/bookstore-client)
+* Contacts App Client (Ember.js): [https://github.com/zoltan-nz/contacts-app-client](https://github.com/zoltan-nz/contacts-app-client)
+* Chat App (Ember.js): [https://github.com/zoltan-nz/chat-app-v2](https://github.com/zoltan-nz/chat-app-v2) 
 
 ## Contents
 
 * [Lesson 1 - Creating our first static page with Ember.js](#lesson-1)
+  * [Add Bootstrap and Sass to Ember.js App](#ember-bootstrap-sass)
 * [Lesson 2 - Computed property, actions, dynamic content](#lesson-2)
 * [Lesson 3 - Models, saving data in database](#lesson-3)
 * [Lesson 4 - Deploy your app and add more CRUD functionality](#lesson-4)
@@ -48,7 +50,7 @@ Or leave a comment at the [bottom of this page](#disqus).
 
 * node.js: at least 0.12, but the best if you install the latest 5.5.0.
 
-[The best way to install Node.js on Mac, Linux and on Windows]({% post_url 2016-02-05-the-best-way-to-install-node-js %})
+[The best way to install Node.js on Mac, Linux and on Windows]({% post_url 2016-02-08-the-best-way-to-install-node-js %})
 
 * Ember Inspector Chrome Extension
 
@@ -61,13 +63,13 @@ More info: https://facebook.github.io/watchman/
 
 ## <a name='lesson-1'></a>Lesson 1
 
-This tutorial uses the latest Ember-CLI tool (v2.3.0-beta.1 at end of Jan 2016).
+This tutorial uses the latest Ember-CLI tool (v2.3.0-beta.2).
 
 ### Install ember-cli
 
 The following `npm` command installs Ember-CLI specified version in the global namespace. At the moment Ember-CLI version 2.3 is still in Beta phase, but it is perfect to create new Ember applications. (The Ember.js and Ember Data packages are stable and production ready.)
 
-    $ npm install -g ember-cli@2.3.0-beta.1
+    $ npm install -g ember-cli@2.3.0-beta.2
     
 or 
 
@@ -80,7 +82,7 @@ You have now a new `ember` command in your console. Check with
 You should see something similar:
 
 ``` bash {% raw %}
-version: 2.3.0-beta.1
+version: 2.3.0-beta.2
 node: 5.5.0
 npm: 2.14.10
 os: darwin x64{% endraw %}
@@ -137,11 +139,11 @@ You can find a list of debugging options in `./config/environment.js` file. Remo
     }
     //..{% endraw %}
 ```
-Check your app and open the Console in Chrome/Firefox. You will see extra information what Ember.js automatically doing. Don't worry if you don't understand those debug messages at this stage. As you spend more and more time with Ember.js development, these lines going to be clearer from time to time.
+Check your app and open the Console in Chrome/Firefox. You will see same extra information about what Ember.js actually does under the hood. Don't worry if you don't understand these debug messages at this stage. As you spend more and more time with Ember.js development, these lines are going to be clearer.
 
-### Add Sass and Bootstrap to your app
+### <a name="ember-bootstrap-sass"></a>Add Bootstrap and Sass to Ember.js App
 
-Let's add some basic style to our application. We use Bootstrap with Sass. Ember-CLI can install for us add-ons and useful packages. These add-ons are simplify our development process, because we don't have to reinvent the wheel, we get more out of the box. You can find various packages, add-ons on the following databases: http://www.emberaddons.com or http://www.emberobserver.com
+Let's add some basic style to our application. We use Bootstrap with Sass. Ember-CLI can install for us add-ons and useful packages. These add-ons are simplify our development process, because we don't have to reinvent the wheel, we get more out of the box. You can find various packages, add-ons on these websites: http://www.emberaddons.com or http://www.emberobserver.com
 
 We install an add-on for Sass and other for Bootstrap.
 
@@ -149,28 +151,34 @@ Exit your `ember server` with `Ctrl+C` in your terminal.
 
 Run the following two commands:
 
-    $ ember install ember-cli-sass
-    $ ember install ember-cli-bootstrap-sassy
+```
+$ ember install ember-cli-sass
+$ ember install ember-cli-bootstrap-sassy
+```
 
 You will see, that your `./package.json` and `./bower.json` are extended with a couple of lines.
 
 Rename your `app.css` to `app.scss` with the following terminal command or you can use your editor to rename the `./app/styles/app.css` file:
 
-    $ mv app/styles/app.css app/styles/app.scss
+```
+$ mv app/styles/app.css app/styles/app.scss
+```
 
 Open `./app/styles/app.scss` file in your editor and add the following line:
 
-    @import "bootstrap";
+```
+@import "bootstrap";
+```
 
 Relaunch your app with `ember server`. You should see in the browser, that 'Welcome to Ember' uses Bootstrap default font.
 
-Above steps in a one liner. Copy-paste to your console (without $). This is useful if you create a new project and you would like to add Bootstrap in a second.
+Above steps in a one liner. Copy-paste in your console (without $). This is useful if you create a new project and you would like to add Bootstrap in a second.
 
-``` {% raw %}
-$ ember install ember-cli-sass && ember install ember-cli-bootstrap-sassy && echo '@import "bootstrap";' > ./app/styles/app.scss && rm ./app/styles/app.css
-{% endraw %}```
+```
+{% raw %}$ ember install ember-cli-sass && ember install ember-cli-bootstrap-sassy && echo '@import "bootstrap";' > ./app/styles/app.scss && rm ./app/styles/app.css{% endraw %}
+```
 
-### Create a navigation partial
+### <a name="navigation-bar"></a>Create a navigation partial
 
 We will use bootstrap navigation bar to create a nice header section for our app.
 
@@ -182,6 +190,12 @@ Update your main template file. Delete the example content and add the following
   {{outlet}}
 </div>{% endraw %}
 ``` 
+
+Ember uses handlebar syntax in templates. It is almost the same as plain html, but you could have dynamic elements with `{% raw %}{{}}{% endraw %}`.
+
+You can insert snippets from other template with `partial` helper.
+
+The `outlet` helper a general helper, a placeholder, where deeper level content will be inserted. The `outlet` in `application.hbs` means, that almost all content from other pages will appear inside this section. For this reason, `application.hbs` is a good place to determine the main structure of our website. In our case we have a `container` div, a navigation bar and the real content.
 
 Generate a `navbar.hbs` file with the following command in you terminal.
 
@@ -211,6 +225,8 @@ You can open `./app/templates/navbar.hbs` in your editor and add the following l
 </nav>{% endraw %}
 ```
 
+Ember provides a bunch of useful handlebar helpers. The `{% raw %}{{#link-to}}{{/link-to}}{% endraw %}` helps to create links. In this case we use as a block helper. The first parameter is the route name (`index`). Inside the block goes the label of the link. `link-to` uses `<a>` tag as default, but you can setup different tag with `tagName` property. We need this little bit hacky solution because of Bootstrap, however later we will implement a [nicer component](#nav-link-to) to manage navigation links.
+
 Launch your application with `ember server`. You should see your new navigation bar in your browser.
 
 You can update your `app.scss` file to add some extra padding to the top. The updated `./app/styles/app.scss` content:
@@ -223,7 +239,9 @@ body {
 }
 ```
 
-### Create a new About page and add the link to the menu bar
+### <a name="about-page"></a>Create a new About page and add the link to the menu bar
+
+Let's create a new About page.
 
 Run the following command in your terminal
 
@@ -237,7 +255,7 @@ Open your new `./app/templates/about.hbs` file in your editor, delete its conten
 <h1>About Page</h1>
 ```    
 
-You can launch your app with `ember server` and navigate to http://localhost:4200/about page, you should see the created `About Page` header message. If you click on `Home` in your menu bar, your page will be empty. Let's fix that.
+You can launch your app with `ember server` and navigate to `http://localhost:4200/about` page, you should see the created `About Page` header message. If you click on `Home` in your menu bar, your page will be empty. Let's fix that.
 
 Create a new `index` template with the following command in your terminal:
 
@@ -249,7 +267,7 @@ Open in your editor the generated `./app/templates/index.hbs` file and add the f
 <h1>Home Page</h1>
 ```
 
-If you launch your app, you should see the above message on your home page, however we still doesn't have About link in our menu bar.
+If you launch your app, you should see the above message on your home page, however we still doesn't have `About` link in our menu bar.
 
 Open your `./app/templates/navbar.hbs` and add the following line to the `ul` section under `Home` link:
 
@@ -266,7 +284,7 @@ Your `ul` section in `navbar.hbs` should look like this:
 </ul>{% endraw %}
 ```
 
-If you check your app in the browser, you should see `Home` and `About` link in your menu bar, you can click on them and you will see how the page content and the url are changed. The `active` state of the link changes the style of the menu link automatically as well. However Bootstrap expect the `active` class in `li` and expects an anchor tag inside the `li` tag. For this reason we have to use  
+If you check your app in the browser, you should see `Home` and `About` link in your menu bar, you can click on them and you will see how the page content and the url are changed. The `active` state of the link changes the style of the menu link automatically as well. However Bootstrap expect the `active` class in `li` and expects an anchor tag inside the `li` tag. For this reason we have to insert that empty anchor around menu labels. We will fix this with a nice component later. 
 
 ### Homework
 
@@ -276,14 +294,14 @@ Create a `Contact` page. Extend the navigation bar with "Contact" menu.
 
 ### Coming Soon homepage with an email input box
 
-Let's create a coming soon jumbotron on the home page with an email input box, where users can subscribe for a newsletter.
+Let's create a coming soon "jumbotron" on the home page with an email input box, where users can subscribe for a newsletter.
 
 * Bootstrap's jumbotron: http://getbootstrap.com/components/#jumbotron
 * Bootstrap's forms: http://getbootstrap.com/css/#forms
 
 #### Only static html5 and style
 
-Add a static jumbotron, an input box and a button to `index.hbs`.
+Add a static jumbotron, an input box and a button to `/app/templates/index.hbs`.
 
 ```html
     <div class="jumbotron text-center">
@@ -311,27 +329,29 @@ Add a static jumbotron, an input box and a button to `index.hbs`.
 
 We would like to cover the following requirements:
 
-* "Invite me" button should be inactive when input box is empty
-* "Invite me" button should be inactive when the content in the input box is not valid email address.
-* Show a response message after clicking of "Invite me" button.
+* "Invite me" button should be inactive when input box is empty.
+* "Invite me" button should be inactive when the content in the input box is not a valid email address.
+* Show a response message after clicking on "Invite me" button.
 * Clear the input box when invitation sent.
 
 #### isDisabled
 
-We can add dynamic values to standard html properties using conditionals. We can use our controller to add or modify the value of a variable, what we use in our template. Check the following solution. We create a boolean variable, let's call it `isDisabled` will provide the state of `disabled` html attribute.
+We can add dynamic values to standard html properties using conditionals. We can use our controller to add or modify the value of a variable, which we use in our template. Check the following solution. 
+
+We use a boolean variable, let's call it `isDisabled`, which will help us to turn on and off the `disabled` html attribute on our button. We have access to these variables in our controllers and in our templates.
 
 From the official guide:
 "Each template has an associated controller: this is where the template finds the properties that it displays. You can display a property from your controller by wrapping the property name in curly braces."
 
-Add `disabled` property with {% raw %}`{{if}}`{% endraw %} helper. (Note: adding `disabled` style to the class will not disable the button properly when we will implement an `action` later.)
+First, update with this variable to your `index.hbs` template.
+
+Add `disabled` property with `{% raw %}{{isDisabled}}{% endraw %}` boolean variable.
 
 ``` handlebars {% raw %}
-<button class="btn btn-primary btn-lg btn-block" disabled="{{if isDisabled 'disabled'}}">Request invitation</button>{% endraw %}
+<button class="btn btn-primary btn-lg btn-block" disabled={{isDisabled}}>Request invitation</button>{% endraw %}
 ``` 
 
-* More about conditionals in templates: http://guides.emberjs.com/v2.3.0/templates/conditionals/
-
-Create index controller
+Now we can create our index controller:
 
     $ ember g controller index
 
@@ -352,7 +372,7 @@ Add `isDisabled` property to the controller. Default value is `true`.
     }); {% endraw %}
 ```
 
-You can check your app, the button will be disabled by default.
+You can check your app, the button will be disabled by default. We want to add some logic around this feature. We have to learn a couple of new Ember.js features for that.
 
 #### Computed Properties and Observers
 
@@ -361,9 +381,11 @@ Computed Properties and Observers are important features of Ember.js. Please rea
 * Computed Properties: http://guides.emberjs.com/v2.3.0/object-model/computed-properties/
 * Observers: http://guides.emberjs.com/v2.3.0/object-model/observers/
 
-Please note, we will use the traditional syntax in the following code, it means `.property()` and `.observes()` will be attached to the functions.
+Please note, I will use the new, preferred syntax in our project. You could ask, was there some other syntax before? Yes.
 
-Computed properties and observers could be written in two ways. It is important to know the "old" syntax and the "new" syntax, so when you see older project, you will recognise this pattern.
+Computed properties and observers still could be written in two ways, however the classic syntax will be deprecated soon, but it is important to know the "old" syntax and the "new" syntax, so when you see older project, you will recognise this pattern.
+
+Previously `.property()` and `.observes()` were attached to the end of the functions, nowadays we use `Ember.computed()` and `Ember.observer()` functions instead. Let's see in examples.
 
 Old (with ES5 string concatenation):
 
@@ -384,8 +406,11 @@ fullName: Ember.computed('firstName', 'lastName', function() {
 }
 //...
 ```
+So, we will use this new syntax. `Ember.computed()` could have more parameters. First parameters are always those variables/properties in string format, what we would like to use inside our function. The last parameter is a `function()`. Inside in this function we will have access to the properties with `this.get()`. In Ember.js we read properties with `this.get('propertyName')` and update properties with `this.set('propertyName', newValue)`.
 
-First, update your html code with input component syntax and add a `value` to our email input box.
+Back to our project, and let's play with these new features.
+
+Let's update our html code with input component syntax and add a `value` to our email input box.
 
 Modify `<input>` line as follow in `index.hbs`:
 
@@ -399,44 +424,37 @@ If you type something in the input box, it will update this variable in the cont
 
 You can use the following code in your controller to demonstrate the differences between computed properties and observers:
 
-``` javascript
-    emailAddress: '',
-
-    actualEmailAddress: function() { 
-      console.log('actualEmailAddress function is called: ', this.get('emailAddress'));
-    }.property('emailAddress'),
-
-    emailAddressChanged: function() { 
-      console.log('observer is called', this.get('emailAddress')); 
-    }.observes('emailAddress')
-```
-
-Observers will be called always when the value of the `emailAddress` changes, the computed property only when you use it. Use Ember Inspector, click on `/# Routes` section, find the `index` route, in the same line, under `Controller` column, you will see an `>$E` sign, click on it. Open the console in Chrome and you will see something like this: `Ember Inspector ($E):  Class {__nextSuper: undefined, __ember_meta__: Object, __ember1442491471913: "ember443"}`
-
-If you type the following in the console: `$E.get('actualEmailAddress')`, you should see the above created `console.log` message, that "actualEmailAddress is called".
-
-Please play with the above example and try to create your own observers and computed properties.
-
-We can rewrite our `isDisabled` with computed property as well.
-
-``` javascript
-// app/controllers/index.js
+``` javascript {% raw %}
+//app/controllers/index.js
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
+  isDisabled: true,
+  
   emailAddress: '',
-
-  isDisabled: function() {
-    return this.get('emailAddress') === '';
-  }.property('emailAddress')
+  
+  actualEmailAddress: Ember.computed('emailAddress', function() { 
+    console.log('actualEmailAddress function is called: ', this.get('emailAddress'));
+  },
+  
+  emailAddressChanged: Ember.observer('emailAddress', function() { 
+    console.log('observer is called', this.get('emailAddress')); 
+  }
 
 });
+{% endraw %}
 ```
 
-But the above solution works only if the input box is not empty. It is not checking how valid the email address.
+Observers will be called always when the value of the `emailAddress` changes, the computed property only when you use it. Open your app in your browser, activate Ember Inspector. Click on `/# Routes` section, find the `index` route, in the same line, under `Controller` column, you will see an `>$E` sign, click on it. Open the console in Chrome and you will see something like this: `{% raw %}Ember Inspector ($E):  Class {__nextSuper: undefined, __ember_meta__: Object, __ember1442491471913: "ember443"}{% endraw %}`
 
-You can use the new Ember.js 2 syntax as well.
+If you type the following in the console: `$E.get('actualEmailAddress')`, you should see the above created `console.log` message, that "actualEmailAddress is called". You can try out `$E.set('actualEmailAddress', 'example@example.com')` in the console. What do you see?
+
+Please play with the above examples and try to create your own observers and computed properties.
+
+#### isDisabled with Computed Property
+
+We can rewrite our `isDisabled` with computed property as well.
 
 ``` javascript
 // app/controllers/index.js
@@ -453,7 +471,7 @@ export default Ember.Controller.extend({
 });
 ```
 
-Or you can use the short version:
+There are a few pre defined computed property function, which make your code more shorter. In the following example we use `Ember.computed.empty()`, which checks whether a property is empty or not.
 
 ``` javascript
 // app/controllers/index.js
@@ -467,11 +485,16 @@ export default Ember.Controller.extend({
 
 });
 ```
-* More about `Ember.computed` short versions: http://emberjs.com/api/classes/Ember.computed.html
+
+Try out the above example in your code.
+
+* More about `Ember.computed` short syntax: http://emberjs.com/api/classes/Ember.computed.html (Check all the methods on that page.)
 
 #### isValid
 
-More elegant solution if we enable our "Invite me" button only when input box contains a valid email address.
+Let's go further. It would be more elegant solution if we enable our "Invite me" button only when input box contains a valid email address.
+
+We use `Ember.computed.match()` short computed property function to check the validity of the string. But we need the negated version of this `isValid` computed property. We can use the `Ember.computed.not()` for this.
 
 ``` javascript
 // app/controllers/index.js
@@ -482,22 +505,20 @@ export default Ember.Controller.extend({
   emailAddress: '',
 
   isValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/),
+  isDisabled: Ember.computed.not('isValid')
 
 });
 ```
-
-We deleted the `isDisabled` property instead we will use `isValid`. Update your `index.hbs` `<button>` tag as below.
-
-``` handlebars {% raw %}
-<button class="btn btn-primary btn-lg btn-block" disabled="{{unless isValid 'disabled'}}">Request invitation</button>{% endraw %}
-```
+Great, it works now as expected. You see, we can write really elegant code with Ember.js, can't we? ;)
 
 #### Add our first Action
 
-Update your `<button>` line again.
+Great we have an input box and a button on our screen, but it does nothing at the moment. Let's implement our first action.
+
+Update the `<button>` line in `index.hbs`.
 
 ``` handlebars {% raw %}
-<button class="btn btn-primary btn-lg btn-block" disabled="{{unless isValid 'disabled'}}" {{action 'saveInvitation'}}>Request invitation</button>{% endraw %}
+<button class="btn btn-primary btn-lg btn-block" disabled="{{isDisabled}}" {{action 'saveInvitation'}}>Request invitation</button>{% endraw %}
 ```
 
 You can try out in your browser, that if you click on the button, you will get a nice error message, which alerts you, that you have to implement this action in your controller. Let's do that.
@@ -511,18 +532,22 @@ export default Ember.Controller.extend({
   emailAddress: '',
 
   isValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/),
+  isDisabled: Ember.computed.not('isValid'),
 
   actions: {
-    saveInvitation: function() {
-      alert('Saving of the following email address is in progress: ' + this.get('emailAddress'));
-      this.set('responseMessage', "Thank you! We've just saved your email address: " + this.get('emailAddress'));
+  
+    saveInvitation() {
+      alert(`Saving of the following email address is in progress: ${this.get('emailAddress')}`);
+      this.set('responseMessage', `Thank you! We've just saved your email address: ${this.get('emailAddress')}`);
       this.set('emailAddress', '');
     }
   }
 
 });
 ```
-If you click on the button, `saveInvitation` action will be called and show an alert box, after it will setup a responseMessage, finally delete the content of `emailAddress`.
+If you click on the button, `saveInvitation` action will be called and shows an alert box, after it will setup a `responseMessage` property, finally deletes the content of `emailAddress`.
+
+We have to show the response message. Extend your template.
 
 ``` handlebars {% raw %}
 <!-- app/templates/index.hbs -->
@@ -552,14 +577,21 @@ If you click on the button, `saveInvitation` action will be called and show an a
 
 </div>{% endraw %}
 ```
+We use `{% raw %}{{#if}}{{/if}}{% endraw %}` handlebar helper block to show or hide the alert message. Handlebar conditionals are really powerful. You can use `{% raw %}{{else}}{% endraw %}` as well.
+
+* More about conditionals in templates: http://guides.emberjs.com/v2.3.0/templates/conditionals/
+
+Brilliant. You learned a lot about Ember.js and you have just implemented these great features.
 
 ### Homework
 
+It is time to practice, what you have just learned. 
+
 You already have an amazing `Contact` page, where we would like to add a contact form. In this contact form would be two fields. One field for email address and one field for text message. And there would be a “Send message” button. This button should be active only if email address field not empty and valid and there is some message in the text box. After clicking on “Send message” button should appear an Alert with the email address and the message. When you close the alert message, the form should be cleared and a message should appear in the page in green box, this message could be something about "we got your message and get in touch soon".
 
-Hint: you already have a `contact.hbs` but you need a controller where you manage these logics.
+Hint: you already have a `contact.hbs` but you need a controller where you manage these logic.
 
-Bonus point if you can add validation to `textarea`. One option, the textarea shouldn't be empty, other option, the length of the message at least 5 character long.
+Bonus point if you can add validation to `textarea`. One option, the textarea should not be empty, other option, the length of the message at least 5 characters long.
 
 ``` handlebars
 {% raw %}{{textarea class="form-control" placeholder="Your message. (At least 5 characters.)" rows="7" value=message}}{% endraw %}
@@ -578,6 +610,8 @@ If you have two computed property, and both has to be `true` you can use a third
 You can get a string computed property length with `.length`. If your computed property is `message`, the length of that message is `message.length`.
 
 * In terms of feedback on a form, there is a really cool solution on bootstrap: http://getbootstrap.com/css/#forms-control-validation (Check the "With optional icons" section.)
+
+Please try to implement the above requirements. When you finished, you can check in my repository. I am pretty sure, that your solution will be much better than mine. ;) 
 
 ## <a name='lesson-3'></a>Lesson 3
 
@@ -606,15 +640,17 @@ export default Ember.Controller.extend({
   emailAddress: '',
 
   isValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/),
+  isDisabled: Ember.computed.not('isValid'),
 
   actions: {
-    saveInvitation: function() {
-      var email = this.get('emailAddress');
+  
+    saveInvitation() {
+      const email = this.get('emailAddress');
 
-      var newInvitation = this.store.createRecord('invitation', {email: email});
+      const newInvitation = this.store.createRecord('invitation', { email: email });
       newInvitation.save();
 
-      this.set('responseMessage', "Thank you! We've just saved your email address: " + this.get('emailAddress'));
+      this.set('responseMessage', `Thank you! We've just saved your email address: ${this.get('emailAddress')}`);
       this.set('emailAddress', '');
     }
   }
@@ -653,7 +689,7 @@ Try out Request Invitation button again, check the browser's console messages an
 
 Well done!
 
-### Promise and the `this` context in javascript
+### Promise and the `this` context in javascript (+ playing with ES5 and ES6 a little)
 
 Promise is a unique asynchronous feature in javascript. Basically an object, which hasn't completed yet, but is expected in the future. You can read more about it on Mozilla website: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -663,30 +699,34 @@ The `save` method on Ember Data Model is a `Promise`. It promises us that it is 
 
 We can catch the result of a `Promise` with a chained `.then()`. In our example:
 
-    newInvitation.save().then(function(response) {
-      console.log('Email address is saved.')
-    })
+``` javascript
+newInvitation.save().then(function(response) {
+  console.log('Email address is saved.')
+})
+```
 
 If the saving process is successful, 'fulfilled', then we will get back a response from the server, what we can catch in our function parameter.
 
 We have to move our lines, which showing our success message inside this new function, because we would like to show that message only, when the data is really saved.
 
-If you would simply just copy paste, you will realize the code will not work as expected.
-
-    newInvitation.save().then(function(response) {
-      this.set('responseMessage', "Thank you! We've just saved your email address: " + this.get('emailAddress'));
-      this.set('emailAddress', '');
-    })
-
-In javascript the `this` points always to the object which is wrapping around. In the above example, the `this` will be undefined, because we are in a function after the Promise. Please learn more about it here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
-
-We have to save the controller context in a local variable, what we can use inside our `then`.
-
-Please update your controller.
+If you would simply just copy paste and you use the classic, ES5 JavaScript syntax, you will realize the code will not work as expected. (In the following snippet, I mix the ES5 `function` and ES6 string interpolation syntax. It is not nice.)
 
 ``` javascript
-// app/controllers/index.js
+newInvitation.save().then(function(response) {
+  this.set('responseMessage', `Thank you! We've just saved your email address: ${this.get('emailAddress')}`);
+  this.set('emailAddress', '');
+})
+```
 
+In javascript the `this` points always to that object which is wrapping it around. In the above example, the `this` will be undefined, because we are in a function after the Promise. Please learn more about it here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
+
+This kind problem is nicely solved in ES6/ES2015, in the new JavaScript, what I use mainly in this tutorial. However, no problem, if you see the old, traditional way also. Just for a second, of course.
+
+In ES5 syntax, we have to save the controller context in a local variable. We can use a `_that` inside our `then`.
+
+In ES5 syntax our controller would look like this. (You don't have to use this code in your project. I will show the preferred ES6/ES2015 version after.)
+
+``` javascript
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
@@ -696,15 +736,19 @@ export default Ember.Controller.extend({
     emailAddress: '',
 
     isValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/),
+    isDisabled: Ember.computed.not('isValid'),
 
     actions: {
+    
         saveInvitation: function() {
+        
             var _that = this;
             var email = this.get('emailAddress');
 
             var newInvitation = this.store.createRecord('invitation', {
                 email: email
             });
+            
             newInvitation.save().then(function(response) {
                 _that.set('responseMessage', "Thank you! We saved your email address with the following id: " + response.get('id'));
                 _that.set('emailAddress', '');
@@ -714,11 +758,48 @@ export default Ember.Controller.extend({
 });
 ```
 
-We save the `this` controller context in a `_that` local variable. We use this local variable inside our function after Promise. The above example uses `response` and shows the `id` of the generated database record.
+We save the `this` controller context in a `_that` local variable. We use this local variable inside our function after the `save()` Promise. The above example uses `response` and shows the `id` of the generated database record. There are a lots of `var`, but in ES2015 JavaScript, we don't use `var` anymore, only `let` and `const`. Good bye `var` and good bye `_that` also. ;)
+
+Let's see the cleaner ES2015 version. (You can use this code in your project.)
+
+``` javascript
+// app/controllers/index.js
+import Ember from 'ember';
+
+export default Ember.Controller.extend({
+
+  headerMessage: 'Coming Soon',
+  responseMessage: '',
+  emailAddress: '',
+
+  isValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/),
+  isDisabled: Ember.computed.not('isValid'),
+
+  actions: {
+
+    saveInvitation() {
+      const email = this.get('emailAddress');
+
+      const newInvitation = this.store.createRecord('invitation', {
+        email: email
+      });
+
+      newInvitation.save().then((response) => {
+        this.set('responseMessage', `Thank you! We saved your email address with the following id: ${response.get('id')}`);
+        this.set('emailAddress', '');
+      });
+
+    }
+  }
+
+});
+```
+
+You can see the new `=>` syntax here. And we don't need so many `function` keyword as well. The context of the `saveInvitation()` method passed deeper automatically inside our asynchronous callback function. So you can just use a simple `this`. Much nicer and cleaner. Do you like it?
+
+After `save()`, the `response` variable will get back the model from the server. This model object will contain the `id` of our model, the `id` comes from our database. You can use it in the response message.
 
 Great, our home page is ready.
-
-(Please note, there is a new syntax in ES6/ES2015 javascript, where we can use `=>` to pass the context automatically inside an asynchronous function. I will explain this later. If you are new in JavaScript, the best if you know the old and the new syntax as well.)
 
 ### Create an Admin page
 
@@ -755,7 +836,7 @@ Add this new page to the `navbar.hbs` with a dropdown.
           <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                  {{#link-to 'admin.invitations' tagName="li"}}<a href>Invitations</a>{{/link-to}}
+                  {{#link-to 'admin.invitations' tagName="li"}}<a href="">Invitations</a>{{/link-to}}
               </ul>
           </li>
       </ul>
@@ -790,11 +871,11 @@ Add a table to `app/templates/admin/invitations.hbs`
 </table>{% endraw %}
 ```
 
-We use `{% raw %}{{#each}}{{/each}}{% endraw %}` handlebar block to generate a list. The `model` variable will contain the array what we download from the server. Ember.js automatically populate responses from the server if we download it in the next step using our route file.
+We use `{% raw %}{{#each}}{{/each}}{% endraw %}` handlebar block helper to generate a list. The `model` variable will contain an array which we will download from the server. Ember.js automatically populates responses from the server. However we have not implemented this step yet.
 
-Let's download our data from the server using route and Ember Data.
+Let's download our data from the server using a Route Handler and Ember Data.
 
-* Please read more about Route's Model: http://guides.emberjs.com/v2.3.0/routing/specifying-a-routes-model/
+* Please start here and read the official guide about Route's Model: http://guides.emberjs.com/v2.3.0/routing/specifying-a-routes-model/
 
 Add the following code to your `app/routes/admin/invitations.js` file:
 
@@ -804,18 +885,18 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
-  model: function() {
+  model() {
     return this.store.findAll('invitation');
   }
 
 });
 ```
 
-Launch your app and check your table in Admin. Do you like it? :)
+Launch your app and check your table in Admin. What do you think? :)
 
 ### CRUD interface for libraries
 
-We will create a new section in our app, where we can add new library or list the created libraries.
+We will implement a new section in our app, where we can create new libraries or list the previously created data.
 
 Firstly we create our `library` model.
 
@@ -834,12 +915,14 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('about');
+  
+  his.route('about');
   this.route('contact');
 
   this.route('admin', function() {
     this.route('invitations');
   });
+  
   this.route('libraries', function() {
     this.route('new');
   });
@@ -854,18 +937,16 @@ Now we create 3 new templates. Our main `libraries.hbs`, a `libraries/index.hbs`
     $ ember g template libraries/index
     $ ember g template libraries/new
 
-Update your `navbar.hbs` main navigation section as following.
+Update your `navbar.hbs` main navigation section as follow.
 
 ``` handlebars
 <!-- app/templates/navbar.hbs -->
-{% raw %}
-      <ul class="nav navbar-nav">
-            {{#link-to 'index' tagName="li"}}<a href="">Home</a>{{/link-to}}
-            {{#link-to 'libraries' tagName="li"}}<a href="">Libraries</a>{{/link-to}}
-            {{#link-to 'about' tagName="li"}}<a href="">About</a>{{/link-to}}
-            {{#link-to 'contact' tagName="li"}}<a href="">Contact</a>{{/link-to}}
-      </ul>
-{% endraw %}
+{% raw %}<ul class="nav navbar-nav">
+      {{#link-to 'index' tagName="li"}}<a href="">Home</a>{{/link-to}}
+      {{#link-to 'libraries' tagName="li"}}<a href="">Libraries</a>{{/link-to}}
+      {{#link-to 'about' tagName="li"}}<a href="">About</a>{{/link-to}}
+      {{#link-to 'contact' tagName="li"}}<a href="">Contact</a>{{/link-to}}
+</ul>{% endraw %}
 ```
 
 Add a submenu to `libraries.hbs`
@@ -948,14 +1029,14 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
-  model: function() {
+  model() {
     return this.store.findAll('library');
   }
 
 })
 ```
 
-We download here all the library from the server.
+We download here all records from the server.
 
 
 ``` javascript
@@ -964,21 +1045,19 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
-  model: function () {
+  model() {
     return this.store.createRecord('library');
   },
 
   actions: {
-    saveLibrary: function (newLibrary) {
-      var _that = this;
-
-      newLibrary.save().then(function (response) {
-        _that.transitionTo('libraries');
-      })
+  
+    saveLibrary(newLibrary) {
+      newLibrary.save().then(() => this.transitionTo('libraries'));
     },
 
-    willTransition: function (transition) {
-      var model = this.controller.get('model');
+    willTransition() {
+      let model = this.controller.get('model');
+
       if (model.get('isNew')) {
         model.destroyRecord();
       }
@@ -994,6 +1073,16 @@ There is an Ember.js built in action (event) `willTransition`, which will be cal
 As you can see, we can access to the controller from the route handler, with `this.controller` method, however we don't have a real controller file for this route (`/libraries/new`). Ember.js dynamic code generation feature automatically creates controllers and route handlers for each route. They exists in memory. In this example `model` property exists in this "virtual" controller and in our template, so we can "destroy" it.
 
 Open your browser and please check these automatically generated routes and controllers in Ember Inspector, under the "Routes" section. You will see how many different elements dynamically created.
+
+What is that nice one liner in `saveLibrary()` method?
+
+``` javascript
+ newLibrary.save().then(() => this.transitionTo('libraries'));
+```
+
+In ES2015, after `=>` syntax, if we have only one line of code what would be a `return` and something, we can use a more cleaner structure without curly braces and `return`. 
+ 
+ 
 
 ### Homework
 
@@ -1094,6 +1183,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  
   this.route('about');
   this.route('contact');
 
@@ -1101,6 +1191,7 @@ Router.map(function() {
     this.route('invitations');
     this.route('contacts');
   });
+  
   this.route('libraries', function() {
     this.route('new');
     this.route('edit', { path: '/:library_id/edit' });
@@ -1118,27 +1209,23 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
-  model: function (params) {
+  model(params) {
     return this.store.findRecord('library', params.library_id);
   },
 
   actions: {
 
-    saveLibrary: function (newLibrary) {
-      var _that = this;
-
-      newLibrary.save().then(function (response) {
-        _that.transitionTo('libraries');
-      })
+    saveLibrary(newLibrary) {
+      newLibrary.save().then(() => this.transitionTo('libraries'));
     },
 
-    willTransition: function (transition) {
-
-      var model = this.controller.get('model');
-
+    willTransition(transition) {
+    
+      let model = this.controller.get('model');
+    
       if (model.get('hasDirtyAttributes')) {
-        var confirmation = confirm("Your changes haven't saved yet. Would you like to leave this form?");
-
+        let confirmation = confirm("Your changes haven't saved yet. Would you like to leave this form?");
+  
         if (confirmation) {
           model.rollbackAttributes();
         } else {
@@ -1202,13 +1289,14 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
-  model: function() {
+  model() {
     return this.store.findAll('library');
   },
 
   actions: {
-    deleteLibrary: function(library) {
-      var confirmation = confirm('Are you sure?');
+
+    deleteLibrary(library) {
+      let confirmation = confirm('Are you sure?');
 
       if (confirmation) {
         library.destroyRecord();
@@ -1393,9 +1481,11 @@ export default Ember.Component.extend({
   buttonLabel: 'Save',
 
   actions: {
-    buttonClicked: function(param){
+
+    buttonClicked(param) {
       this.sendAction('action', param);
     }
+
   }
 });
 ```
@@ -1445,21 +1535,19 @@ export default Ember.Route.extend({
     controller.set('buttonLabel', 'Create');
   },
 
-  renderTemplate(controller, model) {
+  renderTemplate() {
     this.render('libraries/form');
   },
 
   actions: {
-    saveLibrary: function (newLibrary) {
-      var _that = this;
 
-      newLibrary.save().then(function (response) {
-        _that.transitionTo('libraries');
-      })
+    saveLibrary(newLibrary) {
+      newLibrary.save().then(() => this.transitionTo('libraries'));
     },
 
-    willTransition: function (transition) {
-      var model = this.controller.get('model');
+    willTransition() {
+      let model = this.controller.get('model');
+
       if (model.get('isNew')) {
         model.destroyRecord();
       }
@@ -1476,37 +1564,32 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
-  model: function (params) {
+  model(params) {
     return this.store.findRecord('library', params.library_id);
   },
 
-  setupController: function (controller, model) {
+  setupController(controller, model) {
     this._super(controller, model);
 
     controller.set('title', 'Edit library');
     controller.set('buttonLabel', 'Save changes');
   },
 
-  renderTemplate(controller, model) {
+  renderTemplate() {
     this.render('libraries/form');
   },
 
   actions: {
 
-    saveLibrary: function (newLibrary) {
-      var _that = this;
-
-      newLibrary.save().then(function (response) {
-        _that.transitionTo('libraries');
-      })
+    saveLibrary(newLibrary) {
+      newLibrary.save().then(() => this.transitionTo('libraries'));
     },
 
-    willTransition: function (transition) {
-
-      var model = this.controller.get('model');
+    willTransition(transition) {
+      let model = this.controller.get('model');
 
       if (model.get('hasDirtyAttributes')) {
-        var confirmation = confirm("Your changes haven't saved yet. Would you like to leave this form?");
+        let confirmation = confirm("Your changes haven't saved yet. Would you like to leave this form?");
 
         if (confirmation) {
           model.rollbackAttributes();
@@ -1524,7 +1607,7 @@ More information about `setupController`: http://emberjs.com/api/classes/Ember.R
 
 More information about `renderTemplate`: http://emberjs.com/api/classes/Ember.Route.html#method_renderTemplate
 
-### Create a tiny bootstrap `nav-link-to` component for `<li><a></a></li>`
+###<a name='nav-link-to'></a> Create a tiny bootstrap `nav-link-to` component for `<li><a></a></li>`
 
 Time to clean up our navigation template. We can create a nice component to manage bootstrap `navbar` links properly.
 
@@ -2168,4 +2251,3 @@ export default Ember.Controller.extend({
 
 });
 ```
-<a name='disqus'></a>

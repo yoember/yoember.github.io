@@ -13,14 +13,8 @@
       </div>
 
       <div class="collapse navbar-collapse" id="main-navbar">
+
         <ul class="nav navbar-nav">
-          {% for my_page in site.pages %}
-            {% if my_page.title %}
-              {% unless my_page.url contains '/categories/' %}
-                <li class="{% if page.url == my_page.url %}active{% endif %}"><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
-              {% endunless %}
-            {% endif %}
-          {% endfor %}
         </ul>
       </div>
     </div>
