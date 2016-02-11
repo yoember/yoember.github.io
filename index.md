@@ -1,11 +1,11 @@
 ---
 layout: home
-last_modified_at: 08/02/2016
+last_modified_at: 12/02/2016
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 ---
 # Ember.js 2 Tutorial 
 ## Building a complex web application with Ember.js 2.3
-<p class="blog-post-meta">Latest update: <time datetime="2016-02-08" itemprop="datePublished">8 Feb 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-02-12" itemprop="datePublished">12 Feb 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
@@ -63,11 +63,11 @@ More info: https://facebook.github.io/watchman/
 
 ## <a name='lesson-1'></a>Lesson 1
 
-This tutorial uses the latest Ember-CLI tool (v2.3.0-beta.2).
+This tutorial uses the latest Ember CLI tool (v2.3.0-beta.2).
 
-### Install ember-cli
+### Install Ember CLI
 
-The following `npm` command installs Ember-CLI specified version in the global namespace. At the moment Ember-CLI version 2.3 is still in Beta phase, but it is perfect to create new Ember applications. (The Ember.js and Ember Data packages are stable and production ready.)
+The following `npm` command installs Ember CLI specified version in the global namespace. At the moment Ember CLI version 2.3 is still in Beta phase, but it is perfect to create new Ember applications. (The Ember.js and Ember Data packages are stable and production ready.)
 
     $ npm install -g ember-cli@2.3.0-beta.2
     
@@ -90,15 +90,15 @@ os: darwin x64{% endraw %}
 
 (Node version, npm version and os version may be different in your configuration.)
 
-Please read more about Ember-CLI here: [www.ember-cli.com](http://www.ember-cli.com)
+Please read more about Ember CLI here: [www.ember-cli.com](http://www.ember-cli.com)
 
 ### Create the app
 
 In your terminal, navigate in the folder where you usually create your web applications.
-For example, if you have a `project` folder use 
+For example, if you have a `projects` folder use 
 
 ```
-$ cd ~/project
+$ cd ~/projects
 ```
 
 Inside this folder run the following command.
@@ -106,9 +106,14 @@ Inside this folder run the following command.
     $ ember new library-app
 
 This command will create the new app for you.
-Please enter in your new app with `cd library-app`.
 
-Open this folder in your favourite code editor and look around. You will see a couple of files and folders. Ember-CLI is scaffolded for you everything what need to run and create an amazing web application. 
+Please change to your new app directory with: 
+
+```
+$ cd library-app
+```
+
+Open this folder in your favourite code editor and look around. You will see a few files and folders. Ember CLI is scaffolded for you everything what need to run and create an amazing web application. 
 
 ### Launch the app
 
@@ -143,7 +148,7 @@ Check your app and open the Console in Chrome/Firefox. You will see same extra i
 
 ### <a name="ember-bootstrap-sass"></a>Add Bootstrap and Sass to Ember.js App
 
-Let's add some basic style to our application. We use Bootstrap with Sass. Ember-CLI can install for us add-ons and useful packages. These add-ons are simplify our development process, because we don't have to reinvent the wheel, we get more out of the box. You can find various packages, add-ons on these websites: http://www.emberaddons.com or http://www.emberobserver.com
+Let's add some basic style to our application. We use Bootstrap with Sass. Ember CLI can install for us add-ons and useful packages. These add-ons are simplify our development process, because we don't have to reinvent the wheel, we get more out of the box. You can find various packages, add-ons on these websites: http://www.emberaddons.com or http://www.emberobserver.com
 
 We install an add-on for Sass and other for Bootstrap.
 
@@ -902,7 +907,7 @@ Firstly we create our `library` model.
 
     $ ember g model library name:string address:string phone:string
 
-Secondly we create our new route. At the moment we do it without Ember-CLI, only manually adding the following lines to our `router.js`:
+Secondly we create our new route. At the moment we do it without Ember CLI, only manually adding the following lines to our `router.js`:
 
 ``` javascript
 // app/router.js
@@ -1201,7 +1206,7 @@ Router.map(function() {
 export default Router;
 ```
 
-After we inserted this extra line in our router, time to create our `app/routes/libraries/edit.js`. You can use Ember-CLI or you can create manually. The code should looks like the following. More explanation below. (In this code, I use ES5 syntax, but later I will prefer ES6/ES2015. If you would like you can use ES6/ES2015 already.)
+After we inserted this extra line in our router, time to create our `app/routes/libraries/edit.js`. You can use Ember CLI or you can create manually. The code should looks like the following. More explanation below. (In this code, I use ES5 syntax, but later I will prefer ES6/ES2015. If you would like you can use ES6/ES2015 already.)
 
 ``` javascript
 // app/routes/libraries/edit.js
@@ -1611,7 +1616,7 @@ More information about `renderTemplate`: http://emberjs.com/api/classes/Ember.Ro
 
 Time to clean up our navigation template. We can create a nice component to manage bootstrap `navbar` links properly.
 
-Open your terminal and generate a new component with Ember-CLI.
+Open your terminal and generate a new component with Ember CLI.
 
     $ ember g component nav-link-to
 
@@ -1682,7 +1687,7 @@ In this lesson we extend our models with `book` and `author`. Setup relation bet
 
 In our simple World, we have Libraries. We have Authors, whose could have a few books, however a book could be only in one Library. And one book has only one Author.
 
-To generate new models we use Ember-CLI.
+To generate new models we use Ember CLI.
 
 Run the followings in your terminal.
 
@@ -1709,7 +1714,7 @@ export default DS.Model.extend({
 
 ### Create a new Admin page 'Seeder' and download all models in the same route.
 
-Create a new page using Ember-CLI in your terminal:
+Create a new page using Ember CLI in your terminal:
 
 ```
 $ ember g route admin/seeder
@@ -1815,7 +1820,7 @@ RSVP tries to download all model, it will return with fulfilled state only if al
 
 In the `setupController` hook, we split the model and setup new controller properties.
 
-### Little summary about route`s hooks
+### Little summary about route's hooks
 
 You already use a couple of hook in routes, which will be called in certain sequence.
 
@@ -1919,7 +1924,7 @@ If you open your browser now, you will see three boxes with numbers or with thre
 
 We have to generate two other components what we gonna use in this page. Actually we will use only one component, but inside that component we will use an other component. This part is a little bit advance, I don't have a detailed explanation here, but you can copy paste the code and try out. I would suggest, you should play with this code, try to understand. However, don't forget, if you have any question, don't hesitate to ping me on Slack or on Twitter.
 
-Run Ember-CLI commands in your terminal.
+Run Ember CLI commands in your terminal.
 
 ```
 $ ember g component seeder-block
