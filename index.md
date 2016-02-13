@@ -1,11 +1,11 @@
 ---
 layout: home
-last_modified_at: 12/02/2016
+last_modified_at: 13/02/2016
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 ---
 # Ember.js 2 Tutorial 
 ## Building a complex web application with Ember.js 2.3
-<p class="blog-post-meta">Latest update: <time datetime="2016-02-12" itemprop="datePublished">12 Feb 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-02-13" itemprop="datePublished">13 Feb 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
@@ -408,7 +408,7 @@ New (with ES6 string interpolation):
 //...
 fullName: Ember.computed('firstName', 'lastName', function() {
   return `${this.get('firstName')} ${this.get('lastName')}`;
-}
+})
 //...
 ```
 So, we will use this new syntax. `Ember.computed()` could have more parameters. First parameters are always those variables/properties in string format, what we would like to use inside our function. The last parameter is a `function()`. Inside in this function we will have access to the properties with `this.get()`. In Ember.js we read properties with `this.get('propertyName')` and update properties with `this.set('propertyName', newValue)`.
@@ -441,11 +441,11 @@ export default Ember.Controller.extend({
   
   actualEmailAddress: Ember.computed('emailAddress', function() { 
     console.log('actualEmailAddress function is called: ', this.get('emailAddress'));
-  },
+  }),
   
   emailAddressChanged: Ember.observer('emailAddress', function() { 
     console.log('observer is called', this.get('emailAddress')); 
-  }
+  })
 
 });
 {% endraw %}
@@ -471,7 +471,7 @@ export default Ember.Controller.extend({
 
   isDisabled: Ember.computed('emailAddress', function() {
     return this.get('emailAddress') === '';
-  }
+  })
 
 });
 ```
@@ -568,7 +568,7 @@ We have to show the response message. Extend your template.
             {{input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"}}
         </div>
         <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
-            <button class="btn btn-primary btn-lg btn-block" {{action 'sendInvitation'}} disabled="{{unless isValid 'disabled'}}">Request invitation</button>
+            <button class="btn btn-primary btn-lg btn-block" {{action 'saveInvitation'}} disabled="{{unless isValid 'disabled'}}">Request invitation</button>
         </div>
 
     </div>
@@ -725,7 +725,7 @@ newInvitation.save().then(function(response) {
 
 In javascript the `this` points always to that object which is wrapping it around. In the above example, the `this` will be undefined, because we are in a function after the Promise. Please learn more about it here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
 
-This kind problem is nicely solved in ES6/ES2015, in the new JavaScript, what I use mainly in this tutorial. However, no problem, if you see the old, traditional way also. Just for a second, of course.
+This kind of problem is nicely solved in ES6/ES2015, in the new JavaScript, what I use mainly in this tutorial. However, no problem, if you see the old, traditional way also. Just for a second, of course.
 
 In ES5 syntax, we have to save the controller context in a local variable. We can use a `_that` inside our `then`.
 
