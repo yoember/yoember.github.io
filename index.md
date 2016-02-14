@@ -1,11 +1,11 @@
 ---
 layout: home
-last_modified_at: 13/02/2016
+last_modified_at: 14/02/2016
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 ---
 # Ember.js 2 Tutorial 
 ## Building a complex web application with Ember.js 2.3
-<p class="blog-post-meta">Latest update: <time datetime="2016-02-13" itemprop="datePublished">13 Feb 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-02-14" itemprop="datePublished">14 Feb 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
@@ -48,7 +48,7 @@ Or leave a comment at the [bottom of this page](#disqus_thread).
 
 ## Prerequisites
 
-* node.js: at least 0.12, but the best if you install the latest 5.5.0.
+* node.js: at least 0.12, but the best if you install the latest 5.6.0.
 
 [The best way to install Node.js on Mac, Linux and on Windows]({% post_url 2016-02-08-the-best-way-to-install-node-js %})
 
@@ -83,7 +83,7 @@ You should see something similar:
 
 ``` bash {% raw %}
 version: 2.3.0-beta.2
-node: 5.5.0
+node: 5.6.0
 npm: 2.14.10
 os: darwin x64{% endraw %}
 ```

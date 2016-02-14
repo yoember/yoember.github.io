@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Best Way to Install Node.js"
-date: 2016-02-08T02:19:03+13:00
+date: 2016-02-14T02:19:03+13:00
 author: Zoltan
 categories: nodejs
 ---
@@ -46,25 +46,25 @@ Install the available node versions on the cloud:
 $ nvm ls-remote
 ```
 
-Choose the most recent version. (At the moment it is v5.5.0)
+Choose the most recent version. (At the moment it is v5.6.0)
 Install the selected version with the following command:
 
 ```
-$ nvm install 5.5.0
+$ nvm install 5.6.0
 ```
 
 Setup this version as the default.
 
 ```
-$ nvm use 5.5.0
-$ nvm alias default 5.5.0
+$ nvm use 5.6.0
+$ nvm alias default 5.6.0
 ```
 Check your node version with
 
 ```
 $ node -v
 ```
-You should see `v5.5.0` if you installed the above version.
+You should see `v5.6.0` if you installed the above version.
 
 You can update your `npm` to the latest.
 
@@ -72,7 +72,7 @@ You can update your `npm` to the latest.
 $ npm install -g npm
 ```
 
-After the update, the npm version, `npm -v`, should be at least `3.7.1` or above.
+After the update, the npm version, `npm -v`, should be at least `3.7.2` or above.
 
 Alternatives, but not suggested:
 
@@ -97,9 +97,9 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | b
 ```
 $ nvm list
 $ nvm ls-remote
-$ nvm install 5.5.0
-$ nvm use 5.5.0
-$ nvm alias default 5.5.0
+$ nvm install 5.6.0
+$ nvm use 5.6.0
+$ nvm alias default 5.6.0
 $ node -v
 $ npm install -g npm
 $ npm -v
