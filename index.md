@@ -1,11 +1,11 @@
 ---
 layout: home
-last_modified_at: 14/02/2016
+last_modified_at: 22/02/2016
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 ---
 # Ember.js 2 Tutorial 
 ## Building a complex web application with Ember.js 2.3
-<p class="blog-post-meta">Latest update: <time datetime="2016-02-14" itemprop="datePublished">14 Feb 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-02-22" itemprop="datePublished">22 Feb 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
@@ -63,17 +63,17 @@ More info: https://facebook.github.io/watchman/
 
 ## <a name='lesson-1'></a>Lesson 1
 
-This tutorial uses the latest Ember CLI tool (v2.3.0-beta.2).
+This tutorial uses the latest Ember CLI tool (v2.3.0).
 
 ### Install Ember CLI
 
-The following `npm` command installs Ember CLI specified version in the global namespace. At the moment Ember CLI version 2.3 is still in Beta phase, but it is perfect to create new Ember applications. (The Ember.js and Ember Data packages are stable and production ready.)
+The following `npm` command installs Ember CLI latest stable version in the global namespace. The latest Ember CLI version 2.3 is released on 17 of February 2016, it generates app with Ember.js v2.3 and Ember Data v2.3.
 
-    $ npm install -g ember-cli@2.3.0-beta.2
+    $ npm install -g ember-cli
     
-or 
+or if you would like to install with fixed version
 
-    $ npm install -g ember-cli@beta
+    $ npm install -g ember-cli@2.3.0
 
 You have now a new `ember` command in your console. Check with
 
@@ -82,13 +82,12 @@ You have now a new `ember` command in your console. Check with
 You should see something similar:
 
 ``` bash {% raw %}
-version: 2.3.0-beta.2
+version: 2.3.0
 node: 5.6.0
-npm: 2.14.10
 os: darwin x64{% endraw %}
 ```
 
-(Node version, npm version and os version may be different in your configuration.)
+(Node version, npm version and OS version may be different in your configuration.)
 
 Please read more about Ember CLI here: [www.ember-cli.com](http://www.ember-cli.com)
 
@@ -1061,11 +1060,9 @@ export default Ember.Route.extend({
     },
 
     willTransition() {
-      let model = this.controller.get('model');
-
-      if (model.get('isNew')) {
-        model.destroyRecord();
-      }
+      // rollbackAttributes() removes the record from the store
+      // if the model 'isNew'
+      this.controller.get('model').rollbackAttributes();
     }
   }
 });
@@ -1087,7 +1084,18 @@ What is that nice one liner in `saveLibrary()` method?
 
 In ES2015, after `=>` syntax, if we have only one line of code what would be a `return` and something, we can use a more cleaner structure without curly braces and `return`. 
  
+Update: In a previous version we had the following code in `willTransition()`.
  
+``` javascript
+willTransition() {
+  let model = this.controller.get('model');
+
+  if (model.get('isNew')) {
+    model.destroyRecord();
+  }
+}
+```
+Thanks for Kiffin's [comment](#disqus_thread), we have a simpler solution. Using `rollbackAttributes()` is cleaner. It destroys the record automatically if it is new.
 
 ### Homework
 
@@ -1832,12 +1840,12 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
   init() {
-    debugger
+    debugger;
   },
 
   beforeModel(transition) {
     debugger;
-  }
+  },
 
   model(params, transition) {
     debugger;
