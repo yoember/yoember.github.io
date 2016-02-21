@@ -921,7 +921,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   
-  his.route('about');
+  this.route('about');
   this.route('contact');
 
   this.route('admin', function() {
@@ -1038,7 +1038,7 @@ export default Ember.Route.extend({
     return this.store.findAll('library');
   }
 
-})
+});
 ```
 
 We download here all records from the server.
@@ -1108,6 +1108,7 @@ Follow the [guide on Firebase](https://www.firebase.com/docs/web/libraries/ember
 
     $ npm install -g firebase-tools
     $ ember build --prod
+    $ firebase login
     $ firebase init
 
 Update `firebase.json`
