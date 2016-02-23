@@ -6,8 +6,8 @@
 </description>
     <link>http://yoember.com/</link>
     <atom:link href="http://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 23 Feb 2016 19:37:27 +1300</pubDate>
-    <lastBuildDate>Tue, 23 Feb 2016 19:37:27 +1300</lastBuildDate>
+    <pubDate>Tue, 23 Feb 2016 19:42:36 +1300</pubDate>
+    <lastBuildDate>Tue, 23 Feb 2016 19:42:36 +1300</lastBuildDate>
     <generator>Jekyll v3.1.1</generator>
     
       <item>
@@ -26,7 +26,7 @@
 &lt;p&gt;(If you&amp;#39;ve just installed XCode, don&amp;#39;t forget to launch it first and accepting the Terms and Conditions.)&lt;/p&gt;
 
 &lt;p&gt;You can use the install script for &lt;code&gt;nvm&lt;/code&gt; installation.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (&lt;code&gt;~/.nvm&lt;/code&gt;) Secondly, you add two extra lines to your console script.&lt;/p&gt;
 
@@ -73,7 +73,7 @@ If you already installed Node.js with the built in package manager, please remov
 &lt;p&gt;The installation process on Linux is the same as on OSX.&lt;/p&gt;
 
 &lt;p&gt;With the provided script:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;(Please read the instructions under OSX section.)&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ nvm list
@@ -86,7 +86,7 @@ $ npm install -g npm
 $ npm -v
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;One more thing! Don&amp;#39;t forget to run the following command, which increases the amount of inotify watches.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf &amp;amp;&amp;amp; sudo sysctl -p
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf &amp;amp;&amp;amp; sudo sysctl -p
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;On Windows&lt;/h3&gt;
 
@@ -112,7 +112,7 @@ $ ember-cli-windows
 
 &lt;p&gt;Try to upgrade &lt;code&gt;npm&lt;/code&gt; and after install the latest &lt;code&gt;ember-cli&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ npm install -g npm
-$ npm install -g ember-cli@beta
+$ npm install -g ember-cli
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;I would suggest, experiment with different shells. Which worked better for you? PowerShell, Git Shell, the original CMD.exe? Please, share your Windows experiment in a comment.&lt;/p&gt;
 
