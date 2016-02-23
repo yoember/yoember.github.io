@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Best Way to Install Node.js"
-date: 2016-02-14T02:19:03+13:00
+date: 2016-02-23T02:19:03+13:00
 author: Zoltan
 categories: nodejs
 ---
@@ -25,7 +25,7 @@ You have to have on your Mac the Command Line Tools. Or you install the full XCo
 You can use the install script for `nvm` installation.
 
 ```
-$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash
+$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 ```
 
 However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (`~/.nvm`) Secondly, you add two extra lines to your console script.
@@ -46,25 +46,25 @@ Install the available node versions on the cloud:
 $ nvm ls-remote
 ```
 
-Choose the most recent version. (At the moment it is v5.6.0)
+Choose the most recent version. (At the moment it is v5.7.0)
 Install the selected version with the following command:
 
 ```
-$ nvm install 5.6.0
+$ nvm install 5.7.0
 ```
 
 Setup this version as the default.
 
 ```
-$ nvm use 5.6.0
-$ nvm alias default 5.6.0
+$ nvm use 5.7.0
+$ nvm alias default 5.7.0
 ```
 Check your node version with
 
 ```
 $ node -v
 ```
-You should see `v5.6.0` if you installed the above version.
+You should see `v5.7.0` if you installed the above version.
 
 You can update your `npm` to the latest.
 
@@ -72,7 +72,7 @@ You can update your `npm` to the latest.
 $ npm install -g npm
 ```
 
-After the update, the npm version, `npm -v`, should be at least `3.7.2` or above.
+After the update, the npm version, `npm -v`, should be at least `3.7.3` or above.
 
 Alternatives, but not suggested:
 
@@ -89,7 +89,7 @@ The installation process on Linux is the same as on OSX.
 With the provided script:
 
 ```
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash
+$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 ```
 
 (Please read the instructions under OSX section.)
@@ -97,9 +97,9 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | b
 ```
 $ nvm list
 $ nvm ls-remote
-$ nvm install 5.6.0
-$ nvm use 5.6.0
-$ nvm alias default 5.6.0
+$ nvm install 5.7.0
+$ nvm use 5.7.0
+$ nvm alias default 5.7.0
 $ node -v
 $ npm install -g npm
 $ npm -v
@@ -108,7 +108,7 @@ $ npm -v
 One more thing! Don't forget to run the following command, which increases the amount of inotify watches.
 
 ```
-echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+$ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
 
 ### On Windows
@@ -142,7 +142,7 @@ Try to upgrade `npm` and after install the latest `ember-cli`
 
 ```
 $ npm install -g npm
-$ npm install -g ember-cli@beta
+$ npm install -g ember-cli
 ```
 I would suggest, experiment with different shells. Which worked better for you? PowerShell, Git Shell, the original CMD.exe? Please, share your Windows experiment in a comment.
 
