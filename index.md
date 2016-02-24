@@ -1,11 +1,11 @@
 ---
 layout: home
-last_modified_at: 23/02/2016
+last_modified_at: 24/02/2016
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 ---
 # Ember.js 2 Tutorial 
 ## Building a complex web application with Ember.js 2.3
-<p class="blog-post-meta">Latest update: <time datetime="2016-02-23" itemprop="datePublished">23 Feb 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-02-24" itemprop="datePublished">24 Feb 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
@@ -522,7 +522,7 @@ Great we have an input box and a button on our screen, but it does nothing at th
 Update the `<button>` line in `index.hbs`.
 
 ``` handlebars {% raw %}
-<button class="btn btn-primary btn-lg btn-block" disabled="{{isDisabled}}" {{action 'saveInvitation'}}>Request invitation</button>{% endraw %}
+<button class="btn btn-primary btn-lg btn-block" disabled={{isDisabled}} {{action 'saveInvitation'}}>Request invitation</button>{% endraw %}
 ```
 
 You can try out in your browser, that if you click on the button, you will get a nice error message, which alerts you, that you have to implement this action in your controller. Let's do that.
@@ -567,7 +567,7 @@ We have to show the response message. Extend your template.
             {{input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"}}
         </div>
         <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
-            <button class="btn btn-primary btn-lg btn-block" {{action 'saveInvitation'}} disabled="{{unless isValid 'disabled'}}">Request invitation</button>
+            <button class="btn btn-primary btn-lg btn-block" {{action 'saveInvitation'}} disabled={{isDisabled}}>Request invitation</button>
         </div>
 
     </div>
