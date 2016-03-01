@@ -1,11 +1,11 @@
 ---
 layout: home
-last_modified_at: 24/02/2016
+last_modified_at: 01/03/2016
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 ---
 # Ember.js 2 Tutorial 
-## Building a complex web application with Ember.js 2.3
-<p class="blog-post-meta">Latest update: <time datetime="2016-02-24" itemprop="datePublished">24 Feb 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+## Building a complex web application with Ember.js 2.4
+<p class="blog-post-meta">Latest update: <time datetime="2016-03-01" itemprop="datePublished">1 Mar 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
@@ -63,17 +63,17 @@ More info: https://facebook.github.io/watchman/
 
 ## <a name='lesson-1'></a>Lesson 1
 
-This tutorial uses the latest Ember CLI tool (v2.3.0).
+This tutorial uses the latest Ember CLI tool (v2.4.0).
 
 ### Install Ember CLI
 
-The following `npm` command installs Ember CLI latest stable version in the global namespace. The latest Ember CLI version 2.3 is released on 17 of February 2016, it generates app with Ember.js v2.3 and Ember Data v2.3.
+The following `npm` command installs Ember CLI latest stable version in the global namespace. The latest Ember CLI version 2.4.0 is released on 1 of March 2016, it generates app with Ember.js v2.4 and Ember Data v2.4. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)
 
     $ npm install -g ember-cli
     
 or if you would like to install with fixed version
 
-    $ npm install -g ember-cli@2.3.0
+    $ npm install -g ember-cli@2.4.0
 
 You have now a new `ember` command in your console. Check with
 
@@ -82,7 +82,7 @@ You have now a new `ember` command in your console. Check with
 You should see something similar:
 
 ``` bash {% raw %}
-version: 2.3.0
+version: 2.4.0
 node: 5.7.0
 os: darwin x64{% endraw %}
 ```
@@ -124,7 +124,7 @@ Open your new empty app in your browser: <a href="http://localhost:4200" target=
 
 You should see a "Welcome to Ember" message on your website. Well Done! You have your first Ember.js application. :)
 
-You can open Ember Inspector in your Browser. Hope you've already installed it. Ember Inspector exists in Chrome and in Firefox as an extension. After installation you should have a new tab in your developer console in your browser. Check it out, look around. [More details about Ember Inspector here](https://guides.emberjs.com/v2.3.0/ember-inspector/installation/). 
+You can open Ember Inspector in your Browser. Hope you've already installed it. Ember Inspector exists in Chrome and in Firefox as an extension. After installation you should have a new tab in your developer console in your browser. Check it out, look around. [More details about Ember Inspector here](https://guides.emberjs.com/v2.4.0/ember-inspector/installation/). 
 
 ### Turn on a few debugging options
 
@@ -359,7 +359,7 @@ Now we can create our index controller:
 
     $ ember g controller index
 
-* Read more about Ember controllers here: http://guides.emberjs.com/v2.3.0/controllers/
+* Read more about Ember controllers here: http://guides.emberjs.com/v2.4.0/controllers/
 
 Note: Ember.js still uses controllers, however controller layer will be deprecated and will be removed from Ember.js 3.0. We use controller to practice some interesting feature, but later we will refactor our app and we will move most of the logic inside components.
 
@@ -382,8 +382,8 @@ You can check your app, the button will be disabled by default. We want to add s
 
 Computed Properties and Observers are important features of Ember.js. Please read more about it in the official guide first.
 
-* Computed Properties: http://guides.emberjs.com/v2.3.0/object-model/computed-properties/
-* Observers: http://guides.emberjs.com/v2.3.0/object-model/observers/
+* Computed Properties: http://guides.emberjs.com/v2.4.0/object-model/computed-properties/
+* Observers: http://guides.emberjs.com/v2.4.0/object-model/observers/
 
 Please note, I will use the new, preferred syntax in our project. You could ask, was there some other syntax before? Yes.
 
@@ -583,7 +583,7 @@ We have to show the response message. Extend your template.
 ```
 We use `{% raw %}{{#if}}{{/if}}{% endraw %}` handlebar helper block to show or hide the alert message. Handlebar conditionals are really powerful. You can use `{% raw %}{{else}}{% endraw %}` as well.
 
-* More about conditionals in templates: http://guides.emberjs.com/v2.3.0/templates/conditionals/
+* More about conditionals in templates: http://guides.emberjs.com/v2.4.0/templates/conditionals/
 
 Brilliant. You learned a lot about Ember.js and you have just implemented these great features.
 
@@ -623,7 +623,7 @@ Please try to implement the above requirements. When you finished, you can check
 
 We ask email addresses on the home page, but we don't save them at the moment in the database. It is time to implement this feature in our website.
 
-* Please read the detailed introduction on Ember.js website about Ember.js Models: http://guides.emberjs.com/v2.3.0/models/
+* Please read the detailed introduction on Ember.js website about Ember.js Models: http://guides.emberjs.com/v2.4.0/models/
 
 Let's create our first model where we save email addresses for invitation. Type the following command in your command line.
 
@@ -879,7 +879,7 @@ We use `{% raw %}{{#each}}{{/each}}{% endraw %}` handlebar block helper to gener
 
 Let's download our data from the server using a Route Handler and Ember Data.
 
-* Please start here and read the official guide about Route's Model: http://guides.emberjs.com/v2.3.0/routing/specifying-a-routes-model/
+* Please start here and read the official guide about Route's Model: http://guides.emberjs.com/v2.4.0/routing/specifying-a-routes-model/
 
 Add the following code to your `app/routes/admin/invitations.js` file:
 
@@ -1328,7 +1328,7 @@ You can add delete buttons to your lists on Admin pages, so you can delete invit
 
 ### Cleaning up our templates with components
 
-First of all, please read more about Components in Ember.js Guide: http://guides.emberjs.com/v2.1.0/components/defining-a-component/
+First of all, please read more about Components in Ember.js Guide: http://guides.emberjs.com/v2.4.0/components/defining-a-component/
 
 We can generate a component with `ember g component` command. Let's create two components. First for library panel and one for forms.
 
