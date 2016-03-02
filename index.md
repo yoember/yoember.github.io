@@ -658,7 +658,7 @@ export default Ember.Controller.extend({
       this.set('emailAddress', '');
     }
   }
-});
+}); {% endraw %}
 ```
 
 Check your browser, open the browser's console. Try to save an invitation email address on home page. You will see an error message in the console.
@@ -815,7 +815,7 @@ Let's create a new route and page what we can reach with the following url: `htt
 
 Add this new page to the `navbar.hbs` with a dropdown.
 
-``` handlebars
+``` handlebars  
 <!-- app/templates/navbar.hbs -->
 {% raw %}<nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -1102,11 +1102,17 @@ Thanks for Kiffin's [comment](#disqus_thread), we have a simpler solution. Using
 Improve further your Contact Page.
 
 1. Create a `contact` model with `email` and with `message` field.
-2. Save that model in the server when someone click on "Send" button on Contact form. Update your `contact.js` controller.
+2. Save that model in the server when someone click on "Send" button on Contact form. Update your `contact.js` controller to contain validations and actions.
 3. Create an Admin page under `http://localhost:4200/admin/contacts`
 4. List all saved messages in a table.
 
-Option 2: Refactor your app contact section with usage of model in route. Move validation in model, move action in route and remove contact controller.
+**Option 2:** Refactor your app contact section with usage of model in route. 
+
+1. Move validation in model 
+2. Copy and paste the actions from controller to the route and try sending a
+message. Why doesnt the content of the message and email box clear? Now refactor it to clear. 
+3. Remove contact controller.
+
 
 ## <a name='lesson-4'></a>Lesson 4
 
