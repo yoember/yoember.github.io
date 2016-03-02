@@ -380,7 +380,7 @@ $ ember install ember-cli-bootstrap-sassy
 
 <span class="nx">Router</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
-  <span class="nx">his</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">'about'</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">'about'</span><span class="p">);</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">'contact'</span><span class="p">);</span>
 
   <span class="k">this</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">'admin'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -465,7 +465,7 @@ $ ember g template libraries/new
     <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">findAll</span><span class="p">(</span><span class="s1">'library'</span><span class="p">);</span>
   <span class="p">}</span>
 
-<span class="p">})</span>
+<span class="p">});</span>
 </code></pre></div> <p>We download here all records from the server.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/routes/libraries/new.js</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
@@ -498,6 +498,7 @@ $ ember g template libraries/new
 <span class="p">}</span>
 </code></pre></div> <p>Thanks for Kiffin&#39;s <a href="#disqus_thread">comment</a>, we have a simpler solution. Using <code>rollbackAttributes()</code> is cleaner. It destroys the record automatically if it is new.</p> <h3>Homework</h3> <p>Improve further your Contact Page.</p> <ol> <li>Create a <code>contact</code> model with <code>email</code> and with <code>message</code> field.</li> <li>Save that model in the server when someone click on &quot;Send&quot; button on Contact form. Update your <code>contact.js</code> controller.</li> <li>Create an Admin page under <code>http://localhost:4200/admin/contacts</code></li> <li>List all saved messages in a table.</li> </ol> <p>Option 2: Refactor your app contact section with usage of model in route. Move validation in model, move action in route and remove contact controller.</p> <h2><a name='lesson-4'></a>Lesson 4</h2> <h3>Deploy your app on Firebase</h3> <p>Follow the <a href="https://www.firebase.com/docs/web/libraries/ember/guide.html#section-ember-deploy">guide on Firebase</a>.</p> <div class="highlight"><pre><code class="language-" data-lang="">$ npm install -g firebase-tools
 $ ember build --prod
+$ firebase login
 $ firebase init
 </code></pre></div> <p>Update <code>firebase.json</code></p> <div class="highlight"><pre><code class="language-" data-lang=""><span class="p">{</span><span class="w">
   </span><span class="nt">"firebase"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your-app-name"</span><span class="p">,</span><span class="w">
