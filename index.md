@@ -1,11 +1,11 @@
 ---
 layout: home
-last_modified_at: 01/03/2016
+last_modified_at: 02/03/2016
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 ---
 # Ember.js 2 Tutorial 
 ## Building a complex web application with Ember.js 2.4
-<p class="blog-post-meta">Latest update: <time datetime="2016-03-01" itemprop="datePublished">1 Mar 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-03-02" itemprop="datePublished">2 Mar 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
@@ -63,17 +63,17 @@ More info: https://facebook.github.io/watchman/
 
 ## <a name='lesson-1'></a>Lesson 1
 
-This tutorial uses the latest Ember CLI tool (v2.4.0).
+This tutorial uses the latest Ember CLI tool (v2.4.1).
 
 ### Install Ember CLI
 
-The following `npm` command installs Ember CLI latest stable version in the global namespace. The latest Ember CLI version 2.4.0 is released on 1 of March 2016, it generates app with Ember.js v2.4 and Ember Data v2.4. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)
+The following `npm` command installs Ember CLI latest stable version in the global namespace. The latest Ember CLI version 2.4.1 is released on 1 of March 2016, it generates app with Ember.js v2.4 and Ember Data v2.4. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)
 
     $ npm install -g ember-cli
     
 or if you would like to install with fixed version
 
-    $ npm install -g ember-cli@2.4.0
+    $ npm install -g ember-cli@2.4.1
 
 You have now a new `ember` command in your console. Check with
 
@@ -82,7 +82,7 @@ You have now a new `ember` command in your console. Check with
 You should see something similar:
 
 ``` bash {% raw %}
-version: 2.4.0
+version: 2.4.1
 node: 5.7.0
 os: darwin x64{% endraw %}
 ```
@@ -452,7 +452,7 @@ export default Ember.Controller.extend({
 
 Observers will be called always when the value of the `emailAddress` changes, the computed property only when you use it. Open your app in your browser, activate Ember Inspector. Click on `/# Routes` section, find the `index` route, in the same line, under `Controller` column, you will see an `>$E` sign, click on it. Open the console in Chrome and you will see something like this: `{% raw %}Ember Inspector ($E):  Class {__nextSuper: undefined, __ember_meta__: Object, __ember1442491471913: "ember443"}{% endraw %}`
 
-If you type the following in the console: `$E.get('actualEmailAddress')`, you should see the above created `console.log` message, that "actualEmailAddress is called". You can try out `$E.set('actualEmailAddress', 'example@example.com')` in the console. What do you see?
+If you type the following in the console: `$E.get('actualEmailAddress')`, you should see the above created `console.log` message, that "actualEmailAddress is called". You can try out `$E.set('emailAddress', 'example@example.com')` in the console. What do you see?
 
 Please play with the above examples and try to create your own observers and computed properties.
 
