@@ -1408,10 +1408,11 @@ Let's add html to our `library-item-form` component as well.
 
 This code is almost the same what we used more times in our form in `libraries/new.hbs` and in `libraries/edit.hbs` templates.
 
-Some tiny improvement. We can add a little validation to our `library` model. Please update `app/models/library.js` with a basic validation, where we check that the `name` is not empty.
+Some tiny improvement. We can add a little validation to our `library` model. Please update `app/models/library.js` with a basic validation, where we check that the `name` is not empty. (Don't forget to import Ember on the top of the file.)
 
 ``` javascript
 import DS from 'ember-data';
+import Ember from 'ember';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
@@ -1709,6 +1710,7 @@ Add `hasMany` relation to `library` model manually.
 
 ``` javascript
 import DS from 'ember-data';
+import Ember from 'ember';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
@@ -2087,6 +2089,7 @@ Update your models with the followings.
 ``` javascript
 // app/models/library.js
 import DS from 'ember-data';
+import Ember from 'ember';
 import Faker from 'faker';
 
 export default DS.Model.extend({
