@@ -1,11 +1,11 @@
 ---
 layout: home
-last_modified_at: 02/03/2016
+last_modified_at: 04/03/2016
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 ---
 # Ember.js 2 Tutorial 
 ## Building a complex web application with Ember.js 2.4
-<p class="blog-post-meta">Latest update: <time datetime="2016-03-02" itemprop="datePublished">2 Mar 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-03-04" itemprop="datePublished">4 Mar 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
@@ -48,9 +48,9 @@ Or leave a comment at the [bottom of this page](#disqus_thread).
 
 ## Prerequisites
 
-* node.js: at least 0.12, but the best if you install the latest 5.7.0.
+* node.js: at least 0.12, but the best if you install the latest 5.7.1.
 
-[The best way to install Node.js on Mac, Linux and on Windows]({% post_url 2016-02-23-the-best-way-to-install-node-js %})
+[The best way to install Node.js on Mac, Linux and on Windows]({% post_url 2016-03-03-the-best-way-to-install-node-js %})
 
 * Ember Inspector Chrome Extension
 
@@ -83,7 +83,7 @@ You should see something similar:
 
 ``` bash {% raw %}
 version: 2.4.1
-node: 5.7.0
+node: 5.7.1
 os: darwin x64{% endraw %}
 ```
 
@@ -1099,7 +1099,7 @@ Thanks for Kiffin's [comment](#disqus_thread), we have a simpler solution. Using
 
 ### Homework
 
-Improve further your Contact Page.
+**Option 1:** Improve further your Contact Page.
 
 1. Create a `contact` model with `email` and with `message` field.
 2. Save that model in the server when someone click on "Send" button on Contact form. Update your `contact.js` controller to contain validations and actions.
@@ -1108,11 +1108,9 @@ Improve further your Contact Page.
 
 **Option 2:** Refactor your app contact section with usage of model in route. 
 
-1. Move validation in model 
-2. Copy and paste the actions from controller to the route and try sending a
-message. Why doesnt the content of the message and email box clear? Now refactor it to clear. 
+1. Move validation in model. 
+2. Copy and paste the actions from controller to the route and try sending a message. Why doesn't the content of the message and email box clear? Now refactor it to clear. 
 3. Remove contact controller.
-
 
 ## <a name='lesson-4'></a>Lesson 4
 
