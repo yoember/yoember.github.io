@@ -336,7 +336,7 @@ We would like to cover the following requirements:
 * "Invite me" button should be inactive when input box is empty.
 * "Invite me" button should be inactive when the content in the input box is not a valid email address.
 * Show a response message after clicking on "Invite me" button.
-* Clear the input box when invitation sent.
+* Clear the input box after invitation has sent.
 
 #### isDisabled
 
@@ -347,7 +347,7 @@ We use a boolean variable, let's call it `isDisabled`, which will help us to tur
 From the official guide:
 "Each template has an associated controller: this is where the template finds the properties that it displays. You can display a property from your controller by wrapping the property name in curly braces."
 
-First, update with this variable to your `index.hbs` template.
+First, update your `index.hbs` template with this variable.
 
 Add `disabled` property with `{% raw %}{{isDisabled}}{% endraw %}` boolean variable.
 
@@ -361,7 +361,7 @@ Now we can create our index controller:
 
 * Read more about Ember controllers here: http://guides.emberjs.com/v2.4.0/controllers/
 
-Note: Ember.js still uses controllers, however controller layer will be deprecated and will be removed from Ember.js 3.0. We use controller to practice some interesting feature, but later we will refactor our app and we will move most of the logic inside components.
+Note: Ember.js still uses controllers, however the controller layer will be deprecated and removed from Ember.js 3.0. We use controllers to practice some interesting features, but later we will refactor our app and we will move most of the logic inside components.
 
 Add `isDisabled` property to the controller. Default value is `true`.
 
@@ -376,7 +376,7 @@ export default Ember.Controller.extend({
 }); {% endraw %}
 ```
 
-You can check your app, the button will be disabled by default. We want to add some logic around this feature. We have to learn a couple of new Ember.js features for that.
+If you check your app, you will see that the button is disabled by default. We want to add some logic around this feature. We have to learn a couple of new Ember.js features for that.
 
 #### Computed Properties and Observers
 
@@ -389,7 +389,7 @@ Please note, I will use the new, preferred syntax in our project. You could ask,
 
 Computed properties and observers still could be written in two ways, however the classic syntax will be deprecated soon, but it is important to know the "old" syntax and the "new" syntax, so when you see older project, you will recognise this pattern.
 
-Previously `.property()` and `.observes()` were attached to the end of the functions, nowadays we use `Ember.computed()` and `Ember.observer()` functions instead. Let's see in examples.
+Previously `.property()` and `.observes()` were attached to the end of the functions. Nowadays we use `Ember.computed()` and `Ember.observer()` functions instead. Let's see in examples.
 
 Old (with ES5 string concatenation):
 
@@ -410,9 +410,9 @@ fullName: Ember.computed('firstName', 'lastName', function() {
 })
 //...
 ```
-So, we will use this new syntax. `Ember.computed()` could have more parameters. First parameters are always those variables/properties in string format, what we would like to use inside our function. The last parameter is a `function()`. Inside in this function we will have access to the properties with `this.get()`. In Ember.js we read properties with `this.get('propertyName')` and update properties with `this.set('propertyName', newValue)`.
+So, we will use this new syntax. `Ember.computed()` can have more parameters. The first parameters are always variables/properties in string format; what we would like to use inside our function. The last parameter is a `function()`. Inside this function we will have access to the properties with `this.get()`. In Ember.js we read properties with `this.get('propertyName')` and update properties with `this.set('propertyName', newValue)`.
 
-Back to our project, and let's play with these new features.
+Back to our project--let's play with these new features.
 
 Let's update our html code with input component syntax and add a `value` to our email input box.
 
@@ -422,7 +422,7 @@ Modify `<input>` line as follow in `index.hbs`:
 {{input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"}}{% endraw %}
 ```
 
-As you can see, we use `emailAddress` variable, or better word, a "property" where we would like to store the value of the input box.
+As you can see, we use the `emailAddress` variable, or in other words, a "property" where we would like to store the value of the input box.
 
 If you type something in the input box, it will update this variable in the controller as well.
 
@@ -450,9 +450,9 @@ export default Ember.Controller.extend({
 {% endraw %}
 ```
 
-Observers will be called always when the value of the `emailAddress` changes, the computed property only when you use it. Open your app in your browser, activate Ember Inspector. Click on `/# Routes` section, find the `index` route, in the same line, under `Controller` column, you will see an `>$E` sign, click on it. Open the console in Chrome and you will see something like this: `{% raw %}Ember Inspector ($E):  Class {__nextSuper: undefined, __ember_meta__: Object, __ember1442491471913: "ember443"}{% endraw %}`
+Observers will always be called when the value of the `emailAddress` changes, while the computed property only changes when you go and use that property. Open your app in your browser, and activate Ember Inspector. Click on `/# Routes` section, find the `index` route, and in the same line, under the `Controller` column, you will see an `>$E` sign; click on it. Open the console in Chrome and you will see something like this: `{% raw %}Ember Inspector ($E):  Class {__nextSuper: undefined, __ember_meta__: Object, __ember1442491471913: "ember443"}{% endraw %}`
 
-If you type the following in the console: `$E.get('actualEmailAddress')`, you should see the above created `console.log` message, that "actualEmailAddress is called". You can try out `$E.set('emailAddress', 'example@example.com')` in the console. What do you see?
+If you type the following in the console: `$E.get('actualEmailAddress')`, you should see the `console.log` output message defined above inside "actualEmailAddress". You can try out `$E.set('emailAddress', 'example@example.com')` in the console. What do you see?
 
 Please play with the above examples and try to create your own observers and computed properties.
 
@@ -475,7 +475,7 @@ export default Ember.Controller.extend({
 });
 ```
 
-There are a few pre defined computed property function, which make your code more shorter. In the following example we use `Ember.computed.empty()`, which checks whether a property is empty or not.
+There are a few predefined computed property functions, which saves you some code. In the following example we use `Ember.computed.empty()`, which checks whether a property is empty or not.
 
 ``` javascript
 // app/controllers/index.js
@@ -496,9 +496,9 @@ Try out the above example in your code.
 
 #### isValid
 
-Let's go further. It would be more elegant solution if we enable our "Invite me" button only when input box contains a valid email address.
+Let's go further. It would be a more elegant solution if we only enabled our "Request Invitation" button when the input box contained a valid email address.
 
-We use `Ember.computed.match()` short computed property function to check the validity of the string. But we need the negated version of this `isValid` computed property. We can use the `Ember.computed.not()` for this.
+We'll use the `Ember.computed.match()` short computed property function to check the validity of the string. But `isDisabled` needs to be the negated version of this `isValid` computed property. We can use the `Ember.computed.not()` for this.
 
 ``` javascript
 // app/controllers/index.js
