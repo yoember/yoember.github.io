@@ -82,8 +82,8 @@ You have now a new `ember` command in your console. Check with
 You should see something similar:
 
 ``` bash {% raw %}
-version: 2.4.1
-node: 5.7.1
+version: 2.4.2
+node: 5.8.0
 os: darwin x64{% endraw %}
 ```
 
@@ -147,9 +147,9 @@ Check your app and open the Console in Chrome/Firefox. You will see same extra i
 
 ### <a name="ember-bootstrap-sass"></a>Add Bootstrap and Sass to Ember.js App
 
-Let's add some basic style to our application. We use Bootstrap with Sass. Ember CLI can install for us add-ons and useful packages. These add-ons are simplify our development process, because we don't have to reinvent the wheel, we get more out of the box. You can find various packages, add-ons on these websites: http://www.emberaddons.com or http://www.emberobserver.com
+Let's add some basic style to our application. We use Bootstrap with Sass. Ember CLI can install for us add-ons and useful packages. These add-ons simplify our development process, because we don't have to reinvent the wheel, we get more out of the box. You can find various packages, add-ons on these websites: http://www.emberaddons.com or http://www.emberobserver.com
 
-We install an add-on for Sass and other for Bootstrap.
+We install an add-on for Sass and another for Bootstrap.
 
 Exit your `ember server` with `Ctrl+C` in your terminal.
 
@@ -197,9 +197,9 @@ Update your main template file. Delete the example content and add the following
 
 Ember uses handlebar syntax in templates. It is almost the same as plain html, but you could have dynamic elements with `{% raw %}{{}}{% endraw %}`.
 
-You can insert snippets from other template with `partial` helper.
+You can insert snippets from other templates with the `partial` helper.
 
-The `outlet` helper a general helper, a placeholder, where deeper level content will be inserted. The `outlet` in `application.hbs` means, that almost all content from other pages will appear inside this section. For this reason, `application.hbs` is a good place to determine the main structure of our website. In our case we have a `container` div, a navigation bar and the real content.
+The `outlet` helper is a general helper, a placeholder, where deeper level content will be inserted. The `outlet` in `application.hbs` means that almost all content from other pages will appear inside this section. For this reason, `application.hbs` is a good place to determine the main structure of our website. In our case we have a `container` div, a navigation bar, and the real content.
 
 Generate a `navbar.hbs` file with the following command in you terminal.
 
@@ -229,7 +229,7 @@ You can open `./app/templates/navbar.hbs` in your editor and add the following l
 </nav>{% endraw %}
 ```
 
-Ember provides a bunch of useful handlebar helpers. The `{% raw %}{{#link-to}}{{/link-to}}{% endraw %}` helps to create links. In this case we use as a block helper. The first parameter is the route name (`index`). Inside the block goes the label of the link. `link-to` uses `<a>` tag as default, but you can setup different tag with `tagName` property. We need this little bit hacky solution because of Bootstrap, however later we will implement a [nicer component](#nav-link-to) to manage navigation links.
+Ember provides a bunch of useful handlebar helpers. The `{% raw %}{{#link-to}}{{/link-to}}{% endraw %}` helps to create links. In this case we use as a block helper. The first parameter is the route name (`index`). Inside the block goes the label of the link. `link-to` uses `<a>` tag as default, but you can set up a different tag with the `tagName` property. We need this slightly hacky solution because of Bootstrap, however later we will implement a [nicer component](#nav-link-to) to manage navigation links.
 
 Launch your application with `ember server`. You should see your new navigation bar in your browser.
 
@@ -259,21 +259,21 @@ Open your new `./app/templates/about.hbs` file in your editor, delete its conten
 <h1>About Page</h1>
 ```    
 
-You can launch your app with `ember server` and navigate to `http://localhost:4200/about` page, you should see the created `About Page` header message. If you click on `Home` in your menu bar, your page will be empty. Let's fix that.
+You can launch your app with `ember server` and navigate to `http://localhost:4200/about`, where you should see the newly created `About Page` header message. If you click on `Home` in your menu bar, your page will be empty. Let's fix that.
 
 Create a new `index` template with the following command in your terminal:
 
     $ ember generate template index
 
-Open in your editor the generated `./app/templates/index.hbs` file and add the following:
+Open in your editor the newly generated `./app/templates/index.hbs` file and add the following:
 
 ```html
 <h1>Home Page</h1>
 ```
 
-If you launch your app, you should see the above message on your home page, however we still doesn't have `About` link in our menu bar.
+If you launch your app, you should see the above message on your home page, however we still don't have an `About` link in our menu bar.
 
-Open your `./app/templates/navbar.hbs` and add the following line to the `ul` section under `Home` link:
+Open your `./app/templates/navbar.hbs` and add the following line to the `ul` section under the `Home` link:
 
 ``` handlebars {% raw %}
     {{#link-to 'about' tagName="li"}}<a href="">About</a>{{/link-to}}{% endraw %}
@@ -288,11 +288,11 @@ Your `ul` section in `navbar.hbs` should look like this:
 </ul>{% endraw %}
 ```
 
-If you check your app in the browser, you should see `Home` and `About` link in your menu bar, you can click on them and you will see how the page content and the url are changed. The `active` state of the link changes the style of the menu link automatically as well. However Bootstrap expect the `active` class in `li` and expects an anchor tag inside the `li` tag. For this reason we have to insert that empty anchor around menu labels. We will fix this with a nice component later. 
+If you check your app in the browser, you should see `Home` and `About` links in your menu bar. You can click on them and see how the page content and the url are changed. The `active` state of the link changes the style of the menu link automatically as well. However Bootstrap expect the `active` class in `li` and expects an anchor tag inside the `li` tag. For this reason we have to insert that empty anchor around menu labels. We will fix this with a nice component later. 
 
 ### Homework
 
-Create a `Contact` page. Extend the navigation bar with "Contact" menu.
+Create a `Contact` page. Extend the navigation bar with a "Contact" menu item.
 
 ## <a name='lesson-2'></a>Lesson 2
 
