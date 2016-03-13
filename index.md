@@ -525,7 +525,7 @@ Update the `<button>` line in `index.hbs`.
 <button class="btn btn-primary btn-lg btn-block" disabled={{isDisabled}} {{action 'saveInvitation'}}>Request invitation</button>{% endraw %}
 ```
 
-You can try out in your browser, that if you click on the button, you will get a nice error message, which alerts you, that you have to implement this action in your controller. Let's do that.
+You can try it out in your browser and see that if you click on the button, you will get a nice error message, alerting you that you have to implement this action in your controller. Let's do that.
 
 ``` javascript
 // app/controllers/index.js
@@ -549,7 +549,7 @@ export default Ember.Controller.extend({
 
 });
 ```
-If you click on the button, `saveInvitation` action will be called and shows an alert box, after it will setup a `responseMessage` property, finally deletes the content of `emailAddress`.
+If you click on the button, the `saveInvitation` action is called and shows an alert box, sets up a `responseMessage` property, and finally deletes the content of `emailAddress`.
 
 We have to show the response message. Extend your template.
 
@@ -581,7 +581,7 @@ We have to show the response message. Extend your template.
 
 </div>{% endraw %}
 ```
-We use `{% raw %}{{#if}}{{/if}}{% endraw %}` handlebar helper block to show or hide the alert message. Handlebar conditionals are really powerful. You can use `{% raw %}{{else}}{% endraw %}` as well.
+We use the `{% raw %}{{#if}}{{/if}}{% endraw %}` handlebar helper block to show or hide the alert message. Handlebar conditionals are really powerful. You can use `{% raw %}{{else}}{% endraw %}` as well.
 
 * More about conditionals in templates: http://guides.emberjs.com/v2.4.0/templates/conditionals/
 
@@ -589,13 +589,13 @@ Brilliant. You learned a lot about Ember.js and you have just implemented these 
 
 ### Homework
 
-It is time to practice, what you have just learned. 
+It is time to practice what you have just learned. 
 
-You already have an amazing `Contact` page, where we would like to add a contact form. In this contact form would be two fields. One field for email address and one field for text message. And there would be a “Send message” button. This button should be active only if email address field not empty and valid and there is some message in the text box. After clicking on “Send message” button should appear an Alert with the email address and the message. When you close the alert message, the form should be cleared and a message should appear in the page in green box, this message could be something about "we got your message and get in touch soon".
+You already have an amazing `Contact` page, where we would like to add a contact form. In this contact form will be two fields. One field for an email address and one field for a text message. And there will be a “Send message” button. This button should be active only if the email address field isn't empty and is valid and there is some message in the text box. After clicking on the “Send message” button, an alert should appear with the email address and the message. When you close the alert message, the form should be cleared and a success message should appear on the page in a green box. This message could be something like, "We got your message and we'll get in touch soon".
 
-Hint: you already have a `contact.hbs` but you need a controller where you manage these logic.
+Hint: you already have a `contact.hbs` template but you need a controller for it where you manage its logic.
 
-Bonus point if you can add validation to `textarea`. One option, the textarea should not be empty, other option, the length of the message at least 5 characters long.
+Bonus point if you can add validation to the `textarea`. One option: the textarea should not be empty. Another option: the length of the message has to be at least 5 characters long.
 
 ``` handlebars
 {% raw %}{{textarea class="form-control" placeholder="Your message. (At least 5 characters.)" rows="7" value=message}}{% endraw %}
@@ -607,7 +607,7 @@ Short version of computed property for `greater than or equal`:
 
 (Please note, it is `computed.gte` and not `computed.get`.)
 
-If you have two computed property, and both has to be `true` you can use a third computed property with `and`.
+If you have two computed properties, and both must be `true`, you can use a third computed property to compute the `and`.
 
     Ember.computed.and('firstComputedProperty', 'secondComputedProperty')
 
@@ -615,7 +615,7 @@ You can get a string computed property length with `.length`. If your computed p
 
 * In terms of feedback on a form, there is a really cool solution on bootstrap: http://getbootstrap.com/css/#forms-control-validation (Check the "With optional icons" section.)
 
-Please try to implement the above requirements. When you finished, you can check in my repository. I am pretty sure, that your solution will be much better than mine. ;) 
+Please try to implement the above requirements. When you're finished, you can check out my repository (the contact logic in my repository is located at `library-app/app/models/contact.js` because of how we refactor things later). I am pretty sure that your solution will be much better than mine. ;)
 
 ## <a name='lesson-3'></a>Lesson 3
 
