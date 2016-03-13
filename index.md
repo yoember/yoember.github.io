@@ -133,15 +133,15 @@ If you would like to see more information in your browser's console about what E
 You can find a list of debugging options in `./config/environment.js` file. Remove the comment sign as follow:
 
 ``` javascript {% raw %}
-    //..
-    if (environment === 'development') {
-      // ENV.APP.LOG_RESOLVER = true;
-      ENV.APP.LOG_ACTIVE_GENERATION = true;
-      ENV.APP.LOG_TRANSITIONS = true;
-      ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-      ENV.APP.LOG_VIEW_LOOKUPS = true;
-    }
-    //..{% endraw %}
+//..
+if (environment === 'development') {
+  // ENV.APP.LOG_RESOLVER = true;
+  ENV.APP.LOG_ACTIVE_GENERATION = true;
+  ENV.APP.LOG_TRANSITIONS = true;
+  ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+  ENV.APP.LOG_VIEW_LOOKUPS = true;
+}
+//..{% endraw %}
 ```
 Check your app and open the Console in Chrome/Firefox. You will see same extra information about what Ember.js actually does under the hood. Don't worry if you don't understand these debug messages at this stage. As you spend more and more time with Ember.js development, these lines are going to be clearer.
 
@@ -276,7 +276,7 @@ If you launch your app, you should see the above message on your home page, howe
 Open your `./app/templates/navbar.hbs` and add the following line to the `ul` section under the `Home` link:
 
 ``` handlebars {% raw %}
-    {{#link-to 'about' tagName="li"}}<a href="">About</a>{{/link-to}}{% endraw %}
+{{#link-to 'about' tagName="li"}}<a href="">About</a>{{/link-to}}{% endraw %}
 ```
 
 Your `ul` section in `navbar.hbs` should look like this:
@@ -308,25 +308,25 @@ Let's create a coming soon "jumbotron" on the home page with an email input box,
 Add a static jumbotron, an input box and a button to `/app/templates/index.hbs`.
 
 ```html
-    <div class="jumbotron text-center">
-        <h1>Coming Soon</h1>
+<div class="jumbotron text-center">
+    <h1>Coming Soon</h1>
 
-        <br/><br/>
+    <br/><br/>
 
-        <p>Don't miss our launch date, request an invitation now.</p>
+    <p>Don't miss our launch date, request an invitation now.</p>
 
-        <div class="form-horizontal form-group form-group-lg row">
-            <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
-              <input type="email" class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"/>
-            </div>
-            <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
-                <button class="btn btn-primary btn-lg btn-block">Request invitation</button>
-            </div>
-
+    <div class="form-horizontal form-group form-group-lg row">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
+          <input type="email" class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"/>
+        </div>
+        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
+            <button class="btn btn-primary btn-lg btn-block">Request invitation</button>
         </div>
 
-        <br/><br/>
     </div>
+
+    <br/><br/>
+</div>
 ```
 
 #### Requirements
@@ -366,14 +366,14 @@ Note: Ember.js still uses controllers, however controller layer will be deprecat
 Add `isDisabled` property to the controller. Default value is `true`.
 
 ``` javascript {% raw %}
-    //app/controllers/index.js
-    import Ember from 'ember';
+//app/controllers/index.js
+import Ember from 'ember';
 
-    export default Ember.Controller.extend({
+export default Ember.Controller.extend({
 
-      isDisabled: true
+  isDisabled: true
 
-    }); {% endraw %}
+}); {% endraw %}
 ```
 
 You can check your app, the button will be disabled by default. We want to add some logic around this feature. We have to learn a couple of new Ember.js features for that.
@@ -1079,7 +1079,7 @@ Open your browser and please check these automatically generated routes and cont
 What is that nice one liner in `saveLibrary()` method?
 
 ``` javascript
- newLibrary.save().then(() => this.transitionTo('libraries'));
+newLibrary.save().then(() => this.transitionTo('libraries'));
 ```
 
 In ES2015, after `=>` syntax, if we have only one line of code what would be a `return` and something, we can use a more cleaner structure without curly braces and `return`. 
@@ -1371,9 +1371,9 @@ We have a `{% raw %}{{yield}}{% endraw %}` which means, that we can use this com
 For example:
 
 ``` handlebars
-     {% raw %}{{#library-item item=model}}
-        Closed
-     {{/library-item}}{% endraw %}
+{% raw %}{{#library-item item=model}}
+  Closed
+{{/library-item}}{% endraw %}
 ```
 
 In this case the `Closed` text will appear in the panel footer.
