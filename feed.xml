@@ -6,8 +6,8 @@
 </description>
     <link>http://yoember.com/</link>
     <atom:link href="http://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 07 Mar 2016 19:48:53 +1300</pubDate>
-    <lastBuildDate>Mon, 07 Mar 2016 19:48:53 +1300</lastBuildDate>
+    <pubDate>Mon, 14 Mar 2016 18:50:26 +1300</pubDate>
+    <lastBuildDate>Mon, 14 Mar 2016 18:50:26 +1300</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -40,23 +40,23 @@
 &lt;p&gt;Install the available node versions on the cloud:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ nvm ls-remote
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Choose the most recent version. (At the moment it is v5.7.1)
+&lt;p&gt;Choose the most recent version. (At the moment it is v5.8.0)
 Install the selected version with the following command:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ nvm install 5.7.1
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ nvm install 5.8.0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Setup this version as the default.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ nvm use 5.7.1
-$ nvm alias default 5.7.1
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ nvm use 5.8.0
+$ nvm alias default 5.8.0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Check your node version with&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ node -v
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;You should see &lt;code&gt;v5.7.1&lt;/code&gt; if you installed the above version.&lt;/p&gt;
+&lt;p&gt;You should see &lt;code&gt;v5.8.0&lt;/code&gt; if you installed the above version.&lt;/p&gt;
 
 &lt;p&gt;You can update your &lt;code&gt;npm&lt;/code&gt; to the latest.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ npm install -g npm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;After the update, the npm version, &lt;code&gt;npm -v&lt;/code&gt;, should be at least &lt;code&gt;3.7.5&lt;/code&gt; or above.&lt;/p&gt;
+&lt;p&gt;After the update, the npm version, &lt;code&gt;npm -v&lt;/code&gt;, should be at least &lt;code&gt;3.8.1&lt;/code&gt; or above.&lt;/p&gt;
 
 &lt;p&gt;Alternatives, but not suggested:&lt;/p&gt;
 
@@ -78,9 +78,9 @@ If you already installed Node.js with the built in package manager, please remov
 &lt;p&gt;(Please read the instructions under OSX section.)&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ nvm list
 $ nvm ls-remote
-$ nvm install 5.7.1
-$ nvm use 5.7.1
-$ nvm alias default 5.7.1
+$ nvm install 5.8.0
+$ nvm use 5.8.0
+$ nvm alias default 5.8.0
 $ node -v
 $ npm install -g npm
 $ npm -v
@@ -117,7 +117,7 @@ $ npm install -g ember-cli
 &lt;p&gt;I would suggest, experiment with different shells. Which worked better for you? PowerShell, Git Shell, the original CMD.exe? Please, share your Windows experiment in a comment.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Now, you have Node.js on your machine, it&amp;#39;s time to go back to the &lt;a href=&quot;http://yoember.com&quot;&gt;Ember.js Tutorial&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Now, you have Node.js on your machine, it&amp;#39;s time to go back to the &lt;a href=&quot;http://yoember.com&quot;&gt;Emberjs Tutorial&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
@@ -137,7 +137,7 @@ $ npm install -g ember-cli
   })();
 &lt;/script&gt;
 </description>
-        <pubDate>Thu, 03 Mar 2016 21:00:00 +1300</pubDate>
+        <pubDate>Mon, 14 Mar 2016 18:00:00 +1300</pubDate>
         <link>http://yoember.com/nodejs/the-best-way-to-install-node-js/</link>
         <guid isPermaLink="true">http://yoember.com/nodejs/the-best-way-to-install-node-js/</guid>
         
