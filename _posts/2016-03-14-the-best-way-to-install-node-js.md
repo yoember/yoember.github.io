@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Best Way to Install Node.js"
-date: 2016-03-03T21:00:00+13:00
+date: 2016-03-14T18:00:00+13:00
 author: Zoltan
 categories: nodejs
 ---
@@ -46,25 +46,25 @@ Install the available node versions on the cloud:
 $ nvm ls-remote
 ```
 
-Choose the most recent version. (At the moment it is v5.7.1)
+Choose the most recent version. (At the moment it is v5.8.0)
 Install the selected version with the following command:
 
 ```
-$ nvm install 5.7.1
+$ nvm install 5.8.0
 ```
 
 Setup this version as the default.
 
 ```
-$ nvm use 5.7.1
-$ nvm alias default 5.7.1
+$ nvm use 5.8.0
+$ nvm alias default 5.8.0
 ```
 Check your node version with
 
 ```
 $ node -v
 ```
-You should see `v5.7.1` if you installed the above version.
+You should see `v5.8.0` if you installed the above version.
 
 You can update your `npm` to the latest.
 
@@ -72,7 +72,7 @@ You can update your `npm` to the latest.
 $ npm install -g npm
 ```
 
-After the update, the npm version, `npm -v`, should be at least `3.7.5` or above.
+After the update, the npm version, `npm -v`, should be at least `3.8.1` or above.
 
 Alternatives, but not suggested:
 
@@ -97,9 +97,9 @@ $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh |
 ```
 $ nvm list
 $ nvm ls-remote
-$ nvm install 5.7.1
-$ nvm use 5.7.1
-$ nvm alias default 5.7.1
+$ nvm install 5.8.0
+$ nvm use 5.8.0
+$ nvm alias default 5.8.0
 $ node -v
 $ npm install -g npm
 $ npm -v
@@ -146,7 +146,7 @@ $ npm install -g ember-cli
 ```
 I would suggest, experiment with different shells. Which worked better for you? PowerShell, Git Shell, the original CMD.exe? Please, share your Windows experiment in a comment.
 
-> Now, you have Node.js on your machine, it's time to go back to the [Ember.js Tutorial](http://yoember.com)
+> Now, you have Node.js on your machine, it's time to go back to the [Emberjs Tutorial](http://yoember.com)
 
 <div id="disqus_thread"></div>
 <script>

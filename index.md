@@ -1,11 +1,11 @@
 ---
 layout: home
-last_modified_at: 04/03/2016
+last_modified_at: 14/03/2016
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 ---
 # Ember.js 2 Tutorial 
 ## Building a complex web application with Ember.js 2.4
-<p class="blog-post-meta">Latest update: <time datetime="2016-03-04" itemprop="datePublished">4 Mar 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-03-14" itemprop="datePublished">14 Mar 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
@@ -48,9 +48,9 @@ Or leave a comment at the [bottom of this page](#disqus_thread).
 
 ## Prerequisites
 
-* node.js: at least 0.12, but the best if you install the latest 5.7.1.
+* node.js: at least 0.12, but the best if you install the latest 5.8.0.
 
-[The best way to install Node.js on Mac, Linux and on Windows]({% post_url 2016-03-03-the-best-way-to-install-node-js %})
+[The best way to install Node.js on Mac, Linux and on Windows]({% post_url 2016-03-14-the-best-way-to-install-node-js %})
 
 * Ember Inspector Chrome Extension
 
@@ -63,17 +63,17 @@ More info: https://facebook.github.io/watchman/
 
 ## <a name='lesson-1'></a>Lesson 1
 
-This tutorial uses the latest Ember CLI tool (v2.4.1).
+This tutorial uses the latest Ember CLI tool (v2.4.2).
 
 ### Install Ember CLI
 
-The following `npm` command installs Ember CLI latest stable version in the global namespace. The latest Ember CLI version 2.4.1 is released on 1 of March 2016, it generates app with Ember.js v2.4 and Ember Data v2.4. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)
+The following `npm` command installs Ember CLI latest stable version in the global namespace. The latest Ember CLI version 2.4.2 is released on 1 of March 2016, it generates app with Ember.js v2.4 and Ember Data v2.4. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)
 
     $ npm install -g ember-cli
     
 or if you would like to install with fixed version
 
-    $ npm install -g ember-cli@2.4.1
+    $ npm install -g ember-cli@2.4.2
 
 You have now a new `ember` command in your console. Check with
 
@@ -82,8 +82,8 @@ You have now a new `ember` command in your console. Check with
 You should see something similar:
 
 ``` bash {% raw %}
-version: 2.4.1
-node: 5.7.1
+version: 2.4.2
+node: 5.8.0
 os: darwin x64{% endraw %}
 ```
 
@@ -515,7 +515,7 @@ export default Ember.Controller.extend({
 ```
 Great, it works now as expected. You see, we can write really elegant code with Ember.js, can't we? ;)
 
-#### Add our first Action
+#### Adding our first Action
 
 Great we have an input box and a button on our screen, but it does nothing at the moment. Let's implement our first action.
 
