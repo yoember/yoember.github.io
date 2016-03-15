@@ -621,7 +621,7 @@ Please try to implement the above requirements. When you're finished, you can ch
 
 ### Our first Ember.js Model
 
-We ask email addresses on the home page, but we don't save them at the moment in the database. It is time to implement this feature in our website.
+We ask for email addresses on the home page, but we don't save them in the database at the moment. It is time to implement this feature in our website.
 
 * Please read the detailed introduction on Ember.js website about Ember.js Models: http://guides.emberjs.com/v2.4.0/models/
 
@@ -661,7 +661,7 @@ export default Ember.Controller.extend({
 }); {% endraw %}
 ```
 
-Check your browser, open the browser's console. Try to save an invitation email address on home page. You will see an error message in the console.
+Open the app in your browser, and open the browser's console. Try to save an invitation email address on the home page. You will see an error message in the console.
 
 Ember.js tried to send that data to a server, but we don't have a server yet. Let's build one.
 
@@ -673,7 +673,7 @@ Firebase is a server and API service. Very easy to use. http://www.firebase.com
 2. Read the guide and help section, especially the instructions about EmberFire: https://www.firebase.com/docs/web/libraries/ember/guide.html
 3. Follow the instructions. First, run the following command in your terminal: `ember install emberfire`
 4. Go back to Firebase and create an app there. Remember the name of your app.
-5. Update your config file in your Ember.js app. In `config/environment.js` should have a `firebase` property. Update the url with your Firebase app url what you have just created on Firebase website.
+5. Update your config file in your Ember.js app. In `config/environment.js` you should have a `firebase` property. Update the url with your Firebase app url that you have just created on Firebase website.
 
 ``` javascript
 // config/environment.js
@@ -691,15 +691,17 @@ var ENV = {
 
 Try out Request Invitation button again, check the browser's console messages and open the Firebase website, and check your app dashboard. You will see, that the email address, what you just saved on your home page, is sent to Firebase and it is saved on the server.
 
+* Remember to restart your Ember server, or else you'll have problems with the newly installed EmberFire addon.
+
 Well done!
 
 ### Promise and the `this` context in javascript (+ playing with ES5 and ES6 a little)
 
-Promise is a unique asynchronous feature in javascript. Basically an object, which hasn't completed yet, but is expected in the future. You can read more about it on Mozilla website: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise
+Promises are a unique asynchronous feature in javascript. Basically, they're objects that haven't completed yet, but are expected to in the future. You can read more about promises on the Mozilla website: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 In our code, we use a Promise: `.save()`
 
-The `save` method on Ember Data Model is a `Promise`. It promises us that it is trying to save our data. It could be successful or maybe return with error.
+The `save` method on Ember Data Model is a `Promise`. It promises us that it is trying to save our data. It could be successful or maybe return with an error.
 
 We can catch the result of a `Promise` with a chained `.then()`. In our example:
 
@@ -709,11 +711,11 @@ newInvitation.save().then(function(response) {
 })
 ```
 
-If the saving process is successful, 'fulfilled', then we will get back a response from the server, what we can catch in our function parameter.
+If the saving process is successful, 'fulfilled', then we will get back a response from the server, which we can catch in our function parameter.
 
-We have to move our lines, which showing our success message inside this new function, because we would like to show that message only, when the data is really saved.
+We have to relocate the code that displays our success message to be inside this new function, because we would like to show the success message only when the data is actually saved.
 
-If you would simply just copy paste and you use the classic, ES5 JavaScript syntax, you will realize the code will not work as expected. (In the following snippet, I mix the ES5 `function` and ES6 string interpolation syntax. It is not nice.)
+If you simply copy and paste the snippet below (which uses ES5 JavaScript syntax), you will see that the code does not work as expected. (In the following snippet, I mix the ES5 `function` and ES6 string interpolation syntax. It is not nice.)
 
 ``` javascript
 newInvitation.save().then(function(response) {
@@ -722,13 +724,13 @@ newInvitation.save().then(function(response) {
 })
 ```
 
-In javascript the `this` points always to that object which is wrapping it around. In the above example, the `this` will be undefined, because we are in a function after the Promise. Please learn more about it here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
+In javascript, `this` always points to the object that wraps around it. In the above example, `this` will be undefined because we are inside the function after the Promise. Please learn more about it here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
 
-This kind of problem is nicely solved in ES6/ES2015, in the new JavaScript, what I use mainly in this tutorial. However, no problem, if you see the old, traditional way also. Just for a second, of course.
+This kind of problem is solved nicely in ES6/ES2015, the new JavaScript, which is what I mainly use in this tutorial. However, it's not a problem if you see the old, traditional way also. We'll look at it this method for just for a second.
 
-In ES5 syntax, we have to save the controller context in a local variable. We can use a `_that` inside our `then`.
+In ES5 syntax, we have to save the controller context (the controller's `this`) in a local variable. We can set the controller's `this` as the variable `_that` so we can use it inside our `then`.
 
-In ES5 syntax our controller would look like this. (You don't have to use this code in your project. I will show the preferred ES6/ES2015 version after.)
+In ES5 syntax our controller would look like this. (You don't have to use this code in your project. I will show the preferred ES6/ES2015 version after this.)
 
 ``` javascript
 import Ember from 'ember';
@@ -762,9 +764,9 @@ export default Ember.Controller.extend({
 });
 ```
 
-We save the `this` controller context in a `_that` local variable. We use this local variable inside our function after the `save()` Promise. The above example uses `response` and shows the `id` of the generated database record. There are a lots of `var`, but in ES2015 JavaScript, we don't use `var` anymore, only `let` and `const`. Good bye `var` and good bye `_that` also. ;)
+We save the `this` controller context in a `_that` local variable. We use this local variable inside our function after the `save()` Promise. The above example uses the `response` from Firebase and shows the `id` of the generated database record. This methods uses the `var` declaration a lot, but in ES2015 JavaScript, we don't use `var` anymore; only `let` and `const`. Good bye `var` and goodbye `_that` also. ;)
 
-Let's see the cleaner ES2015 version. (You can use this code in your project.)
+Let's look at the cleaner ES2015 version. (You can use this code in your project.)
 
 ``` javascript
 // app/controllers/index.js
@@ -799,9 +801,9 @@ export default Ember.Controller.extend({
 });
 ```
 
-You can see the new `=>` syntax here. And we don't need so many `function` keyword as well. The context of the `saveInvitation()` method passed deeper automatically inside our asynchronous callback function. So you can just use a simple `this`. Much nicer and cleaner. Do you like it?
+You can see the new `=>` syntax here. We don't need to use the `function` keyword so much. The context of the `saveInvitation()` method is automatically passed deeper, into our asynchronous callback function. Now you can just use a simple `this`. Much nicer and cleaner. Do you like it?
 
-After `save()`, the `response` variable will get back the model from the server. This model object will contain the `id` of our model, the `id` comes from our database. You can use it in the response message.
+After `save()`, the model from the server will be sent to the callback as `response`. This model object will contain the `id` of our model. The `id` comes from our database. You can use it in the response message.
 
 Great, our home page is ready.
 
@@ -875,9 +877,9 @@ Add a table to `app/templates/admin/invitations.hbs`
 </table>{% endraw %}
 ```
 
-We use `{% raw %}{{#each}}{{/each}}{% endraw %}` handlebar block helper to generate a list. The `model` variable will contain an array which we will download from the server. Ember.js automatically populates responses from the server. However we have not implemented this step yet.
+We use the `{% raw %}{{#each}}{{/each}}{% endraw %}` handlebar block helper to generate a list. The `model` variable will contain an array of invitations which we will retrieve from the server. Ember.js automatically populates responses from the server, however we have not implemented this step yet.
 
-Let's download our data from the server using a Route Handler and Ember Data.
+Let's retrieve our data from the server using a Route Handler and Ember Data.
 
 * Please start here and read the official guide about Route's Model: http://guides.emberjs.com/v2.4.0/routing/specifying-a-routes-model/
 
@@ -900,13 +902,13 @@ Launch your app and check your table in Admin. What do you think? :)
 
 ### CRUD interface for libraries
 
-We will implement a new section in our app, where we can create new libraries or list the previously created data.
+We will implement a new section in our app, where we can create new libraries and list the previously created data.
 
 Firstly we create our `library` model.
 
     $ ember g model library name:string address:string phone:string
 
-Secondly we create our new route. At the moment we do it without Ember CLI, only manually adding the following lines to our `router.js`:
+Secondly we create our new route. At the moment we'll do it without Ember CLI; just manually add the following lines to our `router.js`:
 
 ``` javascript
 // app/router.js
@@ -935,13 +937,13 @@ Router.map(function() {
 export default Router;
 ```
 
-Now we create 3 new templates. Our main `libraries.hbs`, a `libraries/index.hbs` for list and a `libraries/new.hbs` for new form.
+Now we create 3 new templates. Our main `libraries.hbs`, a `libraries/index.hbs` for displaying the list, and a `libraries/new.hbs` for a library creation form.
 
     $ ember g template libraries
     $ ember g template libraries/index
     $ ember g template libraries/new
 
-Update your `navbar.hbs` main navigation section as follow.
+Update your `navbar.hbs` main navigation section as follows.
 
 ``` handlebars
 <!-- app/templates/navbar.hbs -->
@@ -961,17 +963,17 @@ Add a submenu to `libraries.hbs`
 
 <div class="well">
     <ul class="nav nav-pills">
-      {{#link-to 'libraries.index' tagName="li"}}<a href>List all</a>{{/link-to}}
-      {{#link-to 'libraries.new' tagName="li"}}<a href>Add new</a>{{/link-to}}
+      {{#link-to 'libraries.index' tagName="li"}}<a href="">List all</a>{{/link-to}}
+      {{#link-to 'libraries.new' tagName="li"}}<a href="">Add new</a>{{/link-to}}
     </ul>
 </div>
 
 {{outlet}}{% endraw %}
 ```
 
-Check your app, you should see a new menu point and there could be two submenu.
+Check your app; you should see a new menu item, and a submenu with two items under `/libraries`.
 
-Other two templates have the following content.
+The other two templates should have the following content.
 
 ``` handlebars
 <!-- app/templates/libraries/index.hbs -->
@@ -990,7 +992,7 @@ Other two templates have the following content.
 {{/each}}{% endraw %}
 ```
 
-We generate a list from our model which will be downloaded in the route. We are using `panel` style from bootstrap here.
+We generate a list from our model which will be retrieved in the route. We are using `panel` style from bootstrap here.
 
 ``` handlebars
 <!-- app/templates/libraries/new.hbs -->
@@ -1023,7 +1025,7 @@ We generate a list from our model which will be downloaded in the route. We are 
 </div>{% endraw %}
 ```
 
-We use `model` as our value store. You will see soon, that our model will be created in the route. The action will call `saveLibrary` function and we pass the `model` parameter to that function.
+We use `model` as our value store. You will soon see that our model will be created in the route. The action attached to the submit button will call a `saveLibrary` function that we'll pass the `model` parameter to.
 
 In your `app/routes` folder create `libraries` folder and add two js files: `index.js` and `new.js`
 
@@ -1040,8 +1042,7 @@ export default Ember.Route.extend({
 });
 ```
 
-We download here all records from the server.
-
+In the route above, we retrieve all the library records from the server.
 
 ``` javascript
 // app/routes/libraries/new.js
@@ -1068,21 +1069,21 @@ export default Ember.Route.extend({
 });
 ```
 
-In the above Route we create a new record and it will be the `model`. It automatically appears in the controller and in the template. In the `saveLibrary` action we accept a param and we save that model, after we send the application back to Libraries home page with `transitionTo`.
+In the above route's model method, we create a new record and that will be the `model`. It automatically appears in the controller and in the template. In the `saveLibrary` action we accept a parameter and we save that model, and then we send the application back to the Libraries home page with `transitionTo`.
 
-There is an Ember.js built in action (event) `willTransition`, which will be called when you leave a page (route). In our case, we use this action to reset the model if we haven't saved in the database before.
+There is an built-in Ember.js action (event) called `willTransition` that is called when you leave a page (route). In our case, we use this action to reset the model if we haven't saved it in the database yet.
 
-As you can see, we can access to the controller from the route handler, with `this.controller` method, however we don't have a real controller file for this route (`/libraries/new`). Ember.js dynamic code generation feature automatically creates controllers and route handlers for each route. They exists in memory. In this example `model` property exists in this "virtual" controller and in our template, so we can "destroy" it.
+As you can see, we can access the controller from the route handler using `this.controller`, however we don't have a real controller file for this route (`/libraries/new.js`). Ember.js's dynamic code generation feature automatically creates controllers and route handlers for each route. They exists in memory. In this example, the `model` property exists in this "virtual" controller and in our template, so we can still "destroy" it.
 
-Open your browser and please check these automatically generated routes and controllers in Ember Inspector, under the "Routes" section. You will see how many different elements dynamically created.
+Open your browser and please check out these automatically generated routes and controllers in Ember Inspector, under the "Routes" section. You will see how many different elements are dynamically created.
 
-What is that nice one liner in `saveLibrary()` method?
+What is that nice one liner in our `saveLibrary()` method?
 
 ``` javascript
 newLibrary.save().then(() => this.transitionTo('libraries'));
 ```
 
-In ES2015, after `=>` syntax, if we have only one line of code what would be a `return` and something, we can use a more cleaner structure without curly braces and `return`. 
+In ES2015, with the `=>` [syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#Syntax), if we only have one line of code (like `return` + something) we can use a cleaner structure, without curly braces and `return`.
  
 Update: In a previous version we had the following code in `willTransition()`.
  
@@ -1099,18 +1100,18 @@ Thanks for Kiffin's [comment](#disqus_thread), we have a simpler solution. Using
 
 ### Homework
 
-**Option 1:** Improve further your Contact Page.
+**Option 1:** Further improve your Contact Page.
 
-1. Create a `contact` model with `email` and with `message` field.
-2. Save that model in the server when someone click on "Send" button on Contact form. Update your `contact.js` controller to contain validations and actions.
+1. Create a `contact` model with `email` and `message` fields.
+2. Save the model on the server when someone clicks on the "Send" button on the Contact form. Update your `contact.js` controller to contain validations and actions.
 3. Create an Admin page under `http://localhost:4200/admin/contacts`
 4. List all saved messages in a table.
 
-**Option 2:** Refactor your app contact section with usage of model in route. 
+**Option 2:** Refactor your app's contact section with usage of model in route. 
 
-1. Move validation in model. 
-2. Copy and paste the actions from controller to the route and try sending a message. Why doesn't the content of the message and email box clear? Now refactor it to clear. 
-3. Remove contact controller.
+1. Move contact validation into the contact model.
+2. Copy and paste the actions from the controller to the route and try sending a message. Why don't the message and email boxes clear? Refactor it so they do clear. You'll also need to correct the same problem in the validation code you moved to the contact model.
+3. Remove the contact controller.
 
 ## <a name='lesson-4'></a>Lesson 4
 
