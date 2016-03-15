@@ -1124,10 +1124,12 @@ Follow the [guide on Firebase](https://www.firebase.com/docs/web/libraries/ember
     $ firebase login
     $ firebase init
 
+After entering `firebase init`, select your Firebase app. When asked for the public root, enter `dist`.
+
 Update `firebase.json`
 
     {
-      "firebase": "your-app-name",
+      "firebase": "YOUR-APP-NAME",
       "public": "dist",
       "rewrites": [{
         "source": "**",
@@ -1141,9 +1143,9 @@ And deploy:
 
 ### Add Delete, Edit button and Edit route
 
-#### Upgrading library list view to grid view
+#### Upgrading the library list view to a grid view
 
-Let's upgrade our `app/templates/libraries/index.hbs` to show a nice grid layout. We have to add a little tweak to our stylesheet as well. You can see, there are two buttons in `panel-footer`. First button is a link to Edit screen, the second is a Delete button with an action. We send `library` as a param with that action call.
+Let's upgrade our `app/templates/libraries/index.hbs` to show a nice grid layout. We have to tweak our stylesheet a little bit as well. You can see below that there are two buttons in `panel-footer`. The first button is a link to the Edit screen, and the second is a Delete button with the action `deleteLibrary`. We send `library` as a parameter to that action.
 
 ``` handlebars
 <!-- app/templates/libraries/index.hbs -->
@@ -1186,11 +1188,11 @@ html {
 }
 ```
 
-If you would try to launch the app now, probably you will get an error message, because we haven't implemented `edit` route yet, and the delete `action` is missing also. Let's implement these.
+If you try to launch the app now, you'll get an error message, because we haven't implemented the `libraries.edit` route or the `deleteLibrary` action. Let's implement these.
 
 #### Duplicate some code, create edit.js and edit.hbs
 
-Add manually the new `edit` route to `router.js`. We setup a unique `path:` in the second parameter of `this.route()`. Because there is a `:` sign before the `library_id`, that part of the url will be copied in that variable as route param, and we can use it in our routes. For example, if the url is `http://example.com/libraries/1234/edit`, than `1234` will be passed as a param to route, so we can use in that route to download the model.
+Manually add the new `edit` route to `router.js`. We'll set up a unique `path:` in the second parameter of `this.route()`. Because there is a `:` sign before the `library_id`, that part of the url will be copied as a variable, available as a param in our routes. For example, if the url is `http://example.com/libraries/1234/edit`, then `1234` will be passed as a param to the route so we can use it to fetch that specific model.
 
 ``` javascript
 // app/router.js
@@ -1220,7 +1222,7 @@ Router.map(function() {
 export default Router;
 ```
 
-After we inserted this extra line in our router, time to create our `app/routes/libraries/edit.js`. You can use Ember CLI or you can create manually. The code should looks like the following. More explanation below. (In this code, I use ES5 syntax, but later I will prefer ES6/ES2015. If you would like you can use ES6/ES2015 already.)
+After inserting this extra line in our router, it's time to create our `app/routes/libraries/edit.js`. You can use Ember CLI or you can create it manually. The code should look like the following. I'll explain more below. (In this code, I use ES5 syntax, but later I will change it to ES6/ES2015. If you would like, you can use ES6/ES2015 right away.)
 
 ``` javascript
 // app/routes/libraries/edit.js
@@ -1256,15 +1258,15 @@ export default Ember.Route.extend({
 });
 ```
 
-More things happening in this file.
+A lot of things happening here.
 
-First of all, in the `model` function, we have a `params` parameter. This params will get from the url that `id`. Simply, we can use it with `params.library_id`. The `this.store.findRecord('library', params.library_id);` line download only one record from the server with the given `id`. The `id` comes from the url.
+First of all, in the `model` function, we have a `params` parameter. `params` will contain that `id` from the url. We can access it with `params.library_id`. The `this.store.findRecord('library', params.library_id);` line downloads the single record from the server with the given `id`. The `id` comes from the url.
 
-We added two actions as well. The first will save the changes and after redirect to the main `libraries` page.
+We added two actions as well. The first will save the changes and then redirect the user to the main `libraries` page.
 
-The second event-action will be called, when we are trying to leave this page, because we redirected from the previous action or the user clicked in a link on the website. In the first case, the changes already saved, but in the second case, it could happen, when the user modified something in the form but haven't saved. It is a typical "dirty checking". We can read the `model` from the controller, we use Ember Model's `hasDirtyAttributes` computed property to check something changed in the model. So we popup an ugly confirmation window. If the user would like to leave the page, we just rollback changes with `model.rollbackAttributes()`. If the user would like to stay in the page we abort the transition with `transition.abort()`. You can see, that we use `transition` variable which is initiated as a param in `willTransition` function. Ember.js automatically provides this for us.
+The second event-action will be called when we are trying to leave the page, because we were redirected in the `saveLibrary` action or the user clicked on a link on the website. In the first case, the changes are already saved, but in the second case, the user may have modified something in the form but not saved it. This is known as "dirty checking". We can read the `model` from the controller, and use Ember Model's `hasDirtyAttributes` computed property to check whether something was changed in the model. If so, we popup an ugly confirmation window. If the user would like to leave the page, we just rollback the changes with `model.rollbackAttributes()`. If the user would like to stay on the page, we abort the transition with `transition.abort()`. You can see that we use the `transition` variable, which is initiated as a param in the `willTransition` function. Ember.js automatically provides this for us.
 
-Our template is still missing. Let's use our `new.hbs` and duplicate the code in `edit.hbs` with a little changes. We will fix this problem later with components, because code duplication is not nice.
+Our template is still missing. Let's use our `new.hbs` and duplicate the code in `edit.hbs`, with a few changes. We will fix this problem later with reusable "components", because code duplication is not elegant.
 
 ``` handlebars
 {% raw %}<h2>Edit Library</h2>
@@ -1296,7 +1298,7 @@ Our template is still missing. Let's use our `new.hbs` and duplicate the code in
 </div>{% endraw %}
 ```
 
-If you launch your app, it should work, and you are able to edit the information from a library. You can check what is happening if you modify the data in the form, but finally click on a link somewhere (for example link on the menu) without saving the form data.
+If you launch your app, it should work; you are able to edit the information from a library. You can see the "dirty checking" if you modify the data in the form, and then click on a link somewhere (e.x. a link on the menu) without saving the form data.
 
 #### Add delete action
 
@@ -1328,7 +1330,7 @@ export default Ember.Route.extend({
 
 ### Homework
 
-You can add delete buttons to your lists on Admin pages, so you can delete invitations and contact messages. It would be nice improvement as well if you could clean up `app/controllers/index.js` and add `createRecord` in `app/routes/index.js`. It would be similar to `libraries/new` section.
+You can add delete buttons to the lists on your Admin pages, so you can delete invitations and contact messages. Another nice improvement would be to could clean up `app/controllers/index.js` and add a `createRecord` in the model method of `app/routes/index.js`. It would be similar to the `libraries/new.js` route.
 
 ## <a name='lesson-5'></a>Lesson 5
 
