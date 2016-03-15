@@ -1,0 +1,1 @@
+var disqus_config=function(){this.page.url="http://yoember.com",this.page.identifier=$("body").data("identifier")};!function(){var e=document,t=e.createElement("script");t.src="//yoember.disqus.com/embed.js",t.async=1,t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t)}();
