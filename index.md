@@ -1336,18 +1336,18 @@ You can add delete buttons to the lists on your Admin pages, so you can delete i
 
 ### Cleaning up our templates with components
 
-First of all, please read more about Components in Ember.js Guide: http://guides.emberjs.com/v2.4.0/components/defining-a-component/
+First of all, please read more about Components in the Ember.js Guide: http://guides.emberjs.com/v2.4.0/components/defining-a-component/
 
-We can generate a component with `ember g component` command. Let's create two components. First for library panel and one for forms.
+We can generate a component with `ember g component`. Let's create two components. One for the library panel, and one for forms.
 
 ```
 $ ember g component library-item
 $ ember g component library-item-form
 ```
 
-Each command generates a javascript file and a handlebar file. Javascript part sits in `app/components` folder, the template in `app/templates/components`.
+Each command generates a javascript file and a handlebars file. The javascript part sits in the `app/components/` folder, the template in `app/templates/components/`.
 
-We can insert the following code in the `library-item` template.
+We can insert the following code into our `library-item` template.
 
 ``` handlebars
 <!-- app/templates/components/library-item.hbs -->
@@ -1365,11 +1365,11 @@ We can insert the following code in the `library-item` template.
 </div>{% endraw %}
 ```
 
-You can see, that this code is quite similar what we have in `app/templates/libraries/index.hbs`, however instead of `model` we use `item`.
+You can see that this code is quite similar to what we have in `app/templates/libraries/index.hbs`, however instead of `model` we use `item`.
 
-The most important concept in terms of components, that they are totally independent from the context. They don't know "other things", other variables, only what they originally have and what passed inside with attributes.
+The most important concept in terms of components is that they are totally independent from the context. They don't know "other things", other variables. They only know what they originally have and what's passed inside with attributes.
 
-We have a `{% raw %}{{yield}}{% endraw %}` which means, that we can use this component as a block component. The code which wrapped with this component will be injected inside the `{% raw %}{{yield}}{% endraw %}`.
+We have a `{% raw %}{{yield}}{% endraw %}` which means that we can use this component as a block component. The code that this component wraps around will be injected inside the `{% raw %}{{yield}}{% endraw %}`.
 
 For example:
 
@@ -1413,9 +1413,9 @@ Let's add html to our `library-item-form` component as well.
 </div>{% endraw %}
 ```
 
-This code is almost the same what we used more times in our form in `libraries/new.hbs` and in `libraries/edit.hbs` templates.
+This code is almost identical to the code we used multiple times in `libraries/new.hbs` and `libraries/edit.hbs`.
 
-Some tiny improvement. We can add a little validation to our `library` model. Please update `app/models/library.js` with a basic validation, where we check that the `name` is not empty. (Don't forget to import Ember on the top of the file.)
+A tiny improvement is to add a little validation to our `library` model. Please update `app/models/library.js` to include this basic validation, where we check that the `name` is not empty. (Don't forget to import Ember on the top of the file.)
 
 ``` javascript
 import DS from 'ember-data';
@@ -1430,9 +1430,9 @@ export default DS.Model.extend({
 });
 ```
 
-Time to clean up our templates.
+Time to clean up our templates using these new components.
 
-Using the `library-item` component in `app/templates/libraries/index.hbs` reduces the code and makes our template more cleaner.
+Using the `library-item` component in `app/templates/libraries/index.hbs` reduces the amount of code and makes our template cleaner.
 
 ``` handlebars
 {% raw %}<h2>List</h2>
@@ -1448,11 +1448,11 @@ Using the `library-item` component in `app/templates/libraries/index.hbs` reduce
 </div>{% endraw %}
 ```
 
-We iterate our `model` and we pass deeper in the component that `library` local variable as `item`. The component's variable is always on the left side.
+We iterate through each `library` in our `model`, and then pass that `library` local variable as `item` to the `library-item` component. The name of the component's variable is always on the left side of the assignment.
 
-Because this component is a block component, we can add some extra content to the library item footer. In this case, we add an Edit and a Delete button.
+Because this component is a block component, we can add some extra content to the library item footer. In this case, we add Edit and Delete buttons.
 
-You can check your project, you should see the same as before on the Libraries list page, however, the code is cleaner and we have a component, what we can reuse somewhere else as well.
+If you check your app in a browser, the Libraries list page should look the same as before, however, the code is cleaner and we have a component that we can reuse elsewhere.
 
 Update our `app/templates/libraries/new.hbs`.
 
@@ -1475,7 +1475,7 @@ Update our `app/templates/libraries/new.hbs`.
 </div>{% endraw %}
 ```
 
-Update `app/templates/libraries/edit.hbs`.
+Let's update `app/templates/libraries/edit.hbs`.
 
 ``` handlebars
 {% raw %}<h2>Edit Library</h2>
@@ -1494,7 +1494,7 @@ Update `app/templates/libraries/edit.hbs`.
 </div>{% endraw %}
 ```
 
-Add action to `library-item-form.js`
+Add the `buttonClicked` action to `library-item-form.js`.
 
 ``` javascript
 import Ember from 'ember';
@@ -1512,9 +1512,9 @@ export default Ember.Component.extend({
 });
 ```
 
-### Merging `edit.hbs` and `new.hbs` to `form.hbs` and use `renderTemplate()` and `setupController()`
+### Merge `edit.hbs` and `new.hbs` into `form.hbs` and use `renderTemplate()` and `setupController()`
 
-As you can see `edit.hbs` and `new.hbs` are almost the same, so we can use the same template in both route.
+`edit.hbs` and `new.hbs` are almost the same, so we can use the same template in both routes.
 
 Let's create a `form.hbs` which will be our common template in Edit and in New page.
 
@@ -1536,9 +1536,9 @@ Let's create a `form.hbs` which will be our common template in Edit and in New p
 </div>{% endraw %}
 ```
 
-For using the above common template, we have to do two things. Firstly we have to set `title` and `buttonLabel` params in our controllers, secondly we have to determine somehow, that our template is not the conventional template, we would like to use something unique. Setting controller params in a Route, we can use `setupController` hook, determining a unique template, we can use `renderTemplate` hook.
+To use the common template above, we have to do two things. First, we have to set the `title` and `buttonLabel` params in our controllers. Second, we have to let Ember know not to look for the default template based on the current route (e.x. in the route `libraries/new`, by default Ember looks for the template located at `templates/libraries/new.hbs`). To set controller params in a Route, we can use the `setupController` hook. For setting a non-default template location, we can use the `renderTemplate` hook.
 
-With the new two hooks our `app/routes/libraries/new.js` would look like this:
+With these two new hooks, our `app/routes/libraries/new.js` should look like this:
 
 ``` javascript
 // app/routes/libraries/new.js
@@ -1623,7 +1623,7 @@ export default Ember.Route.extend({
   }
 });
 ```
-You can delete the `edit.hbs` and `new.hbs` from `app/templates/libraries/` folder. We don't need them anymore.
+You can delete `edit.hbs` and `new.hbs` from the `app/templates/libraries/` folder. We don't need them anymore.
 
 More information about `setupController`: http://emberjs.com/api/classes/Ember.Route.html#method_setupController
 
@@ -1631,13 +1631,13 @@ More information about `renderTemplate`: http://emberjs.com/api/classes/Ember.Ro
 
 ###<a name='nav-link-to'></a> Create a tiny bootstrap `nav-link-to` component for `<li><a></a></li>`
 
-Time to clean up our navigation template. We can create a nice component to manage bootstrap `navbar` links properly.
+Time to clean up our navigation template. We'll create a nice component that properly manages bootstrap `navbar` links.
 
 Open your terminal and generate a new component with Ember CLI.
 
     $ ember g component nav-link-to
 
-Because we would like just slightly modify the main `LinkComponent`, we should just `extend` that class. There is a `tagName` property, which determines the main tag of a component.
+Because we would like to just slightly modify the built-in `LinkComponent`, we should just `extend` that class. We can utilize the `tagName` property, which determines the main tag of a component.
 
 Update `app/components/nav-link-to.js`:
 
@@ -1649,16 +1649,16 @@ export default Ember.LinkComponent.extend({
   tagName: 'li'
 });
 ```
-Note: don't forget to rewrite `Ember.Component.extend` to `Ember.LinkComponent.extend`.
+Note: don't forget to change `Ember.Component.extend` to `Ember.LinkComponent.extend`.
 
-Our connected template will be the following:
+The corresponding `nav-link-to` template will be the following:
 
 ``` handlebars
 <!-- app/templates/components/nav-link-to.hbs -->
 {% raw %}<a href="">{{yield}}</a>{% endraw %}
 ```
 
-After that we are ready to use our component and we can update our `navbar.hbs`.
+Now we are ready to use our component in our `navbar.hbs`.
 
 ``` handlebars
 <!-- app/templates/navbar.hbs -->
