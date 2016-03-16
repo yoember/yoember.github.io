@@ -2,14 +2,13 @@
 layout: compress
 ---
 <!DOCTYPE html>
-<html>
+<html ⚡>
   {% include head.html %}
-<body>
+<body data-identifier="{{page.identifier}}">
   {% include navigation.html %}
   <div class="container">
     {{ content }}
   </div>
   {% include footer.html %}
-  {% javascript app %}
 </body>
 </html>

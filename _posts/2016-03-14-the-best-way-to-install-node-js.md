@@ -4,6 +4,7 @@ title: "The Best Way to Install Node.js"
 date: 2016-03-14T18:00:00+13:00
 author: Zoltan
 categories: nodejs
+identifier: 'install-nodejs'
 ---
 
 There are a few ways to install Node.js, but it looks only one way gives you the best experience for long term.
@@ -149,17 +150,3 @@ I would suggest, experiment with different shells. Which worked better for you? 
 > Now, you have Node.js on your machine, it's time to go back to the [Emberjs Tutorial](http://yoember.com)
 
 <div id="disqus_thread"></div>
-<script>
-  var disqus_config = function () {
-    this.page.identifier = 'install-nodejs';
-  };
-
-  (function() {
-    var d = document, s = d.createElement('script');
-
-    s.src = '//yoember.disqus.com/embed.js';
-
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
-</script>

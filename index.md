@@ -1,11 +1,12 @@
 ---
 layout: home
-last_modified_at: 14/03/2016
+last_modified_at: 15/03/2016
 title: 'Ember.js 2 Tutorial - From beginner to advance'
+identifier: 'library-app'
 ---
 # Ember.js 2 Tutorial 
 ## Building a complex web application with Ember.js 2.4
-<p class="blog-post-meta">Latest update: <time datetime="2016-03-14" itemprop="datePublished">14 Mar 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-03-15" itemprop="datePublished">15 Mar 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
@@ -18,7 +19,7 @@ You can clone the original repository from GitHub and launch on your desktop any
 
 * Original repo: [https://github.com/zoltan-nz/library-app](https://github.com/zoltan-nz/library-app)
 
-If you have any comment, suggestion or you have a question, please feel free to contact with me.
+If you have any comment, suggestion or you have a question, please feel free to contact me.
 
 * My Twitter: [@zoltan_nz](https://www.twitter.com/zoltan_nz)
 * My Website: [zoltan.nz](http://zoltan.nz)

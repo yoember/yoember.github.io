@@ -27,7 +27,14 @@ exclude: ['Gemfile', 'Gemfile.lock', 'Readme.md', 'Guardfile', '.asset-cache', '
 include: ['.nojekyll']
 
 assets:
-  cachebust: hard
+  prefix: "/assets"
+  compress:
+    js: true
+    css: true
+  sources:
+    - _assets/javascripts
+  features:
+    liquid: true
 
 compress_html:
   ignore:

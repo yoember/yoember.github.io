@@ -1,7 +1,7 @@
 <footer class="blog-footer">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4"><a href="{{ '' | prepend: site.baseurl }}">Ember.js tutorial</div>
+      <div class="col-xs-4"><a href="http://yoember.com">Ember.js tutorial</div>
       <div class="col-xs-4 text-center"><a href="{{ '/feed.xml' | prepend: site.baseurl }}">RSS</a></div>
       <div class="col-xs-4 text-right"><a href="#">Back to top</a></div>
     </div>
@@ -25,3 +25,20 @@
   ga('send', 'pageview');
 </script>
 {% endif %}
+
+<script>
+  var disqus_config = function () {
+  this.page.url = 'http://yoember.com';
+  this.page.identifier = document.getElementsByTagName('body')[0].getAttribute('data-identifier')
+  };
+
+  (function() {
+  var d = document, s = d.createElement('script');
+
+  s.src = '//yoember.disqus.com/embed.js';
+
+  s.async = 1;
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+</script>
