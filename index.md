@@ -1698,22 +1698,22 @@ Now we are ready to use our component in our `navbar.hbs`.
 
 ## <a name='lesson-6'></a>Lesson 6
 
-In this lesson we extend our models with `book` and `author`. Setup relation between models. We create a new page, where we using an external js library to generate dummy data to fill up our database automatically.
+In this lesson, we'll add the models `book` and `author`, and set up relations between models. We'll also create a new page where we can generate dummy data with an external javascript library to fill up our database automatically.
 
-### Creating some new models and setup relations
+### Creating some new models and setting up relations
 
-In our simple World, we have Libraries. We have Authors, whose could have a few books, however a book could be only in one Library. And one book has only one Author.
+In our simple World, we have Libraries, and we have Authors (who can have a few Books). A Book can only be in one Library, and each Book has only one Author.
 
-To generate new models we use Ember CLI.
+To generate the new models, we'll use Ember CLI.
 
-Run the followings in your terminal.
+Run the following in your terminal.
 
 ```
 $ ember g model book title:string releaseYear:date library:belongsTo author:belongsTo
 $ ember g model author name:string books:hasMany
 ```
 
-Add `hasMany` relation to `library` model manually.
+Now add a `hasMany` relation to the `library` model manually.
 
 ``` javascript
 import DS from 'ember-data';
@@ -1730,7 +1730,7 @@ export default DS.Model.extend({
 });
 ```
 
-### Create a new Admin page 'Seeder' and download all models in the same route.
+### Create a new Admin page 'Seeder' and retrieve multiple models in the same route.
 
 Create a new page using Ember CLI in your terminal:
 
@@ -1738,7 +1738,7 @@ Create a new page using Ember CLI in your terminal:
 $ ember g route admin/seeder
 ```
 
-Check `router.js`. A new route should be there which point to `seeder`.
+Check `router.js`. A new route should be there which points to `seeder`.
 
 ``` javascript
 // app/router.js
@@ -1806,11 +1806,11 @@ Extend your `navbar.hbs` with the new page.
 </nav>{% endraw %}
 ```
 
-#### Using `Ember.RSVP.hash()` for downloading more models in the same route
+#### Using `Ember.RSVP.hash()` to retrieve multiple models in the same route
 
-For downloading more models in the same route we have to use `Ember.RSVP.hash()` function in `model` hook.
+For downloading multiple models in the same route we have to use the `Ember.RSVP.hash()` function in the `model` hook.
 
-`RSVP.hash` wraps more promises and return a nicely structured hashed object. More information: http://emberjs.com/api/classes/RSVP.html#method_hash
+`RSVP.hash` wraps multiple promises and returns a nicely structured hashed object. More information: http://emberjs.com/api/classes/RSVP.html#method_hash
 
 ``` javascript
 // app/routes/admin/seeder.js
@@ -1834,15 +1834,15 @@ export default Ember.Route.extend({
 });
 ```
 
-RSVP tries to download all model, it will return with fulfilled state only if all three download were successful.
+RSVP tries to download all three requested models, and only returns with a fulfilled state if all are retrieved successfully.
 
-In the `setupController` hook, we split the model and setup new controller properties.
+In the `setupController` hook, we split up the models into their own controller property.
 
-### Little summary about route's hooks
+### Short summary of route hooks
 
-You already use a couple of hook in routes, which will be called in certain sequence.
+You've already used a couple of hooks in routes, like `model` and `setupController`. Route hooks are called in specific sequence.
 
-You can play with it and have a little experiment in one of your route.
+You can use the following snippet to experiment with them in one of your routes.
 
 ``` javascript
 import Ember from 'ember';
@@ -1879,7 +1879,7 @@ export default Ember.Route.extend({
 });
 ```
 
-If you visit the route, where your above experiment code was inserted, and you open inspector console in your web browser, the code will stop for debugging in each call. You can see what is the sequence of hooks. The above code follows the pattern.
+If you visit the route where you inserted the code above and open your web browser's inspector, the code will stop for debugging in each hook and you can see the order of the hooks. Here's a list of the hooks in the order they're called, and more information about each:
 
 1. `init()` http://emberjs.com/api/classes/Ember.Route.html#method_init
 2. `beforeModel(transition)` http://emberjs.com/api/classes/Ember.Route.html#method_beforeModel
@@ -1889,15 +1889,15 @@ If you visit the route, where your above experiment code was inserted, and you o
 6. `setupController(controller, model)` http://emberjs.com/api/classes/Ember.Route.html#method_setupController
 7. `renderTemplate(controller, model)` http://emberjs.com/api/classes/Ember.Route.html#method_renderTemplate
 
-### Create number boxes on Admin/Seeder page to see how much data we have in our database
+### Create a "number box" component to use on the admin/seeder page to display how much data we have in our database
 
-We use a `number-box` component for visualizing numbers on our page. Let's create our fancy component.
+We'll make a `number-box` component to visualize numbers on our page. Let's create our fancy component.
 
 ```
 $ ember g component number-box
 ```
 
-Setup `css` classes in the component controller.
+Setup `css` class names in the component controller.
 
 ``` javascript
 // app/components/number-box.js
@@ -1920,10 +1920,10 @@ And a little html in our component template:
 </div>{% endraw %}
 ```
 
-As you see, we can pass in our component two attributes: `title`, `number`.
-If we have something in `number` shows that number, if it is empty shows three dots.
+As you can see, we can pass our component two attributes: `title` and `number`.
+If we are passed a value for `number`, we show that number, otherwise we show three dots.
 
-Our template is ready, we can use it in our `app/templates/admin/seeder.hbs`
+Our component template is ready. We can use it in `app/templates/admin/seeder.hbs`.
 
 ``` handlebars
 <!-- app/templates/admin/seeder.hbs -->
@@ -1936,13 +1936,13 @@ Our template is ready, we can use it in our `app/templates/admin/seeder.hbs`
 </div>{% endraw %}
 ```
 
-If you open your browser now, you will see three boxes with numbers or with three dots. Remember, we setup `libraries`, `authors` and `books` property in our `setupController` hook, if our `model` hook downloaded our data from the server, those variables are not empty. `.length` method will return a number of the size of that array.
+If you open your browser now, you will see three boxes with numbers or three dots. Remember, we set up the `libraries`, `authors`, and `books` properties in our `setupController` hook. If our `model` hook downloaded our data from the server, those variables will not be empty. The `.length` method will return the size of that array.
 
 ### Building forms to generate dummy data.
 
-We have to generate two other components what we gonna use in this page. Actually we will use only one component, but inside that component we will use an other component. This part is a little bit advance, I don't have a detailed explanation here, but you can copy paste the code and try out. I would suggest, you should play with this code, try to understand. However, don't forget, if you have any question, don't hesitate to ping me on Slack or on Twitter.
+We have to generate two other components that we're gonna use for the seeder page. Actually we'll only use one component in the `admin/seeder.hbs` template, but inside that component we will use another component. This part is a little bit advanced; I don't have a detailed explanation here, but you can copy paste the code and try out. I suggest playing around with the code to try to understand it, as well as checking out how it works in the [demo](https://library-app.firebaseapp.com/admin/seeder). However, don't forget that if you have any questions, don't hesitate to ping me on Slack or on Twitter.
 
-Run Ember CLI commands in your terminal.
+Run these Ember CLI commands in your terminal.
 
 ```
 $ ember g component seeder-block
@@ -2259,7 +2259,7 @@ export default Ember.Controller.extend({
     const libraries = this.get('libraries');
     const librariesCounter = libraries.get('length');
 
-    // Create a new array form ids
+    // Create a new array from IDs
     const libraryIds = libraries.map((lib) => {return lib.get('id');});
     const randomNumber = Faker.random.number(librariesCounter-1);
 
