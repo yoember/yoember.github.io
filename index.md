@@ -1,12 +1,12 @@
 ---
 layout: home
-last_modified_at: 15/03/2016
+last_modified_at: 20/03/2016
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
 ---
 # Ember.js 2 Tutorial 
 ## Building a complex web application with Ember.js 2.4
-<p class="blog-post-meta">Latest update: <time datetime="2016-03-15" itemprop="datePublished">15 Mar 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-03-20" itemprop="datePublished">20 Mar 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
@@ -28,7 +28,11 @@ Don't hesitate to send me a message on Ember.js community Slack Channel.
 
 * Ember.js Community Slack: [@zoltan](https://embercommunity.slack.com/messages/general/team/zoltan/)
 
-Or leave a comment at the [bottom of this page](#disqus_thread). 
+Or leave a comment at the [bottom of this page](#disqus_thread).
+ 
+Thank you for the contribution. You are awesome! :)
+
+[@jkeat](https://github.com/jkeat), I really appreciate the effort you have put into proofreading this [Ember.js tutorial](http://yoember.com). [@sigu](https://github.com/sigu), [@batisteo](https://github.com/batisteo), thanks guys for fixing too. 
 
 ## Other tutorials
 
@@ -49,9 +53,9 @@ Or leave a comment at the [bottom of this page](#disqus_thread).
 
 ## Prerequisites
 
-* node.js: at least 0.12, but the best if you install the latest 5.8.0.
+* node.js: at least 0.12, but the best if you install the latest 5.9.0.
 
-[The best way to install Node.js on Mac, Linux and on Windows]({% post_url 2016-03-14-the-best-way-to-install-node-js %})
+[The best way to install Node.js on Mac, Linux and on Windows]({% post_url 2016-03-20-the-best-way-to-install-node-js %})
 
 * Ember Inspector Chrome Extension
 
@@ -84,7 +88,7 @@ You should see something similar:
 
 ``` bash {% raw %}
 version: 2.4.2
-node: 5.8.0
+node: 5.9.0
 os: darwin x64{% endraw %}
 ```
 
@@ -2276,3 +2280,8 @@ export default Ember.Controller.extend({
 
 });
 ```
+##TBC
+
+Well done you folks who made it this far. Keep up the good work.
+
+If you would like to know about new blog updates, please [follow me on twitter](http://twitter.com/zoltan_nz).
