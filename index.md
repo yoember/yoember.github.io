@@ -1,12 +1,12 @@
 ---
 layout: home
-last_modified_at: 20/03/2016
+last_modified_at: 29/03/2016
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
 ---
 # Ember.js 2 Tutorial 
 ## Building a complex web application with Ember.js 2.4
-<p class="blog-post-meta">Latest update: <time datetime="2016-03-20" itemprop="datePublished">20 Mar 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-03-29" itemprop="datePublished">29 Mar 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
@@ -53,7 +53,7 @@ Thank you for the contribution. You are awesome! :)
 
 ## Prerequisites
 
-* node.js: at least 0.12, but the best if you install the latest 5.9.0.
+* node.js: at least 0.12, but the best if you install the latest 5.9.1.
 
 [The best way to install Node.js on Mac, Linux and on Windows]({% post_url 2016-03-20-the-best-way-to-install-node-js %})
 
@@ -68,7 +68,7 @@ More info: https://facebook.github.io/watchman/
 
 ## <a name='lesson-1'></a>Lesson 1
 
-This tutorial uses the latest Ember CLI tool (v2.4.2).
+This tutorial uses the latest Ember CLI tool (v2.4.3).
 
 ### Install Ember CLI
 
@@ -78,7 +78,7 @@ The following `npm` command installs Ember CLI latest stable version in the glob
     
 or if you would like to install with fixed version
 
-    $ npm install -g ember-cli@2.4.2
+    $ npm install -g ember-cli@2.4.3
 
 You have now a new `ember` command in your console. Check with
 
@@ -87,8 +87,8 @@ You have now a new `ember` command in your console. Check with
 You should see something similar:
 
 ``` bash {% raw %}
-version: 2.4.2
-node: 5.9.0
+version: 2.4.3
+node: 5.9.1
 os: darwin x64{% endraw %}
 ```
 
