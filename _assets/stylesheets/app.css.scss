@@ -55,6 +55,9 @@ h1,h2,h3,h4 {
   margin-bottom: 15px;
   color: #999;
   font-size: ceil($font-size-small * 0.9);
+  & .home {
+    margin-bottom: 0px;
+  }
 }
 
 

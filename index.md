@@ -1,17 +1,21 @@
 ---
 layout: home
-last_modified_at: 29/03/2016
+last_modified_at: 03/04/2016
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
 ---
 # Ember.js 2 Tutorial 
 ## Building a complex web application with Ember.js 2.4
-<p class="blog-post-meta">Latest update: <time datetime="2016-03-29" itemprop="datePublished">29 Mar 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-04-03" itemprop="datePublished">03 Apr 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
 
 Welcome! Please check the [Live Demo](https://library-app.firebaseapp.com) page and play with the app what we are going to build together.
+
+> NEW! [Lesson 7](#lesson-7)
+
+> NEW! [How you keep your Ember.js project up-to-date]({% post_url 2016-04-03-how-you-keep-your-ember-js-project-up-to-date %})
 
 * Live demo: [library-app.firebaseapp.com](https://library-app.firebaseapp.com/)
 
@@ -50,6 +54,7 @@ Thank you for the contribution. You are awesome! :)
 * [Lesson 4 - Deploy your app and add more CRUD functionality](#lesson-4)
 * [Lesson 5 - Data down actions up, using components](#lesson-5)
 * [Lesson 6 - Advance model structures and data relationships](#lesson-6)
+* (NEW!) [Lesson 7 - CRUD interface for Authors and Books, managing model relationship](#lesson-7) 
 
 ## Prerequisites
 
@@ -2280,6 +2285,219 @@ export default Ember.Controller.extend({
 
 });
 ```
+## <a name='lesson-7'></a>Lesson 7
+(work in progress)
+ 
+### CRUD interface for Authors and Books, managing model relationship 
+
+We are going to create two new pages: Authors and Books, where we list our data and manage them.
+We implement create, edit and delete functionality, search and pagination also.
+You can learn here, how could you manage relations between models. (Still work in progress, listing and editing author's data is implemented so far.)
+
+Let's create our two new pages.
+
+    $ ember g route authors
+    $ ember g route books
+    
+These will add two new lines to our `router.js`.
+
+    this.route('authors');
+    this.route('books');
+    
+We have two new template files also: `authors.hbs` and `books.hbs`
+
+You can find two new files in `app/routes` folder: `authors.js` and `books.js`
+
+Let's extend our navigation bar. Just add the following two lines to your `navbar.hbs`. I just inserted next to the `Libraries` menu point. (You can move the `About` and `Contact` menu point next to the `Admin` also.)
+
+```handlebars {% raw %}
+{{#nav-link-to 'authors'}}Authors{{/nav-link-to}}
+{{#nav-link-to 'books'}}Books{{/nav-link-to}}{% endraw %}
+```
+
+We are going to focus here on Authors page, we build it up together, after as a practice you can build up the Books section yourself. ;)
+
+#### Check the `Author` model
+ 
+ First, check `app/models/author.js` file. If you've followed the Lesson 6 and added `Faker`, maybe you have some extra lines in your model, like `randomize()` method, however for us the most important is the Author model fields:
+  
+  ```javascript
+  name: DS.attr('string'),
+  books: DS.hasMany('book', {inverse: 'author'}),
+  ```
+ 
+ So we have a `name` field and a `books` field, which is related to the `Book` model. The `inverse` property is not really necessary, because we follow strictly the conventions, but I just leave there, so you can learn more about it in the official guide: https://guides.emberjs.com/v2.4.0/models/relationships/#toc_explicit-inverses 
+ 
+#### Download data from the server
+ 
+We would like to list all authors, when the user visits Authors page, we have to download the data from the server. Let's implement the `model()` hook in Authors' route handler.
+
+```javascript
+// app/routes/authors.js
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+
+  model() {
+    return this.store.findAll('author');
+  }
+});
+```
+
+Now we can update the `authors` template file to list all data.
+
+```handlebars {% raw %} 
+ <!-- app/templates/authors.hbs -->
+ <h1>Authors</h1>
+ 
+ <table class="table table-bordered table-striped">
+   <thead>
+     <tr>
+       <th>Name</th>
+       <th>Books</th>
+     </tr>
+   </thead>
+   <tbody>
+     {{#each model as |author|}}
+       <tr>
+         <td>{{author.name}}</td>
+         <td>
+           <ul>
+             {{#each author.books as |book|}}
+               <li>{{book.title}}</li>
+             {{/each}}
+           </ul>
+         </td>
+       </tr>
+     {{/each}}
+   </tbody>
+ </table>{% endraw %}
+```     
+ 
+It's a simple striped table with two columns. Because `model` array contains all the record about authors (we returned those in `model()` hook in the route handler and Ember automatically passes forward those records to controller and add to `model` property), so we can list them with an `each` block. Showing the `author.name` is simple.
+ 
+The interesting part is using the `author.books`. Ember Data asynchronously downloads the related model if we use that information. We previously setup in our `model/author.js` file, that `books` field connect to `Book` model with a `hasMany` relationship. Ember Data fills that field with an array of records. We can use an `each` block to iterate them and list in our table. Check out in your app. (If you use `Faker` for generating book titles, you will see a few funny data there. :) )
+ 
+#### Click on a name to edit Author's name
+  
+Let's improve further our template. At this stage we will add functionality to the main `authors.hbs` template, however when you feel that a template is getting too big, you can clean it up extracting functionality to components. We can do it later.
+    
+It would be cool if we would be able to edit an author's name with clicking on it. It means, that an `author` would have two states: it is in editing mode and it is not. We can store this state in the model itself. It doesn't have to be a "database" field, it is just a state in the memory. Let's call it `isEditing`. In our `each` loop we can check `author.isEditing` true or false. When it is `true` we can show a form, else only the name.
+
+When we show only the name, we wrap it in a simple `<span>` with an `action` which manages the click event. We implement the `editAuthor` action in our route handler.
+  
+When we edit the name, we have to manage `saveAuthor` action and `cancelAuthorEdit`. Additionally submit should be disabled if the new data is not valid.
+
+Update your `authors.hbs` template:
+
+```handlebars {% raw %}
+<!-- app/templates/authors.hbs -->
+<h1>Authors</h1>
+
+<table class="table table-bordered table-striped">
+  <thead>
+  <tr>
+    <th>
+      Name
+      <br><small class="small not-bold">(Click on name for editing)</small>
+    </th>
+    <th class="vtop">Books</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each model as |author|}}
+    <tr>
+      <td>
+        {{#if author.isEditing}}
+          <form {{action 'saveAuthor' author on='submit'}} class="form-inline">
+            <div class="input-group">
+              {{input value=author.name class="form-control"}}
+              <div class="input-group-btn">
+                <button type="submit" class="btn btn-success" disabled={{author.isNotValid}}>Save</button>
+                <button class="btn btn-danger" {{action 'cancelAuthorEdit' author}}>Cancel</button>
+              </div>
+            </div>
+          </form>
+        {{else}}
+          <span {{action 'editAuthor' author}}>{{author.name}}</span>
+        {{/if}}
+      </td>
+      <td>
+        <ul>
+          {{#each author.books as |book|}}
+            <li>{{book.title}}</li>
+          {{/each}}
+        </ul>
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table> {% endraw %}
+```    
+ 
+ Implement `isNotValid` method in your model with adding this line to `app/models/author.js`:
+ 
+     isNotValid: Ember.computed.empty('name'),
+ 
+ And add `actions` to `app/routes/authors.js`:
+ 
+ ```javascript     
+ // app/routes/authors.js
+ import Ember from 'ember';
+ 
+ export default Ember.Route.extend({
+ 
+   model() {
+     return this.store.findAll('author');
+   },
+ 
+   actions: {
+ 
+     editAuthor(author) {
+       author.set('isEditing', true);
+     },
+ 
+     cancelAuthorEdit(author) {
+       author.set('isEditing', false);
+       author.rollbackAttributes();
+     },
+ 
+     saveAuthor(author) {
+       if (author.get('isNotValid')) {
+         return;
+       }
+       
+       author.set('isEditing', false);
+       author.save();
+     }
+   }
+ });
+ ```    
+ 
+Check out your app. Click on a name, edit it, save or cancel. Hope everything works as expected.
+ 
+Any time when we invoke an action, it passes the selected `author` record to that function as a parameter, so we can set `isEditing` on that record only.
+
+In case of cancellation we revoke changes with `rollbackAttributes`.
+
+The `if` - `else` block in the template helps to manage `isEditing` state.
+
+It is a good practice wrapping `input` fields and buttons with `form` tag, because we can submit data with typing Enter in the input field. However, it works properly only if we add `on='submit'` to the `action`.
+ 
+There are two new classes in our stylesheet also, please extend `app/styles/app.scss`:
+
+```css
+.vtop {
+  vertical-align: top!important;
+}
+
+.not-bold {
+  font-weight: normal!important;
+}
+```    
+
+Now you can try to create a list about books on Books page, with a simple table where you list `book.title` and `book.author.name`. You can use the above logic to update a book title if you click on it. Good luck! :)
+
 ##TBC
 
 Well done you folks who made it this far. Keep up the good work.
