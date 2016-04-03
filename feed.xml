@@ -6,12 +6,12 @@
 </description>
     <link>http://yoember.com/</link>
     <atom:link href="http://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 03 Apr 2016 10:13:13 +1200</pubDate>
-    <lastBuildDate>Sun, 03 Apr 2016 10:13:13 +1200</lastBuildDate>
+    <pubDate>Sun, 03 Apr 2016 21:27:51 +1200</pubDate>
+    <lastBuildDate>Sun, 03 Apr 2016 21:27:51 +1200</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
-        <title>How To Keep Your Ember.js Project Up-To-Date?</title>
+        <title>How You Keep Your Ember.js Project Up-To-Date</title>
         <description>&lt;p&gt;You can keep your Ember application up-to-date with a few simple steps.&lt;/p&gt;
 
 &lt;p&gt;One of the most important that always follow and read the blog posts about the new version on Ember.js website.&lt;/p&gt;
@@ -52,8 +52,8 @@ $ npm install &amp;amp;&amp;amp; bower install
 &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
 </description>
         <pubDate>Sun, 03 Apr 2016 09:28:13 +1200</pubDate>
-        <link>http://yoember.com/emberjs/how-to-keep-your-ember-js-project-up-to-date/</link>
-        <guid isPermaLink="true">http://yoember.com/emberjs/how-to-keep-your-ember-js-project-up-to-date/</guid>
+        <link>http://yoember.com/emberjs/how-you-keep-your-ember-js-project-up-to-date/</link>
+        <guid isPermaLink="true">http://yoember.com/emberjs/how-you-keep-your-ember-js-project-up-to-date/</guid>
         
         
         <category>emberjs</category>
