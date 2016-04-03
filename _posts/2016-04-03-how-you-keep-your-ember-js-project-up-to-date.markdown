@@ -48,4 +48,4 @@ For avoiding package conflicts the most safest solution if you just remove these
 
 Good luck! :)
 
-<div id="disqus_thread"></div>
+> Don't forget to check out the new chapter of the [free Ember.js tutorial](http://yoember.com)
