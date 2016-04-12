@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How You Keep Your Ember.js Project Up-To-Date"
-date: 2016-04-03T09:28:13+12:00
+date: 2016-04-12T09:28:13+12:00
 author: Zoltan
 categories: emberjs
 identifier: 'update-emberjs'
@@ -32,7 +32,7 @@ You should see the latest version.
 So we can compare packages in `bower.json` and `package.json`.
 
     $ cd ~/projects/temp
-    $ ember new my-v24-app
+    $ ember new my-v25-app
 
 ### Upgrade version numbers in your old project to match with the new dummy app.
 
