@@ -1,12 +1,12 @@
 ---
 layout: home
-last_modified_at: 03/04/2016
+last_modified_at: 17/04/2016
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
 ---
 # Ember.js 2 Tutorial 
-## Building a complex web application with Ember.js 2.4
-<p class="blog-post-meta">Latest update: <time datetime="2016-04-03" itemprop="datePublished">03 Apr 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+## Building a complex web application with Ember.js 2.5
+<p class="blog-post-meta">Latest update: <time datetime="2016-04-17" itemprop="datePublished">17 Apr 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
@@ -58,7 +58,7 @@ Thank you for the contribution. You are awesome! :)
 
 ## Prerequisites
 
-* node.js: at least 0.12, but the best if you install the latest 5.9.1.
+* node.js: at least 0.12, but the best if you install the latest 5.10.1.
 
 [The best way to install Node.js on Mac, Linux and on Windows]({% post_url 2016-03-20-the-best-way-to-install-node-js %})
 
@@ -73,17 +73,17 @@ More info: https://facebook.github.io/watchman/
 
 ## <a name='lesson-1'></a>Lesson 1
 
-This tutorial uses the latest Ember CLI tool (v2.4.3).
+This tutorial uses the latest Ember CLI tool (v2.5.0).
 
 ### Install Ember CLI
 
-The following `npm` command installs Ember CLI latest stable version in the global namespace. The latest Ember CLI version 2.4.2 is released on 1 of March 2016, it generates app with Ember.js v2.4 and Ember Data v2.4. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)
+The following `npm` command installs Ember CLI latest stable version in the global namespace. The latest Ember CLI version 2.5.0 was released on 17th of April 2016, it generates app with Ember.js v2.5 and Ember Data v2.5. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)
 
     $ npm install -g ember-cli
     
 or if you would like to install with fixed version
 
-    $ npm install -g ember-cli@2.4.3
+    $ npm install -g ember-cli@2.5.0
 
 You have now a new `ember` command in your console. Check with
 
@@ -92,8 +92,8 @@ You have now a new `ember` command in your console. Check with
 You should see something similar:
 
 ``` bash {% raw %}
-version: 2.4.3
-node: 5.9.1
+version: 2.5.0
+node: 5.10.1
 os: darwin x64{% endraw %}
 ```
 
@@ -134,7 +134,7 @@ Open your new empty app in your browser: <a href="http://localhost:4200" target=
 
 You should see a "Welcome to Ember" message on your website. Well Done! You have your first Ember.js application. :)
 
-You can open Ember Inspector in your Browser. Hope you've already installed it. Ember Inspector exists in Chrome and in Firefox as an extension. After installation you should have a new tab in your developer console in your browser. Check it out, look around. [More details about Ember Inspector here](https://guides.emberjs.com/v2.4.0/ember-inspector/installation/). 
+You can open Ember Inspector in your Browser. Hope you've already installed it. Ember Inspector exists in Chrome and in Firefox as an extension. After installation you should have a new tab in your developer console in your browser. Check it out, look around. [More details about Ember Inspector here](https://guides.emberjs.com/v2.5.0/ember-inspector/installation/). 
 
 ### Turn on a few debugging options
 
@@ -369,7 +369,7 @@ Now we can create our index controller:
 
     $ ember g controller index
 
-* Read more about Ember controllers here: http://guides.emberjs.com/v2.4.0/controllers/
+* Read more about Ember controllers here: http://guides.emberjs.com/v2.5.0/controllers/
 
 Note: Ember.js still uses controllers, however the controller layer will be deprecated and removed from Ember.js 3.0. We use controllers to practice some interesting features, but later we will refactor our app and we will move most of the logic inside components.
 
@@ -392,8 +392,8 @@ If you check your app, you will see that the button is disabled by default. We w
 
 Computed Properties and Observers are important features of Ember.js. Please read more about it in the official guide first.
 
-* Computed Properties: http://guides.emberjs.com/v2.4.0/object-model/computed-properties/
-* Observers: http://guides.emberjs.com/v2.4.0/object-model/observers/
+* Computed Properties: http://guides.emberjs.com/v2.5.0/object-model/computed-properties/
+* Observers: http://guides.emberjs.com/v2.5.0/object-model/observers/
 
 Please note, I will use the new, preferred syntax in our project. You could ask, was there some other syntax before? Yes.
 
@@ -593,7 +593,7 @@ We have to show the response message. Extend your template.
 ```
 We use the `{% raw %}{{#if}}{{/if}}{% endraw %}` handlebar helper block to show or hide the alert message. Handlebar conditionals are really powerful. You can use `{% raw %}{{else}}{% endraw %}` as well.
 
-* More about conditionals in templates: http://guides.emberjs.com/v2.4.0/templates/conditionals/
+* More about conditionals in templates: http://guides.emberjs.com/v2.5.0/templates/conditionals/
 
 Brilliant. You learned a lot about Ember.js and you have just implemented these great features.
 
@@ -633,7 +633,7 @@ Please try to implement the above requirements. When you're finished, you can ch
 
 We ask for email addresses on the home page, but we don't save them in the database at the moment. It is time to implement this feature in our website.
 
-* Please read the detailed introduction on Ember.js website about Ember.js Models: http://guides.emberjs.com/v2.4.0/models/
+* Please read the detailed introduction on Ember.js website about Ember.js Models: http://guides.emberjs.com/v2.5.0/models/
 
 Let's create our first model where we save email addresses for invitation. Type the following command in your command line.
 
@@ -891,7 +891,7 @@ We use the `{% raw %}{{#each}}{{/each}}{% endraw %}` handlebar block helper to g
 
 Let's retrieve our data from the server using a Route Handler and Ember Data.
 
-* Please start here and read the official guide about Route's Model: http://guides.emberjs.com/v2.4.0/routing/specifying-a-routes-model/
+* Please start here and read the official guide about Route's Model: http://guides.emberjs.com/v2.5.0/routing/specifying-a-routes-model/
 
 Add the following code to your `app/routes/admin/invitations.js` file:
 
@@ -1346,7 +1346,7 @@ You can add delete buttons to the lists on your Admin pages, so you can delete i
 
 ### Cleaning up our templates with components
 
-First of all, please read more about Components in the Ember.js Guide: http://guides.emberjs.com/v2.4.0/components/defining-a-component/
+First of all, please read more about Components in the Ember.js Guide: http://guides.emberjs.com/v2.5.0/components/defining-a-component/
 
 We can generate a component with `ember g component`. Let's create two components. One for the library panel, and one for forms.
 
@@ -2326,7 +2326,7 @@ We are going to focus here on Authors page, we build it up together, after as a 
   books: DS.hasMany('book', {inverse: 'author'}),
   ```
  
- So we have a `name` field and a `books` field, which is related to the `Book` model. The `inverse` property is not really necessary, because we follow strictly the conventions, but I just leave there, so you can learn more about it in the official guide: https://guides.emberjs.com/v2.4.0/models/relationships/#toc_explicit-inverses 
+ So we have a `name` field and a `books` field, which is related to the `Book` model. The `inverse` property is not really necessary, because we follow strictly the conventions, but I just leave there, so you can learn more about it in the official guide: https://guides.emberjs.com/v2.5.0/models/relationships/#toc_explicit-inverses 
  
 #### Download data from the server
  
