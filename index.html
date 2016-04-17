@@ -374,7 +374,7 @@ $ ember install ember-cli-bootstrap-sassy
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">config</span> <span class="nx">from</span> <span class="s1">'./config/environment'</span><span class="p">;</span>
 
-<span class="kd">var</span> <span class="nx">Router</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<span class="kr">const</span> <span class="nx">Router</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="na">location</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">locationType</span>
 <span class="p">});</span>
 
@@ -548,7 +548,7 @@ $ firebase init
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">config</span> <span class="nx">from</span> <span class="s1">'./config/environment'</span><span class="p">;</span>
 
-<span class="kd">var</span> <span class="nx">Router</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<span class="kr">const</span> <span class="nx">Router</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="na">location</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">locationType</span>
 <span class="p">});</span>
 
@@ -693,13 +693,14 @@ $ ember g component library-item-form
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</code></pre></div> <p>This code is almost identical to the code we used multiple times in <code>libraries/new.hbs</code> and <code>libraries/edit.hbs</code>.</p> <p>A tiny improvement is to add a little validation to our <code>library</code> model. Please update <code>app/models/library.js</code> to include this basic validation, where we check that the <code>name</code> is not empty. (Don&#39;t forget to import Ember on the top of the file.)</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">DS</span> <span class="nx">from</span> <span class="s1">'ember-data'</span><span class="p">;</span>
+</code></pre></div> <p>This code is almost identical to the code we used multiple times in <code>libraries/new.hbs</code> and <code>libraries/edit.hbs</code>.</p> <p>A tiny improvement is to add a little validation to our <code>library</code> model. Please update <code>app/models/library.js</code> to include this basic validation, where we check that the <code>name</code> is not empty. (Don&#39;t forget to import Ember on the top of the file.)</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">Model</span> <span class="nx">from</span> <span class="s1">'ember-data/model'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">attr</span> <span class="nx">from</span> <span class="s1">'ember-data/attr'</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
-  <span class="na">name</span><span class="p">:</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
-  <span class="na">address</span><span class="p">:</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
-  <span class="na">phone</span><span class="p">:</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+  <span class="na">name</span><span class="p">:</span> <span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
+  <span class="na">address</span><span class="p">:</span> <span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
+  <span class="na">phone</span><span class="p">:</span> <span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
 
   <span class="na">isValid</span><span class="p">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">computed</span><span class="p">.</span><span class="nx">notEmpty</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span>
 <span class="p">});</span>
@@ -892,15 +893,17 @@ $ ember g component library-item-form
 <span class="nt">&lt;/nav&gt;</span>
 </code></pre></div> <h2><a name='lesson-6'></a>Lesson 6</h2> <p>In this lesson, we&#39;ll add the models <code>book</code> and <code>author</code>, and set up relations between models. We&#39;ll also create a new page where we can generate dummy data with an external javascript library to fill up our database automatically.</p> <h3>Creating some new models and setting up relations</h3> <p>In our simple World, we have Libraries, and we have Authors (who can have a few Books). A Book can only be in one Library, and each Book has only one Author.</p> <p>To generate the new models, we&#39;ll use Ember CLI.</p> <p>Run the following in your terminal.</p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember g model book title:string releaseYear:date library:belongsTo author:belongsTo
 $ ember g model author name:string books:hasMany
-</code></pre></div> <p>Now add a <code>hasMany</code> relation to the <code>library</code> model manually.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">DS</span> <span class="nx">from</span> <span class="s1">'ember-data'</span><span class="p">;</span>
+</code></pre></div> <p>Now add a <code>hasMany</code> relation to the <code>library</code> model manually.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">Model</span> <span class="nx">from</span> <span class="s1">'ember-data/model'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">attr</span> <span class="nx">from</span> <span class="s1">'ember-data/attr'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">hasMany</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'ember-data/relationships'</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
-  <span class="na">name</span><span class="p">:</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
-  <span class="na">address</span><span class="p">:</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
-  <span class="na">phone</span><span class="p">:</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+  <span class="na">name</span><span class="p">:</span> <span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
+  <span class="na">address</span><span class="p">:</span> <span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
+  <span class="na">phone</span><span class="p">:</span> <span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
 
-  <span class="na">books</span><span class="p">:</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="s1">'books'</span><span class="p">),</span>
+  <span class="na">books</span><span class="p">:</span> <span class="nx">hasMany</span><span class="p">(</span><span class="s1">'books'</span><span class="p">),</span>
 
   <span class="na">isValid</span><span class="p">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">computed</span><span class="p">.</span><span class="nx">notEmpty</span><span class="p">(</span><span class="s1">'name'</span><span class="p">),</span>
 <span class="p">});</span>
@@ -909,7 +912,7 @@ $ ember g model author name:string books:hasMany
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">config</span> <span class="nx">from</span> <span class="s1">'./config/environment'</span><span class="p">;</span>
 
-<span class="kd">var</span> <span class="nx">Router</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<span class="kr">const</span> <span class="nx">Router</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
   <span class="na">location</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">locationType</span>
 <span class="p">});</span>
 
@@ -1149,16 +1152,18 @@ $ ember g component fader-label
 <span class="k">}}</span>
 </code></pre></div> <h3>Install <code>faker.js</code> for dummy data</h3> <p>To generate dummy data we have to install <code>faker.js</code>. <a href="https://github.com/johnotander/ember-faker">https://github.com/johnotander/ember-faker</a></p> <div class="highlight"><pre><code class="language-" data-lang="">$ ember install ember-faker
 </code></pre></div> <p>We import <code>faker</code> in our models, where we extend each of our models with a <code>randomize()</code> function for generating dummy data.</p> <p>Update your models with the followings.</p> <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/models/library.js</span>
-<span class="kr">import</span> <span class="nx">DS</span> <span class="nx">from</span> <span class="s1">'ember-data'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">Model</span> <span class="nx">from</span> <span class="s1">'ember-data/model'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">attr</span> <span class="nx">from</span> <span class="s1">'ember-data/attr'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">hasMany</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'ember-data/relationships'</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">Faker</span> <span class="nx">from</span> <span class="s1">'faker'</span><span class="p">;</span>
 
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
-  <span class="na">name</span><span class="p">:</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
-  <span class="na">address</span><span class="p">:</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
-  <span class="na">phone</span><span class="p">:</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+  <span class="na">name</span><span class="p">:</span> <span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
+  <span class="na">address</span><span class="p">:</span> <span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
+  <span class="na">phone</span><span class="p">:</span> <span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
 
-  <span class="na">books</span><span class="p">:</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="s1">'book'</span><span class="p">,</span> <span class="p">{</span><span class="na">inverse</span><span class="p">:</span> <span class="s1">'library'</span><span class="p">,</span> <span class="na">async</span><span class="p">:</span> <span class="kc">true</span><span class="p">}),</span>
+  <span class="na">books</span><span class="p">:</span> <span class="nx">hasMany</span><span class="p">(</span><span class="s1">'book'</span><span class="p">,</span> <span class="p">{</span><span class="na">inverse</span><span class="p">:</span> <span class="s1">'library'</span><span class="p">,</span> <span class="na">async</span><span class="p">:</span> <span class="kc">true</span><span class="p">}),</span>
 
   <span class="na">isValid</span><span class="p">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">computed</span><span class="p">.</span><span class="nx">notEmpty</span><span class="p">(</span><span class="s1">'name'</span><span class="p">),</span>
 
@@ -1177,16 +1182,18 @@ $ ember g component fader-label
 <span class="p">});</span>
 
 </code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/models/book.js</span>
-<span class="kr">import</span> <span class="nx">DS</span> <span class="nx">from</span> <span class="s1">'ember-data'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">Model</span> <span class="nx">from</span> <span class="s1">'ember-data/model'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">attr</span> <span class="nx">from</span> <span class="s1">'ember-data/attr'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">belongsTo</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'ember-data/relationships'</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">Faker</span> <span class="nx">from</span> <span class="s1">'faker'</span><span class="p">;</span>
 
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
 
-  <span class="na">title</span><span class="p">:</span>        <span class="nx">DS</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
-  <span class="na">releaseYear</span><span class="p">:</span>  <span class="nx">DS</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'date'</span><span class="p">),</span>
+  <span class="na">title</span><span class="p">:</span>        <span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
+  <span class="na">releaseYear</span><span class="p">:</span>  <span class="nx">attr</span><span class="p">(</span><span class="s1">'date'</span><span class="p">),</span>
 
-  <span class="na">author</span><span class="p">:</span>       <span class="nx">DS</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="s1">'author'</span><span class="p">,</span> <span class="p">{</span><span class="na">inverse</span><span class="p">:</span> <span class="s1">'books'</span><span class="p">,</span> <span class="na">async</span><span class="p">:</span> <span class="kc">true</span><span class="p">}),</span>
-  <span class="na">library</span><span class="p">:</span>      <span class="nx">DS</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="s1">'library'</span><span class="p">,</span> <span class="p">{</span><span class="na">inverse</span><span class="p">:</span> <span class="s1">'books'</span><span class="p">,</span> <span class="na">async</span><span class="p">:</span> <span class="kc">true</span><span class="p">}),</span>
+  <span class="na">author</span><span class="p">:</span>       <span class="nx">belongsTo</span><span class="p">(</span><span class="s1">'author'</span><span class="p">,</span> <span class="p">{</span><span class="na">inverse</span><span class="p">:</span> <span class="s1">'books'</span><span class="p">,</span> <span class="na">async</span><span class="p">:</span> <span class="kc">true</span><span class="p">}),</span>
+  <span class="na">library</span><span class="p">:</span>      <span class="nx">belongsTo</span><span class="p">(</span><span class="s1">'library'</span><span class="p">,</span> <span class="p">{</span><span class="na">inverse</span><span class="p">:</span> <span class="s1">'books'</span><span class="p">,</span> <span class="na">async</span><span class="p">:</span> <span class="kc">true</span><span class="p">}),</span>
 
   <span class="nx">randomize</span><span class="p">(</span><span class="nx">author</span><span class="p">,</span> <span class="nx">library</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'title'</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_bookTitle</span><span class="p">());</span>
@@ -1211,14 +1218,16 @@ $ ember g component fader-label
 <span class="p">});</span>
 
 </code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/models/author.js</span>
-<span class="kr">import</span> <span class="nx">DS</span> <span class="nx">from</span> <span class="s1">'ember-data'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">Model</span> <span class="nx">from</span> <span class="s1">'ember-data/model'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">attr</span> <span class="nx">from</span> <span class="s1">'ember-data/attr'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">hasMany</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'ember-data/relationships'</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">Faker</span> <span class="nx">from</span> <span class="s1">'faker'</span><span class="p">;</span>
 
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
 
-  <span class="na">name</span><span class="p">:</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
+  <span class="na">name</span><span class="p">:</span> <span class="nx">attr</span><span class="p">(</span><span class="s1">'string'</span><span class="p">),</span>
 
-  <span class="na">books</span><span class="p">:</span> <span class="nx">DS</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="s1">'book'</span><span class="p">,</span> <span class="p">{</span><span class="na">inverse</span><span class="p">:</span> <span class="s1">'author'</span><span class="p">}),</span>
+  <span class="na">books</span><span class="p">:</span> <span class="nx">hasMany</span><span class="p">(</span><span class="s1">'book'</span><span class="p">,</span> <span class="p">{</span><span class="na">inverse</span><span class="p">:</span> <span class="s1">'author'</span><span class="p">,</span> <span class="na">async</span><span class="p">:</span> <span class="kc">true</span><span class="p">}),</span>
 
   <span class="nx">randomize</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span> <span class="nx">Faker</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">findName</span><span class="p">());</span>
