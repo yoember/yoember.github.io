@@ -926,7 +926,7 @@ Secondly we create our new route. At the moment we'll do it without Ember CLI; j
 import Ember from 'ember';
 import config from './config/environment';
 
-var Router = Ember.Router.extend({
+const Router = Ember.Router.extend({
   location: config.locationType
 });
 
@@ -1209,7 +1209,7 @@ Manually add the new `edit` route to `router.js`. We'll set up a unique `path:` 
 import Ember from 'ember';
 import config from './config/environment';
 
-var Router = Ember.Router.extend({
+const Router = Ember.Router.extend({
   location: config.locationType
 });
 
@@ -1428,13 +1428,14 @@ This code is almost identical to the code we used multiple times in `libraries/n
 A tiny improvement is to add a little validation to our `library` model. Please update `app/models/library.js` to include this basic validation, where we check that the `name` is not empty. (Don't forget to import Ember on the top of the file.)
 
 ``` javascript
-import DS from 'ember-data';
+import Model from 'ember-data/model';
+import attr from 'ember-data/attr';
 import Ember from 'ember';
 
-export default DS.Model.extend({
-  name: DS.attr('string'),
-  address: DS.attr('string'),
-  phone: DS.attr('string'),
+export default Model.extend({
+  name: attr('string'),
+  address: attr('string'),
+  phone: attr('string'),
 
   isValid: Ember.computed.notEmpty('name')
 });
@@ -1726,15 +1727,17 @@ $ ember g model author name:string books:hasMany
 Now add a `hasMany` relation to the `library` model manually.
 
 ``` javascript
-import DS from 'ember-data';
+import Model from 'ember-data/model';
+import attr from 'ember-data/attr';
+import { hasMany } from 'ember-data/relationships';
 import Ember from 'ember';
 
-export default DS.Model.extend({
-  name: DS.attr('string'),
-  address: DS.attr('string'),
-  phone: DS.attr('string'),
+export default Model.extend({
+  name: attr('string'),
+  address: attr('string'),
+  phone: attr('string'),
 
-  books: DS.hasMany('books'),
+  books: hasMany('books'),
 
   isValid: Ember.computed.notEmpty('name'),
 });
@@ -1755,7 +1758,7 @@ Check `router.js`. A new route should be there which points to `seeder`.
 import Ember from 'ember';
 import config from './config/environment';
 
-var Router = Ember.Router.extend({
+const Router = Ember.Router.extend({
   location: config.locationType
 });
 
@@ -2105,16 +2108,18 @@ Update your models with the followings.
 
 ``` javascript
 // app/models/library.js
-import DS from 'ember-data';
+import Model from 'ember-data/model';
+import attr from 'ember-data/attr';
+import { hasMany } from 'ember-data/relationships';
 import Ember from 'ember';
 import Faker from 'faker';
 
-export default DS.Model.extend({
-  name: DS.attr('string'),
-  address: DS.attr('string'),
-  phone: DS.attr('string'),
+export default Model.extend({
+  name: attr('string'),
+  address: attr('string'),
+  phone: attr('string'),
 
-  books: DS.hasMany('book', {inverse: 'library', async: true}),
+  books: hasMany('book', {inverse: 'library', async: true}),
 
   isValid: Ember.computed.notEmpty('name'),
 
@@ -2136,16 +2141,18 @@ export default DS.Model.extend({
 
 ``` javascript
 // app/models/book.js
-import DS from 'ember-data';
+import Model from 'ember-data/model';
+import attr from 'ember-data/attr';
+import { belongsTo } from 'ember-data/relationships';
 import Faker from 'faker';
 
-export default DS.Model.extend({
+export default Model.extend({
 
-  title:        DS.attr('string'),
-  releaseYear:  DS.attr('date'),
+  title:        attr('string'),
+  releaseYear:  attr('date'),
 
-  author:       DS.belongsTo('author', {inverse: 'books', async: true}),
-  library:      DS.belongsTo('library', {inverse: 'books', async: true}),
+  author:       belongsTo('author', {inverse: 'books', async: true}),
+  library:      belongsTo('library', {inverse: 'books', async: true}),
 
   randomize(author, library) {
     this.set('title', this._bookTitle());
@@ -2173,14 +2180,16 @@ export default DS.Model.extend({
 
 ``` javascript
 // app/models/author.js
-import DS from 'ember-data';
+import Model from 'ember-data/model';
+import attr from 'ember-data/attr';
+import { hasMany } from 'ember-data/relationships';
 import Faker from 'faker';
 
-export default DS.Model.extend({
+export default Model.extend({
 
-  name: DS.attr('string'),
-
-  books: DS.hasMany('book', {inverse: 'author'}),
+  name: attr('string'),
+  
+  books: hasMany('book', {inverse: 'author', async: true}),
 
   randomize() {
     this.set('name', Faker.name.findName());
