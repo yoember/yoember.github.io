@@ -1,12 +1,12 @@
 ---
 layout: home
-last_modified_at:30/04/2016
+last_modified_at:7/05/2016
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
 ---
 # Ember.js 2 Tutorial 
-## Building a complex web application with Ember.js 2.5
-<p class="blog-post-meta">Latest update: <time datetime="2016-04-30" itemprop="datePublished">30 Apr 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+## Building a complex web application with Ember.js 2.6
+<p class="blog-post-meta">Latest update: <time datetime="2016-05-07" itemprop="datePublished">7 May 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
