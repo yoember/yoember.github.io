@@ -1129,7 +1129,7 @@ Thanks for Kiffin's [comment](#disqus_thread), we have a simpler solution. Using
 
 Follow the [guide on Firebase](https://www.firebase.com/docs/web/libraries/ember/guide.html#section-ember-deploy).
 
-    $ npm install -g firebase-tools
+    $ npm install -g firebase-tools@2.2.1
     $ ember build --prod
     $ firebase login
     $ firebase init
