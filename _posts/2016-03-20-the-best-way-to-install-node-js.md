@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Best Way to Install Node.js"
-date: 2016-05-06T00:50:00+13:00
+date: 2016-06-04T00:50:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
@@ -26,7 +26,7 @@ You have to have on your Mac the Command Line Tools. Or you install the full XCo
 You can use the install script for `nvm` installation.
 
 ```
-$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash
 ```
 
 However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (`~/.nvm`) Secondly, you add two extra lines to your console script.
@@ -52,21 +52,21 @@ Choose one of the most recent version.
 Install the selected version with the following command:
 
 ```
-$ nvm install 6.1.0
+$ nvm install 6.2.1
 ```
 
 Setup this version as the default.
 
 ```
-$ nvm use 6.1.0
-$ nvm alias default 6.1.0
+$ nvm use 6.2.1
+$ nvm alias default 6.2.1
 ```
 Check your node version with
 
 ```
 $ node -v
 ```
-You should see `v6.1.0` if you installed the above version.
+You should see `v6.2.1` if you installed the above version.
 
 You can update your `npm` to the latest.
 
@@ -74,7 +74,7 @@ You can update your `npm` to the latest.
 $ npm install -g npm
 ```
 
-After the update, the npm version, `npm -v`, should be at least `3.8.9` or above.
+After the update, the npm version, `npm -v`, should be at least `3.9.5` or above.
 
 Alternatives, but not suggested:
 
@@ -99,9 +99,9 @@ $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh |
 ```
 $ nvm list
 $ nvm ls-remote
-$ nvm install 6.1.0
-$ nvm use 6.1.0
-$ nvm alias default 6.1.0
+$ nvm install 6.2.1
+$ nvm use 6.2.1
+$ nvm alias default 6.2.1
 $ node -v
 $ npm install -g npm
 $ npm -v

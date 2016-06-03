@@ -1,12 +1,12 @@
 ---
 layout: home
-last_modified_at:7/05/2016
+last_modified_at: 4/06/2016
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
 ---
 # Ember.js 2 Tutorial 
 ## Building a complex web application with Ember.js 2.6
-<p class="blog-post-meta">Latest update: <time datetime="2016-05-07" itemprop="datePublished">7 May 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-06-04" itemprop="datePublished">4 Jun 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
@@ -58,7 +58,7 @@ Thank you for the contribution. You are awesome! :)
 
 ## Prerequisites
 
-* node.js: at least 0.12, but the best if you install the latest 6.0.0.
+* node.js: at least 0.12, but the best if you install the latest version 6 (current release).
 
 [The best way to install Node.js on Mac, Linux and on Windows]({% post_url 2016-03-20-the-best-way-to-install-node-js %})
 
@@ -71,19 +71,21 @@ Install Ember Inspector Chrome extension in your Chrome Browser: [Ember Inspecto
 Install Watchman on Mac: `brew install watchman`
 More info: https://facebook.github.io/watchman/
 
+Watchman increases the speed of the build process significantly.  
+
 ## <a name='lesson-1'></a>Lesson 1
 
-This tutorial uses the latest Ember CLI tool (v2.5.0).
+This tutorial uses the latest Ember CLI tool (v2.5.1), but you can start using the beta version also (v2.6.0-beta.3).
 
 ### Install Ember CLI
 
-The following `npm` command installs Ember CLI latest stable version in the global namespace. The latest Ember CLI version 2.5.0 was released on 17th of April 2016, it generates app with Ember.js v2.5 and Ember Data v2.5. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)
+The following `npm` command installs Ember CLI latest stable version in the global namespace. The latest Ember CLI version 2.5.1 was released on 21st of May 2016, it generates app with Ember.js v2.5 and Ember Data v2.5. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)
 
     $ npm install -g ember-cli
     
-or if you would like to install with fixed version
+or if you would like to install the next beta version:
 
-    $ npm install -g ember-cli@2.5.0
+    $ npm install -g ember-cli@2.6.0-beta.3
 
 You have now a new `ember` command in your console. Check with
 
@@ -92,8 +94,8 @@ You have now a new `ember` command in your console. Check with
 You should see something similar:
 
 ``` bash {% raw %}
-version: 2.5.0
-node: 6.0.0
+version: 2.5.1
+node: 6.2.1
 os: darwin x64{% endraw %}
 ```
 
@@ -625,7 +627,7 @@ You can get a string computed property length with `.length`. If your computed p
 
 * In terms of feedback on a form, there is a really cool solution on bootstrap: http://getbootstrap.com/css/#forms-control-validation (Check the "With optional icons" section.)
 
-Please try to implement the above requirements. When you're finished, you can check out my repository (the contact logic in my repository is located at `library-app/app/models/contact.js` because of how we refactor things later). I am pretty sure that your solution will be much better than mine. ;)
+Please try to implement the above requirements. When you're finished, you can check out my repository (the contact logic in my repository is already located at `library-app/app/models/contact.js` because of how we refactor things later, however you can see in this earlier commit, that validation was [placed in the controller](https://github.com/zoltan-nz/library-app/blob/60ab93f51e8f488cde6c2e52d28a978370323858/app/controllers/contact.js)). I am pretty sure that your solution will be much better than mine. ;)
 
 ## <a name='lesson-3'></a>Lesson 3
 
@@ -1081,7 +1083,7 @@ export default Ember.Route.extend({
 
 In the above route's model method, we create a new record and that will be the `model`. It automatically appears in the controller and in the template. In the `saveLibrary` action we accept a parameter and we save that model, and then we send the application back to the Libraries home page with `transitionTo`.
 
-There is an built-in Ember.js action (event) called `willTransition` that is called when you leave a page (route). In our case, we use this action to reset the model if we haven't saved it in the database yet.
+There is a built-in Ember.js action (event) called `willTransition` that is called when you leave a page (route). In our case, we use this action to reset the model if we haven't saved it in the database yet.
 
 As you can see, we can access the controller from the route handler using `this.controller`, however we don't have a real controller file for this route (`/libraries/new.js`). Ember.js's dynamic code generation feature automatically creates controllers and route handlers for each route. They exists in memory. In this example, the `model` property exists in this "virtual" controller and in our template, so we can still "destroy" it.
 
@@ -1126,6 +1128,8 @@ Thanks for Kiffin's [comment](#disqus_thread), we have a simpler solution. Using
 ## <a name='lesson-4'></a>Lesson 4
 
 ### Deploy your app on Firebase
+
+Please note that Firebase has upraded their tools recently and EmberFire package v3 is not ready yet. So we still use v2. More details about the progress of v3 [here](https://github.com/firebase/emberfire/issues/384).  
 
 Follow the [guide on Firebase](https://www.firebase.com/docs/web/libraries/ember/guide.html#section-ember-deploy).
 
