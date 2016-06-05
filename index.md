@@ -15,7 +15,7 @@ Welcome! Please check the [Live Demo](https://library-app.firebaseapp.com) page 
 
 > NEW! [Lesson 7](#lesson-7)
 
-> NEW! [How you keep your Ember.js project up-to-date]({% post_url 2016-04-03-how-you-keep-your-ember-js-project-up-to-date %})
+> NEW! [How to keep your Ember.js project up-to-date]({% post_url 2016-04-03-how-to-keep-your-ember-js-project-up-to-date %})
 
 * Live demo: [library-app.firebaseapp.com](https://library-app.firebaseapp.com/)
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How You Keep Your Ember.js Project Up-To-Date"
+title: "How To Keep Your Ember.js Project Up-To-Date"
 date: 2016-05-08T09:28:13+12:00
 author: Zoltan
 categories: emberjs
