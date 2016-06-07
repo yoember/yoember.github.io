@@ -1,17 +1,19 @@
 ---
 layout: home
-last_modified_at: 4/06/2016
+last_modified_at: 8/06/2016
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
 ---
 # Ember.js 2 Tutorial 
 ## Building a complex web application with Ember.js 2.6
-<p class="blog-post-meta">Latest update: <time datetime="2016-06-04" itemprop="datePublished">4 Jun 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-06-08" itemprop="datePublished">8 Jun 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
 
 Welcome! Please check the [Live Demo](https://library-app.firebaseapp.com) page and play with the app what we are going to build together.
+
+> New Firebase, new rules! Please note, that the new Firebase closes the database as default, you have to manually add permissions. [More details in Lesson 3](#lesson-3).
 
 > NEW! [Lesson 7](#lesson-7)
 
@@ -699,6 +701,19 @@ var ENV = {
         firebase: 'https://WRITE_HERE_YOUR_APP_NAME.firebaseio.com/',
         baseURL: '/',
         locationType: 'auto',
+```
+
+> New Firebase, new rules! Please note, that the new Firebase closes the database as default, you have to manually add permissions. Please read [this section on Firebase website](https://firebase.google.com/docs/database/security/quickstart) and we need a new 6th step.
+
+Change your database public, so we don't have to implement authentication in this stage. Navigate to your Firebase Console, choose your new app, select "Database" from the left menu and click on "Rules" tab. Change the content in the rules editor:
+
+``` javascript
+{
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
 ```
 
 Try out Request Invitation button again, check the browser's console messages and open the Firebase website, and check your app dashboard. You will see, that the email address, what you just saved on your home page, is sent to Firebase and it is saved on the server.
