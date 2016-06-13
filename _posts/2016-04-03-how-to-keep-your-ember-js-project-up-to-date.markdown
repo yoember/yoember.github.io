@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How To Keep Your Ember.js Project Up-To-Date"
-date: 2016-05-08T09:28:13+12:00
+date: 2016-06-10T09:28:13+12:00
 author: Zoltan
 categories: emberjs
 identifier: 'update-emberjs'

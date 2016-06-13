@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Best Way to Install Node.js"
-date: 2016-06-04T00:50:00+13:00
+date: 2016-06-10T00:50:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
