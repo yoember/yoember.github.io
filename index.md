@@ -1,12 +1,16 @@
 ---
 layout: home
-last_modified_at: 14/06/2016
+last_modified_at: 17/06/2016
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
+ember_cli_version: '2.6.2'
+release_day: '21st of Jun 2016'
+ember_cli_beta_version: '2.7.0-beta.3'
+node_version: '6.2.2'
 ---
 # Ember.js 2 Tutorial
 ## Building a complex web application with Ember.js 2.6
-<p class="blog-post-meta">Latest update: <time datetime="2016-06-14" itemprop="datePublished">14 Jun 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-06-21" itemprop="datePublished">21 Jun 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
@@ -42,8 +46,9 @@ Thank you for the contribution. You are awesome! :)
 
 [@jkeat](https://github.com/jkeat), I really appreciate the effort you have put into proofreading this [Ember.js tutorial](http://yoember.com). [@sigu](https://github.com/sigu), [@batisteo](https://github.com/batisteo), thanks guys for fixing too.
 
-## Other tutorials
+## Other tutorials, examples
 
+* MapTouch - playing with d3.js, animation and canvases: [https://github.com/zoltan-nz/map-touch](https://github.com/zoltan-nz/map-touch)  
 * Bookstore API (Ruby on Rails): [https://github.com/zoltan-nz/bookstore-api](https://github.com/zoltan-nz/bookstore-api)
 * Bookstore Client (Ember.js): [https://github.com/zoltan-nz/bookstore-client](https://github.com/zoltan-nz/bookstore-client)
 * Contacts App Client (Ember.js): [https://github.com/zoltan-nz/contacts-app-client](https://github.com/zoltan-nz/contacts-app-client)
@@ -79,17 +84,17 @@ Watchman increases the speed of the build process significantly.
 
 ## <a name='lesson-1'></a>Lesson 1
 
-This tutorial uses the latest Ember CLI tool (v2.6.1).
+This tutorial uses the latest Ember CLI tool (v{{ page.ember_cli_version }}).
 
 ### Install Ember CLI
 
-The following `npm` command installs Ember CLI latest stable version in the global namespace. The latest Ember CLI version 2.6.1 was released on 11th of Jun 2016, it generates app with Ember.js v2.6 and Ember Data v2.6. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)
+The following `npm` command installs Ember CLI latest stable version in the global namespace. The latest Ember CLI version {{ page.ember_cli_version }} was released on {{ page.release_day }}, it generates app with Ember.js v2.6 and Ember Data v2.6. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)
 
     $ npm install -g ember-cli
 
 or if you would like to install the next beta version:
 
-    $ npm install -g ember-cli@2.7.0-beta.2
+    $ npm install -g ember-cli@{{ page.ember_cli_beta_version }}
 
 You have now a new `ember` command in your console. Check with
 
@@ -97,10 +102,10 @@ You have now a new `ember` command in your console. Check with
 
 You should see something similar:
 
-``` bash {% raw %}
-version: 2.6.1
-node: 6.2.1
-os: darwin x64{% endraw %}
+``` bash
+version: {{ page.ember_cli_version }}
+node: {{ page.node_version }}
+os: darwin x64
 ```
 
 (Node version, npm version and OS version may be different in your configuration.)
@@ -183,7 +188,7 @@ if (environment === 'development') {
 }
 //..{% endraw %}
 ```
-Check your app and open the Console in Chrome/Firefox. You will see same extra information about what Ember.js actually does under the hood. Don't worry if you don't understand these debug messages at this stage. As you spend more and more time with Ember.js development, these lines are going to be clearer.
+Check your app and open the Console in Chrome/Firefox. You will see some extra information about what Ember.js actually does under the hood. Don't worry if you don't understand these debug messages at this stage. As you spend more and more time with Ember.js development, these lines are going to be clearer. (If you prefer to keep your development console clear, just comment out these debugging options. You can turn on and off them, whenever you like.)
 
 ### <a name="ember-bootstrap-sass"></a>Add Bootstrap and Sass to Ember.js App
 
@@ -401,7 +406,7 @@ Now we can create our index controller:
 
 * Read more about Ember controllers here: http://guides.emberjs.com/v2.6.0/controllers/
 
-Note: Ember.js still uses controllers, however the controller layer will be deprecated and removed from Ember.js 3.0. We use controllers to practice some interesting features, but later we will refactor our app and we will move most of the logic inside components.
+Note: Ember.js still uses controllers, however there were rummors, that the controller layer will be deprecated and removed from Ember.js 3.0. It looks, controllers will stay with us for a while, so don't worry too much. We use controllers to practice some interesting features, but later we will refactor our app and we will move most of the logic inside components.
 
 Add `isDisabled` property to the controller. Default value is `true`.
 
@@ -1804,7 +1809,7 @@ export default Model.extend({
   address: attr('string'),
   phone: attr('string'),
 
-  books: hasMany('books'),
+  books: hasMany('book'),
 
   isValid: Ember.computed.notEmpty('name'),
 });
