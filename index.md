@@ -1,33 +1,25 @@
 ---
 layout: home
-last_modified_at: 17/06/2016
+last_modified_at: 13/07/2016
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
 ember_cli_version: '2.6.2'
 release_day: '21st of Jun 2016'
-ember_cli_beta_version: '2.7.0-beta.3'
-node_version: '6.2.2'
+ember_cli_beta_version: '2.7.0-beta.5'
+node_version: '6.3.0'
 ---
 # Ember.js 2 Tutorial
 ## Building a complex web application with Ember.js 2.6
-<p class="blog-post-meta">Latest update: <time datetime="2016-06-21" itemprop="datePublished">21 Jun 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-07-13" itemprop="datePublished">13 July 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
-This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advance topic as well.
+Welcome! This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advanced topic as well.
 
-Welcome! Please check the [Live Demo](https://library-app.firebaseapp.com) page and play with the app what we are going to build together.
-
-> New Firebase, new rules! Please note, that the new Firebase closes the database as default, you have to manually add permissions. [More details in Lesson 3](#lesson-3).
-
-> EmberFire v2.0 is released, deployment process is changed also. [Lesson 4 is updated.](#lesson-4)
-
-> NEW! [Lesson 7](#lesson-7)
-
-> NEW! [How to keep your Ember.js project up-to-date]({% post_url 2016-04-03-how-to-keep-your-ember-js-project-up-to-date %})
+Please check the [Live Demo](https://library-app.firebaseapp.com) page and play with the app what we are going to build together.
 
 * Live demo: [library-app.firebaseapp.com](https://library-app.firebaseapp.com/)
 
-You can clone the original repository from GitHub and launch on your desktop any time.
+You can clone the original repository from GitHub and launch on your desktop anytime.
 
 * Original repo: [https://github.com/zoltan-nz/library-app](https://github.com/zoltan-nz/library-app)
 
@@ -42,9 +34,7 @@ Don't hesitate to send me a message on Ember.js community Slack Channel.
 
 Or leave a comment at the [bottom of this page](#disqus_thread).
 
-Thank you for the contribution. You are awesome! :)
-
-[@jkeat](https://github.com/jkeat), I really appreciate the effort you have put into proofreading this [Ember.js tutorial](http://yoember.com). [@sigu](https://github.com/sigu), [@batisteo](https://github.com/batisteo), thanks guys for fixing too.
+Contributors: [@jkeat](https://github.com/jkeat), I really appreciate the effort you have put into proofreading this [Ember.js tutorial](http://yoember.com). [@sigu](https://github.com/sigu), [@batisteo](https://github.com/batisteo), thanks guys for fixing too.
 
 ## Other tutorials, examples
 
@@ -63,7 +53,7 @@ Thank you for the contribution. You are awesome! :)
 * [Lesson 4 - Deploy your app and add more CRUD functionality](#lesson-4)
 * [Lesson 5 - Data down actions up, using components](#lesson-5)
 * [Lesson 6 - Advance model structures and data relationships](#lesson-6)
-* (NEW!) [Lesson 7 - CRUD interface for Authors and Books, managing model relationship](#lesson-7)
+* [Lesson 7 - CRUD interface for Authors and Books, managing model relationship](#lesson-7)
 
 ## Prerequisites
 
@@ -801,7 +791,7 @@ newInvitation.save().then(function(response) {
 
 In javascript, `this` always points to the object that wraps around it. In the above example, `this` will be undefined because we are inside the function after the Promise. Please learn more about it here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
 
-This kind of problem is solved nicely in ES6/ES2015, the new JavaScript, which is what I mainly use in this tutorial. However, it's not a problem if you see the old, traditional way also. We'll look at it this method for just for a second.
+This kind of problem is solved nicely in ES6/ES2015, the new JavaScript, which is what I mainly use in this tutorial. However, it's not a problem if you see the old, traditional way also. We'll look at it for just a second.
 
 In ES5 syntax, we have to save the controller context (the controller's `this`) in a local variable. We can set the controller's `this` as the variable `_that` so we can use it inside our `then`.
 
@@ -1199,12 +1189,27 @@ Follow the [guide on Firebase](https://firebase.google.com/docs/hosting/quicksta
     $ firebase login
     $ firebase init
 
-After entering `firebase init`, select the `Hosting` option only (with arrows and space keys). When asked for the public directory, enter `dist`. Answer YES for "Configure as a single-page app" question and NO for overwriting index.html. The last question is about your project name on Firebase, select the right one. It will create a `.firebaserc` and a `firebase.json` file in your directory. (You can add a `.firebaserc` line to your `.gitignore`.)
+Questions and answers:
 
-Check your `firebase.json`, it should look like this:
+* What Firebase CLI features do you want to setup for this folder? ==> Hosting
+
+* What Firebase project do you want to associate as default? ==> Select your project.
+
+* What file should be used for Database Rules? ==> Just accept the `database.rules.json` with hitting Return/Enter.
+
+* What do you want to use as your public directory? ==> Type: `dist`, because we would like to publish the content from our `dist` folder.
+
+* Configure as a single-page app (rewrite all urls to /index.html)? ==> Answer: YES (Please note, the default answer would be N, so you have to type YES.)
+
+* File dist/index.html already exists. Overwrite? ==> NO!!! Accept the default NO.
+
+There is a new `firebase.json` file in your project folder, check it out:
 
 ```
 {
+  "database": {
+    "rules": "database.rules.json"
+  },
   "hosting": {
     "public": "dist",
     "rewrites": [
@@ -1221,7 +1226,13 @@ And deploy:
 
     $ firebase deploy
 
-Check your app. It's live! :-D Congratulations!
+Check your app.
+
+    $ firebase open
+    
+Select `Hosting: Deployed Site`
+
+It's live! :-D Congratulations!
 
 ### Add Delete, Edit button and Edit route
 
