@@ -1,10 +1,13 @@
 ---
 layout: post
 title: "The Best Way to Install Node.js"
-date: 2016-06-10T00:50:00+13:00
+date: 2016-07-13T00:50:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
+node_version: '6.3.0'
+npm_version: '3.10.5'
+nvm_version: '0.31.2'
 ---
 
 There are a few ways to install Node.js, but it looks only one way gives you the best experience for long term.
@@ -26,7 +29,7 @@ You have to have on your Mac the Command Line Tools. Or you install the full XCo
 You can use the install script for `nvm` installation.
 
 ```
-$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash
+$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v{{ page.nvm_version }}/install.sh | bash
 ```
 
 However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (`~/.nvm`) Secondly, you add two extra lines to your console script.
@@ -49,24 +52,24 @@ $ nvm ls-remote
 
 Choose one of the most recent version.
 
-Install the selected version with the following command:
+Install the selected version (for example the version {{ page.node_version }}):
 
 ```
-$ nvm install 6.2.1
+$ nvm install {{ page.node_version }}
 ```
 
 Setup this version as the default.
 
 ```
-$ nvm use 6.2.1
-$ nvm alias default 6.2.1
+$ nvm use {{ page.node_version }}
+$ nvm alias default {{ page.node_version }}
 ```
 Check your node version with
 
 ```
 $ node -v
 ```
-You should see `v6.2.1` if you installed the above version.
+You should see `v{{ page.node_version }}` if you installed the above version.
 
 You can update your `npm` to the latest.
 
@@ -74,7 +77,7 @@ You can update your `npm` to the latest.
 $ npm install -g npm
 ```
 
-After the update, the npm version, `npm -v`, should be at least `3.9.5` or above.
+After the update, the npm version, `npm -v`, should be at least `{{ page.npm_version }}` or above.
 
 Alternatives, but not suggested:
 
@@ -91,7 +94,7 @@ The installation process on Linux is the same as on OSX.
 With the provided script:
 
 ```
-$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v{{ page.nvm_version }}/install.sh | bash
 ```
 
 (Please read the instructions under OSX section.)
@@ -99,9 +102,9 @@ $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh |
 ```
 $ nvm list
 $ nvm ls-remote
-$ nvm install 6.2.1
-$ nvm use 6.2.1
-$ nvm alias default 6.2.1
+$ nvm install {{ page.node_version }}
+$ nvm use {{ page.node_version }}
+$ nvm alias default {{ page.node_version }}
 $ node -v
 $ npm install -g npm
 $ npm -v
