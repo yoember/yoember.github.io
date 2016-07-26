@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ember.js 2 Tutorial - Building a complex web application</title>
-    <description>Free Ember.js tutorial for absolute beginners. Build a CRUD application from step by step with the latest Ember.js v2.6.
+    <description>Free Ember.js tutorial for absolute beginners. Build a CRUD application from step by step with the latest Ember.js v2.7.
 </description>
     <link>http://yoember.com/</link>
     <atom:link href="http://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 13 Jul 2016 20:44:18 +1200</pubDate>
-    <lastBuildDate>Wed, 13 Jul 2016 20:44:18 +1200</lastBuildDate>
+    <pubDate>Tue, 26 Jul 2016 20:40:46 +1200</pubDate>
+    <lastBuildDate>Tue, 26 Jul 2016 20:40:46 +1200</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -26,7 +26,7 @@
 &lt;p&gt;(If you&amp;#39;ve just installed XCode, don&amp;#39;t forget to launch it first and accepting the Terms and Conditions.)&lt;/p&gt;
 
 &lt;p&gt;You can use the install script for &lt;code&gt;nvm&lt;/code&gt; installation.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.3/install.sh | bash
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (&lt;code&gt;~/.nvm&lt;/code&gt;) Secondly, you add two extra lines to your console script.&lt;/p&gt;
 
@@ -42,17 +42,17 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Choose one of the most recent version.&lt;/p&gt;
 
-&lt;p&gt;Install the selected version (for example the version 6.3.0):&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ nvm install 6.3.0
+&lt;p&gt;Install the selected version (for example the version 6.3.1):&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ nvm install 6.3.1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Setup this version as the default.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ nvm use 6.3.0
-$ nvm alias default 6.3.0
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ nvm use 6.3.1
+$ nvm alias default 6.3.1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Check your node version with&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ node -v
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;You should see &lt;code&gt;v6.3.0&lt;/code&gt; if you installed the above version.&lt;/p&gt;
+&lt;p&gt;You should see &lt;code&gt;v6.3.1&lt;/code&gt; if you installed the above version.&lt;/p&gt;
 
 &lt;p&gt;You can update your &lt;code&gt;npm&lt;/code&gt; to the latest.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ npm install -g npm
@@ -74,14 +74,14 @@ If you already installed Node.js with the built in package manager, please remov
 &lt;p&gt;The installation process on Linux is the same as on OSX.&lt;/p&gt;
 
 &lt;p&gt;With the provided script:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.3/install.sh | bash
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;(Please read the instructions under OSX section.)&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ nvm list
 $ nvm ls-remote
-$ nvm install 6.3.0
-$ nvm use 6.3.0
-$ nvm alias default 6.3.0
+$ nvm install 6.3.1
+$ nvm use 6.3.1
+$ nvm alias default 6.3.1
 $ node -v
 $ npm install -g npm
 $ npm -v
@@ -123,7 +123,7 @@ $ npm install -g ember-cli
 
 &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
 </description>
-        <pubDate>Tue, 12 Jul 2016 23:50:00 +1200</pubDate>
+        <pubDate>Sun, 24 Jul 2016 23:50:00 +1200</pubDate>
         <link>http://yoember.com/nodejs/the-best-way-to-install-node-js/</link>
         <guid isPermaLink="true">http://yoember.com/nodejs/the-best-way-to-install-node-js/</guid>
         
