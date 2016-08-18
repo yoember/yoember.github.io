@@ -6,124 +6,164 @@
 </description>
     <link>http://yoember.com/</link>
     <atom:link href="http://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 26 Jul 2016 20:40:46 +1200</pubDate>
-    <lastBuildDate>Tue, 26 Jul 2016 20:40:46 +1200</lastBuildDate>
-    <generator>Jekyll v3.1.6</generator>
+    <pubDate>Thu, 18 Aug 2016 22:23:55 +1200</pubDate>
+    <lastBuildDate>Thu, 18 Aug 2016 22:23:55 +1200</lastBuildDate>
+    <generator>Jekyll v3.2.1</generator>
     
       <item>
         <title>The Best Way to Install Node.js</title>
         <description>&lt;p&gt;There are a few ways to install Node.js, but it looks only one way gives you the best experience for long term.&lt;/p&gt;
 
-&lt;h3&gt;On Mac&lt;/h3&gt;
+&lt;h3 id=&quot;on-mac&quot;&gt;On Mac&lt;/h3&gt;
 
-&lt;p&gt;The best way to install Node.js on Mac is &lt;code&gt;nvm&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The best way to install Node.js on Mac is &lt;code class=&quot;highlighter-rouge&quot;&gt;nvm&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/creationix/nvm&quot;&gt;https://github.com/creationix/nvm&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;https://github.com/creationix/nvm&lt;/p&gt;
 
 &lt;p&gt;You have to have on your Mac the Command Line Tools. Or you install the full XCode from App Store either just use the small Command Line Tools installer:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt; $ xcode-select --install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;(If you&amp;#39;ve just installed XCode, don&amp;#39;t forget to launch it first and accepting the Terms and Conditions.)&lt;/p&gt;
 
-&lt;p&gt;You can use the install script for &lt;code&gt;nvm&lt;/code&gt; installation.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.3/install.sh | bash
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (&lt;code&gt;~/.nvm&lt;/code&gt;) Secondly, you add two extra lines to your console script.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+ $ xcode-select --install
+&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Please follow these steps on NVM Readme: &lt;a href=&quot;https://github.com/creationix/nvm#manual-install&quot;&gt;https://github.com/creationix/nvm#manual-install&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;(If you’ve just installed XCode, don’t forget to launch it first and accepting the Terms and Conditions.)&lt;/p&gt;
+
+&lt;p&gt;You can use the install script for &lt;code class=&quot;highlighter-rouge&quot;&gt;nvm&lt;/code&gt; installation.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.3/install.sh | bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (&lt;code class=&quot;highlighter-rouge&quot;&gt;~/.nvm&lt;/code&gt;) Secondly, you add two extra lines to your console script.&lt;/p&gt;
+
+&lt;p&gt;Please follow these steps on NVM Readme: https://github.com/creationix/nvm#manual-install&lt;/p&gt;
 
 &lt;p&gt;You have to relaunch your Terminals. Maybe you have to log out and log back to activate the new settings.&lt;/p&gt;
 
 &lt;p&gt;List your installed node versions:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ nvm list
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Install the available node versions on the cloud:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ nvm ls-remote
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;List the available node versions in the cloud:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm ls-remote
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You can use the combination of this two commands to see only the last 9 lines from the huge list of versions: &lt;code class=&quot;highlighter-rouge&quot;&gt;$ nvm ls-remote | tail -n9&lt;/code&gt;&lt;/p&gt;
+
 &lt;p&gt;Choose one of the most recent version.&lt;/p&gt;
 
-&lt;p&gt;Install the selected version (for example the version 6.3.1):&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ nvm install 6.3.1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Setup this version as the default.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ nvm use 6.3.1
-$ nvm alias default 6.3.1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Check your node version with&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ node -v
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;You should see &lt;code&gt;v6.3.1&lt;/code&gt; if you installed the above version.&lt;/p&gt;
+&lt;p&gt;Install the selected version (for example the version 6.4.0):&lt;/p&gt;
 
-&lt;p&gt;You can update your &lt;code&gt;npm&lt;/code&gt; to the latest.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ npm install -g npm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;After the update, the npm version, &lt;code&gt;npm -v&lt;/code&gt;, should be at least &lt;code&gt;3.10.5&lt;/code&gt; or above.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 6.4.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Setup this version as the default.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm use 6.4.0
+$ nvm alias default 6.4.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Check your node version with&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ node -v
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;You should see &lt;code class=&quot;highlighter-rouge&quot;&gt;v6.4.0&lt;/code&gt; if you installed the above version.&lt;/p&gt;
+
+&lt;p&gt;You can update your &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; to the latest.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install -g npm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;After the update, the npm version, &lt;code class=&quot;highlighter-rouge&quot;&gt;npm -v&lt;/code&gt;, should be at least &lt;code class=&quot;highlighter-rouge&quot;&gt;3.10.6&lt;/code&gt; or above.&lt;/p&gt;
 
 &lt;p&gt;Alternatives, but not suggested:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Official Installer: &lt;a href=&quot;https://nodejs.org/en/download/&quot;&gt;https://nodejs.org/en/download/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Using brew: &lt;a href=&quot;https://nodejs.org/en/download/package-manager/#osx&quot;&gt;https://nodejs.org/en/download/package-manager/#osx&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Official Installer: https://nodejs.org/en/download/&lt;/li&gt;
+  &lt;li&gt;Using brew: https://nodejs.org/en/download/package-manager/#osx&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3&gt;On Linux&lt;/h3&gt;
+&lt;h3 id=&quot;on-linux&quot;&gt;On Linux&lt;/h3&gt;
 
-&lt;p&gt;Please avoid to install Node.js with &lt;code&gt;apt-get&lt;/code&gt; on Ubuntu.
-If you already installed Node.js with the built in package manager, please remove that. (&lt;code&gt;sudo apt-get purge nodejs &amp;amp;&amp;amp; sudo apt-get autoremove &amp;amp;&amp;amp; sudo apt-get autoclean&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;Please avoid to install Node.js with &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get&lt;/code&gt; on Ubuntu.
+If you already installed Node.js with the built in package manager, please remove that. (&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get purge nodejs &amp;amp;&amp;amp; sudo apt-get autoremove &amp;amp;&amp;amp; sudo apt-get autoclean&lt;/code&gt;)&lt;/p&gt;
 
 &lt;p&gt;The installation process on Linux is the same as on OSX.&lt;/p&gt;
 
 &lt;p&gt;With the provided script:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.3/install.sh | bash
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.3/install.sh | bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;p&gt;(Please read the instructions under OSX section.)&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ nvm list
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm list
 $ nvm ls-remote
-$ nvm install 6.3.1
-$ nvm use 6.3.1
-$ nvm alias default 6.3.1
+$ nvm install 6.4.0
+$ nvm use 6.4.0
+$ nvm alias default 6.4.0
 $ node -v
 $ npm install -g npm
 $ npm -v
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;One more thing! Don&amp;#39;t forget to run the following command, which increases the amount of inotify watches.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf &amp;amp;&amp;amp; sudo sysctl -p
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;On Windows&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;On Windows, if you don&amp;#39;t need more version from Node.js, you can use the &lt;a href=&quot;https://nodejs.org/en/download/stable/&quot;&gt;official installer&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;One more thing! Don’t forget to run the following command, which increases the amount of inotify watches.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf &amp;amp;&amp;amp; sudo sysctl -p
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;on-windows&quot;&gt;On Windows&lt;/h3&gt;
+
+&lt;p&gt;On Windows, if you don’t need more version from Node.js, you can use the &lt;a href=&quot;https://nodejs.org/en/download/stable/&quot;&gt;official installer&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Install also &lt;a href=&quot;https://git-for-windows.github.io/&quot;&gt;Git for Windows&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Additionally, don&amp;#39;t forget to read &lt;a href=&quot;http://ember-cli.com/user-guide/#windows&quot;&gt;this instruction&lt;/a&gt;, which is very interesting not just for Ember developers, but for everybody who uses Node.js on Windows.&lt;/p&gt;
+&lt;p&gt;Additionally, don’t forget to read &lt;a href=&quot;http://ember-cli.com/user-guide/#windows&quot;&gt;this instruction&lt;/a&gt;, which is very interesting not just for Ember developers, but for everybody who uses Node.js on Windows.&lt;/p&gt;
 
-&lt;p&gt;Plus install and run &lt;code&gt;ember-cli-windows&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ npm install -g ember-cli-windows
+&lt;p&gt;Plus install and run &lt;code class=&quot;highlighter-rouge&quot;&gt;ember-cli-windows&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install -g ember-cli-windows
 $ ember-cli-windows
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;More here: &lt;a href=&quot;https://github.com/felixrieseberg/ember-cli-windows&quot;&gt;https://github.com/felixrieseberg/ember-cli-windows&lt;/a&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;More here: https://github.com/felixrieseberg/ember-cli-windows&lt;/p&gt;
 
 &lt;p&gt;Always run your PowerShell or CMD.exe as Administrator.&lt;/p&gt;
 
-&lt;p&gt;Don&amp;#39;t forget to run these two commands in PowerShell (as Administrator):&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ Set-ExecutionPolicy Unrestricted -scope Process
+&lt;p&gt;Don’t forget to run these two commands in PowerShell (as Administrator):&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ Set-ExecutionPolicy Unrestricted -scope Process
 $ ember-cli-windows
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;p&gt;Log out and log back in Windows.&lt;/p&gt;
 
-&lt;p&gt;Try to upgrade &lt;code&gt;npm&lt;/code&gt; and after install the latest &lt;code&gt;ember-cli&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ npm install -g npm
+&lt;p&gt;Try to upgrade &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; and after install the latest &lt;code class=&quot;highlighter-rouge&quot;&gt;ember-cli&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install -g npm
 $ npm install -g ember-cli
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;p&gt;I would suggest, experiment with different shells. Which worked better for you? PowerShell, Git Shell, the original CMD.exe? Please, share your Windows experiment in a comment.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Now, you have Node.js on your machine, it&amp;#39;s time to go back to the &lt;a href=&quot;http://yoember.com&quot;&gt;Emberjs Tutorial&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;Now, you have Node.js on your machine, it’s time to go back to the &lt;a href=&quot;http://yoember.com&quot;&gt;Emberjs Tutorial&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
 </description>
-        <pubDate>Sun, 24 Jul 2016 23:50:00 +1200</pubDate>
+        <pubDate>Wed, 17 Aug 2016 23:50:00 +1200</pubDate>
         <link>http://yoember.com/nodejs/the-best-way-to-install-node-js/</link>
         <guid isPermaLink="true">http://yoember.com/nodejs/the-best-way-to-install-node-js/</guid>
         
@@ -140,39 +180,51 @@ $ npm install -g ember-cli
 
 &lt;p&gt;My strategy is quite simple. I would like to know which packages are changed. Outside of the active project, I update ember-cli, and I create a new dummy app, so I can compare the version numbers and every type of changes between the new dummy app and my older active project.&lt;/p&gt;
 
-&lt;h3&gt;Upgrade ember-cli&lt;/h3&gt;
+&lt;h3 id=&quot;upgrade-ember-cli&quot;&gt;Upgrade ember-cli&lt;/h3&gt;
 
 &lt;p&gt;Outside your older ember app folder:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ cd ~
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd ~
 $ npm install -g ember-cli
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;p&gt;Check your ember-cli version (outside of your project folder).&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ cd ~
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd ~
 $ ember -v
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;p&gt;You should see the latest version.&lt;/p&gt;
 
-&lt;h3&gt;Create a new dummy ember application&lt;/h3&gt;
+&lt;h3 id=&quot;create-a-new-dummy-ember-application&quot;&gt;Create a new dummy ember application&lt;/h3&gt;
 
-&lt;p&gt;So we can compare packages in &lt;code&gt;bower.json&lt;/code&gt; and &lt;code&gt;package.json&lt;/code&gt;.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ cd ~/projects/temp
+&lt;p&gt;So we can compare packages in &lt;code class=&quot;highlighter-rouge&quot;&gt;bower.json&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd ~/projects/temp
 $ ember new my-v26-app
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;Upgrade version numbers in your old project to match with the new dummy app.&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;Check your &lt;code&gt;bower.json&lt;/code&gt; and &lt;code&gt;package.json&lt;/code&gt; align the version numbers in your old project to match with the new defaults. (Update ember-cli, ember, ember-data, etc.) It is time to double check your other packages, like sass or firebase, etc. packages also, maybe there are an updated version which is compatible with the new Ember.&lt;/p&gt;
+&lt;h3 id=&quot;upgrade-version-numbers-in-your-old-project-to-match-with-the-new-dummy-app&quot;&gt;Upgrade version numbers in your old project to match with the new dummy app.&lt;/h3&gt;
 
-&lt;h3&gt;Remove &lt;code&gt;bower_components&lt;/code&gt; and &lt;code&gt;node_modules&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Check your &lt;code class=&quot;highlighter-rouge&quot;&gt;bower.json&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt; align the version numbers in your old project to match with the new defaults. (Update ember-cli, ember, ember-data, etc.) It is time to double check your other packages, like sass or firebase, etc. packages also, maybe there are an updated version which is compatible with the new Ember.&lt;/p&gt;
+
+&lt;h3 id=&quot;remove-bowercomponents-and-nodemodules&quot;&gt;Remove &lt;code class=&quot;highlighter-rouge&quot;&gt;bower_components&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;node_modules&lt;/code&gt;&lt;/h3&gt;
 
 &lt;p&gt;For avoiding package conflicts the most safest solution if you just remove these folders and reinstall all your packages.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ cd my-updated-project
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd my-updated-project
 $ rm -rf bower_components node_modules
 $ npm install &amp;amp;&amp;amp; bower install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;p&gt;Good luck! :)&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Don&amp;#39;t forget to check out the new chapter of the &lt;a href=&quot;http://yoember.com&quot;&gt;free Ember.js tutorial&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;Don’t forget to check out the new chapter of the &lt;a href=&quot;http://yoember.com&quot;&gt;free Ember.js tutorial&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
         <pubDate>Fri, 10 Jun 2016 09:28:13 +1200</pubDate>
