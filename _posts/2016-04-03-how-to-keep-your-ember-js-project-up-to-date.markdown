@@ -32,7 +32,7 @@ You should see the latest version.
 So we can compare packages in `bower.json` and `package.json`.
 
     $ cd ~/projects/temp
-    $ ember new my-v26-app
+    $ ember new my-v27-app
 
 ### Upgrade version numbers in your old project to match with the new dummy app.
 
@@ -48,4 +48,4 @@ For avoiding package conflicts the most safest solution if you just remove these
 
 Good luck! :)
 
-> Don't forget to check out the new chapter of the [free Ember.js tutorial](http://yoember.com)
+> Don't forget to check out the new chapter of the free [Ember](http://yoember.com).js tutorial

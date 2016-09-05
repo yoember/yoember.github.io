@@ -7,13 +7,11 @@ gem 'jekyll'
 gem 'jekyll-assets'
 gem 'uglifier'
 gem 'sass'
-gem 'redcarpet'
 gem 'kramdown'
 gem 'rouge'
 
 # Add bootstrap and font awesome
 gem 'bootstrap-sass'
-# gem 'font-awesome-sass'
 
 # Generate sitemap
 gem 'jekyll-sitemap'

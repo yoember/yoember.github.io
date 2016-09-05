@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "The Best Way to Install Node.js"
-date: 2016-07-13T00:50:00+13:00
+date: 2016-09-03T00:50:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
-node_version: '6.3.0'
-npm_version: '3.10.5'
-nvm_version: '0.31.2'
+node_version: '6.5.0'
+npm_version: '3.10.6'
+nvm_version: '0.31.7'
 ---
 
 There are a few ways to install Node.js, but it looks only one way gives you the best experience for long term.
@@ -20,9 +20,9 @@ https://github.com/creationix/nvm
 
 You have to have on your Mac the Command Line Tools. Or you install the full XCode from App Store either just use the small Command Line Tools installer:
 
- ```
- $ xcode-select --install
- ```
+```
+$ xcode-select --install
+```
 
 (If you've just installed XCode, don't forget to launch it first and accepting the Terms and Conditions.)
 
@@ -44,11 +44,13 @@ List your installed node versions:
 $ nvm list
 ```
 
-Install the available node versions on the cloud:
+List the available node versions in the cloud:
 
 ```
 $ nvm ls-remote
 ```
+
+You can use the combination of this two commands to see only the last 9 lines from the huge list of versions: `$ nvm ls-remote | tail -n9`    
 
 Choose one of the most recent version.
 
