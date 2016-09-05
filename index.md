@@ -1,7 +1,7 @@
 ---
 layout: home
 last_modified_at: 06/09/2016
-title: 'Ember.js 2 Tutorial - From beginner to advance'
+title: 'Ember 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
 ember_cli_version: '2.7.0'
 ember_version: '2.7'
@@ -915,18 +915,20 @@ Add this new page to the `navbar.hbs` with a dropdown.
 
     <div class="collapse navbar-collapse" id="main-navbar">
       <ul class="nav navbar-nav">
-            {{#link-to 'index' tagName="li"}}<a href>Home</a>{{/link-to}}
-            {{#link-to 'about' tagName="li"}}<a href>About</a>{{/link-to}}
-            {{#link-to 'contact' tagName="li"}}<a href>Contact</a>{{/link-to}}
+        {{#link-to 'index' tagName="li"}}<a href>Home</a>{{/link-to}}
+        {{#link-to 'about' tagName="li"}}<a href>About</a>{{/link-to}}
+        {{#link-to 'contact' tagName="li"}}<a href>Contact</a>{{/link-to}}
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                  {{#link-to 'admin.invitations' tagName="li"}}<a href="">Invitations</a>{{/link-to}}
-              </ul>
-          </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Admin<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+          {{#link-to 'admin.invitations' tagName="li"}}<a href="">Invitations</a>{{/link-to}}
+          </ul>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -941,21 +943,20 @@ Add a table to `app/templates/admin/invitations.hbs`
 {% raw %}<h1>Invitations</h1>
 
 <table class="table table-bordered table-striped">
-    <thead>
-      <tr>
-          <th>ID</th>
-          <th>E-mail</th>
-      </tr>
-    </thead>
-    <tbody>
-    {{#each model as |invitation|}}
-        <tr>
-            <th>{{invitation.id}}</th>
-            <td>{{invitation.email}}</td>
-        </tr>
-    {{/each}}
-
-    </tbody>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>E-mail</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each model as |invitation|}}
+    <tr>
+      <th>{{invitation.id}}</th>
+      <td>{{invitation.email}}</td>
+    </tr>
+  {{/each}}
+  </tbody>
 </table>{% endraw %}
 ```
 
@@ -1030,10 +1031,10 @@ Update your `navbar.hbs` main navigation section as follows.
 ```hbs
 <!-- app/templates/navbar.hbs -->
 {% raw %}<ul class="nav navbar-nav">
-      {{#link-to 'index' tagName="li"}}<a href="">Home</a>{{/link-to}}
-      {{#link-to 'libraries' tagName="li"}}<a href="">Libraries</a>{{/link-to}}
-      {{#link-to 'about' tagName="li"}}<a href="">About</a>{{/link-to}}
-      {{#link-to 'contact' tagName="li"}}<a href="">Contact</a>{{/link-to}}
+  {{#link-to 'index' tagName="li"}}<a href="">Home</a>{{/link-to}}
+  {{#link-to 'libraries' tagName="li"}}<a href="">Libraries</a>{{/link-to}}
+  {{#link-to 'about' tagName="li"}}<a href="">About</a>{{/link-to}}
+  {{#link-to 'contact' tagName="li"}}<a href="">Contact</a>{{/link-to}}
 </ul>{% endraw %}
 ```
 
@@ -1044,10 +1045,10 @@ Add a submenu to `libraries.hbs`
 {% raw %}<h1>Libraries</h1>
 
 <div class="well">
-    <ul class="nav nav-pills">
-      {{#link-to 'libraries.index' tagName="li"}}<a href="">List all</a>{{/link-to}}
-      {{#link-to 'libraries.new' tagName="li"}}<a href="">Add new</a>{{/link-to}}
-    </ul>
+  <ul class="nav nav-pills">
+    {{#link-to 'libraries.index' tagName="li"}}<a href="">List all</a>{{/link-to}}
+    {{#link-to 'libraries.new' tagName="li"}}<a href="">Add new</a>{{/link-to}}
+  </ul>
 </div>
 
 {{outlet}}{% endraw %}
@@ -1062,15 +1063,15 @@ The other two templates should have the following content.
 {% raw %}<h2>List</h2>
 
 {{#each model as |library|}}
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">{{library.name}}</h3>
-        </div>
-        <div class="panel-body">
-            <p>Address: {{library.address}}</p>
-            <p>Phone: {{library.phone}}</p>
-        </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{library.name}}</h3>
     </div>
+    <div class="panel-body">
+      <p>Address: {{library.address}}</p>
+      <p>Phone: {{library.phone}}</p>
+    </div>
+  </div>
 {{/each}}{% endraw %}
 ```
 
@@ -1081,29 +1082,29 @@ We generate a list from our model which will be retrieved in the route. We are u
 {% raw %}<h2>Add a new local Library</h2>
 
 <div class="form-horizontal">
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Name</label>
-        <div class="col-sm-10">
-            {{input type="text" value=model.name class="form-control" placeholder="The name of the Library"}}
-        </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-10">
+      {{input type="text" value=model.name class="form-control" placeholder="The name of the Library"}}
     </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Address</label>
-        <div class="col-sm-10">
-            {{input type="text" value=model.address class="form-control" placeholder="The address of the Library"}}
-        </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Address</label>
+    <div class="col-sm-10">
+      {{input type="text" value=model.address class="form-control" placeholder="The address of the Library"}}
     </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Phone</label>
-        <div class="col-sm-10">
-            {{input type="text" value=model.phone class="form-control" placeholder="The phone number of the Library"}}
-        </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Phone</label>
+    <div class="col-sm-10">
+      {{input type="text" value=model.phone class="form-control" placeholder="The phone number of the Library"}}
     </div>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default" {{action 'saveLibrary' model}}>Add to library list</button>
-        </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default" {{action 'saveLibrary' model}}>Add to library list</button>
     </div>
+  </div>
 </div>{% endraw %}
 ```
 
@@ -1264,17 +1265,17 @@ Let's upgrade our `app/templates/libraries/index.hbs` to show a nice grid layout
   {{#each model as |library|}}
     <div class="col-md-4">
       <div class="panel panel-default library-item">
-          <div class="panel-heading">
-              <h3 class="panel-title">{{library.name}}</h3>
-          </div>
-          <div class="panel-body">
-              <p>Address: {{library.address}}</p>
-              <p>Phone: {{library.phone}}</p>
-          </div>
-          <div class="panel-footer text-right">
-              {{#link-to 'libraries.edit' library.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
-              <button class="btn btn-danger btn-xs" {{action 'deleteLibrary' library}}>Delete</button>
-          </div>
+        <div class="panel-heading">
+          <h3 class="panel-title">{{library.name}}</h3>
+        </div>
+        <div class="panel-body">
+          <p>Address: {{library.address}}</p>
+          <p>Phone: {{library.phone}}</p>
+        </div>
+        <div class="panel-footer text-right">
+          {{#link-to 'libraries.edit' library.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
+          <button class="btn btn-danger btn-xs" {{action 'deleteLibrary' library}}>Delete</button>
+        </div>
       </div>
     </div>
   {{/each}}
@@ -1382,29 +1383,29 @@ Our template is still missing. Let's use our `new.hbs` and duplicate the code in
 {% raw %}<h2>Edit Library</h2>
 
 <div class="form-horizontal">
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Name</label>
-        <div class="col-sm-10">
-          {{input type="text" value=model.name class="form-control" placeholder="The name of the Library"}}
-        </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-10">
+      {{input type="text" value=model.name class="form-control" placeholder="The name of the Library"}}
     </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Address</label>
-        <div class="col-sm-10">
-          {{input type="text" value=model.address class="form-control" placeholder="The address of the Library"}}
-        </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Address</label>
+    <div class="col-sm-10">
+      {{input type="text" value=model.address class="form-control" placeholder="The address of the Library"}}
     </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Phone</label>
-        <div class="col-sm-10">
-          {{input type="text" value=model.phone class="form-control" placeholder="The phone number of the Library"}}
-        </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Phone</label>
+    <div class="col-sm-10">
+      {{input type="text" value=model.phone class="form-control" placeholder="The phone number of the Library"}}
     </div>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default" {{action 'saveLibrary' model}}>Save changes</button>
-        </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default" {{action 'saveLibrary' model}}>Save changes</button>
     </div>
+  </div>
 </div>{% endraw %}
 ```
 
@@ -1528,14 +1529,15 @@ This code is almost identical to the code we used multiple times in `libraries/n
 A tiny improvement is to add a little validation to our `library` model. Please update `app/models/library.js` to include this basic validation, where we check that the `name` is not empty. (Don't forget to import Ember on the top of the file.)
 
 ```js
-import Model from 'ember-data/model';
-import attr from 'ember-data/attr';
+// app/models/library.js
+import DS from 'ember-data';
 import Ember from 'ember';
 
-export default Model.extend({
-  name: attr('string'),
-  address: attr('string'),
-  phone: attr('string'),
+export default DS.Model.extend({
+  
+  name: DS.attr('string'),
+  address: DS.attr('string'),
+  phone: DS.attr('string'),
 
   isValid: Ember.computed.notEmpty('name')
 });
@@ -1574,13 +1576,13 @@ Update our `app/templates/libraries/new.hbs`.
 <div class="row">
 
   <div class="col-md-6">
-      {{library-item-form item=model buttonLabel='Add to library list' action='saveLibrary'}}
+    {{library-item-form item=model buttonLabel='Add to library list' action='saveLibrary'}}
   </div>
 
   <div class="col-md-4">
-      {{#library-item item=model}}
-          <br/>
-      {{/library-item}}
+    {{#library-item item=model}}
+      <br/>
+    {{/library-item}}
   </div>
 
 </div>{% endraw %}
@@ -1592,16 +1594,17 @@ Let's update `app/templates/libraries/edit.hbs`.
 {% raw %}<h2>Edit Library</h2>
 
 <div class="row">
-    <div class="col-md-6">
-      {{library-item-form item=model buttonLabel='Save changes' action='saveLibrary'}}
-    </div>
-
-    <div class="col-md-4">
-      {{#library-item item=model}}
-        <br/>
-      {{/library-item}}
-    </div>
-
+  
+  <div class="col-md-6">
+    {{library-item-form item=model buttonLabel='Save changes' action='saveLibrary'}}
+  </div>
+  
+  <div class="col-md-4">
+    {{#library-item item=model}}
+      <br/>
+    {{/library-item}}
+  </div>
+  
 </div>{% endraw %}
 ```
 
@@ -1634,15 +1637,16 @@ Let's create a `form.hbs` which will be our common template in Edit and in New p
 {% raw %}<h2>{{title}}</h2>
 
 <div class="row">
-    <div class="col-md-6">
-      {{library-item-form item=model buttonLabel=buttonLabel action='saveLibrary'}}
-    </div>
-
-    <div class="col-md-4">
-      {{#library-item item=model}}
-        <br/>
-      {{/library-item}}
-    </div>
+  
+  <div class="col-md-6">
+    {{library-item-form item=model buttonLabel=buttonLabel action='saveLibrary'}}
+  </div>
+  
+  <div class="col-md-4">
+    {{#library-item item=model}}
+      <br/>
+    {{/library-item}}
+  </div>
 
 </div>{% endraw %}
 ```
@@ -1829,17 +1833,17 @@ $ ember g model author name:string books:hasMany
 Now add a `hasMany` relation to the `library` model manually.
 
 ```js
-import Model from 'ember-data/model';
-import attr from 'ember-data/attr';
-import { hasMany } from 'ember-data/relationships';
+// app/models/library.js
+import DS from 'ember-data';
 import Ember from 'ember';
 
 export default Model.extend({
-  name: attr('string'),
-  address: attr('string'),
-  phone: attr('string'),
 
-  books: hasMany('book'),
+  name: DS.attr('string'),
+  address: DS.attr('string'),
+  phone: DS.attr('string'),
+
+  books: DS.hasMany('book'),
 
   isValid: Ember.computed.notEmpty('name'),
 });
@@ -2210,18 +2214,17 @@ Update your models with the followings.
 
 ```js
 // app/models/library.js
-import Model from 'ember-data/model';
-import attr from 'ember-data/attr';
-import { hasMany } from 'ember-data/relationships';
+import DS from 'ember-data';
 import Ember from 'ember';
 import Faker from 'faker';
 
-export default Model.extend({
-  name: attr('string'),
-  address: attr('string'),
-  phone: attr('string'),
+export default DS.Model.extend({
 
-  books: hasMany('book', {inverse: 'library', async: true}),
+  name: DS.attr('string'),
+  address: DS.attr('string'),
+  phone: DS.attr('string'),
+
+  books: DS.hasMany('book', {inverse: 'library', async: true}),
 
   isValid: Ember.computed.notEmpty('name'),
 
@@ -2243,18 +2246,16 @@ export default Model.extend({
 
 ```js
 // app/models/book.js
-import Model from 'ember-data/model';
-import attr from 'ember-data/attr';
-import { belongsTo } from 'ember-data/relationships';
+import DS from 'ember-data';
 import Faker from 'faker';
 
-export default Model.extend({
+export default DS.Model.extend({
 
-  title:        attr('string'),
-  releaseYear:  attr('date'),
+  title: DS.attr('string'),
+  releaseYear: DS.attr('date'),
 
-  author:       belongsTo('author', {inverse: 'books', async: true}),
-  library:      belongsTo('library', {inverse: 'books', async: true}),
+  author: DS.belongsTo('author', {inverse: 'books', async: true}),
+  library: DS.belongsTo('library', {inverse: 'books', async: true}),
 
   randomize(author, library) {
     this.set('title', this._bookTitle());
@@ -2270,7 +2271,7 @@ export default Model.extend({
   },
 
   _randomYear() {
-    return new Date(this._getRandomArbitrary(1900, 2015));
+    return new Date(this._getRandomArbitrary(1900, 2015).toPrecision(4));
   },
 
   _getRandomArbitrary(min, max) {
@@ -2282,22 +2283,21 @@ export default Model.extend({
 
 ```js
 // app/models/author.js
-import Model from 'ember-data/model';
-import attr from 'ember-data/attr';
-import { hasMany } from 'ember-data/relationships';
+import DS from 'ember-data';
+import Ember from 'ember';
 import Faker from 'faker';
 
-export default Model.extend({
+export default DS.Model.extend({
 
-  name: attr('string'),
+  name: DS.attr('string'),
+  books: DS.hasMany('book', {inverse: 'author', async: true}),
 
-  books: hasMany('book', {inverse: 'author', async: true}),
+  isNotValid: Ember.computed.empty('name'),
 
   randomize() {
     this.set('name', Faker.name.findName());
     return this;
   }
-
 });
 ```
 
