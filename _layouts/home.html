@@ -20,6 +20,8 @@ layout: default
 <div class="row">
   <section class="col-sm-12">
     {% for post in site.posts %}
+
+      {% if post.exclude %} {% else if %}
       <article class="blog-post-list-item">
         <header>
 
@@ -54,9 +56,9 @@ layout: default
           <p>{{ post.content | strip_html | truncatewords:40 }}</p>
         </section>
 
+    </article>
+    {% endif %}
 
-
-      </article>
     {% endfor %}
   </section>
 

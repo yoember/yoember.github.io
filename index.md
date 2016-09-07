@@ -1,17 +1,17 @@
 ---
 layout: home
-last_modified_at: 06/09/2016
+last_modified_at: 10/09/2016
 title: 'Ember 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
-ember_cli_version: '2.7.0'
-ember_version: '2.7'
-release_day: '18th of Aug 2016'
-ember_cli_beta_version: '2.8.0-beta.3'
-node_version: '6.4.0'
+ember_cli_version: '2.8.0'
+ember_version: '2.8'
+release_day: '9th of September 2016'
+ember_cli_beta_version: '2.9.0-beta.1'
+node_version: '6.5.0'
 ---
 # Ember 2 Tutorial
-## Building a complex web application with Ember.js 2.7
-<p class="blog-post-meta">Latest update: <time datetime="2016-09-06" itemprop="datePublished">6 Sept 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+## Building a complex web application with Ember.js 2.8
+<p class="blog-post-meta">Latest update: <time datetime="2016-09-10" itemprop="datePublished">10 Sept 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 Welcome! This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advanced topic as well.
