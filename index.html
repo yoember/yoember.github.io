@@ -881,7 +881,7 @@ $ ember g component library-item-form
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</code></pre></div> <p>You can delete <code class="highlighter-rouge">edit.hbs</code> and <code class="highlighter-rouge">new.hbs</code> from the <code class="highlighter-rouge">app/templates/libraries/</code> folder. We don’t need them anymore.</p> <p>More information about <code class="highlighter-rouge">setupController</code>: <a href="http://emberjs.com/api/classes/Ember.Route.html#method_setupController">http://emberjs.com/api/classes/Ember.Route.html#method_setupController</a></p> <p>More information about <code class="highlighter-rouge">renderTemplate</code>: <a href="http://emberjs.com/api/classes/Ember.Route.html#method_renderTemplate">http://emberjs.com/api/classes/Ember.Route.html#method_renderTemplate</a></p> <p>###<a name="nav-link-to"></a> Create a tiny bootstrap <code class="highlighter-rouge">nav-link-to</code> component for <code class="highlighter-rouge">&lt;li&gt;&lt;a&gt;&lt;/a&gt;&lt;/li&gt;</code></p> <p>Time to clean up our navigation template. We’ll create a nice component that properly manages bootstrap <code class="highlighter-rouge">navbar</code> links.</p> <p>Open your terminal and generate a new component with Ember CLI.</p> <div class="highlighter-rouge"><pre class="highlight"><code>$ ember g component nav-link-to
+</code></pre></div> <p>You can delete <code class="highlighter-rouge">edit.hbs</code> and <code class="highlighter-rouge">new.hbs</code> from the <code class="highlighter-rouge">app/templates/libraries/</code> folder. We don’t need them anymore.</p> <p>More information about <code class="highlighter-rouge">setupController</code>: <a href="http://emberjs.com/api/classes/Ember.Route.html#method_setupController">http://emberjs.com/api/classes/Ember.Route.html#method_setupController</a></p> <p>More information about <code class="highlighter-rouge">renderTemplate</code>: <a href="http://emberjs.com/api/classes/Ember.Route.html#method_renderTemplate">http://emberjs.com/api/classes/Ember.Route.html#method_renderTemplate</a></p> <h3 id="create-a-tiny-bootstrap--component-for-"><a name="nav-link-to"></a>Create a tiny bootstrap <code class="highlighter-rouge">nav-link-to</code> component for <code class="highlighter-rouge">&lt;li&gt;&lt;a&gt;&lt;/a&gt;&lt;/li&gt;</code></h3> <p>Time to clean up our navigation template. We’ll create a nice component that properly manages bootstrap <code class="highlighter-rouge">navbar</code> links.</p> <p>Open your terminal and generate a new component with Ember CLI.</p> <div class="highlighter-rouge"><pre class="highlight"><code>$ ember g component nav-link-to
 </code></pre></div> <p>Because we would like to just slightly modify the built-in <code class="highlighter-rouge">LinkComponent</code>, we should just <code class="highlighter-rouge">extend</code> that class. We can utilize the <code class="highlighter-rouge">tagName</code> property, which determines the main tag of a component.</p> <p>Update <code class="highlighter-rouge">app/components/nav-link-to.js</code>:</p> <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="c1">// app/components/nav-link-to.js</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
@@ -925,7 +925,7 @@ $ ember g component library-item-form
     <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.navbar-collapse --&gt;</span>
   <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /.container-fluid --&gt;</span>
 <span class="nt">&lt;/nav&gt;</span>
-</code></pre></div> <h2 id="lesson-6"><a name="lesson-6"></a>Lesson 6</h2> <p>In this lesson, we’ll add the models <code class="highlighter-rouge">book</code> and <code class="highlighter-rouge">author</code>, and set up relations between models. We’ll also create a new page where we can generate dummy data with an external javascript library to fill up our database automatically.</p> <h3 id="creating-some-new-models-and-setting-up-relations">Creating some new models and setting up relations</h3> <p>In our simple World, we have Libraries, and we have Authors (who can have a few Books). A Book can only be in one Library, and each Book has only one Author.</p> <p>To generate the new models, we’ll use Ember CLI.</p> <p>Run the following in your terminal.</p> <div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ember g model book title:string releaseYear:date library:belongsTo author:belongsTo
+</code></pre></div> <p><em>Sidenote</em>: If you have to solve this problem in a production application, I published an <a href="https://www.emberobserver.com/addons/ember-bootstrap-nav-link">Ember Addon</a>, which automatically add this component to your project, it is more complex, please use that one. You can check the source code on <a href="https://github.com/zoltan-nz/ember-bootstrap-nav-link">Ember Bootstrap Nav Link</a> repository.</p> <h2 id="lesson-6"><a name="lesson-6"></a>Lesson 6</h2> <p>In this lesson, we’ll add the models <code class="highlighter-rouge">book</code> and <code class="highlighter-rouge">author</code>, and set up relations between models. We’ll also create a new page where we can generate dummy data with an external javascript library to fill up our database automatically.</p> <h3 id="creating-some-new-models-and-setting-up-relations">Creating some new models and setting up relations</h3> <p>In our simple World, we have Libraries, and we have Authors (who can have a few Books). A Book can only be in one Library, and each Book has only one Author.</p> <p>To generate the new models, we’ll use Ember CLI.</p> <p>Run the following in your terminal.</p> <div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ember g model book title:string releaseYear:date library:belongsTo author:belongsTo
 <span class="gp">$ </span>ember g model author name:string books:hasMany
 </code></pre></div> <p>Now add a <code class="highlighter-rouge">hasMany</code> relation to the <code class="highlighter-rouge">library</code> model manually.</p> <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="c1">// app/models/library.js</span>
 <span class="kr">import</span> <span class="nx">DS</span> <span class="nx">from</span> <span class="s1">'ember-data'</span><span class="p">;</span>
@@ -1021,7 +1021,7 @@ $ ember g component library-item-form
     <span class="nx">controller</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'authors'</span><span class="p">,</span> <span class="nx">model</span><span class="p">.</span><span class="nx">authors</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</code></pre></div> <p>RSVP tries to download all three requested models, and only returns with a fulfilled state if all are retrieved successfully.</p> <p>In the <code class="highlighter-rouge">setupController</code> hook, we split up the models into their own controller property.</p> <h3 id="short-summary-of-route-hooks">Short summary of route hooks</h3> <p>You’ve already used a couple of hooks in routes, like <code class="highlighter-rouge">model</code> and <code class="highlighter-rouge">setupController</code>. Route hooks are called in specific sequence.</p> <p>You can use the following snippet to experiment with them in one of your routes.</p> <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
+</code></pre></div> <p>RSVP tries to download all three requested models, and only returns with a fulfilled state if all are retrieved successfully.</p> <p>In the <code class="highlighter-rouge">setupController</code> hook, we split up the models into their own controller property. Actually, you can skip this step. If you skip, you have to use <code class="highlighter-rouge">model.libraries</code>, <code class="highlighter-rouge">model.books</code> properties in your controller and in your template. Other option, if you have a controller, you can make an alias there, so other developers can immediately see where those property data come from with checking the Controller file only. (You can see the alternative “alias version” on my github repo.)</p> <h3 id="short-summary-of-route-hooks">Short summary of route hooks</h3> <p>You’ve already used a couple of hooks in routes, like <code class="highlighter-rouge">model</code> and <code class="highlighter-rouge">setupController</code>. Route hooks are called in specific sequence.</p> <p>You can use the following snippet to experiment with them in one of your routes.</p> <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Route</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
 
@@ -1075,48 +1075,60 @@ $ ember g component library-item-form
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">number-box</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"Authors"</span> <span class="nv">number</span><span class="o">=</span><span class="nv">authors</span><span class="p">.</span><span class="nv">length</span><span class="k">}}</span><span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">number-box</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"Books"</span> <span class="nv">number</span><span class="o">=</span><span class="nv">books</span><span class="p">.</span><span class="nv">length</span><span class="k">}}</span><span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</code></pre></div> <p>If you open your browser now, you will see three boxes with numbers or three dots. Remember, we set up the <code class="highlighter-rouge">libraries</code>, <code class="highlighter-rouge">authors</code>, and <code class="highlighter-rouge">books</code> properties in our <code class="highlighter-rouge">setupController</code> hook. If our <code class="highlighter-rouge">model</code> hook downloaded our data from the server, those variables will not be empty. The <code class="highlighter-rouge">.length</code> method will return the size of that array.</p> <h3 id="building-forms-to-generate-dummy-data">Building forms to generate dummy data.</h3> <p>We have to generate two other components that we’re gonna use for the seeder page. Actually we’ll only use one component in the <code class="highlighter-rouge">admin/seeder.hbs</code> template, but inside that component we will use another component. This part is a little bit advanced; I don’t have a detailed explanation here, but you can copy paste the code and try out. I suggest playing around with the code to try to understand it, as well as checking out how it works in the <a href="https://library-app.firebaseapp.com/admin/seeder">demo</a>. However, don’t forget that if you have any questions, don’t hesitate to ping me on Slack or on Twitter.</p> <p>Run these Ember CLI commands in your terminal.</p> <div class="highlighter-rouge"><pre class="highlight"><code>$ ember g component seeder-block
+</code></pre></div> <p>If you open your browser now, you will see three boxes with numbers or three dots. Remember, we set up the <code class="highlighter-rouge">libraries</code>, <code class="highlighter-rouge">authors</code>, and <code class="highlighter-rouge">books</code> properties in our <code class="highlighter-rouge">setupController</code> hook. If our <code class="highlighter-rouge">model</code> hook downloaded our data from the server, those variables will not be empty. The <code class="highlighter-rouge">.length</code> method will return the size of that array. (As I mentioned above, you can skip remapping in <code class="highlighter-rouge">setupController</code> hook, in this case, you should use <code class="highlighter-rouge">model.libraries.length</code>, <code class="highlighter-rouge">model.authors.length</code>, or you can add aliases in the controller.)</p> <h3 id="building-forms-to-generate-dummy-data">Building forms to generate dummy data</h3> <p>We have to generate two other components that we’re gonna use for the seeder page. Actually we’ll only use one component in the <code class="highlighter-rouge">admin/seeder.hbs</code> template, but inside that component we will use another component. This part is a little bit advanced; I don’t have a detailed explanation here, but you can copy paste the code and try out. I suggest playing around with the code to try to understand it, as well as checking out how it works in the <a href="https://library-app.firebaseapp.com/admin/seeder">demo</a>. However, don’t forget, if you have any question, don’t hesitate to ping me on Slack, on Twitter or in the comment section below.</p> <p>Run these Ember CLI commands in your terminal.</p> <div class="highlighter-rouge"><pre class="highlight"><code>$ ember g component seeder-block
 $ ember g component fader-label
-</code></pre></div> <p>Insert the following codes in your templates.</p> <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="c1">// app/components/seeder-block.js</span>
+</code></pre></div> <p>Insert the following codes in your component javascript files and templates.</p> <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="c1">// app/components/seeder-block.js</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">MAX_VALUE</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Component</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
 
+  <span class="na">counter</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+
+  <span class="na">isCounterValid</span><span class="p">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">computed</span><span class="p">.</span><span class="nx">lte</span><span class="p">(</span><span class="s1">'counter'</span><span class="p">,</span> <span class="nx">MAX_VALUE</span><span class="p">),</span>
+  <span class="na">placeholder</span><span class="p">:</span> <span class="err">`</span><span class="nx">Max</span> <span class="nx">$</span><span class="p">{</span><span class="nx">MAX_VALUE</span><span class="p">}</span><span class="err">`</span><span class="p">,</span>
+  
+  <span class="na">createReady</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="na">deleteReady</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+
   <span class="na">actions</span><span class="p">:</span> <span class="p">{</span>
+
     <span class="nx">generateAction</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">sendAction</span><span class="p">(</span><span class="s1">'generateAction'</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'isCounterValid'</span><span class="p">))</span> <span class="p">{</span>
+
+        <span class="c1">// Action up to Seeder Controller with the requested amount</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">sendAction</span><span class="p">(</span><span class="s1">'generateAction'</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'counter'</span><span class="p">));</span>
+      <span class="p">}</span>
     <span class="p">},</span>
 
     <span class="nx">deleteAction</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">sendAction</span><span class="p">(</span><span class="s1">'deleteAction'</span><span class="p">);</span>
     <span class="p">}</span>
+
   <span class="p">}</span>
 <span class="p">});</span>
+
 </code></pre></div> <div class="language-hbs highlighter-rouge"><pre class="highlight"><code><span class="c">&lt;!-- app/templates/components/seeder-block.hbs --&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;h3&gt;</span><span class="k">{{</span><span class="nv">sectionTitle</span><span class="k">}}</span><span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"well well-sm extra-padding-bottom"</span><span class="nt">&gt;</span>
 
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-horizontal"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"col-sm-2 control-label"</span><span class="nt">&gt;</span>Number of new records:<span class="nt">&lt;/label&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-2"</span><span class="nt">&gt;</span>
-          <span class="k">{{</span><span class="nv">input</span> <span class="nv">value</span><span class="o">=</span><span class="nv">counter</span> <span class="nv">class</span><span class="o">=</span><span class="s1">'form-control'</span><span class="k">}}</span>
-        <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="k">{{</span><span class="nv">action</span> <span class="s1">'generateAction'</span><span class="k">}}</span><span class="nt">&gt;</span>Generate <span class="k">{{</span><span class="nv">sectionTitle</span><span class="k">}}</span><span class="nt">&lt;/button&gt;</span>
-          <span class="k">{{#</span><span class="nn">fader-label</span> <span class="nv">isShowing</span><span class="o">=</span><span class="nv">createReady</span><span class="k">}}</span>Created!<span class="k">{{/</span><span class="nn">fader-label</span><span class="k">}}</span>
-        <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger"</span> <span class="k">{{</span><span class="nv">action</span> <span class="s1">'deleteAction'</span><span class="k">}}</span><span class="nt">&gt;</span>Delete All <span class="k">{{</span><span class="nv">sectionTitle</span><span class="k">}}</span><span class="nt">&lt;/button&gt;</span>
-          <span class="k">{{#</span><span class="nn">fader-label</span> <span class="nv">isShowing</span><span class="o">=</span><span class="nv">deleteReady</span><span class="k">}}</span>Deleted!<span class="k">{{/</span><span class="nn">fader-label</span><span class="k">}}</span>
-        <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;h3&gt;</span><span class="k">{{</span><span class="nv">sectionTitle</span><span class="k">}}</span><span class="nt">&lt;/h3&gt;</span>
 
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-inline"</span><span class="nt">&gt;</span>
+  
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group has-feedback </span><span class="k">{{</span><span class="nv">unless</span> <span class="nv">isCounterValid</span> <span class="s1">'has-error'</span><span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"control-label"</span><span class="nt">&gt;</span>Number of new records:<span class="nt">&lt;/label&gt;</span>
+      <span class="k">{{</span><span class="nv">input</span> <span class="nv">value</span><span class="o">=</span><span class="nv">counter</span> <span class="nv">class</span><span class="o">=</span><span class="s1">'form-control'</span> <span class="nv">placeholder</span><span class="o">=</span><span class="nv">placeholder</span><span class="k">}}</span>
     <span class="nt">&lt;/div&gt;</span>
+    
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="k">{{</span><span class="nv">action</span> <span class="s1">'generateAction'</span><span class="k">}}</span> <span class="na">disabled=</span><span class="k">{{</span><span class="nv">if</span> <span class="nv">isCounterValid</span> <span class="kc">false</span> <span class="kc">true</span><span class="k">}}</span><span class="err">&gt;</span><span class="s">Generate</span> <span class="k">{{</span><span class="nv">sectionTitle</span><span class="k">}}</span><span class="err">&lt;/</span><span class="na">button</span><span class="nt">&gt;</span>
+    <span class="k">{{#</span><span class="nn">fader-label</span> <span class="nv">isShowing</span><span class="o">=</span><span class="nv">createReady</span><span class="k">}}</span>Created!<span class="k">{{/</span><span class="nn">fader-label</span><span class="k">}}</span>
+    
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger"</span> <span class="k">{{</span><span class="nv">action</span> <span class="s1">'deleteAction'</span><span class="k">}}</span><span class="nt">&gt;</span>Delete All <span class="k">{{</span><span class="nv">sectionTitle</span><span class="k">}}</span><span class="nt">&lt;/button&gt;</span>
+    <span class="k">{{#</span><span class="nn">fader-label</span> <span class="nv">isShowing</span><span class="o">=</span><span class="nv">deleteReady</span><span class="k">}}</span>Deleted!<span class="k">{{/</span><span class="nn">fader-label</span><span class="k">}}</span>
+  
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-
 </code></pre></div> <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="c1">// app/components/fader-label.js</span>
 <span class="kr">import</span> <span class="nx">Ember</span> <span class="nx">from</span> <span class="s1">'ember'</span><span class="p">;</span>
 
@@ -1129,9 +1141,7 @@ $ ember g component fader-label
   <span class="na">isShowing</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
 
   <span class="na">isShowingChanged</span><span class="p">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">observer</span><span class="p">(</span><span class="s1">'isShowing'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">Ember</span><span class="p">.</span><span class="nx">run</span><span class="p">.</span><span class="nx">later</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'isShowing'</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
-    <span class="p">},</span> <span class="mi">3000</span><span class="p">);</span>
+    <span class="nx">Ember</span><span class="p">.</span><span class="nx">run</span><span class="p">.</span><span class="nx">later</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'isShowing'</span><span class="p">,</span> <span class="kc">false</span><span class="p">),</span> <span class="mi">3000</span><span class="p">);</span>
   <span class="p">})</span>
 <span class="p">});</span>
 
@@ -1153,13 +1163,17 @@ $ ember g component fader-label
 <span class="p">}</span>
 
 <span class="nc">.label-fade</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
   <span class="nl">opacity</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
   <span class="k">@include</span> <span class="nd">transition</span><span class="p">(</span><span class="n">all</span> <span class="m">0</span><span class="mi">.5s</span><span class="p">);</span>
   <span class="k">&amp;</span><span class="nc">.label-show</span> <span class="p">{</span>
     <span class="nl">opacity</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
-
+  
+<span class="nc">.extra-padding-bottom</span> <span class="p">{</span>
+  <span class="nl">padding-bottom</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div> <p>We have our components, let’s insert them in <code class="highlighter-rouge">seeder.hbs</code></p> <div class="language-hbs highlighter-rouge"><pre class="highlight"><code><span class="c">&lt;!-- app/templates/admin/seeder.hbs --&gt;</span>
 <span class="nt">&lt;h1&gt;</span>Seeder, our Data Center<span class="nt">&lt;/h1&gt;</span>
 
@@ -1171,7 +1185,6 @@ $ ember g component fader-label
 
 <span class="k">{{</span><span class="nv">seeder-block</span>
     <span class="nv">sectionTitle</span><span class="o">=</span><span class="s1">'Libraries'</span>
-    <span class="nv">counter</span><span class="o">=</span><span class="nv">librariesCounter</span>
     <span class="nv">generateAction</span><span class="o">=</span><span class="s1">'generateLibraries'</span>
     <span class="nv">deleteAction</span><span class="o">=</span><span class="s1">'deleteLibraries'</span>
     <span class="nv">createReady</span><span class="o">=</span><span class="nv">libDone</span>
@@ -1179,7 +1192,6 @@ $ ember g component fader-label
 
 <span class="k">{{</span><span class="nv">seeder-block</span>
     <span class="nv">sectionTitle</span><span class="o">=</span><span class="s1">'Authors with Books'</span>
-    <span class="nv">counter</span><span class="o">=</span><span class="nv">authorCounter</span>
     <span class="nv">generateAction</span><span class="o">=</span><span class="s1">'generateBooksAndAuthors'</span>
     <span class="nv">deleteAction</span><span class="o">=</span><span class="s1">'deleteBooksAndAuthors'</span>
     <span class="nv">createReady</span><span class="o">=</span><span class="nv">authDone</span>
@@ -1271,44 +1283,36 @@ $ ember g component fader-label
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
 
+  <span class="c1">// If you haven't mapped these properties in Route in setupController hook, you can alias them here, for example:</span>
+  <span class="c1">// libraries: Ember.computed.alias('model.libraries')</span>
   <span class="na">libraries</span><span class="p">:</span> <span class="p">[],</span>
   <span class="na">books</span><span class="p">:</span> <span class="p">[],</span>
   <span class="na">authors</span><span class="p">:</span> <span class="p">[],</span>
 
   <span class="na">actions</span><span class="p">:</span> <span class="p">{</span>
 
-    <span class="nx">generateLibraries</span><span class="p">()</span> <span class="p">{</span>
-      <span class="kr">const</span> <span class="nx">counter</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'librariesCounter'</span><span class="p">));</span>
+    <span class="nx">generateLibraries</span><span class="p">(</span><span class="nx">volume</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">counter</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">volume</span><span class="p">);</span>
 
       <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">counter</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">createRecord</span><span class="p">(</span><span class="s1">'library'</span><span class="p">).</span><span class="nx">randomize</span><span class="p">().</span><span class="nx">save</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-          <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="nx">counter</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'librariesCounter'</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'libDone'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-          <span class="p">}</span>
-        <span class="p">});</span>
+        <span class="kr">const</span> <span class="nx">isTheLast</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">===</span> <span class="nx">counter</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_saveRandomLibrary</span><span class="p">(</span><span class="nx">isTheLast</span><span class="p">);</span>
       <span class="p">}</span>
     <span class="p">},</span>
 
     <span class="nx">deleteLibraries</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">_destroyAll</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'libraries'</span><span class="p">));</span>
 
+      <span class="c1">// Data down via seeder-block to fader-label that we ready to show the label</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'libDelDone'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
     <span class="p">},</span>
 
-    <span class="nx">generateBooksAndAuthors</span><span class="p">()</span> <span class="p">{</span>
-      <span class="kr">const</span> <span class="nx">counter</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'authorCounter'</span><span class="p">));</span>
+    <span class="nx">generateBooksAndAuthors</span><span class="p">(</span><span class="nx">volume</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">counter</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">volume</span><span class="p">);</span>
 
       <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">counter</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">let</span> <span class="nx">newAuthor</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">createRecord</span><span class="p">(</span><span class="s1">'author'</span><span class="p">);</span>
-        <span class="nx">newAuthor</span><span class="p">.</span><span class="nx">randomize</span><span class="p">()</span>
-          <span class="p">.</span><span class="nx">save</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-             <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="nx">counter</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-               <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'authorCounter'</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-               <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'authDone'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-             <span class="p">}</span>
-          <span class="p">}</span>
-        <span class="p">);</span>
+        <span class="kr">const</span> <span class="nx">isTheLast</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">===</span> <span class="nx">counter</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="kr">const</span> <span class="nx">newAuthor</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_saveRandomAuthor</span><span class="p">(</span><span class="nx">isTheLast</span><span class="p">);</span>
 
         <span class="k">this</span><span class="p">.</span><span class="nx">_generateSomeBooks</span><span class="p">(</span><span class="nx">newAuthor</span><span class="p">);</span>
       <span class="p">}</span>
@@ -1318,11 +1322,37 @@ $ ember g component fader-label
       <span class="k">this</span><span class="p">.</span><span class="nx">_destroyAll</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'books'</span><span class="p">));</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">_destroyAll</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'authors'</span><span class="p">));</span>
 
+      <span class="c1">// Data down via seeder-block to fader-label that we ready to show the label</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'authDelDone'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
     <span class="p">}</span>
   <span class="p">},</span>
 
   <span class="c1">// Private methods</span>
+
+  <span class="nx">_saveRandomLibrary</span><span class="p">(</span><span class="nx">isLast</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">randomLibrary</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">createRecord</span><span class="p">(</span><span class="s1">'library'</span><span class="p">).</span><span class="nx">randomize</span><span class="p">();</span>
+
+    <span class="nx">randomLibrary</span><span class="p">.</span><span class="nx">save</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">isLast</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="c1">// Data down via seeder-block to fader-label that we ready to show the label</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'libDone'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+  <span class="p">},</span>
+
+  <span class="nx">_saveRandomAuthor</span><span class="p">(</span><span class="nx">isLast</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">newAuthor</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">createRecord</span><span class="p">(</span><span class="s1">'author'</span><span class="p">).</span><span class="nx">randomize</span><span class="p">();</span>
+    <span class="nx">newAuthor</span><span class="p">.</span><span class="nx">save</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">isLast</span><span class="p">)</span> <span class="p">{</span>
+
+          <span class="c1">// Data down via seeder-block to fader-label that we ready to show the label</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'authDone'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">);</span>
+    <span class="k">return</span> <span class="nx">newAuthor</span><span class="p">;</span>
+  <span class="p">},</span>
 
   <span class="nx">_generateSomeBooks</span><span class="p">(</span><span class="nx">author</span><span class="p">)</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">bookCounter</span> <span class="o">=</span> <span class="nx">Faker</span><span class="p">.</span><span class="nx">random</span><span class="p">.</span><span class="nx">number</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
@@ -1341,18 +1371,20 @@ $ ember g component fader-label
     <span class="kr">const</span> <span class="nx">libraries</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'libraries'</span><span class="p">);</span>
     <span class="kr">const</span> <span class="nx">librariesCounter</span> <span class="o">=</span> <span class="nx">libraries</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'length'</span><span class="p">);</span>
 
-    <span class="c1">// Create a new array from IDs</span>
-    <span class="kr">const</span> <span class="nx">libraryIds</span> <span class="o">=</span> <span class="nx">libraries</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">lib</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="k">return</span> <span class="nx">lib</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'id'</span><span class="p">);});</span>
-    <span class="kr">const</span> <span class="nx">randomNumber</span> <span class="o">=</span> <span class="nx">Faker</span><span class="p">.</span><span class="nx">random</span><span class="p">.</span><span class="nx">number</span><span class="p">(</span><span class="nx">librariesCounter</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+    <span class="c1">// Create a new array from ids</span>
+    <span class="kr">const</span> <span class="nx">libraryIds</span> <span class="o">=</span> <span class="nx">libraries</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">lib</span> <span class="o">=&gt;</span> <span class="nx">lib</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'id'</span><span class="p">));</span>
 
+    <span class="c1">// Randomly pick one id from the libraryIds array and return the library</span>
+    <span class="kr">const</span> <span class="nx">randomNumber</span> <span class="o">=</span> <span class="nx">Faker</span><span class="p">.</span><span class="nx">random</span><span class="p">.</span><span class="nx">number</span><span class="p">(</span><span class="nx">librariesCounter</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
     <span class="kr">const</span> <span class="nx">randomLibrary</span> <span class="o">=</span> <span class="nx">libraries</span><span class="p">.</span><span class="nx">findBy</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span> <span class="nx">libraryIds</span><span class="p">[</span><span class="nx">randomNumber</span><span class="p">]);</span>
+
     <span class="k">return</span> <span class="nx">randomLibrary</span><span class="p">;</span>
   <span class="p">},</span>
 
   <span class="nx">_destroyAll</span><span class="p">(</span><span class="nx">records</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">records</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nx">item</span><span class="p">.</span><span class="nx">destroyRecord</span><span class="p">();</span>
-    <span class="p">});</span>
+    <span class="nx">records</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span>
+      <span class="nx">item</span> <span class="o">=&gt;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">destroyRecord</span><span class="p">()</span>
+    <span class="p">);</span>
   <span class="p">}</span>
 
 <span class="p">});</span>
