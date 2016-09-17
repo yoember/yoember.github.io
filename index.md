@@ -1744,7 +1744,7 @@ More information about `setupController`: <http://emberjs.com/api/classes/Ember.
 
 More information about `renderTemplate`: <http://emberjs.com/api/classes/Ember.Route.html#method_renderTemplate>
 
-###<a name='nav-link-to'></a> Create a tiny bootstrap `nav-link-to` component for `<li><a></a></li>`
+### <a name='nav-link-to'></a>Create a tiny bootstrap `nav-link-to` component for `<li><a></a></li>`
 
 Time to clean up our navigation template. We'll create a nice component that properly manages bootstrap `navbar` links.
 
@@ -1813,6 +1813,8 @@ Now we are ready to use our component in our `navbar.hbs`.
 </nav>{% endraw %}
 ```
 
+*Sidenote*: If you have to solve this problem in a real application, I published an [Ember Addon](https://www.emberobserver.com/addons/ember-bootstrap-nav-link), which automatically adds this component to your project, it is more complex, please use that one. You can check the source code on [Ember Bootstrap Nav Link](https://github.com/zoltan-nz/ember-bootstrap-nav-link) repository. 
+
 ## <a name='lesson-6'></a>Lesson 6
 
 In this lesson, we'll add the models `book` and `author`, and set up relations between models. We'll also create a new page where we can generate dummy data with an external javascript library to fill up our database automatically.
@@ -1837,7 +1839,7 @@ Now add a `hasMany` relation to the `library` model manually.
 import DS from 'ember-data';
 import Ember from 'ember';
 
-export default Model.extend({
+export default DS.Model.extend({
 
   name: DS.attr('string'),
   address: DS.attr('string'),
@@ -1957,7 +1959,7 @@ export default Ember.Route.extend({
 
 RSVP tries to download all three requested models, and only returns with a fulfilled state if all are retrieved successfully.
 
-In the `setupController` hook, we split up the models into their own controller property.
+In the `setupController` hook, we split up the models into their own controller property. Actually, you can skip this step. If you skip, you have to use `model.libraries`, `model.books` properties in your controller and in your template. Other option, if you have a controller, you can make an alias there, so other developers can immediately see where those property data come from with checking the Controller file only. (You can see the alternative "alias version" on my github repo.)
 
 ### Short summary of route hooks
 
@@ -2057,11 +2059,11 @@ Our component template is ready. We can use it in `app/templates/admin/seeder.hb
 </div>{% endraw %}
 ```
 
-If you open your browser now, you will see three boxes with numbers or three dots. Remember, we set up the `libraries`, `authors`, and `books` properties in our `setupController` hook. If our `model` hook downloaded our data from the server, those variables will not be empty. The `.length` method will return the size of that array.
+If you open your browser now, you will see three boxes with numbers or three dots. Remember, we set up the `libraries`, `authors`, and `books` properties in our `setupController` hook. If our `model` hook downloaded our data from the server, those variables will not be empty. The `.length` method will return the size of that array. (As I mentioned above, you can skip remapping in `setupController` hook, in this case, you should use `model.libraries.length`, `model.authors.length`, etc. or as a third option you can add aliases in the controller.)
 
-### Building forms to generate dummy data.
+### Building forms to generate dummy data
 
-We have to generate two other components that we're gonna use for the seeder page. Actually we'll only use one component in the `admin/seeder.hbs` template, but inside that component we will use another component. This part is a little bit advanced; I don't have a detailed explanation here, but you can copy paste the code and try out. I suggest playing around with the code to try to understand it, as well as checking out how it works in the [demo](https://library-app.firebaseapp.com/admin/seeder). However, don't forget that if you have any questions, don't hesitate to ping me on Slack or on Twitter.
+We have to generate two other components that we're gonna use for the seeder page. Actually we'll only use one component in the `admin/seeder.hbs` template, but inside that component we will use another component. This part is a little bit advanced; I don't have a detailed explanation here, but you can copy paste the code and try out. I suggest playing around with the code to try to understand it, as well as checking out how it works in the [demo](https://library-app.firebaseapp.com/admin/seeder). However, don't forget, if you have any question, don't hesitate to ping me on Slack, on Twitter or in the comment section below.
 
 Run these Ember CLI commands in your terminal.
 
@@ -2070,52 +2072,64 @@ $ ember g component seeder-block
 $ ember g component fader-label
 ```
 
-Insert the following codes in your templates.
+Insert the following codes in your component javascript files and templates.
 
 ```js
 // app/components/seeder-block.js
 import Ember from 'ember';
 
+const MAX_VALUE = 100;
+
 export default Ember.Component.extend({
 
+  counter: null,
+
+  isCounterValid: Ember.computed.lte('counter', MAX_VALUE),
+  placeholder: `Max ${MAX_VALUE}`,
+  
+  createReady: false,
+  deleteReady: false,
+
   actions: {
+
     generateAction() {
-      this.sendAction('generateAction');
+      if (this.get('isCounterValid')) {
+
+        // Action up to Seeder Controller with the requested amount
+        this.sendAction('generateAction', this.get('counter'));
+      }
     },
 
     deleteAction() {
       this.sendAction('deleteAction');
     }
+
   }
 });
+
 ```
 
 ```hbs
 <!-- app/templates/components/seeder-block.hbs -->
-{% raw %}<div class="row">
-  <div class="col-md-12">
-    <h3>{{sectionTitle}}</h3>
+{% raw %}<div class="well well-sm extra-padding-bottom">
 
-    <div class="row">
-      <div class="form-horizontal">
-        <label class="col-sm-2 control-label">Number of new records:</label>
-        <div class="col-sm-2">
-          {{input value=counter class='form-control'}}
-        </div>
-        <div class="col-sm-4">
-          <button class="btn btn-primary" {{action 'generateAction'}}>Generate {{sectionTitle}}</button>
-          {{#fader-label isShowing=createReady}}Created!{{/fader-label}}
-        </div>
-        <div class="col-sm-4">
-          <button class="btn btn-danger" {{action 'deleteAction'}}>Delete All {{sectionTitle}}</button>
-          {{#fader-label isShowing=deleteReady}}Deleted!{{/fader-label}}
-        </div>
-      </div>
+  <h3>{{sectionTitle}}</h3>
 
+  <div class="form-inline">
+  
+    <div class="form-group has-feedback {{unless isCounterValid 'has-error'}}">
+      <label class="control-label">Number of new records:</label>
+      {{input value=counter class='form-control' placeholder=placeholder}}
     </div>
+    
+    <button class="btn btn-primary" {{action 'generateAction'}} disabled={{if isCounterValid false true}}>Generate {{sectionTitle}}</button>
+    {{#fader-label isShowing=createReady}}Created!{{/fader-label}}
+    
+    <button class="btn btn-danger" {{action 'deleteAction'}}>Delete All {{sectionTitle}}</button>
+    {{#fader-label isShowing=deleteReady}}Deleted!{{/fader-label}}
+  
   </div>
 </div>{% endraw %}
-
 ```
 
 ```js
@@ -2131,9 +2145,7 @@ export default Ember.Component.extend({
   isShowing: false,
 
   isShowingChanged: Ember.observer('isShowing', function() {
-    Ember.run.later(() => {
-      this.set('isShowing', false);
-    }, 3000);
+    Ember.run.later(() => this.set('isShowing', false), 3000);
   })
 });
 
@@ -2163,13 +2175,17 @@ html {
 }
 
 .label-fade {
+  margin: 10px;
   opacity: 0;
   @include transition(all 0.5s);
   &.label-show {
     opacity: 1;
   }
 }
-
+  
+.extra-padding-bottom {
+  padding-bottom: 20px;
+}
 ```
 
 We have our components, let's insert them in `seeder.hbs`
@@ -2186,7 +2202,6 @@ We have our components, let's insert them in `seeder.hbs`
 
 {{seeder-block
     sectionTitle='Libraries'
-    counter=librariesCounter
     generateAction='generateLibraries'
     deleteAction='deleteLibraries'
     createReady=libDone
@@ -2194,7 +2209,6 @@ We have our components, let's insert them in `seeder.hbs`
 
 {{seeder-block
     sectionTitle='Authors with Books'
-    counter=authorCounter
     generateAction='generateBooksAndAuthors'
     deleteAction='deleteBooksAndAuthors'
     createReady=authDone
@@ -2310,44 +2324,36 @@ import Faker from 'faker';
 
 export default Ember.Controller.extend({
 
+  // If you haven't mapped these properties in Route in setupController hook, you can alias them here, for example:
+  // libraries: Ember.computed.alias('model.libraries')
   libraries: [],
   books: [],
   authors: [],
 
   actions: {
 
-    generateLibraries() {
-      const counter = parseInt(this.get('librariesCounter'));
+    generateLibraries(volume) {
+      const counter = parseInt(volume);
 
       for (let i = 0; i < counter; i++) {
-        this.store.createRecord('library').randomize().save().then(() => {
-          if (i === counter-1) {
-            this.set('librariesCounter', 0);
-            this.set('libDone', true);
-          }
-        });
+        const isTheLast = i === counter-1;
+        this._saveRandomLibrary(isTheLast);
       }
     },
 
     deleteLibraries() {
       this._destroyAll(this.get('libraries'));
 
+      // Data down via seeder-block to fader-label that we ready to show the label
       this.set('libDelDone', true);
     },
 
-    generateBooksAndAuthors() {
-      const counter = parseInt(this.get('authorCounter'));
+    generateBooksAndAuthors(volume) {
+      const counter = parseInt(volume);
 
       for (let i = 0; i < counter; i++) {
-        let newAuthor = this.store.createRecord('author');
-        newAuthor.randomize()
-          .save().then(() => {
-             if (i === counter-1) {
-               this.set('authorCounter', 0);
-               this.set('authDone', true);
-             }
-          }
-        );
+        const isTheLast = i === counter-1;
+        const newAuthor = this._saveRandomAuthor(isTheLast);
 
         this._generateSomeBooks(newAuthor);
       }
@@ -2357,11 +2363,37 @@ export default Ember.Controller.extend({
       this._destroyAll(this.get('books'));
       this._destroyAll(this.get('authors'));
 
+      // Data down via seeder-block to fader-label that we ready to show the label
       this.set('authDelDone', true);
     }
   },
 
   // Private methods
+
+  _saveRandomLibrary(isLast) {
+    const randomLibrary = this.store.createRecord('library').randomize();
+
+    randomLibrary.save().then(() => {
+      if (isLast) {
+
+        // Data down via seeder-block to fader-label that we ready to show the label
+        this.set('libDone', true);
+      }
+    });
+  },
+
+  _saveRandomAuthor(isLast) {
+    const newAuthor = this.store.createRecord('author').randomize();
+    newAuthor.save().then(() => {
+        if (isLast) {
+
+          // Data down via seeder-block to fader-label that we ready to show the label
+          this.set('authDone', true);
+        }
+      }
+    );
+    return newAuthor;
+  },
 
   _generateSomeBooks(author) {
     const bookCounter = Faker.random.number(10);
@@ -2380,18 +2412,20 @@ export default Ember.Controller.extend({
     const libraries = this.get('libraries');
     const librariesCounter = libraries.get('length');
 
-    // Create a new array from IDs
-    const libraryIds = libraries.map((lib) => {return lib.get('id');});
-    const randomNumber = Faker.random.number(librariesCounter-1);
+    // Create a new array from ids
+    const libraryIds = libraries.map(lib => lib.get('id'));
 
+    // Randomly pick one id from the libraryIds array and return the library
+    const randomNumber = Faker.random.number(librariesCounter-1);
     const randomLibrary = libraries.findBy('id', libraryIds[randomNumber]);
+
     return randomLibrary;
   },
 
   _destroyAll(records) {
-    records.forEach((item) => {
-      item.destroyRecord();
-    });
+    records.forEach(
+      item => item.destroyRecord()
+    );
   }
 
 });
