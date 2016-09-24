@@ -1,17 +1,17 @@
 ---
 layout: home
-last_modified_at: 10/09/2016
+last_modified_at: 24/09/2016
 title: 'Ember 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
 ember_cli_version: '2.8.0'
 ember_version: '2.8'
 release_day: '9th of September 2016'
-ember_cli_beta_version: '2.9.0-beta.1'
-node_version: '6.5.0'
+ember_cli_beta_version: '2.9.0-beta.2'
+node_version: '6.6.0'
 ---
 # Ember 2 Tutorial
 ## Building a complex web application with Ember.js 2.8
-<p class="blog-post-meta">Latest update: <time datetime="2016-09-10" itemprop="datePublished">10 Sept 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2016-09-24" itemprop="datePublished">24 Sept 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 Welcome! This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advanced topic as well.
@@ -36,6 +36,8 @@ Don't hesitate to send me a message on Ember.js community Slack Channel.
 Or leave a comment at the [bottom of this page](#disqus_thread).
 
 Contributors: [@jkeat](https://github.com/jkeat), I really appreciate the effort you have put into proofreading this [Ember tutorial](http://yoember.com). [@sigu](https://github.com/sigu), [@batisteo](https://github.com/batisteo), thanks guys for fixing too.
+
+> Could you please help with my university research project, I have a super short survey about programming tutorials: [Survey](https://goo.gl/WFS0nX) Thanks! :)
 
 ## Other tutorials, examples
 
