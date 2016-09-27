@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "The Best Way to Install Node.js"
-date: 2016-09-24T00:50:00+13:00
+date: 2016-10-03T00:50:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
-node_version: '6.6.0'
+node_version: '6.7.0'
 npm_version: '3.10.8'
 nvm_version: '0.32.0'
 ---
@@ -16,7 +16,7 @@ There are a few ways to install Node.js, but it looks only one way gives you the
 
 The best way to install Node.js on Mac is `nvm`.
 
-https://github.com/creationix/nvm
+<https://github.com/creationix/nvm>
 
 You have to have on your Mac the Command Line Tools. Or you install the full XCode from App Store either just use the small Command Line Tools installer:
 
@@ -34,7 +34,7 @@ $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v{{ page.nvm_version
 
 However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (`~/.nvm`) Secondly, you add two extra lines to your console script.
 
-Please follow these steps on NVM Readme: https://github.com/creationix/nvm#manual-install
+Please follow these steps on NVM Readme: <https://github.com/creationix/nvm#manual-install>
 
 You have to relaunch your Terminals. Maybe you have to log out and log back to activate the new settings.
 
@@ -83,8 +83,8 @@ After the update, the npm version, `npm -v`, should be at least `{{ page.npm_ver
 
 Alternatives, but not suggested:
 
-* Official Installer: https://nodejs.org/en/download/
-* Using brew: https://nodejs.org/en/download/package-manager/#osx
+* Official Installer: <https://nodejs.org/en/download/>
+* Using brew: <https://nodejs.org/en/download/package-manager/#osx>
 
 ### On Linux
 
