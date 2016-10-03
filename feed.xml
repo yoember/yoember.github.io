@@ -6,8 +6,8 @@
 </description>
     <link>http://yoember.com/</link>
     <atom:link href="http://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 24 Sep 2016 20:10:09 +1200</pubDate>
-    <lastBuildDate>Sat, 24 Sep 2016 20:10:09 +1200</lastBuildDate>
+    <pubDate>Mon, 03 Oct 2016 21:33:34 +1300</pubDate>
+    <lastBuildDate>Mon, 03 Oct 2016 21:33:34 +1300</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -18,7 +18,7 @@
 
 &lt;p&gt;The best way to install Node.js on Mac is &lt;code class=&quot;highlighter-rouge&quot;&gt;nvm&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;https://github.com/creationix/nvm&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/creationix/nvm&quot;&gt;https://github.com/creationix/nvm&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;You have to have on your Mac the Command Line Tools. Or you install the full XCode from App Store either just use the small Command Line Tools installer:&lt;/p&gt;
 
@@ -36,7 +36,7 @@
 
 &lt;p&gt;However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (&lt;code class=&quot;highlighter-rouge&quot;&gt;~/.nvm&lt;/code&gt;) Secondly, you add two extra lines to your console script.&lt;/p&gt;
 
-&lt;p&gt;Please follow these steps on NVM Readme: https://github.com/creationix/nvm#manual-install&lt;/p&gt;
+&lt;p&gt;Please follow these steps on NVM Readme: &lt;a href=&quot;https://github.com/creationix/nvm#manual-install&quot;&gt;https://github.com/creationix/nvm#manual-install&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;You have to relaunch your Terminals. Maybe you have to log out and log back to activate the new settings.&lt;/p&gt;
 
@@ -56,16 +56,16 @@
 
 &lt;p&gt;Choose one of the most recent version.&lt;/p&gt;
 
-&lt;p&gt;Install the selected version (for example the version 6.6.0):&lt;/p&gt;
+&lt;p&gt;Install the selected version (for example the version 6.7.0):&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 6.6.0
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 6.7.0
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Setup this version as the default.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm use 6.6.0
-$ nvm alias default 6.6.0
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm use 6.7.0
+$ nvm alias default 6.7.0
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;Check your node version with&lt;/p&gt;
@@ -73,7 +73,7 @@ $ nvm alias default 6.6.0
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ node -v
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;You should see &lt;code class=&quot;highlighter-rouge&quot;&gt;v6.6.0&lt;/code&gt; if you installed the above version.&lt;/p&gt;
+&lt;p&gt;You should see &lt;code class=&quot;highlighter-rouge&quot;&gt;v6.7.0&lt;/code&gt; if you installed the above version.&lt;/p&gt;
 
 &lt;p&gt;You can update your &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; to the latest.&lt;/p&gt;
 
@@ -86,8 +86,8 @@ $ nvm alias default 6.6.0
 &lt;p&gt;Alternatives, but not suggested:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Official Installer: https://nodejs.org/en/download/&lt;/li&gt;
-  &lt;li&gt;Using brew: https://nodejs.org/en/download/package-manager/#osx&lt;/li&gt;
+  &lt;li&gt;Official Installer: &lt;a href=&quot;https://nodejs.org/en/download/&quot;&gt;https://nodejs.org/en/download/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Using brew: &lt;a href=&quot;https://nodejs.org/en/download/package-manager/#osx&quot;&gt;https://nodejs.org/en/download/package-manager/#osx&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;on-linux&quot;&gt;On Linux&lt;/h3&gt;
@@ -107,9 +107,9 @@ If you already installed Node.js with the built in package manager, please remov
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm list
 $ nvm ls-remote
-$ nvm install 6.6.0
-$ nvm use 6.6.0
-$ nvm alias default 6.6.0
+$ nvm install 6.7.0
+$ nvm use 6.7.0
+$ nvm alias default 6.7.0
 $ node -v
 $ npm install -g npm
 $ npm -v
@@ -163,7 +163,7 @@ $ npm install -g ember-cli
 
 &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
 </description>
-        <pubDate>Fri, 23 Sep 2016 23:50:00 +1200</pubDate>
+        <pubDate>Mon, 03 Oct 2016 00:50:00 +1300</pubDate>
         <link>http://yoember.com/nodejs/the-best-way-to-install-node-js/</link>
         <guid isPermaLink="true">http://yoember.com/nodejs/the-best-way-to-install-node-js/</guid>
         
