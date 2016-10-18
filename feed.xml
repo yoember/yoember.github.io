@@ -6,8 +6,8 @@
 </description>
     <link>http://yoember.com/</link>
     <atom:link href="http://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 03 Oct 2016 21:33:34 +1300</pubDate>
-    <lastBuildDate>Mon, 03 Oct 2016 21:33:34 +1300</lastBuildDate>
+    <pubDate>Tue, 18 Oct 2016 22:00:08 +1300</pubDate>
+    <lastBuildDate>Tue, 18 Oct 2016 22:00:08 +1300</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -56,16 +56,16 @@
 
 &lt;p&gt;Choose one of the most recent version.&lt;/p&gt;
 
-&lt;p&gt;Install the selected version (for example the version 6.7.0):&lt;/p&gt;
+&lt;p&gt;Install the selected version (for example the version 6.8.1):&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 6.7.0
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 6.8.1
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Setup this version as the default.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm use 6.7.0
-$ nvm alias default 6.7.0
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm use 6.8.1
+$ nvm alias default 6.8.1
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;Check your node version with&lt;/p&gt;
@@ -73,7 +73,7 @@ $ nvm alias default 6.7.0
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ node -v
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;You should see &lt;code class=&quot;highlighter-rouge&quot;&gt;v6.7.0&lt;/code&gt; if you installed the above version.&lt;/p&gt;
+&lt;p&gt;You should see &lt;code class=&quot;highlighter-rouge&quot;&gt;v6.8.1&lt;/code&gt; if you installed the above version.&lt;/p&gt;
 
 &lt;p&gt;You can update your &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; to the latest.&lt;/p&gt;
 
@@ -81,7 +81,7 @@ $ nvm alias default 6.7.0
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;After the update, the npm version, &lt;code class=&quot;highlighter-rouge&quot;&gt;npm -v&lt;/code&gt;, should be at least &lt;code class=&quot;highlighter-rouge&quot;&gt;3.10.8&lt;/code&gt; or above.&lt;/p&gt;
+&lt;p&gt;After the update, the npm version, &lt;code class=&quot;highlighter-rouge&quot;&gt;npm -v&lt;/code&gt;, should be at least &lt;code class=&quot;highlighter-rouge&quot;&gt;3.10.9&lt;/code&gt; or above.&lt;/p&gt;
 
 &lt;p&gt;Alternatives, but not suggested:&lt;/p&gt;
 
@@ -107,9 +107,9 @@ If you already installed Node.js with the built in package manager, please remov
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm list
 $ nvm ls-remote
-$ nvm install 6.7.0
-$ nvm use 6.7.0
-$ nvm alias default 6.7.0
+$ nvm install 6.8.1
+$ nvm use 6.8.1
+$ nvm alias default 6.8.1
 $ node -v
 $ npm install -g npm
 $ npm -v
