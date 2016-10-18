@@ -1,17 +1,17 @@
 ---
 layout: home
-last_modified_at: 03/10/2016
+last_modified_at: 18/10/2016
 title: 'Ember 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
 ember_cli_version: '2.8.0'
-ember_version: '2.8'
+ember_version: '2.9'
 release_day: '9th of September 2016'
 ember_cli_beta_version: '2.9.0-beta.2'
-node_version: '6.7.0'
+node_version: '6.8.1'
 ---
 # Ember 2 Tutorial
-## Building a complex web application with Ember.js 2.8
-<p class="blog-post-meta">Latest update: <time datetime="2016-10-03" itemprop="datePublished">03 Oct 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+## Building a complex web application with Ember.js {{ page.ember_version }}
+<p class="blog-post-meta">Latest update: <time datetime="2016-10-18" itemprop="datePublished">18 Oct 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 
 Welcome! This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advanced topic as well.
@@ -37,11 +37,9 @@ Or leave a comment at the [bottom of this page](#disqus_thread).
 
 Contributors: [@jkeat](https://github.com/jkeat), I really appreciate the effort you have put into proofreading this [Ember tutorial](http://yoember.com). [@sigu](https://github.com/sigu), [@batisteo](https://github.com/batisteo), thanks guys for fixing too.
 
-> Could you please help with my university research project, I have a super short survey about programming tutorials: [Survey](https://goo.gl/WFS0nX) Thanks! :)
-
 ## Other tutorials, examples
 
-* ProductApp - a tutorial where we building an online store together with Ember.js, WIP: [https://github.com/zoltan-nz/product-app](https://github.com/zoltan-nz/product-app) 
+* ProductApp - a tutorial where we build an online store together with Ember.js, WIP: [https://github.com/zoltan-nz/product-app](https://github.com/zoltan-nz/product-app) 
 * MapTouch - playing with d3.js, animation and canvases: [https://github.com/zoltan-nz/map-touch](https://github.com/zoltan-nz/map-touch)  
 * Bookstore API (Ruby on Rails): [https://github.com/zoltan-nz/bookstore-api](https://github.com/zoltan-nz/bookstore-api)
 * Bookstore Client (Ember.js): [https://github.com/zoltan-nz/bookstore-client](https://github.com/zoltan-nz/bookstore-client)
@@ -746,6 +744,7 @@ module.exports = function(environment) {
       authDomain: 'YOUR-FIREBASE-APP.firebaseapp.com',
       databaseURL: 'https://YOUR-FIREBASE-APP.firebaseio.com',
       storageBucket: 'YOUR-FIREBASE-APP.appspot.com',
+      messagingSenderId: '1234'
     },
 
     // if using ember-cli-content-security-policy
@@ -2645,8 +2644,10 @@ There are two new classes in our stylesheet also, please extend `app/styles/app.
 
 Now you can try to create a list about books on Books page, with a simple table where you list `book.title` and `book.author.name`. You can use the above logic to update a book title if you click on it. Good luck! :)
 
-##TBC
+## TBC
 
 Well done you folks who made it this far. Keep up the good work.
 
 If you would like to know about new blog updates, please [follow me on twitter](http://twitter.com/zoltan_nz).
+
+Check out my new tutorial in this repo's Readme, work in progress: [Product App](https://github.com/zoltan-nz/product-app)

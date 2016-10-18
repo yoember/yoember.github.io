@@ -5,8 +5,8 @@ date: 2016-10-03T00:50:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
-node_version: '6.7.0'
-npm_version: '3.10.8'
+node_version: '6.8.1'
+npm_version: '3.10.9'
 nvm_version: '0.32.0'
 ---
 
