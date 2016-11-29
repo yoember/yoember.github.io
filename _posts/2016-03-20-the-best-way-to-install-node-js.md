@@ -5,7 +5,7 @@ date: 2016-10-03T00:50:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
-node_version: '6.8.1'
+node_version: '6.9.1'
 npm_version: '3.10.9'
 nvm_version: '0.32.0'
 ---
@@ -52,9 +52,7 @@ $ nvm ls-remote
 
 You can use the combination of this two commands to see only the last 9 lines from the huge list of versions: `$ nvm ls-remote | tail -n9`    
 
-Choose one of the most recent version.
-
-Install the selected version (for example the version {{ page.node_version }}):
+It is safe if you choose one of the most recent LTS (long time support) version and install it with the following command:
 
 ```
 $ nvm install {{ page.node_version }}

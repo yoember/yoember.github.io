@@ -1,18 +1,17 @@
 ---
 layout: home
-last_modified_at: 18/10/2016
+last_modified_at: 29/11/2016
 title: 'Ember 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
-ember_cli_version: '2.8.0'
-ember_version: '2.9'
-release_day: '9th of September 2016'
-ember_cli_beta_version: '2.9.0-beta.2'
-node_version: '6.8.1'
+ember_cli_version: '2.9.1'
+ember_version: '2.10'
+release_day: '29th of November 2016'
+ember_cli_beta_version: '2.10.0-beta.2'
+node_version: '6.9.1'
 ---
 # Ember 2 Tutorial
 ## Building a complex web application with Ember.js {{ page.ember_version }}
-<p class="blog-post-meta">Latest update: <time datetime="2016-10-18" itemprop="datePublished">18 Oct 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
-
+<p class="blog-post-meta">Latest update: <time datetime="2016-11-29" itemprop="datePublished">29 Nov 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 Welcome! This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advanced topic as well.
 
@@ -80,7 +79,7 @@ This tutorial uses the latest Ember CLI tool (v{{ page.ember_cli_version }}).
 
 ### Install Ember CLI
 
-The following `npm` command installs Ember CLI latest stable version in the global namespace. The latest Ember CLI version {{ page.ember_cli_version }} was released on {{ page.release_day }}, it generates app with Ember.js v{{ page.ember_version }} and Ember Data v{{ page.ember_version }}. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)
+The following `npm` command installs Ember CLI latest stable version in the global namespace. It generates app with the latest Ember.js and Ember Data. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)
 
     $ npm install -g ember-cli
 
