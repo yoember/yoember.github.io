@@ -5,9 +5,9 @@ date: 2016-10-03T00:50:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
-node_version: '6.9.1'
-npm_version: '3.10.9'
-nvm_version: '0.32.0'
+node_version: '6.9.4'
+npm_version: '4.0.5'
+nvm_version: '0.33.0'
 ---
 
 There are a few ways to install Node.js, but it looks only one way gives you the best experience for long term.

@@ -1,17 +1,17 @@
 ---
 layout: home
-last_modified_at: 29/11/2016
+last_modified_at: 10/01/2017
 title: 'Ember 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
-ember_cli_version: '2.9.1'
+ember_cli_version: '2.10.0'
 ember_version: '2.10'
-release_day: '29th of November 2016'
-ember_cli_beta_version: '2.10.0-beta.2'
-node_version: '6.9.1'
+release_day: '30th of November 2016'
+ember_cli_beta_version: '2.11.0-beta.1'
+node_version: '6.9.4'
 ---
 # Ember 2 Tutorial
 ## Building a complex web application with Ember.js {{ page.ember_version }}
-<p class="blog-post-meta">Latest update: <time datetime="2016-11-29" itemprop="datePublished">29 Nov 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2017-01-10" itemprop="datePublished">10 Jan 2017</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 Welcome! This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advanced topic as well.
 
@@ -1333,7 +1333,7 @@ Router.map(function() {
 export default Router;
 ```
 
-After inserting this extra line in our router, it's time to create our `app/routes/libraries/edit.js`. You can use Ember CLI or you can create it manually. The code should look like the following. I'll explain more below. (In this code, I use ES5 syntax, but later I will change it to ES6/ES2015. If you would like, you can use ES6/ES2015 right away.)
+After inserting this extra line in our router, it's time to create our `app/routes/libraries/edit.js`. You can use Ember CLI or you can create it manually. The code should look like the following. I'll explain more below.
 
 ```js
 // app/routes/libraries/edit.js
