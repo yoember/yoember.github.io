@@ -1,12 +1,11 @@
 ---
 layout: home
-last_modified_at: 10/01/2017
+last_modified_at: 27/01/2017
 title: 'Ember 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
-ember_cli_version: '2.10.0'
-ember_version: '2.10'
-release_day: '30th of November 2016'
-ember_cli_beta_version: '2.11.0-beta.1'
+ember_cli_version: '2.11.0'
+ember_version: '2.11'
+release_day: '24th of January 2017'
 node_version: '6.9.4'
 ---
 # Ember 2 Tutorial
@@ -38,7 +37,7 @@ Contributors: [@jkeat](https://github.com/jkeat), I really appreciate the effort
 
 ## Other tutorials, examples
 
-* ProductApp - a tutorial where we build an online store together with Ember.js, WIP: [https://github.com/zoltan-nz/product-app](https://github.com/zoltan-nz/product-app) 
+* ProductApp - a tutorial where we build an online store together with Ember.js, WIP: [https://github.com/zoltan-nz/product-app](https://github.com/zoltan-nz/product-app)
 * MapTouch - playing with d3.js, animation and canvases: [https://github.com/zoltan-nz/map-touch](https://github.com/zoltan-nz/map-touch)  
 * Bookstore API (Ruby on Rails): [https://github.com/zoltan-nz/bookstore-api](https://github.com/zoltan-nz/bookstore-api)
 * Bookstore Client (Ember.js): [https://github.com/zoltan-nz/bookstore-client](https://github.com/zoltan-nz/bookstore-client)
@@ -58,7 +57,7 @@ Contributors: [@jkeat](https://github.com/jkeat), I really appreciate the effort
 
 ## Prerequisites
 
-* node.js: at least 0.12, but the best if you install the latest version 6 (current release).
+* Node.js: at least v4, but the best if you install the latest long term support version (v6) or the current version (v7).
 
 [The best way to install Node.js on Mac, Linux and on Windows]({% post_url 2016-03-20-the-best-way-to-install-node-js %})
 
@@ -82,10 +81,6 @@ This tutorial uses the latest Ember CLI tool (v{{ page.ember_cli_version }}).
 The following `npm` command installs Ember CLI latest stable version in the global namespace. It generates app with the latest Ember.js and Ember Data. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)
 
     $ npm install -g ember-cli
-
-or if you would like to install the next beta version:
-
-    $ npm install -g ember-cli@{{ page.ember_cli_beta_version }}
 
 You have now a new `ember` command in your console. Check with
 
@@ -373,7 +368,7 @@ Add a static jumbotron, an input box and a button to `/app/templates/index.hbs`.
         <button class="btn btn-primary btn-lg btn-block">Request invitation</button>
     </div>
   </div>
-  
+
   <br/><br/>
 </div>
 ```
@@ -1247,7 +1242,7 @@ And deploy:
 Check your app.
 
     $ firebase open
-    
+
 Select `Hosting: Deployed Site`
 
 It's live! :-D Congratulations!
@@ -1534,7 +1529,7 @@ import DS from 'ember-data';
 import Ember from 'ember';
 
 export default DS.Model.extend({
-  
+
   name: DS.attr('string'),
   address: DS.attr('string'),
   phone: DS.attr('string'),
@@ -1594,17 +1589,17 @@ Let's update `app/templates/libraries/edit.hbs`.
 {% raw %}<h2>Edit Library</h2>
 
 <div class="row">
-  
+
   <div class="col-md-6">
     {{library-item-form item=model buttonLabel='Save changes' action='saveLibrary'}}
   </div>
-  
+
   <div class="col-md-4">
     {{#library-item item=model}}
       <br/>
     {{/library-item}}
   </div>
-  
+
 </div>{% endraw %}
 ```
 
@@ -1637,11 +1632,11 @@ Let's create a `form.hbs` which will be our common template in Edit and in New p
 {% raw %}<h2>{{title}}</h2>
 
 <div class="row">
-  
+
   <div class="col-md-6">
     {{library-item-form item=model buttonLabel=buttonLabel action='saveLibrary'}}
   </div>
-  
+
   <div class="col-md-4">
     {{#library-item item=model}}
       <br/>
@@ -1813,7 +1808,7 @@ Now we are ready to use our component in our `navbar.hbs`.
 </nav>{% endraw %}
 ```
 
-*Sidenote*: If you have to solve this problem in a real application, I published an [Ember Addon](https://www.emberobserver.com/addons/ember-bootstrap-nav-link), which automatically adds this component to your project, it is more complex, please use that one. You can check the source code on [Ember Bootstrap Nav Link](https://github.com/zoltan-nz/ember-bootstrap-nav-link) repository. 
+*Sidenote*: If you have to solve this problem in a real application, I published an [Ember Addon](https://www.emberobserver.com/addons/ember-bootstrap-nav-link), which automatically adds this component to your project, it is more complex, please use that one. You can check the source code on [Ember Bootstrap Nav Link](https://github.com/zoltan-nz/ember-bootstrap-nav-link) repository.
 
 ## <a name='lesson-6'></a>Lesson 6
 
@@ -2086,7 +2081,7 @@ export default Ember.Component.extend({
 
   isCounterValid: Ember.computed.lte('counter', MAX_VALUE),
   placeholder: `Max ${MAX_VALUE}`,
-  
+
   createReady: false,
   deleteReady: false,
 
@@ -2116,18 +2111,18 @@ export default Ember.Component.extend({
   <h3>{{sectionTitle}}</h3>
 
   <div class="form-inline">
-  
+
     <div class="form-group has-feedback {{unless isCounterValid 'has-error'}}">
       <label class="control-label">Number of new records:</label>
       {{input value=counter class='form-control' placeholder=placeholder}}
     </div>
-    
+
     <button class="btn btn-primary" {{action 'generateAction'}} disabled={{if isCounterValid false true}}>Generate {{sectionTitle}}</button>
     {{#fader-label isShowing=createReady}}Created!{{/fader-label}}
-    
+
     <button class="btn btn-danger" {{action 'deleteAction'}}>Delete All {{sectionTitle}}</button>
     {{#fader-label isShowing=deleteReady}}Deleted!{{/fader-label}}
-  
+
   </div>
 </div>{% endraw %}
 ```
@@ -2182,7 +2177,7 @@ html {
     opacity: 1;
   }
 }
-  
+
 .extra-padding-bottom {
   padding-bottom: 20px;
 }
@@ -2605,28 +2600,28 @@ And add `actions` to `app/routes/authors.js`:
 // app/routes/authors.js
 import Ember from 'ember';
 export default Ember.Route.extend({
-  
+
   model() {
     return this.store.findAll('author');
   },
-  
+
   actions: {
-  
+
     editAuthor(author) {
       author.set('isEditing', true);
     },
-  
+
     cancelAuthorEdit(author) {
       author.set('isEditing', false);
       author.rollbackAttributes();
     },
-  
+
     saveAuthor(author) {
-  
+
       if (author.get('isNotValid')) {
         return;
       }
-  
+
       author.set('isEditing', false);
       author.save();
     }
