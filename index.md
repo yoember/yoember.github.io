@@ -10,7 +10,7 @@ node_version: '6.9.4'
 ---
 # Ember 2 Tutorial
 ## Building a complex web application with Ember.js {{ page.ember_version }}
-<p class="blog-post-meta">Latest update: <time datetime="2017-01-10" itemprop="datePublished">10 Jan 2017</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="2017-01-27" itemprop="datePublished">27 Jan 2017</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 Welcome! This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advanced topic as well.
 
@@ -121,7 +121,7 @@ Please change to your new app directory with:
 $ cd library-app
 ```
 
-Open this folder in your favourite code editor and look around. You will see a few files and folders. Ember CLI is scaffolded for you everything what need to run and create an amazing web application.
+Open this folder in your favorite code editor and look around. You will see a few files and folders. Ember CLI is scaffolded for you everything what need to run and create an amazing web application.
 
 ### Launch the app
 
@@ -139,7 +139,9 @@ If you use an earlier version of Ember (for example v2.5), you should see a "Wel
 
 Well Done! You have your first Ember.js application. :)
 
-From version 2.6, we have to generate our `application.hbs`, the main template page, manually. In the previous versions we had it automatically.
+The following lines are not relevant if you use the latest Ember CLI, from Ember version 2.11, you will find an `application.hbs` in your `template` folder immediately, however between version 2.6 and 2.10, we had to generate our `application.hbs`, the main template page, manually. In the previous versions we had it automatically also.
+
+(You need to do this only if you build Ember app with Ember CLI v2.6 - 2.10.)
 
 Open your terminal, stop the server with `Ctrl+C` and run the following command:
 
@@ -149,7 +151,7 @@ $ ember generate template application
 
 This command generates your main template file: `app/templates/application.hbs`.
 
-Open this file in your favourite editor and add the following html code:
+Open this file in your favorite editor and add the following html code:
 
 ```html
 <h1>Welcome to Ember</h1>
@@ -161,7 +163,19 @@ With this step, we recreate the same home page, what we had in earlier versions 
 $ ember server
 ```
 
-Reload your app in your browser. Our favourite Tomster disappeard but we have a clean welcome message in our amazing app.
+Reload your app in your browser. Our favorite Tomster disappeared but we have a clean welcome message in our amazing app.
+
+From version 2.11 you have the following lines in your `application.hbs`:
+
+```hbs {% raw %}
+{{!-- The following component displays Ember's default welcome message. --}}
+{{welcome-page}}
+{{!-- Feel free to remove this! --}}
+
+{{outlet}}{% endraw %}
+```
+
+As it suggested, feel free to remove the first three lines and update it with your own welcome message. ;)
 
 You can open Ember Inspector in your Browser. Hope you've already installed it. Ember Inspector exists in Chrome and in Firefox as an extension. After installation you should have a new tab in your developer console in your browser. Check it out, look around. [More details about Ember Inspector here](https://guides.emberjs.com/v{{ page.ember_version }}.0/ember-inspector/installation/).
 
