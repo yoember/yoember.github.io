@@ -1,8 +1,8 @@
 ---
 layout: home
 last_modified_at: 05/01/2018
-meta_datetime: '2018-01-05'
-meta_published: '5 Jan 2018'
+meta_datetime: '2018-01-17'
+meta_published: '17 Jan 2018'
 title: 'Ember.js Tutorial - From beginner to advance'
 identifier: 'library-app'
 ember_cli_version: '2.18.0'
