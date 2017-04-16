@@ -1,16 +1,18 @@
 ---
 layout: home
-last_modified_at: 27/01/2017
+last_modified_at: 16/04/2017
+meta_datetime: '2017-04-16'
+meta_published: '16 Apr 2017'
 title: 'Ember 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
-ember_cli_version: '2.11.0'
-ember_version: '2.11'
-release_day: '24th of January 2017'
-node_version: '6.9.4'
+ember_cli_version: '2.12.1'
+ember_version: '2.12'
+release_day: '19th of March 2017'
+node_version: '6.10.2'
 ---
 # Ember 2 Tutorial
 ## Building a complex web application with Ember.js {{ page.ember_version }}
-<p class="blog-post-meta">Latest update: <time datetime="2017-01-27" itemprop="datePublished">27 Jan 2017</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
+<p class="blog-post-meta">Latest update: <time datetime="{{ page.meta_datetime }}" itemprop="datePublished">{{ page.meta_published }}</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 Welcome! This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advanced topic as well.
 
@@ -26,23 +28,12 @@ If you have any comment, suggestion or you have a question, please feel free to 
 
 * My Twitter: [@zoltan_nz](https://www.twitter.com/zoltan_nz)
 * My Website: [zoltan.nz](http://zoltan.nz)
-
-Don't hesitate to send me a message on Ember.js community Slack Channel.
-
 * Ember.js Community Slack: [@zoltan](https://embercommunity.slack.com/messages/general/team/zoltan/)
+* Or just leave a message in the comment section [at the bottom of this page](#disqus_thread).
 
-Or leave a comment at the [bottom of this page](#disqus_thread).
-
-Contributors: [@jkeat](https://github.com/jkeat), I really appreciate the effort you have put into proofreading this [Ember tutorial](http://yoember.com). [@sigu](https://github.com/sigu), [@batisteo](https://github.com/batisteo), thanks guys for fixing too.
-
-## Other tutorials, examples
+After you finished this tutorial you can learn more advance topics following the README of this repository: 
 
 * ProductApp - a tutorial where we build an online store together with Ember.js, WIP: [https://github.com/zoltan-nz/product-app](https://github.com/zoltan-nz/product-app)
-* MapTouch - playing with d3.js, animation and canvases: [https://github.com/zoltan-nz/map-touch](https://github.com/zoltan-nz/map-touch)  
-* Bookstore API (Ruby on Rails): [https://github.com/zoltan-nz/bookstore-api](https://github.com/zoltan-nz/bookstore-api)
-* Bookstore Client (Ember.js): [https://github.com/zoltan-nz/bookstore-client](https://github.com/zoltan-nz/bookstore-client)
-* Contacts App Client (Ember.js): [https://github.com/zoltan-nz/contacts-app-client](https://github.com/zoltan-nz/contacts-app-client)
-* Chat App (Ember.js): [https://github.com/zoltan-nz/chat-app-v2](https://github.com/zoltan-nz/chat-app-v2)
 
 ## Contents
 
@@ -165,7 +156,7 @@ $ ember server
 
 Reload your app in your browser. Our favorite Tomster disappeared but we have a clean welcome message in our amazing app.
 
-From version 2.11 you have the following lines in your `application.hbs`:
+**From version 2.11** you have the following lines in your `application.hbs`:
 
 ```hbs {% raw %}
 {{!-- The following component displays Ember's default welcome message. --}}
@@ -241,7 +232,7 @@ Above steps in a one liner. Copy-paste in your console (without $). This is usef
 
 We will use bootstrap navigation bar to create a nice header section for our app.
 
-Update your main template file. (Remember, from Ember v2.6, `application.hbs` is not there automatically, we have to create it with `ember generate template application` command.) Delete the example content and add the following code to your `./app/templates/application.hbs`.
+Update your main template file. Delete the example content and add the following code to your `./app/templates/application.hbs`.
 
 ```hbs {% raw %}
 <div class="container">
@@ -249,6 +240,8 @@ Update your main template file. (Remember, from Ember v2.6, `application.hbs` is
   {{outlet}}
 </div>{% endraw %}
 ```
+
+*Just a note. Using `partial` is a little bit older concept. We can migrate them to components, however we learn about components a little bit later. To keep it simple, we just use templates and partials here. It can be one of your homework to update them to components. ;)*
 
 Ember uses handlebar syntax in templates. It is almost the same as plain html, but you could have dynamic elements with `{% raw %}{{}}{% endraw %}`.
 
@@ -2673,4 +2666,23 @@ Well done you folks who made it this far. Keep up the good work.
 
 If you would like to know about new blog updates, please [follow me on twitter](http://twitter.com/zoltan_nz).
 
-Check out my new tutorial in this repo's Readme, work in progress: [Product App](https://github.com/zoltan-nz/product-app)
+Check out my new tutorial in this repo's README, work in progress: [Product App](https://github.com/zoltan-nz/product-app)
+
+## Contributors
+
+Thanks for your help to improve further the most popular [Ember tutorial](http://yoember.com): 
+
+* [@jkeat](https://github.com/jkeat) 
+* [@sigu](https://github.com/sigu)
+* [@batisteo](https://github.com/batisteo)
+
+## Other tutorials, examples
+
+* ProductApp - a tutorial where we build an online store together with Ember.js, WIP: [https://github.com/zoltan-nz/product-app](https://github.com/zoltan-nz/product-app)
+* MapTouch - playing with d3.js, animation and canvases: [https://github.com/zoltan-nz/map-touch](https://github.com/zoltan-nz/map-touch)  
+* Contacts App Client with Firebase Authentication (Ember.js): [https://github.com/zoltan-nz/contacts-app-client](https://github.com/zoltan-nz/contacts-app-client)
+* Chat App (Ember.js): [https://github.com/zoltan-nz/chat-app-v2](https://github.com/zoltan-nz/chat-app-v2)
+* Bookstore API (Ruby on Rails): [https://github.com/zoltan-nz/bookstore-api](https://github.com/zoltan-nz/bookstore-api)
+* Bookstore Client (Ember.js): [https://github.com/zoltan-nz/bookstore-client](https://github.com/zoltan-nz/bookstore-client)
+
+<hr>
