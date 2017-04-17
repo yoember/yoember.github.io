@@ -2317,7 +2317,7 @@ export default DS.Model.extend({
 });
 ```
 
-Add the following code in your environment.js file if you plan to deploy the app to firebase again. Without your pages won't load.
+Add the following code in your `environment.js` file if you plan to deploy the app to firebase again. Without it your pages won't load.
 
 ```js
 //config/environment.js
