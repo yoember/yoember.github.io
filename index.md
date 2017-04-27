@@ -176,7 +176,7 @@ You can open Ember Inspector in your Browser. Hope you've already installed it. 
 
 If you would like to see more information in your browser's console about what Ember.js is doing under the hood, you can turn on a few debugging options in your configuration file.
 
-You can find a list of debugging options in `./config/environment.js` file. Remove the comment sign as follow:
+You can find a list of debugging options in `./config/environment.js` file. Remove the comment signs for the code to read as follows:
 
 ```js {% raw %}
 //..
@@ -193,7 +193,7 @@ Check your app and open the Console in Chrome/Firefox. You will see some extra i
 
 ### <a name="ember-bootstrap-sass"></a>Add Bootstrap and Sass to Ember.js App
 
-Let's add some basic style to our application. We use Bootstrap with Sass. Ember CLI can install for us add-ons and useful packages. These add-ons simplify our development process, because we don't have to reinvent the wheel, we get more out of the box. You can find various packages, add-ons on these websites: <http://www.emberaddons.com> or <http://www.emberobserver.com>
+Let's add some basic styling to our application. We use Bootstrap with Sass. Ember CLI can install for us add-ons and useful packages. These add-ons simplify our development process, because we don't have to reinvent the wheel, we get more out of the box. You can find various packages, add-ons on these websites: <http://www.emberaddons.com> or <http://www.emberobserver.com>
 
 We install an add-on for Sass and another for Bootstrap.
 
