@@ -1349,8 +1349,8 @@ export default Ember.Route.extend({
 
   actions: {
 
-    saveLibrary(newLibrary) {
-      newLibrary.save().then(() => this.transitionTo('libraries'));
+    saveLibrary(library) {
+      library.save().then(() => this.transitionTo('libraries'));
     },
 
     willTransition(transition) {
@@ -1411,7 +1411,7 @@ Our template is still missing. Let's use our `new.hbs` and duplicate the code in
 </div>{% endraw %}
 ```
 
-If you launch your app, it should work; you are able to edit the information from a library. You can see the "dirty checking" if you modify the data in the form, and then click on a link somewhere (e.x. a link on the menu) without saving the form data.
+If you launch your app, it should work; you are able to edit the information from a library. You can see the "dirty checking" if you modify the data in the form, and then click on a link somewhere (ex. a link on the menu) without saving the form data.
 
 #### Add delete action
 
