@@ -867,8 +867,8 @@ $ ember g component library-item-form
 
   <span class="na">actions</span><span class="p">:</span> <span class="p">{</span>
 
-    <span class="nx">saveLibrary</span><span class="p">(</span><span class="nx">newLibrary</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">newLibrary</span><span class="p">.</span><span class="nx">save</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">transitionTo</span><span class="p">(</span><span class="s1">'libraries'</span><span class="p">));</span>
+    <span class="nx">saveLibrary</span><span class="p">(</span><span class="nx">library</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">library</span><span class="p">.</span><span class="nx">save</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">transitionTo</span><span class="p">(</span><span class="s1">'libraries'</span><span class="p">));</span>
     <span class="p">},</span>
 
     <span class="nx">willTransition</span><span class="p">(</span><span class="nx">transition</span><span class="p">)</span> <span class="p">{</span>
