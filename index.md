@@ -412,7 +412,7 @@ Now we can create our index controller:
 
 * Read more about Ember controllers here: <http://guides.emberjs.com/v{{ page.ember_version}}.0/controllers/>
 
-Note: Ember.js still uses controllers, however there were rummors, that the controller layer will be deprecated and removed from Ember.js 3.0. It looks, controllers will stay with us for a while, so don't worry too much. We use controllers to practice some interesting features, but later we will refactor our app and we will move most of the logic inside components.
+Note: Ember.js still uses controllers, however there were rumors, that the controller layer will be deprecated and removed from Ember.js 3.0. It looks, controllers will stay with us for a while, so don't worry too much. We use controllers to practice some interesting features, but later we will refactor our app and we will move most of the logic inside components.
 
 Add `isDisabled` property to the controller. Default value is `true`.
 
