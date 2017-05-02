@@ -412,7 +412,7 @@ Now we can create our index controller:
 
 * Read more about Ember controllers here: <http://guides.emberjs.com/v{{ page.ember_version}}.0/controllers/>
 
-Note: Ember.js still uses controllers, however there were rumors, that the controller layer will be deprecated and removed from Ember.js 3.0. It looks, controllers will stay with us for a while, so don't worry too much. We use controllers to practice some interesting features, but later we will refactor our app and we will move most of the logic inside components.
+Note: Ember.js still uses controllers, however there were rumors, that the controller layer will be deprecated and removed from Ember.js 3.0. It looks like controllers will stay with us for a while so don't worry too much. For now, we will use controllers to practice some interesting features, but later we will refactor our app and move most of the logic inside components.
 
 Add `isDisabled` property to the controller. Default value is `true`.
 
@@ -570,7 +570,7 @@ Great, it works now as expected. You see, we can write really elegant code with 
 
 Great we have an input box and a button on our screen, but it does nothing at the moment. Let's implement our first action.
 
-Update the `<button>` line in `index.hbs`.
+Update the `<button>` line in `index.hbs` to read like this.
 
 ```hbs {% raw %}
 <button class="btn btn-primary btn-lg btn-block" disabled={{isDisabled}} {{action 'saveInvitation'}}>Request invitation</button>{% endraw %}
@@ -640,9 +640,15 @@ Brilliant. You learned a lot about Ember.js and you have just implemented these 
 
 It is time to practice what you have just learned.
 
-You already have an amazing `Contact` page, where we would like to add a contact form. In this contact form will be two fields. One field for an email address and one field for a text message. And there will be a “Send message” button. This button should be active only if the email address field isn't empty and is valid and there is some message in the text box. After clicking on the “Send message” button, an alert should appear with the email address and the message. When you close the alert message, the form should be cleared and a success message should appear on the page in a green box. This message could be something like, "We got your message and we'll get in touch soon".
+You already have an amazing `Contact` page, where we would like to add a contact form. Here's what your solution should be able to do, or look like.
 
-Hint: you already have a `contact.hbs` template but you need a controller for it where you manage its logic.
+* In this contact form will be two fields; one field for an email address and another field for a text message.
+* There will be a “Send message” button.
+* This button should be active only if the email address field isn't empty and is valid, and there is some message in the text box.
+* After clicking on the “Send message” button, an alert should appear with the email address and the message.
+* When you close the alert message, the form should be cleared and a success message should appear on the page in a green box. This message could be something like, "We got your message and we'll get in touch soon".
+
+Hint: you already have a `contact.hbs` template but you need a controller for it, to manage its logic.
 
 Bonus point if you can add validation to the `textarea`. One option: the textarea should not be empty. Another option: the length of the message has to be at least 5 characters long.
 
