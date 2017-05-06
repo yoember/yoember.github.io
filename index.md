@@ -1,14 +1,13 @@
 ---
 layout: home
-last_modified_at: 16/04/2017
-meta_datetime: '2017-04-16'
-meta_published: '16 Apr 2017'
+last_modified_at: 6/05/2017
+meta_datetime: '2017-05-06'
+meta_published: '6 May 2017'
 title: 'Ember 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
-ember_cli_version: '2.12.1'
-ember_version: '2.12'
-release_day: '19th of March 2017'
-node_version: '6.10.2'
+ember_cli_version: '2.13.1'
+ember_version: '2.13'
+node_version: '6.10.3'
 ---
 # Ember 2 Tutorial
 ## Building a complex web application with Ember.js {{ page.ember_version }}
@@ -1726,8 +1725,8 @@ export default Ember.Route.extend({
 
   actions: {
 
-    saveLibrary(newLibrary) {
-      newLibrary.save().then(() => this.transitionTo('libraries'));
+    saveLibrary(library) {
+      library.save().then(() => this.transitionTo('libraries'));
     },
 
     willTransition(transition) {
