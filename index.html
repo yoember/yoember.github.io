@@ -1,4 +1,4 @@
-<!DOCTYPE html> <html> <head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"> <title>Ember 2 Tutorial - From beginner to advance - yoember.com</title> <meta name="description" content="Free Ember.js tutorial for absolute beginners. Build a CRUD application from step by step with the latest Ember.js v2.13. "> <meta name="google-site-verification" content="U42b-ZgXzrF6rhQTCtbrmiSvRBUigl0IoHE-5bhz64c"/> <link rel="canonical" href="http://yoember.com/"> <link rel="alternate" type="application/rss+xml" title="Ember v2.13 Tutorial - Building a complex web application" href="http://yoember.com/feed.xml"> <link rel="icon" href="/favicon.png?678"> <link type="text/css" rel="stylesheet" href="/assets/app-5ca499c858c7c12763e2b46803373bb844ced165cf1c05590e60327b4170ce97.css"> </head> <body data-identifier="library-app"> <header> <nav class="navbar navbar-default blog-masthead"> <div class="container"> <div class="navbar-header"> <a class="navbar-brand" href="http://yoember.com" aria-label="Emberjs tutorial">yoember.com</a> </div> </div> </nav> </header> <div class="container"> <h1 id="ember-2-tutorial">Ember 2 Tutorial</h1> <h2 id="building-a-complex-web-application-with-emberjs-213">Building a complex web application with Ember.js 2.13</h2> <p class="blog-post-meta">Latest update: <time datetime="2017-05-06" itemprop="datePublished">6 May 2017</time> • <span itemprop="author" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name"><a href="http://zoltan.nz">Zoltan</a></span></span></p> <p>Welcome! This is an <a href="http://yoember.com">Ember.js 2 tutorial</a> from the absolute beginner level. End of the course we touch some advanced topic as well.</p> <p>Please check the <a href="https://library-app.firebaseapp.com">Live Demo</a> page and play with the app what we are going to build together.</p> <ul> <li>Live demo: <a href="https://library-app.firebaseapp.com/">library-app.firebaseapp.com</a></li> </ul> <p>You can clone the original repository from GitHub and launch on your desktop anytime.</p> <ul> <li>Original repo: <a href="https://github.com/zoltan-nz/library-app">https://github.com/zoltan-nz/library-app</a></li> </ul> <p>If you have any comment, suggestion or you have a question, please feel free to contact me.</p> <ul> <li>My Twitter: <a href="https://www.twitter.com/zoltan_nz">@zoltan_nz</a></li> <li>My Website: <a href="http://zoltan.nz">zoltan.nz</a></li> <li>Ember.js Community Slack: <a href="https://embercommunity.slack.com/messages/general/team/zoltan/">@zoltan</a></li> <li>Or just leave a message in the comment section <a href="#disqus_thread">at the bottom of this page</a>.</li> </ul> <p>After you finished this tutorial you can learn more advance topics following the README of this repository:</p> <ul> <li>ProductApp - a tutorial where we build an online store together with Ember.js, WIP: <a href="https://github.com/zoltan-nz/product-app">https://github.com/zoltan-nz/product-app</a></li> </ul> <h2 id="contents">Contents</h2> <ul> <li><a href="#lesson-1">Lesson 1 - Creating our first static page with Ember.js</a> <ul> <li><a href="#ember-bootstrap-sass">Add Bootstrap and Sass to Ember.js App</a></li> </ul> </li> <li><a href="#lesson-2">Lesson 2 - Computed property, actions, dynamic content</a></li> <li><a href="#lesson-3">Lesson 3 - Models, saving data in database</a></li> <li><a href="#lesson-4">Lesson 4 - Deploy your app and add more CRUD functionality</a></li> <li><a href="#lesson-5">Lesson 5 - Data down actions up, using components</a></li> <li><a href="#lesson-6">Lesson 6 - Advance model structures and data relationships</a></li> <li><a href="#lesson-7">Lesson 7 - CRUD interface for Authors and Books, managing model relationship</a></li> </ul> <h2 id="prerequisites">Prerequisites</h2> <ul> <li>Node.js: at least v4, but the best if you install the latest long term support version (v6) or the current version (v7).</li> </ul> <p><a href="/nodejs/the-best-way-to-install-node-js/">The best way to install Node.js on Mac, Linux and on Windows</a></p> <ul> <li>Ember Inspector Chrome Extension</li> </ul> <p>Install Ember Inspector Chrome extension in your Chrome Browser: <a href="https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi?hl=en">Ember Inspector</a></p> <ul> <li>(Optional but suggested on Mac and Linux) Watchman from Facebook</li> </ul> <p>Install Watchman on Mac: <code class="highlighter-rouge">brew install watchman</code> More info: <a href="https://facebook.github.io/watchman/">https://facebook.github.io/watchman/</a></p> <p>Watchman increases the speed of the build process significantly.</p> <h2 id="lesson-1"><a name="lesson-1"></a>Lesson 1</h2> <p>This tutorial uses the latest Ember CLI tool (v2.13.1).</p> <h3 id="install-ember-cli">Install Ember CLI</h3> <p>The following <code class="highlighter-rouge">npm</code> command installs Ember CLI latest stable version in the global namespace. It generates app with the latest Ember.js and Ember Data. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)</p> <div class="highlighter-rouge"><pre class="highlight"><code>$ npm install -g ember-cli
+<!DOCTYPE html> <html> <head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"> <title>Ember 2 Tutorial - From beginner to advance - yoember.com</title> <meta name="description" content="Free Ember.js tutorial for absolute beginners. Build a CRUD application from step by step with the latest Ember.js v2.13. "> <meta name="google-site-verification" content="U42b-ZgXzrF6rhQTCtbrmiSvRBUigl0IoHE-5bhz64c"/> <link rel="canonical" href="http://yoember.com/"> <link rel="alternate" type="application/rss+xml" title="Ember v2.13 Tutorial - Building a complex web application" href="http://yoember.com/feed.xml"> <link rel="icon" href="/favicon.png?678"> <link type="text/css" rel="stylesheet" href="/assets/app-5ca499c858c7c12763e2b46803373bb844ced165cf1c05590e60327b4170ce97.css"> </head> <body data-identifier="library-app"> <header> <nav class="navbar navbar-default blog-masthead"> <div class="container"> <div class="navbar-header"> <a class="navbar-brand" href="http://yoember.com" aria-label="Emberjs tutorial">yoember.com</a> </div> </div> </nav> </header> <div class="container"> <h1 id="ember-2-tutorial">Ember 2 Tutorial</h1> <h2 id="building-a-complex-web-application-with-emberjs-213">Building a complex web application with Ember.js 2.13</h2> <p class="blog-post-meta">Latest update: <time datetime="2017-05-10" itemprop="datePublished">10 May 2017</time> • <span itemprop="author" itemscope="" itemtype="http://schema.org/Person"><span itemprop="name"><a href="http://zoltan.nz">Zoltan</a></span></span></p> <p>Welcome! This is an <a href="http://yoember.com">Ember.js 2 tutorial</a> from the absolute beginner level. End of the course we touch some advanced topic as well.</p> <p>Please check the <a href="https://library-app.firebaseapp.com">Live Demo</a> page and play with the app what we are going to build together.</p> <ul> <li>Live demo: <a href="https://library-app.firebaseapp.com/">library-app.firebaseapp.com</a></li> </ul> <p>You can clone the original repository from GitHub and launch on your desktop anytime.</p> <ul> <li>Original repo: <a href="https://github.com/zoltan-nz/library-app">https://github.com/zoltan-nz/library-app</a></li> </ul> <p>If you have any comment, suggestion or you have a question, please feel free to contact me.</p> <ul> <li>My Twitter: <a href="https://www.twitter.com/zoltan_nz">@zoltan_nz</a></li> <li>My Website: <a href="http://zoltan.nz">zoltan.nz</a></li> <li>Ember.js Community Slack: <a href="https://embercommunity.slack.com/messages/general/team/zoltan/">@zoltan</a></li> <li>Or just leave a message in the comment section <a href="#disqus_thread">at the bottom of this page</a>.</li> </ul> <p>After you finished this tutorial you can learn more advance topics following the README of this repository:</p> <ul> <li>ProductApp - a tutorial where we build an online store together with Ember.js, WIP: <a href="https://github.com/zoltan-nz/product-app">https://github.com/zoltan-nz/product-app</a></li> </ul> <h2 id="contents">Contents</h2> <ul> <li><a href="#lesson-1">Lesson 1 - Creating our first static page with Ember.js</a> <ul> <li><a href="#ember-bootstrap-sass">Add Bootstrap and Sass to Ember.js App</a></li> </ul> </li> <li><a href="#lesson-2">Lesson 2 - Computed property, actions, dynamic content</a></li> <li><a href="#lesson-3">Lesson 3 - Models, saving data in database</a></li> <li><a href="#lesson-4">Lesson 4 - Deploy your app and add more CRUD functionality</a></li> <li><a href="#lesson-5">Lesson 5 - Data down actions up, using components</a></li> <li><a href="#lesson-6">Lesson 6 - Advance model structures and data relationships</a></li> <li><a href="#lesson-7">Lesson 7 - CRUD interface for Authors and Books, managing model relationship</a></li> </ul> <h2 id="prerequisites">Prerequisites</h2> <ul> <li>Node.js: at least v4, but the best if you install the latest long term support version (v6) or the current version (v7).</li> </ul> <p><a href="/nodejs/the-best-way-to-install-node-js/">The best way to install Node.js on Mac, Linux and on Windows</a></p> <ul> <li>Ember Inspector Chrome Extension</li> </ul> <p>Install Ember Inspector Chrome extension in your Chrome Browser: <a href="https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi?hl=en">Ember Inspector</a></p> <ul> <li>(Optional but suggested on Mac and Linux) Watchman from Facebook</li> </ul> <p>Install Watchman on Mac: <code class="highlighter-rouge">brew install watchman</code> More info: <a href="https://facebook.github.io/watchman/">https://facebook.github.io/watchman/</a></p> <p>Watchman increases the speed of the build process significantly.</p> <h2 id="lesson-1"><a name="lesson-1"></a>Lesson 1</h2> <p>This tutorial uses the latest Ember CLI tool (v2.13.1).</p> <h3 id="install-ember-cli">Install Ember CLI</h3> <p>The following <code class="highlighter-rouge">npm</code> command installs Ember CLI latest stable version in the global namespace. It generates app with the latest Ember.js and Ember Data. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)</p> <div class="highlighter-rouge"><pre class="highlight"><code>$ npm install -g ember-cli
 </code></pre></div> <p>You have now a new <code class="highlighter-rouge">ember</code> command in your console. Check with</p> <div class="highlighter-rouge"><pre class="highlight"><code>$ ember -v
 </code></pre></div> <p>You should see something similar:</p> <div class="language-bash highlighter-rouge"><pre class="highlight"><code>version: 2.13.1
 node: 6.10.3
@@ -1092,10 +1092,17 @@ $ ember g component fader-label
   <span class="na">counter</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
 
   <span class="na">isCounterValid</span><span class="p">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">computed</span><span class="p">.</span><span class="nx">lte</span><span class="p">(</span><span class="s1">'counter'</span><span class="p">,</span> <span class="nx">MAX_VALUE</span><span class="p">),</span>
+  <span class="na">isCounterNotValid</span><span class="p">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">computed</span><span class="p">.</span><span class="nx">not</span><span class="p">(</span><span class="s1">'isCounterValid'</span><span class="p">),</span>
   <span class="na">placeholder</span><span class="p">:</span> <span class="err">`</span><span class="nx">Max</span> <span class="nx">$</span><span class="p">{</span><span class="nx">MAX_VALUE</span><span class="p">}</span><span class="err">`</span><span class="p">,</span>
 
-  <span class="na">createReady</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="na">generateReady</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
   <span class="na">deleteReady</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+
+  <span class="na">generateInProgress</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="na">deleteInProgress</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+
+  <span class="na">generateIsDisabled</span><span class="p">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">computed</span><span class="p">.</span><span class="nx">or</span><span class="p">(</span><span class="s1">'isCounterNotValid'</span><span class="p">,</span> <span class="s1">'generateInProgress'</span><span class="p">,</span> <span class="s1">'deleteInProgress'</span><span class="p">),</span>
+  <span class="na">deleteIsDisabled</span><span class="p">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">computed</span><span class="p">.</span><span class="nx">or</span><span class="p">(</span><span class="s1">'generateInProgress'</span><span class="p">,</span> <span class="s1">'deleteInProgress'</span><span class="p">),</span>
 
   <span class="na">actions</span><span class="p">:</span> <span class="p">{</span>
 
@@ -1114,24 +1121,35 @@ $ ember g component fader-label
   <span class="p">}</span>
 <span class="p">});</span>
 
+
 </code></pre></div> <div class="language-hbs highlighter-rouge"><pre class="highlight"><code><span class="c">&lt;!-- app/templates/components/seeder-block.hbs --&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"well well-sm extra-padding-bottom"</span><span class="nt">&gt;</span>
-
   <span class="nt">&lt;h3&gt;</span><span class="k">{{</span><span class="nv">sectionTitle</span><span class="k">}}</span><span class="nt">&lt;/h3&gt;</span>
-
+  
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-inline"</span><span class="nt">&gt;</span>
-
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group has-feedback </span><span class="k">{{</span><span class="nv">unless</span> <span class="nv">isCounterValid</span> <span class="s1">'has-error'</span><span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"control-label"</span><span class="nt">&gt;</span>Number of new records:<span class="nt">&lt;/label&gt;</span>
-      <span class="k">{{</span><span class="nv">input</span> <span class="nv">value</span><span class="o">=</span><span class="nv">counter</span> <span class="nv">class</span><span class="o">=</span><span class="s1">'form-control'</span> <span class="nv">placeholder</span><span class="o">=</span><span class="nv">placeholder</span><span class="k">}}</span>
-    <span class="nt">&lt;/div&gt;</span>
-
-    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="k">{{</span><span class="nv">action</span> <span class="s1">'generateAction'</span><span class="k">}}</span> <span class="na">disabled=</span><span class="k">{{</span><span class="nv">if</span> <span class="nv">isCounterValid</span> <span class="kc">false</span> <span class="kc">true</span><span class="k">}}</span><span class="err">&gt;</span><span class="s">Generate</span> <span class="k">{{</span><span class="nv">sectionTitle</span><span class="k">}}</span><span class="err">&lt;/</span><span class="na">button</span><span class="nt">&gt;</span>
-    <span class="k">{{#</span><span class="nn">fader-label</span> <span class="nv">isShowing</span><span class="o">=</span><span class="nv">createReady</span><span class="k">}}</span>Created!<span class="k">{{/</span><span class="nn">fader-label</span><span class="k">}}</span>
-
-    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger"</span> <span class="k">{{</span><span class="nv">action</span> <span class="s1">'deleteAction'</span><span class="k">}}</span><span class="nt">&gt;</span>Delete All <span class="k">{{</span><span class="nv">sectionTitle</span><span class="k">}}</span><span class="nt">&lt;/button&gt;</span>
-    <span class="k">{{#</span><span class="nn">fader-label</span> <span class="nv">isShowing</span><span class="o">=</span><span class="nv">deleteReady</span><span class="k">}}</span>Deleted!<span class="k">{{/</span><span class="nn">fader-label</span><span class="k">}}</span>
-
+  
+   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group has-feedback </span><span class="k">{{</span><span class="nv">unless</span> <span class="nv">isCounterValid</span> <span class="s1">'has-error'</span><span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"control-label"</span><span class="nt">&gt;</span>Number of new records:<span class="nt">&lt;/label&gt;</span>
+     <span class="k">{{</span><span class="nv">input</span> <span class="nv">value</span><span class="o">=</span><span class="nv">counter</span> <span class="nv">class</span><span class="o">=</span><span class="s1">'form-control'</span> <span class="nv">placeholder</span><span class="o">=</span><span class="nv">placeholder</span><span class="k">}}</span>
+   <span class="nt">&lt;/div&gt;</span>
+  
+   <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="k">{{</span><span class="nv">action</span> <span class="s1">'generateAction'</span><span class="k">}}</span> <span class="na">disabled=</span><span class="k">{{</span><span class="nv">generateIsDisabled</span><span class="k">}}</span><span class="err">&gt;
+     </span><span class="k">{{#if</span> <span class="nv">generateInProgress</span><span class="k">}}</span><span class="err">
+       </span><span class="s">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-refresh spinning"</span><span class="nt">&gt;&lt;/span&gt;</span> Generating...
+     <span class="k">{{else}}</span>
+       Generate <span class="k">{{</span><span class="nv">sectionTitle</span><span class="k">}}</span>
+     <span class="k">{{/if}}</span>
+   <span class="nt">&lt;/button&gt;</span>
+   <span class="k">{{#</span><span class="nn">fader-label</span> <span class="nv">isShowing</span><span class="o">=</span><span class="nv">generateReady</span><span class="k">}}</span>Created!<span class="k">{{/</span><span class="nn">fader-label</span><span class="k">}}</span>
+  
+   <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-danger"</span> <span class="k">{{</span><span class="nv">action</span> <span class="s1">'deleteAction'</span><span class="k">}}</span> <span class="na">disabled=</span><span class="k">{{</span><span class="nv">deleteIsDisabled</span><span class="k">}}</span><span class="err">&gt;
+     </span><span class="k">{{#if</span> <span class="nv">deleteInProgress</span><span class="k">}}</span><span class="err">
+       </span><span class="s">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-refresh spinning"</span><span class="nt">&gt;&lt;/span&gt;</span> Deleting...
+     <span class="k">{{else}}</span>
+       Delete All <span class="k">{{</span><span class="nv">sectionTitle</span><span class="k">}}</span>
+     <span class="k">{{/if}}</span>
+   <span class="nt">&lt;/button&gt;</span>
+   <span class="k">{{#</span><span class="nn">fader-label</span> <span class="nv">isShowing</span><span class="o">=</span><span class="nv">deleteReady</span><span class="k">}}</span>Deleted!<span class="k">{{/</span><span class="nn">fader-label</span><span class="k">}}</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre></div> <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="c1">// app/components/fader-label.js</span>
@@ -1179,28 +1197,48 @@ $ ember g component fader-label
 <span class="nc">.extra-padding-bottom</span> <span class="p">{</span>
   <span class="nl">padding-bottom</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
 <span class="p">}</span>
+
+<span class="c1">// Spinner in a button
+</span><span class="nc">.glyphicon.spinning</span> <span class="p">{</span>
+  <span class="nl">animation</span><span class="p">:</span> <span class="n">spin</span> <span class="m">1s</span> <span class="n">infinite</span> <span class="n">linear</span><span class="p">;</span>
+  <span class="na">-webkit-animation</span><span class="p">:</span> <span class="n">spin2</span> <span class="m">1s</span> <span class="n">infinite</span> <span class="n">linear</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">@keyframes</span> <span class="nt">spin</span> <span class="p">{</span>
+  <span class="nt">from</span> <span class="p">{</span> <span class="nl">transform</span><span class="p">:</span> <span class="nf">scale</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="nf">rotate</span><span class="p">(</span><span class="m">0deg</span><span class="p">);</span> <span class="p">}</span>
+  <span class="nt">to</span> <span class="p">{</span> <span class="nl">transform</span><span class="p">:</span> <span class="nf">scale</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="nf">rotate</span><span class="p">(</span><span class="m">360deg</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">@-webkit-keyframes</span> <span class="nt">spin2</span> <span class="p">{</span>
+  <span class="nt">from</span> <span class="p">{</span> <span class="na">-webkit-transform</span><span class="p">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="m">0deg</span><span class="p">);</span> <span class="p">}</span>
+  <span class="nt">to</span> <span class="p">{</span> <span class="na">-webkit-transform</span><span class="p">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="m">360deg</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div> <p>We have our components, let’s insert them in <code class="highlighter-rouge">seeder.hbs</code></p> <div class="language-hbs highlighter-rouge"><pre class="highlight"><code><span class="c">&lt;!-- app/templates/admin/seeder.hbs --&gt;</span>
 <span class="nt">&lt;h1&gt;</span>Seeder, our Data Center<span class="nt">&lt;/h1&gt;</span>
 
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">number-box</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"Libraries"</span> <span class="nv">number</span><span class="o">=</span><span class="nv">libraries</span><span class="p">.</span><span class="nv">length</span><span class="k">}}</span><span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">number-box</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"Authors"</span> <span class="nv">number</span><span class="o">=</span><span class="nv">authors</span><span class="p">.</span><span class="nv">length</span><span class="k">}}</span><span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">number-box</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"Books"</span> <span class="nv">number</span><span class="o">=</span><span class="nv">books</span><span class="p">.</span><span class="nv">length</span><span class="k">}}</span><span class="nt">&lt;/div&gt;</span>
+ <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">number-box</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"Libraries"</span> <span class="nv">number</span><span class="o">=</span><span class="nv">libraries</span><span class="p">.</span><span class="nv">length</span><span class="k">}}</span><span class="nt">&lt;/div&gt;</span>
+ <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">number-box</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"Authors"</span> <span class="nv">number</span><span class="o">=</span><span class="nv">authors</span><span class="p">.</span><span class="nv">length</span><span class="k">}}</span><span class="nt">&lt;/div&gt;</span>
+ <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">number-box</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"Books"</span> <span class="nv">number</span><span class="o">=</span><span class="nv">books</span><span class="p">.</span><span class="nv">length</span><span class="k">}}</span><span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 
 <span class="k">{{</span><span class="nv">seeder-block</span>
-    <span class="nv">sectionTitle</span><span class="o">=</span><span class="s1">'Libraries'</span>
-    <span class="nv">generateAction</span><span class="o">=</span><span class="s1">'generateLibraries'</span>
-    <span class="nv">deleteAction</span><span class="o">=</span><span class="s1">'deleteLibraries'</span>
-    <span class="nv">createReady</span><span class="o">=</span><span class="nv">libDone</span>
-    <span class="nv">deleteReady</span><span class="o">=</span><span class="nv">libDelDone</span><span class="k">}}</span>
+ <span class="nv">sectionTitle</span><span class="o">=</span><span class="s1">'Libraries'</span>
+ <span class="nv">generateAction</span><span class="o">=</span><span class="s1">'generateLibraries'</span>
+ <span class="nv">deleteAction</span><span class="o">=</span><span class="s1">'deleteLibraries'</span>
+ <span class="nv">generateReady</span><span class="o">=</span><span class="nv">libDone</span>
+ <span class="nv">deleteReady</span><span class="o">=</span><span class="nv">libDelDone</span>
+ <span class="nv">generateInProgress</span><span class="o">=</span><span class="nv">generateLibrariesInProgress</span>
+ <span class="nv">deleteInProgress</span><span class="o">=</span><span class="nv">deleteLibrariesInProgress</span><span class="k">}}</span>
 
 <span class="k">{{</span><span class="nv">seeder-block</span>
-    <span class="nv">sectionTitle</span><span class="o">=</span><span class="s1">'Authors with Books'</span>
-    <span class="nv">generateAction</span><span class="o">=</span><span class="s1">'generateBooksAndAuthors'</span>
-    <span class="nv">deleteAction</span><span class="o">=</span><span class="s1">'deleteBooksAndAuthors'</span>
-    <span class="nv">createReady</span><span class="o">=</span><span class="nv">authDone</span>
-    <span class="nv">deleteReady</span><span class="o">=</span><span class="nv">authDelDone</span><span class="k">}}</span>
+ <span class="nv">sectionTitle</span><span class="o">=</span><span class="s1">'Authors with Books'</span>
+ <span class="nv">generateAction</span><span class="o">=</span><span class="s1">'generateBooksAndAuthors'</span>
+ <span class="nv">deleteAction</span><span class="o">=</span><span class="s1">'deleteBooksAndAuthors'</span>
+ <span class="nv">generateReady</span><span class="o">=</span><span class="nv">authDone</span>
+ <span class="nv">deleteReady</span><span class="o">=</span><span class="nv">authDelDone</span>
+ <span class="nv">generateInProgress</span><span class="o">=</span><span class="nv">generateBooksInProgress</span>
+ <span class="nv">deleteInProgress</span><span class="o">=</span><span class="nv">deleteBooksInProgress</span><span class="k">}}</span>
 </code></pre></div> <h3 id="install-fakerjs-for-dummy-data">Install <code class="highlighter-rouge">faker.js</code> for dummy data</h3> <p>To generate dummy data we have to install <code class="highlighter-rouge">faker.js</code>. <a href="https://github.com/johnotander/ember-faker">https://github.com/johnotander/ember-faker</a></p> <div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ember install ember-faker
 </code></pre></div> <p>We import <code class="highlighter-rouge">faker</code> in our models, where we extend each of our models with a <code class="highlighter-rouge">randomize()</code> function for generating dummy data.</p> <p>Update your models with the followings.</p> <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="c1">// app/models/library.js</span>
 <span class="kr">import</span> <span class="nx">DS</span> <span class="nx">from</span> <span class="s1">'ember-data'</span><span class="p">;</span>
@@ -1295,110 +1333,155 @@ $ ember g component fader-label
 
 <span class="kr">export</span> <span class="k">default</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Controller</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
 
-  <span class="c1">// If you haven't mapped these properties in Route in setupController hook, you can alias them here, for example:</span>
-  <span class="c1">// libraries: Ember.computed.alias('model.libraries')</span>
-  <span class="na">libraries</span><span class="p">:</span> <span class="p">[],</span>
-  <span class="na">books</span><span class="p">:</span> <span class="p">[],</span>
-  <span class="na">authors</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="c1">// If you haven't mapped this properties in setupController, you can alias them here</span>
+  <span class="na">libraries</span><span class="p">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">computed</span><span class="p">.</span><span class="nx">alias</span><span class="p">(</span><span class="s1">'model.libraries'</span><span class="p">),</span>
+  <span class="na">books</span><span class="p">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">computed</span><span class="p">.</span><span class="nx">alias</span><span class="p">(</span><span class="s1">'model.books'</span><span class="p">),</span>
+  <span class="na">authors</span><span class="p">:</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">computed</span><span class="p">.</span><span class="nx">alias</span><span class="p">(</span><span class="s1">'model.authors'</span><span class="p">),</span>
 
   <span class="na">actions</span><span class="p">:</span> <span class="p">{</span>
 
     <span class="nx">generateLibraries</span><span class="p">(</span><span class="nx">volume</span><span class="p">)</span> <span class="p">{</span>
+
+      <span class="c1">// Progress flag, data-down to seeder-block where our lovely button will show a spinner...</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'generateLibrariesInProgress'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+
       <span class="kr">const</span> <span class="nx">counter</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">volume</span><span class="p">);</span>
+      <span class="kd">let</span> <span class="nx">savedLibraries</span> <span class="o">=</span> <span class="p">[];</span>
 
       <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">counter</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kr">const</span> <span class="nx">isTheLast</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">===</span> <span class="nx">counter</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">_saveRandomLibrary</span><span class="p">(</span><span class="nx">isTheLast</span><span class="p">);</span>
+
+        <span class="c1">// Collect all Promise in an array</span>
+        <span class="nx">savedLibraries</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_saveRandomLibrary</span><span class="p">());</span>
       <span class="p">}</span>
+
+      <span class="c1">// Wait for all Promise to fulfill so we can show our label and turn off the spinner.</span>
+      <span class="nx">Ember</span><span class="p">.</span><span class="nx">RSVP</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">savedLibraries</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'generateLibrariesInProgress'</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'libDone'</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+        <span class="p">});</span>
     <span class="p">},</span>
 
     <span class="nx">deleteLibraries</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">_destroyAll</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'libraries'</span><span class="p">));</span>
 
-      <span class="c1">// Data down via seeder-block to fader-label that we ready to show the label</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'libDelDone'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+      <span class="c1">// Progress flag, data-down to seeder-block button spinner.</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'deleteLibrariesInProgress'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+
+      <span class="c1">// Our local _destroyAll return a promise, we change the label when all records destroyed.</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">_destroyAll</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'libraries'</span><span class="p">))</span>
+
+        <span class="c1">// Data down via seeder-block to fader-label that we ready to show the label.</span>
+        <span class="c1">// Change the progress indicator also, so the spinner can be turned off.</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'libDelDone'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'deleteLibrariesInProgress'</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+        <span class="p">});</span>
     <span class="p">},</span>
 
     <span class="nx">generateBooksAndAuthors</span><span class="p">(</span><span class="nx">volume</span><span class="p">)</span> <span class="p">{</span>
+
+      <span class="c1">// Progress flag, data-down to seeder-block button spinner.</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'generateBooksInProgress'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+
       <span class="kr">const</span> <span class="nx">counter</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">volume</span><span class="p">);</span>
+      <span class="kd">let</span> <span class="nx">booksWithAuthors</span> <span class="o">=</span> <span class="p">[];</span>
 
       <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">counter</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kr">const</span> <span class="nx">isTheLast</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">===</span> <span class="nx">counter</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-        <span class="kr">const</span> <span class="nx">newAuthor</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_saveRandomAuthor</span><span class="p">(</span><span class="nx">isTheLast</span><span class="p">);</span>
 
-        <span class="k">this</span><span class="p">.</span><span class="nx">_generateSomeBooks</span><span class="p">(</span><span class="nx">newAuthor</span><span class="p">);</span>
+        <span class="c1">// Collect Promises in an array.</span>
+        <span class="kr">const</span> <span class="nx">books</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_saveRandomAuthor</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">newAuthor</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">_generateSomeBooks</span><span class="p">(</span><span class="nx">newAuthor</span><span class="p">));</span>
+        <span class="nx">booksWithAuthors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">books</span><span class="p">);</span>
       <span class="p">}</span>
+
+      <span class="c1">// Let's wait until all async save resolved, show a label and turn off the spinner.</span>
+      <span class="nx">Ember</span><span class="p">.</span><span class="nx">RSVP</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">booksWithAuthors</span><span class="p">)</span>
+
+        <span class="c1">// Data down via seeder-block to fader-label that we ready to show the label</span>
+        <span class="c1">// Change the progress flag also, so the spinner can be turned off.</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'authDone'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'generateBooksInProgress'</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+        <span class="p">});</span>
     <span class="p">},</span>
 
     <span class="nx">deleteBooksAndAuthors</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">_destroyAll</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'books'</span><span class="p">));</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">_destroyAll</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'authors'</span><span class="p">));</span>
 
-      <span class="c1">// Data down via seeder-block to fader-label that we ready to show the label</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'authDelDone'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+      <span class="c1">// Progress flag, data-down to seeder-block button to show spinner.</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'deleteBooksInProgress'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+
+      <span class="kr">const</span> <span class="nx">authors</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'authors'</span><span class="p">);</span>
+      <span class="kr">const</span> <span class="nx">books</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'books'</span><span class="p">);</span>
+
+      <span class="c1">// Remove authors first and books later, finally show the label.</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">_destroyAll</span><span class="p">(</span><span class="nx">authors</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">_destroyAll</span><span class="p">(</span><span class="nx">books</span><span class="p">))</span>
+
+        <span class="c1">// Data down via seeder-block to fader-label that we ready to show the label</span>
+        <span class="c1">// Delete is finished, we can turn off the spinner in seeder-block button.</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'authDelDone'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'deleteBooksInProgress'</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+        <span class="p">});</span>
     <span class="p">}</span>
   <span class="p">},</span>
 
   <span class="c1">// Private methods</span>
 
-  <span class="nx">_saveRandomLibrary</span><span class="p">(</span><span class="nx">isLast</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">randomLibrary</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">createRecord</span><span class="p">(</span><span class="s1">'library'</span><span class="p">).</span><span class="nx">randomize</span><span class="p">();</span>
-
-    <span class="nx">randomLibrary</span><span class="p">.</span><span class="nx">save</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">isLast</span><span class="p">)</span> <span class="p">{</span>
-
-        <span class="c1">// Data down via seeder-block to fader-label that we ready to show the label</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'libDone'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-      <span class="p">}</span>
-    <span class="p">});</span>
+  <span class="c1">// Create a new library record and uses the randomizator, which is in our model and generates some fake data in</span>
+  <span class="c1">// the new record. After we save it, which is a promise, so this returns a promise.</span>
+  <span class="nx">_saveRandomLibrary</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">createRecord</span><span class="p">(</span><span class="s1">'library'</span><span class="p">).</span><span class="nx">randomize</span><span class="p">().</span><span class="nx">save</span><span class="p">();</span>
   <span class="p">},</span>
 
-  <span class="nx">_saveRandomAuthor</span><span class="p">(</span><span class="nx">isLast</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">newAuthor</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">createRecord</span><span class="p">(</span><span class="s1">'author'</span><span class="p">).</span><span class="nx">randomize</span><span class="p">();</span>
-    <span class="nx">newAuthor</span><span class="p">.</span><span class="nx">save</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">isLast</span><span class="p">)</span> <span class="p">{</span>
-
-          <span class="c1">// Data down via seeder-block to fader-label that we ready to show the label</span>
-          <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'authDone'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">);</span>
-    <span class="k">return</span> <span class="nx">newAuthor</span><span class="p">;</span>
+  <span class="nx">_saveRandomAuthor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">createRecord</span><span class="p">(</span><span class="s1">'author'</span><span class="p">).</span><span class="nx">randomize</span><span class="p">().</span><span class="nx">save</span><span class="p">();</span>
   <span class="p">},</span>
 
   <span class="nx">_generateSomeBooks</span><span class="p">(</span><span class="nx">author</span><span class="p">)</span> <span class="p">{</span>
     <span class="kr">const</span> <span class="nx">bookCounter</span> <span class="o">=</span> <span class="nx">Faker</span><span class="p">.</span><span class="nx">random</span><span class="p">.</span><span class="nx">number</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">books</span> <span class="o">=</span> <span class="p">[];</span>
 
     <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">bookCounter</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
       <span class="kr">const</span> <span class="nx">library</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_selectRandomLibrary</span><span class="p">();</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">createRecord</span><span class="p">(</span><span class="s1">'book'</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">randomize</span><span class="p">(</span><span class="nx">author</span><span class="p">,</span> <span class="nx">library</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">save</span><span class="p">();</span>
-      <span class="nx">author</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
-      <span class="nx">library</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+
+      <span class="c1">// Creating and saving book, saving the related records also are take while, they are all a Promise.</span>
+      <span class="kr">const</span> <span class="nx">bookPromise</span> <span class="o">=</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">createRecord</span><span class="p">(</span><span class="s1">'book'</span><span class="p">)</span>
+          <span class="p">.</span><span class="nx">randomize</span><span class="p">(</span><span class="nx">author</span><span class="p">,</span> <span class="nx">library</span><span class="p">)</span>
+          <span class="p">.</span><span class="nx">save</span><span class="p">()</span>
+          <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">author</span><span class="p">.</span><span class="nx">save</span><span class="p">())</span>
+
+          <span class="c1">// guard library in case if we don't have any</span>
+          <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">library</span> <span class="o">&amp;&amp;</span> <span class="nx">library</span><span class="p">.</span><span class="nx">save</span><span class="p">());</span>
+      <span class="nx">books</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">bookPromise</span><span class="p">)</span>
     <span class="p">}</span>
+
+    <span class="c1">// Return a Promise, so we can manage the whole process on time</span>
+    <span class="k">return</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">RSVP</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">books</span><span class="p">);</span>
   <span class="p">},</span>
 
   <span class="nx">_selectRandomLibrary</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="c1">// Please note libraries are records from store, which means this is a DS.RecordArray object, it is extended from</span>
+    <span class="c1">// Ember.ArrayProxy. If you need an element from this list, you cannot just use libraries[3], we have to use</span>
+    <span class="c1">// libraries.objectAt(3)</span>
     <span class="kr">const</span> <span class="nx">libraries</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'libraries'</span><span class="p">);</span>
-    <span class="kr">const</span> <span class="nx">librariesCounter</span> <span class="o">=</span> <span class="nx">libraries</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'length'</span><span class="p">);</span>
+    <span class="kr">const</span> <span class="nx">size</span> <span class="o">=</span> <span class="nx">libraries</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'length'</span><span class="p">);</span>
 
-    <span class="c1">// Create a new array from ids</span>
-    <span class="kr">const</span> <span class="nx">libraryIds</span> <span class="o">=</span> <span class="nx">libraries</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">lib</span> <span class="o">=&gt;</span> <span class="nx">lib</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'id'</span><span class="p">));</span>
-
-    <span class="c1">// Randomly pick one id from the libraryIds array and return the library</span>
-    <span class="kr">const</span> <span class="nx">randomNumber</span> <span class="o">=</span> <span class="nx">Faker</span><span class="p">.</span><span class="nx">random</span><span class="p">.</span><span class="nx">number</span><span class="p">(</span><span class="nx">librariesCounter</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-    <span class="kr">const</span> <span class="nx">randomLibrary</span> <span class="o">=</span> <span class="nx">libraries</span><span class="p">.</span><span class="nx">findBy</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span> <span class="nx">libraryIds</span><span class="p">[</span><span class="nx">randomNumber</span><span class="p">]);</span>
-
-    <span class="k">return</span> <span class="nx">randomLibrary</span><span class="p">;</span>
+    <span class="c1">// Get a random number between 0 and size-1</span>
+    <span class="kr">const</span> <span class="nx">randomItem</span> <span class="o">=</span> <span class="nx">Faker</span><span class="p">.</span><span class="nx">random</span><span class="p">.</span><span class="nx">number</span><span class="p">(</span><span class="nx">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">libraries</span><span class="p">.</span><span class="nx">objectAt</span><span class="p">(</span><span class="nx">randomItem</span><span class="p">);</span>
   <span class="p">},</span>
 
   <span class="nx">_destroyAll</span><span class="p">(</span><span class="nx">records</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">records</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span>
-      <span class="nx">item</span> <span class="o">=&gt;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">destroyRecord</span><span class="p">()</span>
-    <span class="p">);</span>
-  <span class="p">}</span>
 
+    <span class="c1">// destroyRecord() is a Promise and will be fulfilled when the backend database is confirmed the delete</span>
+    <span class="c1">// lets collect these Promises in an array</span>
+    <span class="kr">const</span> <span class="nx">recordsAreDestroying</span> <span class="o">=</span> <span class="nx">records</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">destroyRecord</span><span class="p">());</span>
+
+    <span class="c1">// Wrap all Promise in one common Promise, RSVP.all is our best friend in this process. ;)</span>
+    <span class="k">return</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">RSVP</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">recordsAreDestroying</span><span class="p">);</span>
+  <span class="p">}</span>
 <span class="p">});</span>
 </code></pre></div> <h2 id="lesson-7"><a name="lesson-7"></a>Lesson 7</h2> <p>(work in progress)</p> <h3 id="crud-interface-for-authors-and-books-managing-model-relationship">CRUD interface for Authors and Books, managing model relationship</h3> <p>We are going to create two new pages: Authors and Books, where we list our data and manage them. We implement create, edit and delete functionality, search and pagination also. You can learn here, how could you manage relations between models. (Still work in progress, listing and editing author’s data is implemented so far.)</p> <p>Let’s create our two new pages.</p> <div class="highlighter-rouge"><pre class="highlight"><code>$ ember g route authors
 $ ember g route books
