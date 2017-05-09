@@ -1,8 +1,8 @@
 ---
 layout: home
-last_modified_at: 6/05/2017
-meta_datetime: '2017-05-06'
-meta_published: '6 May 2017'
+last_modified_at: 10/05/2017
+meta_datetime: '2017-05-10'
+meta_published: '10 May 2017'
 title: 'Ember 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
 ember_cli_version: '2.13.1'
@@ -2092,10 +2092,17 @@ export default Ember.Component.extend({
   counter: null,
 
   isCounterValid: Ember.computed.lte('counter', MAX_VALUE),
+  isCounterNotValid: Ember.computed.not('isCounterValid'),
   placeholder: `Max ${MAX_VALUE}`,
 
-  createReady: false,
+  generateReady: false,
   deleteReady: false,
+
+  generateInProgress: false,
+  deleteInProgress: false,
+
+  generateIsDisabled: Ember.computed.or('isCounterNotValid', 'generateInProgress', 'deleteInProgress'),
+  deleteIsDisabled: Ember.computed.or('generateInProgress', 'deleteInProgress'),
 
   actions: {
 
@@ -2114,27 +2121,38 @@ export default Ember.Component.extend({
   }
 });
 
+
 ```
 
 ```hbs
 <!-- app/templates/components/seeder-block.hbs -->
 {% raw %}<div class="well well-sm extra-padding-bottom">
-
   <h3>{{sectionTitle}}</h3>
-
+  
   <div class="form-inline">
-
-    <div class="form-group has-feedback {{unless isCounterValid 'has-error'}}">
-      <label class="control-label">Number of new records:</label>
-      {{input value=counter class='form-control' placeholder=placeholder}}
-    </div>
-
-    <button class="btn btn-primary" {{action 'generateAction'}} disabled={{if isCounterValid false true}}>Generate {{sectionTitle}}</button>
-    {{#fader-label isShowing=createReady}}Created!{{/fader-label}}
-
-    <button class="btn btn-danger" {{action 'deleteAction'}}>Delete All {{sectionTitle}}</button>
-    {{#fader-label isShowing=deleteReady}}Deleted!{{/fader-label}}
-
+  
+   <div class="form-group has-feedback {{unless isCounterValid 'has-error'}}">
+     <label class="control-label">Number of new records:</label>
+     {{input value=counter class='form-control' placeholder=placeholder}}
+   </div>
+  
+   <button class="btn btn-primary" {{action 'generateAction'}} disabled={{generateIsDisabled}}>
+     {{#if generateInProgress}}
+       <span class="glyphicon glyphicon-refresh spinning"></span> Generating...
+     {{else}}
+       Generate {{sectionTitle}}
+     {{/if}}
+   </button>
+   {{#fader-label isShowing=generateReady}}Created!{{/fader-label}}
+  
+   <button class="btn btn-danger" {{action 'deleteAction'}} disabled={{deleteIsDisabled}}>
+     {{#if deleteInProgress}}
+       <span class="glyphicon glyphicon-refresh spinning"></span> Deleting...
+     {{else}}
+       Delete All {{sectionTitle}}
+     {{/if}}
+   </button>
+   {{#fader-label isShowing=deleteReady}}Deleted!{{/fader-label}}
   </div>
 </div>{% endraw %}
 ```
@@ -2193,6 +2211,22 @@ html {
 .extra-padding-bottom {
   padding-bottom: 20px;
 }
+
+// Spinner in a button
+.glyphicon.spinning {
+  animation: spin 1s infinite linear;
+  -webkit-animation: spin2 1s infinite linear;
+}
+
+@keyframes spin {
+  from { transform: scale(1) rotate(0deg); }
+  to { transform: scale(1) rotate(360deg); }
+}
+
+@-webkit-keyframes spin2 {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}
 ```
 
 We have our components, let's insert them in `seeder.hbs`
@@ -2202,24 +2236,28 @@ We have our components, let's insert them in `seeder.hbs`
 {% raw %}<h1>Seeder, our Data Center</h1>
 
 <div class="row">
-  <div class="col-md-4">{{number-box title="Libraries" number=libraries.length}}</div>
-  <div class="col-md-4">{{number-box title="Authors" number=authors.length}}</div>
-  <div class="col-md-4">{{number-box title="Books" number=books.length}}</div>
+ <div class="col-md-4">{{number-box title="Libraries" number=libraries.length}}</div>
+ <div class="col-md-4">{{number-box title="Authors" number=authors.length}}</div>
+ <div class="col-md-4">{{number-box title="Books" number=books.length}}</div>
 </div>
 
 {{seeder-block
-    sectionTitle='Libraries'
-    generateAction='generateLibraries'
-    deleteAction='deleteLibraries'
-    createReady=libDone
-    deleteReady=libDelDone}}
+ sectionTitle='Libraries'
+ generateAction='generateLibraries'
+ deleteAction='deleteLibraries'
+ generateReady=libDone
+ deleteReady=libDelDone
+ generateInProgress=generateLibrariesInProgress
+ deleteInProgress=deleteLibrariesInProgress}}
 
 {{seeder-block
-    sectionTitle='Authors with Books'
-    generateAction='generateBooksAndAuthors'
-    deleteAction='deleteBooksAndAuthors'
-    createReady=authDone
-    deleteReady=authDelDone}}{% endraw %}
+ sectionTitle='Authors with Books'
+ generateAction='generateBooksAndAuthors'
+ deleteAction='deleteBooksAndAuthors'
+ generateReady=authDone
+ deleteReady=authDelDone
+ generateInProgress=generateBooksInProgress
+ deleteInProgress=deleteBooksInProgress}}{% endraw %}
 ```
 ### Install `faker.js` for dummy data
 
@@ -2346,110 +2384,155 @@ import Faker from 'faker';
 
 export default Ember.Controller.extend({
 
-  // If you haven't mapped these properties in Route in setupController hook, you can alias them here, for example:
-  // libraries: Ember.computed.alias('model.libraries')
-  libraries: [],
-  books: [],
-  authors: [],
+  // If you haven't mapped this properties in setupController, you can alias them here
+  libraries: Ember.computed.alias('model.libraries'),
+  books: Ember.computed.alias('model.books'),
+  authors: Ember.computed.alias('model.authors'),
 
   actions: {
 
     generateLibraries(volume) {
+
+      // Progress flag, data-down to seeder-block where our lovely button will show a spinner...
+      this.set('generateLibrariesInProgress', true);
+
       const counter = parseInt(volume);
+      let savedLibraries = [];
 
       for (let i = 0; i < counter; i++) {
-        const isTheLast = i === counter-1;
-        this._saveRandomLibrary(isTheLast);
+
+        // Collect all Promise in an array
+        savedLibraries.push(this._saveRandomLibrary());
       }
+
+      // Wait for all Promise to fulfill so we can show our label and turn off the spinner.
+      Ember.RSVP.all(savedLibraries)
+        .then(() => {
+          this.set('generateLibrariesInProgress', false);
+          this.set('libDone', true)
+        });
     },
 
     deleteLibraries() {
-      this._destroyAll(this.get('libraries'));
 
-      // Data down via seeder-block to fader-label that we ready to show the label
-      this.set('libDelDone', true);
+      // Progress flag, data-down to seeder-block button spinner.
+      this.set('deleteLibrariesInProgress', true);
+
+      // Our local _destroyAll return a promise, we change the label when all records destroyed.
+      this._destroyAll(this.get('libraries'))
+
+        // Data down via seeder-block to fader-label that we ready to show the label.
+        // Change the progress indicator also, so the spinner can be turned off.
+        .then(() => {
+          this.set('libDelDone', true);
+          this.set('deleteLibrariesInProgress', false);
+        });
     },
 
     generateBooksAndAuthors(volume) {
+
+      // Progress flag, data-down to seeder-block button spinner.
+      this.set('generateBooksInProgress', true);
+
       const counter = parseInt(volume);
+      let booksWithAuthors = [];
 
       for (let i = 0; i < counter; i++) {
-        const isTheLast = i === counter-1;
-        const newAuthor = this._saveRandomAuthor(isTheLast);
 
-        this._generateSomeBooks(newAuthor);
+        // Collect Promises in an array.
+        const books = this._saveRandomAuthor().then(newAuthor => this._generateSomeBooks(newAuthor));
+        booksWithAuthors.push(books);
       }
+
+      // Let's wait until all async save resolved, show a label and turn off the spinner.
+      Ember.RSVP.all(booksWithAuthors)
+
+        // Data down via seeder-block to fader-label that we ready to show the label
+        // Change the progress flag also, so the spinner can be turned off.
+        .then(() => {
+          this.set('authDone', true);
+          this.set('generateBooksInProgress', false);
+        });
     },
 
     deleteBooksAndAuthors() {
-      this._destroyAll(this.get('books'));
-      this._destroyAll(this.get('authors'));
 
-      // Data down via seeder-block to fader-label that we ready to show the label
-      this.set('authDelDone', true);
+      // Progress flag, data-down to seeder-block button to show spinner.
+      this.set('deleteBooksInProgress', true);
+
+      const authors = this.get('authors');
+      const books = this.get('books');
+
+      // Remove authors first and books later, finally show the label.
+      this._destroyAll(authors)
+        .then(() => this._destroyAll(books))
+
+        // Data down via seeder-block to fader-label that we ready to show the label
+        // Delete is finished, we can turn off the spinner in seeder-block button.
+        .then(() => {
+          this.set('authDelDone', true);
+          this.set('deleteBooksInProgress', false);
+        });
     }
   },
 
   // Private methods
 
-  _saveRandomLibrary(isLast) {
-    const randomLibrary = this.store.createRecord('library').randomize();
-
-    randomLibrary.save().then(() => {
-      if (isLast) {
-
-        // Data down via seeder-block to fader-label that we ready to show the label
-        this.set('libDone', true);
-      }
-    });
+  // Create a new library record and uses the randomizator, which is in our model and generates some fake data in
+  // the new record. After we save it, which is a promise, so this returns a promise.
+  _saveRandomLibrary() {
+    return this.store.createRecord('library').randomize().save();
   },
 
-  _saveRandomAuthor(isLast) {
-    const newAuthor = this.store.createRecord('author').randomize();
-    newAuthor.save().then(() => {
-        if (isLast) {
-
-          // Data down via seeder-block to fader-label that we ready to show the label
-          this.set('authDone', true);
-        }
-      }
-    );
-    return newAuthor;
+  _saveRandomAuthor() {
+    return this.store.createRecord('author').randomize().save();
   },
 
   _generateSomeBooks(author) {
     const bookCounter = Faker.random.number(10);
+    let books = [];
 
     for (let j = 0; j < bookCounter; j++) {
       const library = this._selectRandomLibrary();
-      this.store.createRecord('book')
-        .randomize(author, library)
-        .save();
-      author.save();
-      library.save();
+
+      // Creating and saving book, saving the related records also are take while, they are all a Promise.
+      const bookPromise =
+        this.store.createRecord('book')
+          .randomize(author, library)
+          .save()
+          .then(() => author.save())
+
+          // guard library in case if we don't have any
+          .then(() => library && library.save());
+      books.push(bookPromise)
     }
+
+    // Return a Promise, so we can manage the whole process on time
+    return Ember.RSVP.all(books);
   },
 
   _selectRandomLibrary() {
+
+    // Please note libraries are records from store, which means this is a DS.RecordArray object, it is extended from
+    // Ember.ArrayProxy. If you need an element from this list, you cannot just use libraries[3], we have to use
+    // libraries.objectAt(3)
     const libraries = this.get('libraries');
-    const librariesCounter = libraries.get('length');
+    const size = libraries.get('length');
 
-    // Create a new array from ids
-    const libraryIds = libraries.map(lib => lib.get('id'));
-
-    // Randomly pick one id from the libraryIds array and return the library
-    const randomNumber = Faker.random.number(librariesCounter-1);
-    const randomLibrary = libraries.findBy('id', libraryIds[randomNumber]);
-
-    return randomLibrary;
+    // Get a random number between 0 and size-1
+    const randomItem = Faker.random.number(size - 1);
+    return libraries.objectAt(randomItem);
   },
 
   _destroyAll(records) {
-    records.forEach(
-      item => item.destroyRecord()
-    );
-  }
 
+    // destroyRecord() is a Promise and will be fulfilled when the backend database is confirmed the delete
+    // lets collect these Promises in an array
+    const recordsAreDestroying = records.map(item => item.destroyRecord());
+
+    // Wrap all Promise in one common Promise, RSVP.all is our best friend in this process. ;)
+    return Ember.RSVP.all(recordsAreDestroying);
+  }
 });
 ```
 ## <a name='lesson-7'></a>Lesson 7
