@@ -767,7 +767,7 @@ module.exports = function(environment) {
 
 Please note, that Firebase closes the database by default, you have to manually add permissions. Please read [this section on Firebase website](https://firebase.google.com/docs/database/security/quickstart).
 
-Change your database public, so we don't have to implement authentication in this stage. Navigate to your Firebase Console, choose your new app, select "Database" from the left menu and click on "Rules" tab. Change the content in the rules editor:
+Change your database to public, so we don't have to implement authentication in this stage. To do this, Navigate to your Firebase Console, select your new app, click "Database" from the left menu and click on "Rules" tab. Change the content in the rules editor to read:
 
 ```json
 {
@@ -778,7 +778,7 @@ Change your database public, so we don't have to implement authentication in thi
 }
 ```
 
-Try out Request Invitation button again, check the browser's console messages and open the Firebase website, and check your app dashboard. You will see, that the email address, what you just saved on your home page, is sent to Firebase and it is saved on the server.
+Try out Request Invitation button again, check your browser's console messages and open the Firebase website, and check your app dashboard. You will see, that the email address, which you just saved on your home page, is sent to Firebase and it is saved on the server.
 
 * Remember to restart your Ember server, or else you'll have problems with the newly installed EmberFire addon.
 
