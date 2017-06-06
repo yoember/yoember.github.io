@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "The Best Way to Install Node.js"
-date: 2017-05-06T00:50:00+13:00
+date: 2017-06-06T00:50:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
-node_version: '6.10.3'
-npm_version: '4.5.0'
+node_version: '8.0.0'
+npm_version: '5.0.3'
 nvm_version: '0.33.2'
 ---
 
@@ -151,6 +151,6 @@ $ npm install -g ember-cli
 ```
 I would suggest, experiment with different shells. Which worked better for you? PowerShell, Git Shell, the original CMD.exe? Please, share your Windows experiment in a comment.
 
-> Now, you have Node.js on your machine, it's time to go back to the [Emberjs Tutorial](http://yoember.com)
+> Now, you have Node.js on your machine, it's time to go back to the [Ember Tutorial](http://yoember.com)
 
 <div id="disqus_thread"></div>

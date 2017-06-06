@@ -1,13 +1,13 @@
 ---
 layout: home
-last_modified_at: 10/05/2017
-meta_datetime: '2017-05-10'
-meta_published: '10 May 2017'
+last_modified_at: 06/06/2017
+meta_datetime: '2017-06-06'
+meta_published: '06 Jun 2017'
 title: 'Ember 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
-ember_cli_version: '2.13.1'
+ember_cli_version: '2.13.2'
 ember_version: '2.13'
-node_version: '6.10.3'
+node_version: '8.0.0'
 ---
 # Ember 2 Tutorial
 ## Building a complex web application with Ember.js {{ page.ember_version }}
@@ -2763,6 +2763,7 @@ Thanks for your help to improve further the most popular [Ember tutorial](http:/
 * [@jkeat](https://github.com/jkeat) 
 * [@sigu](https://github.com/sigu)
 * [@batisteo](https://github.com/batisteo)
+* [@claudey](https://github.com/claudey)
 
 ## Other tutorials, examples
 

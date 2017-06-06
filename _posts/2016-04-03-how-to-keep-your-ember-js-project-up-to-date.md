@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How To Keep Your Ember.js Project Up-To-Date"
-date: 2016-06-10T09:28:13+12:00
+date: 2017-06-06T09:28:13+12:00
 author: Zoltan
 categories: emberjs
 identifier: 'update-emberjs'
@@ -32,7 +32,7 @@ You should see the latest version.
 So we can compare packages in `bower.json` and `package.json`.
 
     $ cd ~/projects/temp
-    $ ember new my-v27-app
+    $ ember new my-latest-app
 
 ### Upgrade version numbers in your old project to match with the new dummy app.
 
@@ -48,4 +48,4 @@ For avoiding package conflicts the most safest solution if you just remove these
 
 Good luck! :)
 
-> Don't forget to check out the new chapter of the free [Ember](http://yoember.com).js tutorial
+> Don't forget to check out the new chapter of the free [Ember.js](http://yoember.com) tutorial
