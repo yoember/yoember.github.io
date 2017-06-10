@@ -1,8 +1,8 @@
 ---
 layout: home
-last_modified_at: 06/06/2017
-meta_datetime: '2017-06-06'
-meta_published: '06 Jun 2017'
+last_modified_at: 10/06/2017
+meta_datetime: '2017-06-10'
+meta_published: '10 Jun 2017'
 title: 'Ember 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
 ember_cli_version: '2.13.2'
@@ -205,7 +205,7 @@ $ ember install ember-cli-sass
 $ ember install ember-cli-bootstrap-sassy
 ```
 
-You will see, that your `./package.json` and `./bower.json` are extended with a couple of lines.
+You will see, that your `./package.json` is extended with a couple of lines.
 
 Rename your `app.css` to `app.scss` with the following terminal command or you can use your editor to rename the `./app/styles/app.css` file:
 
