@@ -1,15 +1,15 @@
 ---
 layout: home
-last_modified_at: 10/06/2017
-meta_datetime: '2017-06-10'
-meta_published: '10 Jun 2017'
-title: 'Ember 2 Tutorial - From beginner to advance'
+last_modified_at: 28/07/2017
+meta_datetime: '2017-07-28'
+meta_published: '28 Jul 2017'
+title: 'Ember.js 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
-ember_cli_version: '2.13.2'
-ember_version: '2.13'
-node_version: '8.0.0'
+ember_cli_version: '2.14.1'
+ember_version: '2.14'
+node_version: '8.2.1'
 ---
-# Ember 2 Tutorial
+# Ember.js 2 Tutorial
 ## Building a complex web application with Ember.js {{ page.ember_version }}
 <p class="blog-post-meta">Latest update: <time datetime="{{ page.meta_datetime }}" itemprop="datePublished">{{ page.meta_published }}</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
@@ -2170,10 +2170,24 @@ export default Ember.Component.extend({
   isShowing: false,
 
   isShowingChanged: Ember.observer('isShowing', function() {
-    Ember.run.later(() => this.set('isShowing', false), 3000);
-  })
-});
 
+    // User can navigate away from this page in less than 3 seconds, so this component will be destroyed,
+    // however our "setTimeout" task try to run.
+    // We save this task in a local variable, so it can be cleaned up during the destroy process.
+    // Otherwise you will see a "calling set on destroyed object" error.
+    this._runLater = Ember.run.later(() => this.set('isShowing', false), 3000);
+  }),
+
+  resetRunLater() {
+    this.set('isShowing', false);
+    Ember.run.cancel(this._runLater);
+  },
+
+  willDestroy() {
+    this.resetRunLater();
+    this._super(...arguments);
+  }
+});
 ```
 
 ```hbs

@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "The Best Way to Install Node.js"
-date: 2017-06-06T00:50:00+13:00
+date: 2017-07-29T00:50:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
-node_version: '8.0.0'
-npm_version: '5.0.3'
+node_version: '8.2.1'
+npm_version: '5.3.0'
 nvm_version: '0.33.2'
 ---
 
