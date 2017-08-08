@@ -1,8 +1,8 @@
 ---
 layout: home
-last_modified_at: 28/07/2017
-meta_datetime: '2017-07-28'
-meta_published: '28 Jul 2017'
+last_modified_at: 08/08/2017
+meta_datetime: '2017-08-08'
+meta_published: '8 Aug 2017'
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
 ember_cli_version: '2.14.1'
@@ -1960,13 +1960,17 @@ export default Ember.Route.extend({
     controller.set('libraries', model.libraries);
     controller.set('books', model.books);
     controller.set('authors', model.authors);
+    
+    this._super(controller, model);
   }
 });
 ```
 
-RSVP tries to download all three requested models, and only returns with a fulfilled state if all are retrieved successfully.
+`Ember.RSVP.hash` tries to download all three requested models, and only returns with a fulfilled state if all are retrieved successfully.
 
-In the `setupController` hook, we split up the models into their own controller property. Actually, you can skip this step. If you skip, you have to use `model.libraries`, `model.books` properties in your controller and in your template. Other option, if you have a controller, you can make an alias there, so other developers can immediately see where those property data come from with checking the Controller file only. (You can see the alternative "alias version" on my github repo.)
+In the `setupController` hook, we split up the models into their own controller property. (As a good practice, we finally call the `this._super(controller, model)` also.)
+
+(Of course there are alternative solutions. One of them is omitting the `setupController` and in this case we would use `model.libraries`, `model.books` properties in our controller and template directly. Other option, if you have a controller, you can make an alias there and assign `model.libraries` to `libraries`, so other developers can immediately see where those property data come from with checking the Controller file only. Ex.: `libraries: Ember.computed.alias('model.libraries')`.)
 
 ### Short summary of route hooks
 
@@ -2398,11 +2402,6 @@ import Faker from 'faker';
 
 export default Ember.Controller.extend({
 
-  // If you haven't mapped this properties in setupController, you can alias them here
-  libraries: Ember.computed.alias('model.libraries'),
-  books: Ember.computed.alias('model.books'),
-  authors: Ember.computed.alias('model.authors'),
-
   actions: {
 
     generateLibraries(volume) {
@@ -2550,7 +2549,6 @@ export default Ember.Controller.extend({
 });
 ```
 ## <a name='lesson-7'></a>Lesson 7
-(work in progress)
 
 ### CRUD interface for Authors and Books, managing model relationship
 
@@ -2768,7 +2766,7 @@ Well done you folks who made it this far. Keep up the good work.
 
 If you would like to know about new blog updates, please [follow me on twitter](http://twitter.com/zoltan_nz).
 
-Check out my new tutorial in this repo's README, work in progress: [Product App](https://github.com/zoltan-nz/product-app)
+Check out my new tutorial in the following GitHub repository's README, work in progress: [Product App](https://github.com/zoltan-nz/product-app)
 
 ## Contributors
 
