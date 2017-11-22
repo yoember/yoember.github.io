@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "The Best Way to Install Node.js"
-date: 2017-07-29T00:50:00+13:00
+date: 2017-12-14T00:50:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
-node_version: '8.2.1'
-npm_version: '5.3.0'
-nvm_version: '0.33.2'
+node_version: '8.9.3'
+npm_version: '5.6.0'
+nvm_version: '0.33.8'
 ---
 
 There are a few ways to install Node.js, but it looks only one way gives you the best experience for long term.
