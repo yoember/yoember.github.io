@@ -1,19 +1,19 @@
 ---
 layout: home
-last_modified_at: 08/08/2017
-meta_datetime: '2017-08-08'
-meta_published: '8 Aug 2017'
+last_modified_at: 15/12/2017
+meta_datetime: '2017-12-15'
+meta_published: '15 Dec 2017'
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
-ember_cli_version: '2.14.1'
-ember_version: '2.14'
-node_version: '8.2.1'
+ember_cli_version: '2.17.1'
+ember_version: '2.17'
+node_version: '8.9.3'
 ---
 # Ember.js 2 Tutorial
-## Building a complex web application with Ember.js {{ page.ember_version }}
+## Building a complex web application with the latest Ember.js {{ page.ember_version }}
 <p class="blog-post-meta">Latest update: <time datetime="{{ page.meta_datetime }}" itemprop="datePublished">{{ page.meta_published }}</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
-Welcome! This is an [Ember.js 2 tutorial](http://yoember.com) from the absolute beginner level. End of the course we touch some advanced topic as well.
+Welcome! This is an [Ember.js tutorial](http://yoember.com) from the absolute beginner level. At the end of the course we touch some advanced topic as well. This tutorial is always up-to-date. The tutorial is compatible with the upcoming Ember.js 3 also.
 
 Please check the [Live Demo](https://library-app.firebaseapp.com) page and play with the app what we are going to build together.
 
@@ -47,7 +47,7 @@ After you finished this tutorial you can learn more advance topics following the
 
 ## Prerequisites
 
-* Node.js: at least v4, but the best if you install the latest long term support version (v6) or the current version (v7).
+* Node.js: at least v4.5, but the best if you install the latest long term support version (v8).
 
 [The best way to install Node.js on Mac, Linux and on Windows]({% post_url 2016-03-20-the-best-way-to-install-node-js %})
 

@@ -79,7 +79,17 @@ $ npm install -g npm
 
 After the update, the npm version, `npm -v`, should be at least `{{ page.npm_version }}` or above.
 
-Alternatives, but not suggested:
+A little extra tip. Remember for the following command because it simplifies the update process. ;)
+
+Let's say, you would like to stay on the stable, LTS version and you would like to keep all the global package what you've already installed. Here is the solution:
+
+```
+$ nvm install 8 --reinstall-packages-from=8 --latest-npm
+```
+
+It updates your Node.js version to the latest version 8 and install the latest npm, plus it setup all your previously installed global packages.
+
+Alternatives for installing Node.js, but not suggested:
 
 * Official Installer: <https://nodejs.org/en/download/>
 * Using brew: <https://nodejs.org/en/download/package-manager/#osx>
