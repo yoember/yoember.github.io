@@ -125,37 +125,9 @@ Open your new empty app in your browser: <a href="http://localhost:4200" target=
 
 If you use the latest Ember v{{ page.ember_version }}, you should see a page with our happy Tomster and "Congratulations, you made it". This is the new Ember Welcome Page.
 
-If you use an earlier version of Ember (for example v2.5), you should see a "Welcome to Ember" message on your website.
-
 Well Done! You have your first Ember.js application. :)
 
-The following lines are not relevant if you use the latest Ember CLI, from Ember version 2.11, you will find an `application.hbs` in your `template` folder immediately, however between version 2.6 and 2.10, we had to generate our `application.hbs`, the main template page, manually. In the previous versions we had it automatically also.
-
-(You need to do this only if you build Ember app with Ember CLI v2.6 - 2.10.)
-
-Open your terminal, stop the server with `Ctrl+C` and run the following command:
-
-```shell
-$ ember generate template application
-```
-
-This command generates your main template file: `app/templates/application.hbs`.
-
-Open this file in your favorite editor and add the following html code:
-
-```html
-<h1>Welcome to Ember</h1>
-```
-
-With this step, we recreate the same home page, what we had in earlier versions of Ember. Launch your server from your console with:
-
-```shell
-$ ember server
-```
-
-Reload your app in your browser. Our favorite Tomster disappeared but we have a clean welcome message in our amazing app.
-
-**From version 2.11** you have the following lines in your `application.hbs`:
+You should see the following lines in your `./app/templates/application.hbs`:
 
 ```hbs {% raw %}
 {{!-- The following component displays Ember's default welcome message. --}}

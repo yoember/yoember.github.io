@@ -4,7 +4,7 @@ gem 'octopress'
 gem 'jekyll'
 
 # Asset pipelines for Jekyll
-gem 'jekyll-assets'
+gem 'jekyll-assets', group: 'jekyll_plugins'
 gem 'uglifier'
 gem 'sass'
 gem 'kramdown'
