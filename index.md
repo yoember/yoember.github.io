@@ -123,7 +123,7 @@ $ ember server
 
 Open your new empty app in your browser: <a href="http://localhost:4200" target="_blank">http://localhost:4200</a>
 
-If you use the latest Ember v{{ page.ember_version }}, you should see a page with our happy Tomster and "Congratulations, you made it". This is the new Ember Welcome Page.
+If you use the latest Ember v{{ page.ember_version }}, you should see a page with our happy Tomster and "Congratulations, you made it". This is the Ember Welcome Page.
 
 Well Done! You have your first Ember.js application. :)
 
@@ -139,9 +139,23 @@ You should see the following lines in your `./app/templates/application.hbs`:
 
 As it suggested, feel free to remove the first three lines and update it with your own welcome message. ;)
 
-You can open Ember Inspector in your Browser. Hope you've already installed it. Ember Inspector exists in Chrome and in Firefox as an extension. After installation you should have a new tab in your developer console in your browser. Check it out, look around. [More details about Ember Inspector here](https://guides.emberjs.com/v{{ page.ember_version }}.0/ember-inspector/installation/).
+For example, open this file in your favorite editor and add the following html code above the `outlet` line.
 
-(If you really miss our Tomster you can visit him on this page: [http://localhost:4200/ember-getting-started](http://localhost:4200/ember-getting-started).)
+```hbs {% raw %}
+<h1>Welcome to Ember</h1>
+
+{{outlet}}{% endraw %}
+```
+
+With this step, we recreate the same home page, what we had in earlier versions of Ember. Make sure that the development server is still running in your console:
+
+```shell
+$ ember server
+```
+
+Reload your app in your browser. Our favorite Tomster disappeared but we have a clean welcome message in our amazing app.
+
+You can open Ember Inspector in your Browser. Hope you've already installed it. Ember Inspector exists in Chrome and in Firefox as an extension. After installation you should have a new tab in your developer console in your browser. Check it out, look around. [More details about Ember Inspector here](https://guides.emberjs.com/v{{ page.ember_version }}.0/ember-inspector/installation/).
 
 ### Turn on a few debugging options
 
