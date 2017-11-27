@@ -234,7 +234,9 @@ You can insert snippets from other templates with the `partial` helper.
 
 The `outlet` helper is a general helper, a placeholder, where deeper level content will be inserted. The `outlet` in `application.hbs` means that almost all content from other pages will appear inside this section. For this reason, `application.hbs` is a good place to determine the main structure of our website. In our case we have a `container` div, a navigation bar, and the real content.
 
-Generate a `navbar.hbs` file with the following command in you terminal.
+As you already realized, Ember CLI is an amazing tool and help us a lot. It has a `generate` command which can create our skeleton files during the development process. List all the options with `ember generate --help`.
+
+Let's generate a `navbar.hbs` file with the following command in you terminal.
 
 ```bash
 $ ember generate template navbar
