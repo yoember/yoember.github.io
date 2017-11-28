@@ -393,21 +393,21 @@ Add `disabled` property with `{% raw %}{{isDisabled}}{% endraw %}` boolean varia
 <button disabled={{isDisabled}} class="btn btn-primary btn-lg btn-block">Request invitation</button>{% endraw %}
 ```
 
-Now we can create our index controller:
+Now we can create our index controller (`ember g` is the short version of `ember generate`):
 
     $ ember g controller index
 
-* Read more about Ember controllers here: <http://guides.emberjs.com/v{{ page.ember_version}}.0/controllers/>
+*Please read more about Ember controllers here: <https://guides.emberjs.com/v{{ page.ember_version}}.0/controllers/>*
 
-Note: Ember.js still uses controllers, however there were rumors, that the controller layer will be deprecated and removed from Ember.js 3.0. It looks like controllers will stay with us for a while so don't worry too much. For now, we will use controllers to practice some interesting features, but later we will refactor our app and move most of the logic inside components.
+*Note: Ember.js still uses controllers, however there were rumors, that the controller layer will be deprecated and removed from Ember.js 3.0. It looks like controllers will stay with us for a while so don't worry too much. For now, we will use controllers to practice some interesting features, but later we will refactor our app and move most of the view related logic inside components.*
 
 Add `isDisabled` property to the controller. Default value is `true`.
 
 ```js
 //app/controllers/index.js
-import Ember from 'ember';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
 
   isDisabled: true
 
