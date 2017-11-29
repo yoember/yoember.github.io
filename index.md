@@ -414,7 +414,7 @@ export default Controller.extend({
 });
 ```
 
-If you check your app, you will see that the button is disabled by default. We want to add some logic around this feature. We have to learn a couple of new Ember.js features for that.
+If you check your app, you will see that the button is disabled by default. We want to add some logic around this feature. We have to learn a couple of new Ember.js tricks for that.
 
 #### Computed Properties and Observers
 
@@ -427,7 +427,7 @@ Please note, I will use the new, preferred syntax in our project. You could ask,
 
 Computed properties and observers still could be written in two ways, however the classic syntax will be deprecated soon, but it is important to know the "old" syntax and the "new" syntax, so when you see older project, you will recognise this pattern.
 
-Previously `.property()` and `.observes()` were attached to the end of the functions. Nowadays we use `Ember.computed()` and `Ember.observer()` functions instead. Let's see in examples.
+Previously `.property()` and `.observes()` were attached to the end of the functions. Nowadays we use `Ember.computed()` and `Ember.observer()` functions instead. (One more thing. From Ember v2.17 there is a shorter syntax also.) Let's see in examples.
 
 Old (with ES5 string concatenation):
 
@@ -439,20 +439,39 @@ fullName: function() {
 //...
 ```
 
-New (with ES6 string interpolation, which uses back-tick, dollar sign and curly braces):
+New (with ES6 string interpolation, which uses back-tick, dollar sign and curly braces), using global import:
 
 ```js
+import Ember from 'ember';
+
 //...
+
 fullName: Ember.computed('firstName', 'lastName', function() {
   return `${this.get('firstName')} ${this.get('lastName')}`;
 })
 //...
 ```
-So, we will use this new syntax. `Ember.computed()` can have more parameters. The first parameters are always variables/properties in string format; what we would like to use inside our function. The last parameter is a `function()`. Inside this function we will have access to the properties with `this.get()`. In Ember.js we read properties with `this.get('propertyName')` and update properties with `this.set('propertyName', newValue)`.
 
-Back to our project--let's play with these new features.
+Preferred short syntax from Ember v2.17, using direct import:
 
-Let's update our html code with input component syntax and add a `value` to our email input box.
+```javascript
+import { computed } from '@ember/object';
+
+//...
+
+fullName: computed('firstName', 'lastName', function() {
+  return `${this.get('firstName')} ${this.get('lastName')}`;
+})
+//...
+```
+
+So, we will use the new syntax. The `computed()` function could have more parameters. The first parameters are always variables/properties in string format; what we would like to use inside our function. The last parameter is a `function()`. Inside this function we will have access to the properties with `this.get()`. In Ember.js we read properties with `this.get('propertyName')` and update properties with `this.set('propertyName', newValue)`.
+
+*From Ember version 2.17, we import directly the `computed` function instead of using the global `Ember` namespace. It means, you will use `computed()` mainly in your codebase and not `Ember.computed()`.*
+
+Back to our project. Let's play with these new features.
+
+Update the html code with input component syntax and add a `value` to the email input box.
 
 Modify `<input>` line as follow in `index.hbs`:
 
@@ -468,19 +487,20 @@ You can use the following code in your controller to demonstrate the differences
 
 ```js {% raw %}
 //app/controllers/index.js
-import Ember from 'ember';
+import { computed, observer } from '@ember/object';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
 
   isDisabled: true,
 
   emailAddress: '',
 
-  actualEmailAddress: Ember.computed('emailAddress', function() { 
+  actualEmailAddress: computed('emailAddress', function() { 
     console.log('actualEmailAddress function is called: ', this.get('emailAddress'));
   }),
 
-  emailAddressChanged: Ember.observer('emailAddress', function() { 
+  emailAddressChanged: observer('emailAddress', function() { 
     console.log('observer is called', this.get('emailAddress')); 
   })
 
@@ -500,37 +520,40 @@ We can rewrite our `isDisabled` with computed property as well.
 
 ```js
 // app/controllers/index.js
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
 
   emailAddress: '',
 
-  isDisabled: Ember.computed('emailAddress', function() {
+  isDisabled: computed('emailAddress', function() {
     return this.get('emailAddress') === '';
   })
 
 });
 ```
 
-There are a few predefined computed property functions, which saves you some code. In the following example we use `Ember.computed.empty()`, which checks whether a property is empty or not.
+There are a few predefined computed property functions, which saves you some code. In the following example we use `Ember.computed.empty()`, which checks whether a property is empty or not. Please note, from Ember version 2.17 you can directly import the predefined functions, so in our code we can use the short `empty()` function. Don't forget to import it.
 
 ```js
 // app/controllers/index.js
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { empty } from '@ember/object/computed';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
 
   emailAddress: '',
 
-  isDisabled: Ember.computed.empty('emailAddress')
+  isDisabled: empty('emailAddress')
 
 });
+
 ```
 
 Try out the above example in your code.
 
-* More about `Ember.computed` short syntax: <http://emberjs.com/api/classes/Ember.computed.html> (Check all the methods on that page.)
+* More about `Ember.computed` options: <https://emberjs.com/api/ember/{{ page.ember_version}}/modules/@ember%2Fobject> (Check all the methods at `@ember/object/computed` section.)
 
 #### isValid
 
