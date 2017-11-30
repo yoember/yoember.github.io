@@ -559,19 +559,20 @@ Try out the above example in your code.
 
 Let's go further. It would be a more elegant solution if we only enabled our "Request Invitation" button when the input box contained a valid email address.
 
-We'll use the `Ember.computed.match()` short computed property function to check the validity of the string. But `isDisabled` needs to be the negated version of this `isValid` computed property. We can use the `Ember.computed.not()` for this.
+We'll use the `Ember.computed.match()` or `match()` short computed property function to check the validity of the string. But `isDisabled` needs to be the negated version of this `isValid` computed property. We can use the `Ember.computed.not()` or `not()` for this.
 
 ```js
 // app/controllers/index.js
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { match, not } from '@ember/object/computed';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
 
   emailAddress: '',
 
-  isValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/),
-  isDisabled: Ember.computed.not('isValid')
-
+  isValid: match('emailAddress', /^.+@.+\..+$/),
+  isDisabled: not('isValid')
+  
 });
 ```
 Great, it works now as expected. You see, we can write really elegant code with Ember.js, can't we? ;)
