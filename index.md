@@ -572,7 +572,7 @@ export default Controller.extend({
 
   isValid: match('emailAddress', /^.+@.+\..+$/),
   isDisabled: not('isValid')
-  
+
 });
 ```
 Great, it works now as expected. You see, we can write really elegant code with Ember.js, can't we? ;)
@@ -591,14 +591,15 @@ You can try it out in your browser and see that if you click on the button, you 
 
 ```js
 // app/controllers/index.js
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { match, not } from '@ember/object/computed';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
 
   emailAddress: '',
 
-  isValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/),
-  isDisabled: Ember.computed.not('isValid'),
+  isValid: match('emailAddress', /^.+@.+\..+$/),
+  isDisabled: not('isValid'),
 
   actions: {
 
@@ -610,6 +611,7 @@ export default Ember.Controller.extend({
   }
 
 });
+
 ```
 If you click on the button, the `saveInvitation` action is called and shows an alert box, sets up a `responseMessage` property, and finally deletes the content of `emailAddress`.
 
@@ -675,13 +677,37 @@ Ember.computed.gte('yourProperty', number)
 
 (Please note, it is `computed.gte` and not `computed.get`.)
 
+You can use the latest syntax with importing `gte` function directly:
+
+```javascript
+import { gte } from '@ember/object/computed';
+
+//...
+
+isLongEnough: gte("yourProperty.length", 5),
+
+//...
+```
+
+(Tip: You can get a string computed property length with `.length`. If your computed property is `message`, the length of that message is `message.length`.)
+
 If you have two computed properties, and both must be `true`, you can use a third computed property to compute the `and`.
 
 ```js
 Ember.computed.and('firstComputedProperty', 'secondComputedProperty')
 ```
 
-You can get a string computed property length with `.length`. If your computed property is `message`, the length of that message is `message.length`.
+or
+
+```js
+import { and } from '@ember/object/computed';
+
+//...
+
+isBothTrue: and('firstComputedProperty', 'secondComputedProperty'),
+
+//...
+```
 
 * In terms of feedback on a form, there is a really cool solution on bootstrap: <http://getbootstrap.com/css/#forms-control-validation> (Check the "With optional icons" section.)
 
