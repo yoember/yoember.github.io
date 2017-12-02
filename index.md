@@ -691,13 +691,13 @@ isLongEnough: gte("yourProperty.length", 5),
 
 (Tip: You can get a string computed property length with `.length`. If your computed property is `message`, the length of that message is `message.length`.)
 
-If you have two computed properties, and both must be `true`, you can use a third computed property to compute the `and`.
+If you have two computed properties, and both must be `true`, you can use a third computed property to compute the `and` logic.
 
 ```js
 Ember.computed.and('firstComputedProperty', 'secondComputedProperty')
 ```
 
-or
+With the latest syntax:
 
 ```js
 import { and } from '@ember/object/computed';
@@ -709,7 +709,7 @@ isBothTrue: and('firstComputedProperty', 'secondComputedProperty'),
 //...
 ```
 
-* In terms of feedback on a form, there is a really cool solution on bootstrap: <http://getbootstrap.com/css/#forms-control-validation> (Check the "With optional icons" section.)
+* In terms of feedback on a form, there is a really cool solution on bootstrap: <https://getbootstrap.com/docs/3.3/css/#forms-control-validation> (Check the "With optional icons" section.)
 
 Please try to implement the above requirements. When you're finished, you can check out my repository (the contact logic in my repository is already located at `library-app/app/models/contact.js` because of how we refactor things later, however you can see in this earlier commit, that validation was [placed in the controller](https://github.com/zoltan-nz/library-app/blob/60ab93f51e8f488cde6c2e52d28a978370323858/app/controllers/contact.js)). I am pretty sure that your solution will be much better than mine. ;)
 
