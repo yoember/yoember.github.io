@@ -596,6 +596,7 @@ import { match, not } from '@ember/object/computed';
 
 export default Controller.extend({
 
+  responseMessage: '',
   emailAddress: '',
 
   isValid: match('emailAddress', /^.+@.+\..+$/),
@@ -653,7 +654,9 @@ Brilliant. You learned a lot about Ember.js and you have just implemented these 
 
 It is time to practice what you have just learned.
 
-You already have an amazing `Contact` page, where we would like to add a contact form. Here's what your solution should be able to do, or look like.
+Let's start with a simple task. Instead of directly implement the "Coming Soon" header text in the `app/templates/index.hbs`, replace it with a property in the `app/controllers/index.js`. (Hint: Create a new simple property in the controller, for example: `headerMessage: 'Comming Soon'` and use this constant in the template with the double curly braces syntax: `{% raw %}<h1>{{headerMessage}}</h1>{% endraw %}`.)
+
+The next task is more complex. You already have an amazing `Contact` page, where we would like to add a contact form. Here's what your solution should be able to do or should look like.
 
 * In this contact form will be two fields; one field for an email address and another field for a text message.
 * There will be a “Send message” button.
@@ -725,7 +728,20 @@ Let's create our first model where we save email addresses for invitation. Type 
 
     $ ember g model invitation email:string
 
-Hope you read about `store` in the official Guide. Let's use it.
+The above Ember Generator created a new model file (and a skeleton test file). Our first model:
+
+```js
+// app/models/invitation.js
+import DS from 'ember-data';
+
+export default DS.Model.extend({
+  email: DS.attr('string')
+});
+```
+
+It means, if we use the `invitation` model, it will have an `email` property, which data type is a string. 
+
+Hope you read about `store` in The Official Guide. Let's use it.
 
 Update your `app/controllers/index.js` controller action. Instead of showing a useless alert message, we try to save our data.
 
