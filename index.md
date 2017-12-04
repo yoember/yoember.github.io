@@ -747,16 +747,17 @@ Update your `app/controllers/index.js` controller action. Instead of showing a u
 
 ```js {% raw %}
 // app/controllers/index.js
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { match, not } from '@ember/object/computed';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
 
   headerMessage: 'Coming Soon',
   responseMessage: '',
   emailAddress: '',
 
-  isValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/),
-  isDisabled: Ember.computed.not('isValid'),
+  isValid: match('emailAddress', /^.+@.+\..+$/),
+  isDisabled: not('isValid'),
 
   actions: {
 
@@ -770,6 +771,7 @@ export default Ember.Controller.extend({
       this.set('emailAddress', '');
     }
   }
+
 }); {% endraw %}
 ```
 
