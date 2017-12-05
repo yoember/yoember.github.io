@@ -136,15 +136,15 @@ DEPENDENCIES
   guard
   guard-jekyll-plus
   guard-livereload
-  jekyll
-  jekyll-assets
+  jekyll (= 3.4.3)
+  jekyll-assets (= 2.2.8)
   jekyll-sitemap
   kramdown
-  octopress
+  octopress (= 3.0.11)
   octopress-debugger
   rouge
-  sass
-  uglifier
+  sass (= 3.4.23)
+  uglifier (= 3.2.0)
 
 BUNDLED WITH
    1.14.6

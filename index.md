@@ -1,11 +1,11 @@
 ---
 layout: home
-last_modified_at: 15/12/2017
-meta_datetime: '2017-12-15'
-meta_published: '15 Dec 2017'
+last_modified_at: 29/12/2017
+meta_datetime: '2017-12-29'
+meta_published: '29 Dec 2017'
 title: 'Ember.js 2 Tutorial - From beginner to advance'
 identifier: 'library-app'
-ember_cli_version: '2.17.1'
+ember_cli_version: '2.17.2'
 ember_version: '2.17'
 node_version: '8.9.3'
 ---
@@ -465,7 +465,9 @@ fullName: computed('firstName', 'lastName', function() {
 //...
 ```
 
-So, we will use the new syntax. The `computed()` function could have more parameters. The first parameters are always variables/properties in string format; what we would like to use inside our function. The last parameter is a `function()`. Inside this function we will have access to the properties with `this.get()`. In Ember.js we read properties with `this.get('propertyName')` and update properties with `this.set('propertyName', newValue)`.
+We will use the new syntax. 
+
+The `computed()` function could have more parameters. The first parameters are always variables/properties in string format; what we would like to use inside our function. The last parameter is a `function()`. Inside this function we will have access to the properties with `this.get()`. In Ember.js we read properties with `this.get('propertyName')` and update properties with `this.set('propertyName', newValue)`.
 
 *From Ember version 2.17, we import directly the `computed` function instead of using the global `Ember` namespace. It means, you will use `computed()` mainly in your codebase and not `Ember.computed()`.*
 
@@ -780,8 +782,6 @@ Open the app in your browser, and open the browser's console. Try to save an inv
 Ember.js tried to send that data to a server, but we don't have a server yet. Let's build one.
 
 ### Setup a server on Firebase
-
-(Google's Firebase service is recently updated, this section already covers the latest version.)
 
 Firebase is a server and API service. Very easy to use. <http://firebase.google.com>
 
