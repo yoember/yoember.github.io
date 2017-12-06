@@ -131,20 +131,20 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass
-  foreman
-  guard
-  guard-jekyll-plus
-  guard-livereload
+  bootstrap-sass (= 3.3.7)
+  foreman (= 0.84.0)
+  guard (= 2.14.1)
+  guard-jekyll-plus (= 2.0.2)
+  guard-livereload (= 2.5.2)
   jekyll (= 3.4.3)
   jekyll-assets (= 2.2.8)
-  jekyll-sitemap
-  kramdown
+  jekyll-sitemap (= 1.1.1)
+  kramdown (= 1.13.2)
   octopress (= 3.0.11)
-  octopress-debugger
-  rouge
+  octopress-debugger (= 1.0.2)
+  rouge (= 1.11.1)
   sass (= 3.4.23)
   uglifier (= 3.2.0)
 
 BUNDLED WITH
-   1.14.6
+   1.16.1

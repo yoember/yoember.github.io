@@ -783,28 +783,31 @@ Ember.js tried to send that data to a server, but we don't have a server yet. Le
 
 ### Setup a server on Firebase
 
-Firebase is a server and API service. Very easy to use. <http://firebase.google.com>
+Firebase is a server and API service. Try it out and you will realize how simple and easy to use. <http://firebase.google.com>
 
-1. Create an account.
-2. You can read the latest Readme on EmberFire website: <https://github.com/firebase/emberfire> (You can find the earlier version's guide and help section here: <https://www.firebase.com/docs/web/libraries/ember/guide.html>)
-3. First, run the following command in your terminal: `ember install emberfire`
-4. You will see instructions in the console. We have to manually add a few lines to our configuration file. Copy and paste those lines in `config/environment.js`. (Please note you may have to update a few single quotes to double-quotes in `contentSecurityPolicy`, check my code snippet below, double-quotes are corrected there.)
-5. Go back to Firebase and create an app there. When your new firebase database ready, click on the purple icon on Overview page ("Add Firebase to your web app"). Check those params in the popup window ("apiKey", "authDomain", etc.) and copy-paste the values in your `config/environment.js` file in your Ember application accordingly.
+1. Create an account on Firebase website.
+2. You can learn more about EmberFire addon, which connects your Ember App to the Firebase service here: 
+    * [EmberFire Quick Start](https://github.com/firebase/emberfire/blob/master/docs/quickstart.md) 
+    * [EmberFire Guide](https://github.com/firebase/emberfire/blob/master/docs/guide/README.md)
+3. First, run the following command in your terminal to install EmberFire addon: `ember install emberfire`
+4. You will see instructions in the console. We have to manually add a few lines to our configuration file. Copy and paste those lines in `config/environment.js`.
+5. Go back to Firebase and create a project there. When your new Firebase project ready, click on "</> Add Firebase to your web app" icon on Overview page. Check those params in the popup window ("apiKey", "authDomain", etc.) and copy-paste the values in your `config/environment.js` file in your Ember application accordingly.
 
 ```js
 // config/environment.js
 
 module.exports = function(environment) {
-  var ENV = {
+  let ENV = {
     modulePrefix: 'library-app',
-    environment: environment,
-    baseURL: '/',
+    environment,
+    rootURL: '/',
     locationType: 'auto',
 
     firebase: {
       apiKey: 'xyz',
       authDomain: 'YOUR-FIREBASE-APP.firebaseapp.com',
       databaseURL: 'https://YOUR-FIREBASE-APP.firebaseio.com',
+      projectId: 'project-12341234',
       storageBucket: 'YOUR-FIREBASE-APP.appspot.com',
       messagingSenderId: '1234'
     },
@@ -816,14 +819,13 @@ module.exports = function(environment) {
       'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
     },
 
-
     EmberENV: {
       FEATURES: { ...
 ```
 
 Please note, that Firebase closes the database by default, you have to manually add permissions. Please read [this section on Firebase website](https://firebase.google.com/docs/database/security/quickstart).
 
-Change your database to public, so we don't have to implement authentication in this stage. To do this, Navigate to your Firebase Console, select your new app, click "Database" from the left menu and click on "Rules" tab. Change the content in the rules editor to read:
+Change your database to public, so we don't have to implement authentication in this stage. To do this, navigate to your Firebase Console, select your new app, click "Database" from the left menu and click on "Rules" tab. Change the content in the rules editor to read:
 
 ```json
 {
@@ -836,9 +838,11 @@ Change your database to public, so we don't have to implement authentication in 
 
 Try out Request Invitation button again, check your browser's console messages and open the Firebase website, and check your app dashboard. You will see, that the email address, which you just saved on your home page, is sent to Firebase and it is saved on the server.
 
-* Remember to restart your Ember server, or else you'll have problems with the newly installed EmberFire addon.
+* Remember to restart your Ember server, otherwise you'll have problems with the newly installed EmberFire addon.
 
 Well done!
+
+*Please note that your database is public with the above settings. This is fine for practicing and learning. However you should implement authentication and using a closed database when you build your next real application. You can learn more about it in the official [EmberFire Guide](https://github.com/firebase/emberfire/blob/master/docs/guide/README.md).*
 
 ### Promise and the `this` context in javascript (+ playing with ES5 and ES6 a little)
 
