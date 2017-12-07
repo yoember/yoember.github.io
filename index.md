@@ -879,7 +879,7 @@ This kind of problem is solved nicely in ES6/ES2015, the new JavaScript, which i
 
 In ES5 syntax, we have to save the controller context (the controller's `this`) in a local variable. We can set the controller's `this` as the variable `_that` so we can use it inside our `then`.
 
-In ES5 syntax our controller would look like this. (You don't have to use this code in your project. I will show the preferred ES6/ES2015 version after this.)
+In ES5 syntax our controller would look like this. (You don't have to use this code in your project. I will show the preferred ES6/ES2015 version below.)
 
 ```js
 import Ember from 'ember';
@@ -913,33 +913,32 @@ export default Ember.Controller.extend({
 });
 ```
 
-We save the `this` controller context in a `_that` local variable. We use this local variable inside our function after the `save()` Promise. The above example uses the `response` from Firebase and shows the `id` of the generated database record. This methods uses the `var` declaration a lot, but in ES2015 JavaScript, we don't use `var` anymore; only `let` and `const`. Good bye `var` and goodbye `_that` also. ;)
+We save the `this` controller context in a `_that` local variable. We use this local variable inside our function after the `save()` Promise. The above example uses the `response` from Firebase and shows the `id` of the generated database record. The ES5 solution uses the `var` declaration a lot, but in ES2015 JavaScript, we don't use `var` anymore; only `let` and `const`. Good bye `var` and goodbye `_that`! ;)
 
 Let's look at the cleaner ES2015 version. (You can use this code in your project.)
 
 ```js
 // app/controllers/index.js
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { match, not } from '@ember/object/computed';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
 
   headerMessage: 'Coming Soon',
   responseMessage: '',
   emailAddress: '',
 
-  isValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/),
-  isDisabled: Ember.computed.not('isValid'),
+  isValid: match('emailAddress', /^.+@.+\..+$/),
+  isDisabled: not('isValid'),
 
   actions: {
 
     saveInvitation() {
       const email = this.get('emailAddress');
 
-      const newInvitation = this.store.createRecord('invitation', {
-        email: email
-      });
+      const newInvitation = this.store.createRecord('invitation', { email });
 
-      newInvitation.save().then((response) => {
+      newInvitation.save().then(response => {
         this.set('responseMessage', `Thank you! We saved your email address with the following id: ${response.get('id')}`);
         this.set('emailAddress', '');
       });
@@ -953,6 +952,8 @@ export default Ember.Controller.extend({
 You can see the new `=>` syntax here. We don't need to use the `function` keyword so much. The context of the `saveInvitation()` method is automatically passed deeper, into our asynchronous callback function. Now you can just use a simple `this`. Much nicer and cleaner. Do you like it?
 
 After `save()`, the model from the server will be sent to the callback as `response`. This model object will contain the `id` of our model. The `id` comes from our database. You can use it in the response message.
+
+In ES2015 you can use shorthand property names also. Instead of writing `{ email: email }`, you can just use `{ email }`. As you see in the arrow function, you can omit braces if the function has only one param. Instead of `.then((response) => {})`, we use only `.then(response => { })`.
 
 Great, our home page is ready.
 
