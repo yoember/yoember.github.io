@@ -1038,9 +1038,9 @@ Add the following code to your `app/routes/admin/invitations.js` file:
 
 ```js
 // app/routes/admin/invitations.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
 
   model() {
     return this.store.findAll('invitation');
@@ -1064,11 +1064,12 @@ Secondly we create our new route. At the moment we'll do it without Ember CLI; j
 ```js
 // app/router.js
 
-import Ember from 'ember';
+import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
 
-const Router = Ember.Router.extend({
-  location: config.locationType
+const Router = EmberRouter.extend({
+  location: config.locationType,
+  rootURL: config.rootURL
 });
 
 Router.map(function() {
@@ -1182,9 +1183,9 @@ In your `app/routes` folder create `libraries` folder and add two js files: `ind
 
 ```js
 // app/routes/libraries/index.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
 
   model() {
     return this.store.findAll('library');
@@ -1197,9 +1198,9 @@ In the route above, we retrieve all the library records from the server.
 
 ```js
 // app/routes/libraries/new.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
 
   model() {
     return this.store.createRecord('library');
@@ -1375,11 +1376,12 @@ Manually add the new `edit` route to `router.js`. We'll set up a unique `path:` 
 
 ```js
 // app/router.js
-import Ember from 'ember';
+import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
 
-const Router = Ember.Router.extend({
-  location: config.locationType
+const Router = EmberRouter.extend({
+  location: config.locationType,
+  rootURL: config.rootURL
 });
 
 Router.map(function() {
@@ -1405,9 +1407,9 @@ After inserting this extra line in our router, it's time to create our `app/rout
 
 ```js
 // app/routes/libraries/edit.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
 
   model(params) {
     return this.store.findRecord('library', params.library_id);
