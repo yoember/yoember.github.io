@@ -1487,9 +1487,9 @@ The delete action is still missing. Let's update `app/routes/libraries/index.js`
 
 ```js
 // app/routes/libraries/index.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
 
   model() {
     return this.store.findAll('library');
