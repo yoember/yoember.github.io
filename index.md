@@ -1601,7 +1601,7 @@ A tiny improvement is to add a little validation to our `library` model. Please 
 ```js
 // app/models/library.js
 import DS from 'ember-data';
-import Ember from 'ember';
+import notEmpty from '@ember/object/computed';
 
 export default DS.Model.extend({
 
@@ -1609,7 +1609,7 @@ export default DS.Model.extend({
   address: DS.attr('string'),
   phone: DS.attr('string'),
 
-  isValid: Ember.computed.notEmpty('name')
+  isValid: notEmpty('name')
 });
 ```
 
@@ -1681,9 +1681,9 @@ Let's update `app/templates/libraries/edit.hbs`.
 Add the `buttonClicked` action to `library-item-form.js`.
 
 ```js
-import Ember from 'ember';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   buttonLabel: 'Save',
 
   actions: {
@@ -1727,15 +1727,15 @@ With these two new hooks, our `app/routes/libraries/new.js` should look like thi
 
 ```js
 // app/routes/libraries/new.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
 
-  model: function () {
+  model() {
     return this.store.createRecord('library');
   },
 
-  setupController: function (controller, model) {
+  setupController(controller, model) {
     this._super(controller, model);
 
     controller.set('title', 'Create a new library');
@@ -1767,9 +1767,9 @@ And our `edit.js`
 
 ```js
 // app/routes/libraries/edit.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
 
   model(params) {
     return this.store.findRecord('library', params.library_id);
@@ -1828,13 +1828,13 @@ Update `app/components/nav-link-to.js`:
 
 ```js
 // app/components/nav-link-to.js
-import Ember from 'ember';
+import LinkComponent from '@ember/routing/link-component';
 
-export default Ember.LinkComponent.extend({
+export default LinkComponent.extend({
   tagName: 'li'
 });
 ```
-Note: don't forget to change `Ember.Component.extend` to `Ember.LinkComponent.extend`.
+Note: don't forget to change the import statement from `import Component from '@ember/component'` to `import LinkComponent from '@ember/routing/link-component'` and `Component.extend` to `LinkComponent.extend`.
 
 The corresponding `nav-link-to` template will be the following:
 
