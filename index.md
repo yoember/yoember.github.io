@@ -1907,7 +1907,7 @@ Now add a `hasMany` relation to the `library` model manually.
 ```js
 // app/models/library.js
 import DS from 'ember-data';
-import Ember from 'ember';
+import notEmpty from '@ember/object/computed';
 
 export default DS.Model.extend({
 
@@ -1917,7 +1917,7 @@ export default DS.Model.extend({
 
   books: DS.hasMany('book'),
 
-  isValid: Ember.computed.notEmpty('name'),
+  isValid: notEmpty('name'),
 });
 ```
 
@@ -1933,11 +1933,12 @@ Check `router.js`. A new route should be there which points to `seeder`.
 
 ```js
 // app/router.js
-import Ember from 'ember';
+import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
 
-const Router = Ember.Router.extend({
-  location: config.locationType
+const Router = EmberRouter.extend({
+  location: config.locationType,
+  rootURL: config.rootURL
 });
 
 Router.map(function() {
