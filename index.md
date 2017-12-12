@@ -2006,14 +2006,17 @@ For downloading multiple models in the same route we have to use the `Ember.RSVP
 
 `RSVP.hash` wraps multiple promises and returns a nicely structured hashed object. More information: <http://emberjs.com/api/classes/RSVP.html#method_hash>
 
+*We can import `hash` directly from `rsvp` package.*
+
 ```js
 // app/routes/admin/seeder.js
-import Ember from 'ember';
+import { hash } from 'rsvp';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
 
   model() {
-    return Ember.RSVP.hash({
+    return hash({
       libraries: this.store.findAll('library'),
       books: this.store.findAll('book'),
       authors: this.store.findAll('author')
@@ -2043,9 +2046,9 @@ You've already used a couple of hooks in routes, like `model` and `setupControll
 You can use the following snippet to experiment with them in one of your routes.
 
 ```js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
 
   init() {
     debugger;
