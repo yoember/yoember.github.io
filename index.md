@@ -2102,9 +2102,9 @@ Setup `css` class names in the component controller.
 
 ```js
 // app/components/number-box.js
-import Ember from 'ember';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
 
   classNames: ['panel', 'panel-warning']
 
@@ -2154,16 +2154,17 @@ Insert the following codes in your component javascript files and templates.
 
 ```js
 // app/components/seeder-block.js
-import Ember from 'ember';
+import { lte, not, or } from '@ember/object/computed';
+import Component from '@ember/component';
 
 const MAX_VALUE = 100;
 
-export default Ember.Component.extend({
+export default Component.extend({
 
   counter: null,
 
-  isCounterValid: Ember.computed.lte('counter', MAX_VALUE),
-  isCounterNotValid: Ember.computed.not('isCounterValid'),
+  isCounterValid: lte('counter', MAX_VALUE),
+  isCounterNotValid: not('isCounterValid'),
   placeholder: `Max ${MAX_VALUE}`,
 
   generateReady: false,
@@ -2172,8 +2173,8 @@ export default Ember.Component.extend({
   generateInProgress: false,
   deleteInProgress: false,
 
-  generateIsDisabled: Ember.computed.or('isCounterNotValid', 'generateInProgress', 'deleteInProgress'),
-  deleteIsDisabled: Ember.computed.or('generateInProgress', 'deleteInProgress'),
+  generateIsDisabled: or('isCounterNotValid', 'generateInProgress', 'deleteInProgress'),
+  deleteIsDisabled: or('generateInProgress', 'deleteInProgress'),
 
   actions: {
 
@@ -2230,9 +2231,11 @@ export default Ember.Component.extend({
 
 ```js
 // app/components/fader-label.js
-import Ember from 'ember';
+import { later, cancel } from '@ember/runloop';
+import { observer } from '@ember/object';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: 'span',
 
   classNames: ['label label-success label-fade'],
@@ -2240,18 +2243,18 @@ export default Ember.Component.extend({
 
   isShowing: false,
 
-  isShowingChanged: Ember.observer('isShowing', function() {
+  isShowingChanged: observer('isShowing', function() {
 
     // User can navigate away from this page in less than 3 seconds, so this component will be destroyed,
     // however our "setTimeout" task try to run.
-    // We save this task in a local variable, so it can be cleaned up during the destroy process.
+    // We save this task in a local variable, so we can clean up during the destroy process.
     // Otherwise you will see a "calling set on destroyed object" error.
-    this._runLater = Ember.run.later(() => this.set('isShowing', false), 3000);
+    this._runLater = later(() => this.set('isShowing', false), 3000);
   }),
 
   resetRunLater() {
     this.set('isShowing', false);
-    Ember.run.cancel(this._runLater);
+    cancel(this._runLater);
   },
 
   willDestroy() {
@@ -2358,8 +2361,8 @@ Update your models with the followings.
 
 ```js
 // app/models/library.js
+import { notEmpty } from '@ember/object/computed';
 import DS from 'ember-data';
-import Ember from 'ember';
 import Faker from 'faker';
 
 export default DS.Model.extend({
@@ -2368,9 +2371,9 @@ export default DS.Model.extend({
   address: DS.attr('string'),
   phone: DS.attr('string'),
 
-  books: DS.hasMany('book', {inverse: 'library', async: true}),
+  books: DS.hasMany('book', { inverse: 'library', async: true }),
 
-  isValid: Ember.computed.notEmpty('name'),
+  isValid: notEmpty('name'),
 
   randomize() {
     this.set('name', Faker.company.companyName() + ' Library');
