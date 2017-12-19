@@ -2671,9 +2671,9 @@ We would like to list all authors, when the user visits Authors page, we have to
 
 ```js
 // app/routes/authors.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
 
   model() {
     return this.store.findAll('author');
@@ -2772,16 +2772,20 @@ Update your `authors.hbs` template:
 </table> {% endraw %}
 ```
 
-Implement `isNotValid` method in your model with adding this line to `app/models/author.js`:
+Implement `isNotValid` method in your model with adding an import and a computed property to `app/models/author.js`:
 
-    isNotValid: Ember.computed.empty('name'),
+    import { empty } from '@ember/object/computed';
+    ...
+
+    isNotValid: empty('name'),
 
 And add `actions` to `app/routes/authors.js`:
 
 ```js
 // app/routes/authors.js
-import Ember from 'ember';
-export default Ember.Route.extend({
+import Route from '@ember/routing/route';
+
+export default Route.extend({
 
   model() {
     return this.store.findAll('author');
