@@ -2401,8 +2401,8 @@ export default DS.Model.extend({
   title: DS.attr('string'),
   releaseYear: DS.attr('date'),
 
-  author: DS.belongsTo('author', {inverse: 'books', async: true}),
-  library: DS.belongsTo('library', {inverse: 'books', async: true}),
+  author: DS.belongsTo('author', { inverse: 'books', async: true }),
+  library: DS.belongsTo('library', { inverse: 'books', async: true }),
 
   randomize(author, library) {
     this.set('title', this._bookTitle());
@@ -2437,7 +2437,7 @@ import Faker from 'faker';
 export default DS.Model.extend({
 
   name: DS.attr('string'),
-  books: DS.hasMany('book', {inverse: 'author', async: true}),
+  books: DS.hasMany('book', { inverse: 'author', async: true }),
 
   isNotValid: empty('name'),
 
@@ -2660,7 +2660,7 @@ We are going to focus here on Authors page, we build it up together, after as a 
 
   ```js
   name: DS.attr('string'),
-  books: DS.hasMany('book', {inverse: 'author'}),
+  books: DS.hasMany('book', { inverse: 'author' }),
   ```
 
  So we have a `name` field and a `books` field, which is related to the `Book` model. The `inverse` property is not really necessary, because we follow strictly the conventions, but I just leave there, so you can learn more about it in the official guide: <https://guides.emberjs.com/v{{ page.ember_version}}.0/models/relationships/#toc_explicit-inverses>
