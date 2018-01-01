@@ -1,19 +1,19 @@
 ---
 layout: home
-last_modified_at: 29/12/2017
-meta_datetime: '2017-12-29'
-meta_published: '29 Dec 2017'
-title: 'Ember.js 2 Tutorial - From beginner to advance'
+last_modified_at: 03/01/2018
+meta_datetime: '2018-01-03'
+meta_published: '3 Jan 2018'
+title: 'Ember.js Tutorial - From beginner to advance'
 identifier: 'library-app'
-ember_cli_version: '2.17.2'
-ember_version: '2.17'
+ember_cli_version: '2.18.0'
+ember_version: '2.18'
 node_version: '8.9.3'
 ---
-# Ember.js 2 Tutorial
+# Ember.js Tutorial
 ## Building a complex web application with the latest Ember.js {{ page.ember_version }}
 <p class="blog-post-meta">Latest update: <time datetime="{{ page.meta_datetime }}" itemprop="datePublished">{{ page.meta_published }}</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
-Welcome! This is an [Ember.js tutorial](http://yoember.com) from the absolute beginner level. At the end of the course we touch some advanced topic as well. This tutorial is always up-to-date. The tutorial is compatible with the upcoming Ember.js 3 also.
+Welcome! This is an [Ember.js tutorial](http://yoember.com) from the absolute beginner level. At the end of the course we touch some advanced topic as well. This tutorial is always up-to-date. The tutorial is compatible with the upcoming Ember.js 3.0 also.
 
 Please check the [Live Demo](https://library-app.firebaseapp.com) page and play with the app what we are going to build together.
 
