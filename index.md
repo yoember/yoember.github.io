@@ -1,13 +1,13 @@
 ---
 layout: home
-last_modified_at: 03/01/2018
-meta_datetime: '2018-01-03'
-meta_published: '3 Jan 2018'
+last_modified_at: 05/01/2018
+meta_datetime: '2018-01-05'
+meta_published: '5 Jan 2018'
 title: 'Ember.js Tutorial - From beginner to advance'
 identifier: 'library-app'
 ember_cli_version: '2.18.0'
 ember_version: '2.18'
-node_version: '8.9.3'
+node_version: '8.9.4'
 ---
 # Ember.js Tutorial
 ## Building a complex web application with the latest Ember.js {{ page.ember_version }}
