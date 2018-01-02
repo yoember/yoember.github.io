@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ember.js v2.17 Tutorial - Building a complex web application</title>
-    <description>Free Ember.js tutorial for absolute beginners. Build a CRUD application from step by step with the latest Ember.js v2.17.
+    <title>Ember.js v2.18 Tutorial - Building a complex web application</title>
+    <description>Free Ember.js tutorial for absolute beginners. Build a CRUD application from step by step with the latest Ember.js v2.18.
 </description>
     <link>http://yoember.com/</link>
     <atom:link href="http://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 29 Dec 2017 14:00:38 +1300</pubDate>
-    <lastBuildDate>Fri, 29 Dec 2017 14:00:38 +1300</lastBuildDate>
+    <pubDate>Wed, 03 Jan 2018 01:19:42 +1300</pubDate>
+    <lastBuildDate>Wed, 03 Jan 2018 01:19:42 +1300</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
