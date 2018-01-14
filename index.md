@@ -1601,7 +1601,7 @@ A tiny improvement is to add a little validation to our `library` model. Please 
 ```js
 // app/models/library.js
 import DS from 'ember-data';
-import notEmpty from '@ember/object/computed';
+import { notEmpty } from '@ember/object/computed';
 
 export default DS.Model.extend({
 
@@ -1907,7 +1907,7 @@ Now add a `hasMany` relation to the `library` model manually.
 ```js
 // app/models/library.js
 import DS from 'ember-data';
-import notEmpty from '@ember/object/computed';
+import { notEmpty } from '@ember/object/computed';
 
 export default DS.Model.extend({
 
