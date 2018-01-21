@@ -5,7 +5,7 @@ meta_datetime: '2018-01-17'
 meta_published: '17 Jan 2018'
 title: 'Ember.js Tutorial - From beginner to advance'
 identifier: 'library-app'
-ember_cli_version: '2.18.0'
+ember_cli_version: '2.18.1'
 ember_version: '2.18'
 node_version: '8.9.4'
 ---
