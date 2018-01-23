@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "How To Keep Your Ember.js Project Up-To-Date"
-date: 2017-06-06T09:28:13+12:00
+title: "How To Update Ember.js"
+date: 2018-02-17T09:28:13+12:00
 author: Zoltan
 categories: emberjs
 identifier: 'update-emberjs'
@@ -47,5 +47,9 @@ For avoiding package conflicts the most safest solution if you just remove these
     $ npm install && bower install
 
 Good luck! :)
+
+### Helper tools for updating old Ember applications
+
+[Ember Modules Codemod](https://github.com/ember-cli/ember-modules-codemod) - rewrite your code with using the new import module syntax.
 
 > Don't forget to check out the new chapter of the free [Ember.js](http://yoember.com) tutorial
