@@ -6,9 +6,77 @@
 </description>
     <link>http://yoember.com/</link>
     <atom:link href="http://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 22 Jan 2018 22:38:10 +1300</pubDate>
-    <lastBuildDate>Mon, 22 Jan 2018 22:38:10 +1300</lastBuildDate>
+    <pubDate>Sat, 17 Feb 2018 13:58:03 +0100</pubDate>
+    <lastBuildDate>Sat, 17 Feb 2018 13:58:03 +0100</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>How To Update Ember.js</title>
+        <description>&lt;p&gt;You can keep your Ember application up-to-date with a few simple steps.&lt;/p&gt;
+
+&lt;p&gt;One of the most important that always follow and read the blog posts about the new version on Ember.js website.&lt;/p&gt;
+
+&lt;p&gt;My strategy is quite simple. I would like to know which packages are changed. Outside of the active project, I update ember-cli, and I create a new dummy app, so I can compare the version numbers and every type of changes between the new dummy app and my older active project.&lt;/p&gt;
+
+&lt;h3 id=&quot;upgrade-ember-cli&quot;&gt;Upgrade ember-cli&lt;/h3&gt;
+
+&lt;p&gt;Outside your older ember app folder:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd ~
+$ npm install -g ember-cli
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Check your ember-cli version (outside of your project folder).&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd ~
+$ ember -v
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You should see the latest version.&lt;/p&gt;
+
+&lt;h3 id=&quot;create-a-new-dummy-ember-application&quot;&gt;Create a new dummy ember application&lt;/h3&gt;
+
+&lt;p&gt;So we can compare packages in &lt;code class=&quot;highlighter-rouge&quot;&gt;bower.json&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd ~/projects/temp
+$ ember new my-latest-app
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;upgrade-version-numbers-in-your-old-project-to-match-with-the-new-dummy-app&quot;&gt;Upgrade version numbers in your old project to match with the new dummy app.&lt;/h3&gt;
+
+&lt;p&gt;Check your &lt;code class=&quot;highlighter-rouge&quot;&gt;bower.json&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt; align the version numbers in your old project to match with the new defaults. (Update ember-cli, ember, ember-data, etc.) It is time to double check your other packages, like sass or firebase, etc. packages also, maybe there are an updated version which is compatible with the new Ember.&lt;/p&gt;
+
+&lt;h3 id=&quot;remove-bower_components-and-node_modules&quot;&gt;Remove &lt;code class=&quot;highlighter-rouge&quot;&gt;bower_components&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;node_modules&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;For avoiding package conflicts the most safest solution if you just remove these folders and reinstall all your packages.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd my-updated-project
+$ rm -rf bower_components node_modules
+$ npm install &amp;amp;&amp;amp; bower install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Good luck! :)&lt;/p&gt;
+
+&lt;h3 id=&quot;helper-tools-for-updating-old-ember-applications&quot;&gt;Helper tools for updating old Ember applications&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/ember-cli/ember-modules-codemod&quot;&gt;Ember Modules Codemod&lt;/a&gt; - rewrite your code with using the new import module syntax.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Don’t forget to check out the new chapter of the free &lt;a href=&quot;http://yoember.com&quot;&gt;Ember.js&lt;/a&gt; tutorial&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Fri, 16 Feb 2018 22:28:13 +0100</pubDate>
+        <link>http://yoember.com/emberjs/how-to-keep-your-ember-js-project-up-to-date/</link>
+        <guid isPermaLink="true">http://yoember.com/emberjs/how-to-keep-your-ember-js-project-up-to-date/</guid>
+        
+        
+        <category>emberjs</category>
+        
+      </item>
     
       <item>
         <title>The Best Way to Install Node.js</title>
@@ -171,7 +239,7 @@ $ npm install -g ember-cli
 
 &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
 </description>
-        <pubDate>Fri, 05 Jan 2018 00:50:00 +1300</pubDate>
+        <pubDate>Thu, 04 Jan 2018 12:50:00 +0100</pubDate>
         <link>http://yoember.com/nodejs/the-best-way-to-install-node-js/</link>
         <guid isPermaLink="true">http://yoember.com/nodejs/the-best-way-to-install-node-js/</guid>
         
@@ -181,74 +249,10 @@ $ npm install -g ember-cli
       </item>
     
       <item>
-        <title>How To Keep Your Ember.js Project Up-To-Date</title>
-        <description>&lt;p&gt;You can keep your Ember application up-to-date with a few simple steps.&lt;/p&gt;
-
-&lt;p&gt;One of the most important that always follow and read the blog posts about the new version on Ember.js website.&lt;/p&gt;
-
-&lt;p&gt;My strategy is quite simple. I would like to know which packages are changed. Outside of the active project, I update ember-cli, and I create a new dummy app, so I can compare the version numbers and every type of changes between the new dummy app and my older active project.&lt;/p&gt;
-
-&lt;h3 id=&quot;upgrade-ember-cli&quot;&gt;Upgrade ember-cli&lt;/h3&gt;
-
-&lt;p&gt;Outside your older ember app folder:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd ~
-$ npm install -g ember-cli
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Check your ember-cli version (outside of your project folder).&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd ~
-$ ember -v
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;You should see the latest version.&lt;/p&gt;
-
-&lt;h3 id=&quot;create-a-new-dummy-ember-application&quot;&gt;Create a new dummy ember application&lt;/h3&gt;
-
-&lt;p&gt;So we can compare packages in &lt;code class=&quot;highlighter-rouge&quot;&gt;bower.json&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd ~/projects/temp
-$ ember new my-latest-app
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;upgrade-version-numbers-in-your-old-project-to-match-with-the-new-dummy-app&quot;&gt;Upgrade version numbers in your old project to match with the new dummy app.&lt;/h3&gt;
-
-&lt;p&gt;Check your &lt;code class=&quot;highlighter-rouge&quot;&gt;bower.json&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt; align the version numbers in your old project to match with the new defaults. (Update ember-cli, ember, ember-data, etc.) It is time to double check your other packages, like sass or firebase, etc. packages also, maybe there are an updated version which is compatible with the new Ember.&lt;/p&gt;
-
-&lt;h3 id=&quot;remove-bower_components-and-node_modules&quot;&gt;Remove &lt;code class=&quot;highlighter-rouge&quot;&gt;bower_components&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;node_modules&lt;/code&gt;&lt;/h3&gt;
-
-&lt;p&gt;For avoiding package conflicts the most safest solution if you just remove these folders and reinstall all your packages.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd my-updated-project
-$ rm -rf bower_components node_modules
-$ npm install &amp;amp;&amp;amp; bower install
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Good luck! :)&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Don’t forget to check out the new chapter of the free &lt;a href=&quot;http://yoember.com&quot;&gt;Ember.js&lt;/a&gt; tutorial&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Tue, 06 Jun 2017 09:28:13 +1200</pubDate>
-        <link>http://yoember.com/emberjs/how-to-keep-your-ember-js-project-up-to-date/</link>
-        <guid isPermaLink="true">http://yoember.com/emberjs/how-to-keep-your-ember-js-project-up-to-date/</guid>
-        
-        
-        <category>emberjs</category>
-        
-      </item>
-    
-      <item>
         <title>How You Keep Your Ember Js Project Up To Date</title>
         <description>
 </description>
-        <pubDate>Thu, 01 Sep 2016 00:00:00 +1200</pubDate>
+        <pubDate>Thu, 01 Sep 2016 00:00:00 +0200</pubDate>
         <link>http://yoember.com/emberjs/how-you-keep-your-ember-js-project-up-to-date/</link>
         <guid isPermaLink="true">http://yoember.com/emberjs/how-you-keep-your-ember-js-project-up-to-date/</guid>
         
