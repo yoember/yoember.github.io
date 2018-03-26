@@ -1,14 +1,184 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ember.js v2.18 Tutorial - Building a complex web application</title>
-    <description>Free Ember.js tutorial for absolute beginners. Build a CRUD application from step by step with the latest Ember.js v2.18.
+    <title>Ember.js v3.0 Tutorial - Building a complex web application</title>
+    <description>Free Ember.js tutorial for absolute beginners. Build a CRUD application from step by step with the latest Ember.js v3.0.
 </description>
     <link>http://yoember.com/</link>
     <atom:link href="http://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 17 Feb 2018 13:58:03 +0100</pubDate>
-    <lastBuildDate>Sat, 17 Feb 2018 13:58:03 +0100</lastBuildDate>
+    <pubDate>Mon, 26 Mar 2018 13:13:46 +1300</pubDate>
+    <lastBuildDate>Mon, 26 Mar 2018 13:13:46 +1300</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>The Best Way to Install Node.js</title>
+        <description>&lt;p&gt;There are a few ways to install Node.js, but it looks only one way gives you the best experience for long term.&lt;/p&gt;
+
+&lt;h3 id=&quot;on-mac&quot;&gt;On Mac&lt;/h3&gt;
+
+&lt;p&gt;The best way to install Node.js on Mac is &lt;code class=&quot;highlighter-rouge&quot;&gt;nvm&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/creationix/nvm&quot;&gt;https://github.com/creationix/nvm&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You have to have on your Mac the Command Line Tools. Or you install the full XCode from App Store either just use the small Command Line Tools installer:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ xcode-select --install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;(If you’ve just installed XCode, don’t forget to launch it first and accepting the Terms and Conditions.)&lt;/p&gt;
+
+&lt;p&gt;You can use the install script for &lt;code class=&quot;highlighter-rouge&quot;&gt;nvm&lt;/code&gt; installation.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (&lt;code class=&quot;highlighter-rouge&quot;&gt;~/.nvm&lt;/code&gt;) Secondly, you add two extra lines to your console script.&lt;/p&gt;
+
+&lt;p&gt;Please follow these steps on NVM Readme: &lt;a href=&quot;https://github.com/creationix/nvm#manual-install&quot;&gt;https://github.com/creationix/nvm#manual-install&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You have to relaunch your Terminals. Maybe you have to log out and log back to activate the new settings.&lt;/p&gt;
+
+&lt;p&gt;List your installed node versions:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;List the available node versions in the cloud:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm ls-remote
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You can use the combination of this two commands to see only the last 9 lines from the huge list of versions: &lt;code class=&quot;highlighter-rouge&quot;&gt;$ nvm ls-remote | tail -n9&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;It is safe if you choose one of the most recent LTS (long time support) version and install it with the following command:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 8.10.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Setup this version as the default.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm use 8.10.0
+$ nvm alias default 8.10.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Check your node version with&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ node -v
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;You should see &lt;code class=&quot;highlighter-rouge&quot;&gt;v8.10.0&lt;/code&gt; if you installed the above version.&lt;/p&gt;
+
+&lt;p&gt;You can update your &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; to the latest.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install -g npm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;After the update, the npm version, &lt;code class=&quot;highlighter-rouge&quot;&gt;npm -v&lt;/code&gt;, should be at least &lt;code class=&quot;highlighter-rouge&quot;&gt;5.7.1&lt;/code&gt; or above.&lt;/p&gt;
+
+&lt;p&gt;A little extra tip. Remember for the following command because it simplifies the update process. ;)&lt;/p&gt;
+
+&lt;p&gt;Let’s say, you would like to stay on the stable, LTS version and you would like to keep all the global package what you’ve already installed. Here is the solution:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 8 --reinstall-packages-from=8 --latest-npm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;It updates your Node.js version to the latest version 8 and install the latest npm, plus it setup all your previously installed global packages.&lt;/p&gt;
+
+&lt;p&gt;Alternatives for installing Node.js, but not suggested:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Official Installer: &lt;a href=&quot;https://nodejs.org/en/download/&quot;&gt;https://nodejs.org/en/download/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Using brew: &lt;a href=&quot;https://nodejs.org/en/download/package-manager/#osx&quot;&gt;https://nodejs.org/en/download/package-manager/#osx&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;on-linux&quot;&gt;On Linux&lt;/h3&gt;
+
+&lt;p&gt;Please avoid to install Node.js with &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get&lt;/code&gt; on Ubuntu.
+If you already installed Node.js with the built in package manager, please remove that. (&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get purge nodejs &amp;amp;&amp;amp; sudo apt-get autoremove &amp;amp;&amp;amp; sudo apt-get autoclean&lt;/code&gt;)&lt;/p&gt;
+
+&lt;p&gt;The installation process on Linux is the same as on OSX.&lt;/p&gt;
+
+&lt;p&gt;With the provided script:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;(Please read the instructions under OSX section.)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm list
+$ nvm ls-remote
+$ nvm install 8.10.0
+$ nvm use 8.10.0
+$ nvm alias default 8.10.0
+$ node -v
+$ npm install -g npm
+$ npm -v
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;One more thing! Don’t forget to run the following command, which increases the amount of inotify watches.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf &amp;amp;&amp;amp; sudo sysctl -p
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;on-windows&quot;&gt;On Windows&lt;/h3&gt;
+
+&lt;p&gt;On Windows, if you don’t need more version from Node.js, you can use the &lt;a href=&quot;https://nodejs.org/en/download/stable/&quot;&gt;official installer&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Install also &lt;a href=&quot;https://git-for-windows.github.io/&quot;&gt;Git for Windows&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Additionally, don’t forget to read &lt;a href=&quot;http://ember-cli.com/user-guide/#windows&quot;&gt;this instruction&lt;/a&gt;, which is very interesting not just for Ember developers, but for everybody who uses Node.js on Windows.&lt;/p&gt;
+
+&lt;p&gt;Plus install and run &lt;code class=&quot;highlighter-rouge&quot;&gt;ember-cli-windows&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install -g ember-cli-windows
+$ ember-cli-windows
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;More here: https://github.com/felixrieseberg/ember-cli-windows&lt;/p&gt;
+
+&lt;p&gt;Always run your PowerShell or CMD.exe as Administrator.&lt;/p&gt;
+
+&lt;p&gt;Don’t forget to run these two commands in PowerShell (as Administrator):&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ Set-ExecutionPolicy Unrestricted -scope Process
+$ ember-cli-windows
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Log out and log back in Windows.&lt;/p&gt;
+
+&lt;p&gt;Try to upgrade &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; and after install the latest &lt;code class=&quot;highlighter-rouge&quot;&gt;ember-cli&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install -g npm
+$ npm install -g ember-cli
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;I would suggest, experiment with different shells. Which worked better for you? PowerShell, Git Shell, the original CMD.exe? Please, share your Windows experiment in a comment.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Now, you have Node.js on your machine, it’s time to go back to the &lt;a href=&quot;http://yoember.com&quot;&gt;Ember Tutorial&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+</description>
+        <pubDate>Mon, 26 Mar 2018 00:50:00 +1300</pubDate>
+        <link>http://yoember.com/nodejs/the-best-way-to-install-node-js/</link>
+        <guid isPermaLink="true">http://yoember.com/nodejs/the-best-way-to-install-node-js/</guid>
+        
+        
+        <category>nodejs</category>
+        
+      </item>
     
       <item>
         <title>How To Update Ember.js</title>
@@ -69,7 +239,7 @@ $ npm install &amp;amp;&amp;amp; bower install
   &lt;p&gt;Don’t forget to check out the new chapter of the free &lt;a href=&quot;http://yoember.com&quot;&gt;Ember.js&lt;/a&gt; tutorial&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
-        <pubDate>Fri, 16 Feb 2018 22:28:13 +0100</pubDate>
+        <pubDate>Sat, 17 Feb 2018 10:28:13 +1300</pubDate>
         <link>http://yoember.com/emberjs/how-to-keep-your-ember-js-project-up-to-date/</link>
         <guid isPermaLink="true">http://yoember.com/emberjs/how-to-keep-your-ember-js-project-up-to-date/</guid>
         
@@ -79,180 +249,10 @@ $ npm install &amp;amp;&amp;amp; bower install
       </item>
     
       <item>
-        <title>The Best Way to Install Node.js</title>
-        <description>&lt;p&gt;There are a few ways to install Node.js, but it looks only one way gives you the best experience for long term.&lt;/p&gt;
-
-&lt;h3 id=&quot;on-mac&quot;&gt;On Mac&lt;/h3&gt;
-
-&lt;p&gt;The best way to install Node.js on Mac is &lt;code class=&quot;highlighter-rouge&quot;&gt;nvm&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/creationix/nvm&quot;&gt;https://github.com/creationix/nvm&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;You have to have on your Mac the Command Line Tools. Or you install the full XCode from App Store either just use the small Command Line Tools installer:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ xcode-select --install
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;(If you’ve just installed XCode, don’t forget to launch it first and accepting the Terms and Conditions.)&lt;/p&gt;
-
-&lt;p&gt;You can use the install script for &lt;code class=&quot;highlighter-rouge&quot;&gt;nvm&lt;/code&gt; installation.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (&lt;code class=&quot;highlighter-rouge&quot;&gt;~/.nvm&lt;/code&gt;) Secondly, you add two extra lines to your console script.&lt;/p&gt;
-
-&lt;p&gt;Please follow these steps on NVM Readme: &lt;a href=&quot;https://github.com/creationix/nvm#manual-install&quot;&gt;https://github.com/creationix/nvm#manual-install&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;You have to relaunch your Terminals. Maybe you have to log out and log back to activate the new settings.&lt;/p&gt;
-
-&lt;p&gt;List your installed node versions:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm list
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;List the available node versions in the cloud:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm ls-remote
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;You can use the combination of this two commands to see only the last 9 lines from the huge list of versions: &lt;code class=&quot;highlighter-rouge&quot;&gt;$ nvm ls-remote | tail -n9&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;It is safe if you choose one of the most recent LTS (long time support) version and install it with the following command:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 8.9.4
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Setup this version as the default.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm use 8.9.4
-$ nvm alias default 8.9.4
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Check your node version with&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ node -v
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;You should see &lt;code class=&quot;highlighter-rouge&quot;&gt;v8.9.4&lt;/code&gt; if you installed the above version.&lt;/p&gt;
-
-&lt;p&gt;You can update your &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; to the latest.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install -g npm
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;After the update, the npm version, &lt;code class=&quot;highlighter-rouge&quot;&gt;npm -v&lt;/code&gt;, should be at least &lt;code class=&quot;highlighter-rouge&quot;&gt;5.6.0&lt;/code&gt; or above.&lt;/p&gt;
-
-&lt;p&gt;A little extra tip. Remember for the following command because it simplifies the update process. ;)&lt;/p&gt;
-
-&lt;p&gt;Let’s say, you would like to stay on the stable, LTS version and you would like to keep all the global package what you’ve already installed. Here is the solution:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 8 --reinstall-packages-from=8 --latest-npm
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;It updates your Node.js version to the latest version 8 and install the latest npm, plus it setup all your previously installed global packages.&lt;/p&gt;
-
-&lt;p&gt;Alternatives for installing Node.js, but not suggested:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Official Installer: &lt;a href=&quot;https://nodejs.org/en/download/&quot;&gt;https://nodejs.org/en/download/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Using brew: &lt;a href=&quot;https://nodejs.org/en/download/package-manager/#osx&quot;&gt;https://nodejs.org/en/download/package-manager/#osx&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;on-linux&quot;&gt;On Linux&lt;/h3&gt;
-
-&lt;p&gt;Please avoid to install Node.js with &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get&lt;/code&gt; on Ubuntu.
-If you already installed Node.js with the built in package manager, please remove that. (&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get purge nodejs &amp;amp;&amp;amp; sudo apt-get autoremove &amp;amp;&amp;amp; sudo apt-get autoclean&lt;/code&gt;)&lt;/p&gt;
-
-&lt;p&gt;The installation process on Linux is the same as on OSX.&lt;/p&gt;
-
-&lt;p&gt;With the provided script:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;(Please read the instructions under OSX section.)&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm list
-$ nvm ls-remote
-$ nvm install 8.9.4
-$ nvm use 8.9.4
-$ nvm alias default 8.9.4
-$ node -v
-$ npm install -g npm
-$ npm -v
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;One more thing! Don’t forget to run the following command, which increases the amount of inotify watches.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf &amp;amp;&amp;amp; sudo sysctl -p
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;on-windows&quot;&gt;On Windows&lt;/h3&gt;
-
-&lt;p&gt;On Windows, if you don’t need more version from Node.js, you can use the &lt;a href=&quot;https://nodejs.org/en/download/stable/&quot;&gt;official installer&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Install also &lt;a href=&quot;https://git-for-windows.github.io/&quot;&gt;Git for Windows&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Additionally, don’t forget to read &lt;a href=&quot;http://ember-cli.com/user-guide/#windows&quot;&gt;this instruction&lt;/a&gt;, which is very interesting not just for Ember developers, but for everybody who uses Node.js on Windows.&lt;/p&gt;
-
-&lt;p&gt;Plus install and run &lt;code class=&quot;highlighter-rouge&quot;&gt;ember-cli-windows&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install -g ember-cli-windows
-$ ember-cli-windows
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;More here: https://github.com/felixrieseberg/ember-cli-windows&lt;/p&gt;
-
-&lt;p&gt;Always run your PowerShell or CMD.exe as Administrator.&lt;/p&gt;
-
-&lt;p&gt;Don’t forget to run these two commands in PowerShell (as Administrator):&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ Set-ExecutionPolicy Unrestricted -scope Process
-$ ember-cli-windows
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Log out and log back in Windows.&lt;/p&gt;
-
-&lt;p&gt;Try to upgrade &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; and after install the latest &lt;code class=&quot;highlighter-rouge&quot;&gt;ember-cli&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install -g npm
-$ npm install -g ember-cli
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;I would suggest, experiment with different shells. Which worked better for you? PowerShell, Git Shell, the original CMD.exe? Please, share your Windows experiment in a comment.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Now, you have Node.js on your machine, it’s time to go back to the &lt;a href=&quot;http://yoember.com&quot;&gt;Ember Tutorial&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
-</description>
-        <pubDate>Thu, 04 Jan 2018 12:50:00 +0100</pubDate>
-        <link>http://yoember.com/nodejs/the-best-way-to-install-node-js/</link>
-        <guid isPermaLink="true">http://yoember.com/nodejs/the-best-way-to-install-node-js/</guid>
-        
-        
-        <category>nodejs</category>
-        
-      </item>
-    
-      <item>
         <title>How You Keep Your Ember Js Project Up To Date</title>
         <description>
 </description>
-        <pubDate>Thu, 01 Sep 2016 00:00:00 +0200</pubDate>
+        <pubDate>Thu, 01 Sep 2016 00:00:00 +1200</pubDate>
         <link>http://yoember.com/emberjs/how-you-keep-your-ember-js-project-up-to-date/</link>
         <guid isPermaLink="true">http://yoember.com/emberjs/how-you-keep-your-ember-js-project-up-to-date/</guid>
         
