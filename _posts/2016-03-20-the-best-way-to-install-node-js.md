@@ -5,8 +5,8 @@ date: 2018-03-26T00:50:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
-node_version: '8.10.0'
-npm_version: '5.7.1'
+node_version: '8.11.1'
+npm_version: '5.8.0'
 nvm_version: '0.33.8'
 ---
 
