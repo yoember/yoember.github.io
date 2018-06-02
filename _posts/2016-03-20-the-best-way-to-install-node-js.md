@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "The Best Way to Install Node.js"
-date: 2018-03-26T00:50:00+13:00
+date: 2018-06-02T00:50:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
-node_version: '8.11.1'
-npm_version: '5.8.0'
-nvm_version: '0.33.8'
+node_version: '10.3.0'
+npm_version: '6.1.0'
+nvm_version: '0.33.11'
 ---
 
 There are a few ways to install Node.js, but it looks only one way gives you the best experience for long term.
@@ -34,7 +34,7 @@ $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v{{ page.nvm_version
 
 However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (`~/.nvm`) Secondly, you add two extra lines to your console script.
 
-Please follow these steps on NVM Readme: <https://github.com/creationix/nvm#manual-install>
+Please follow these steps on NVM Readme: <https://github.com/creationix/nvm#git-install>
 
 You have to relaunch your Terminals. Maybe you have to log out and log back to activate the new settings.
 
