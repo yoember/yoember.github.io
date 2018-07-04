@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>http://yoember.com/nodejs/the-best-way-to-install-node-js/</loc>
+<loc>https://yoember.com/nodejs/the-best-way-to-install-node-js/</loc>
 <lastmod>2018-07-03T23:50:00+12:00</lastmod>
 </url>
 <url>
-<loc>http://yoember.com/emberjs/how-to-keep-your-ember-js-project-up-to-date/</loc>
+<loc>https://yoember.com/emberjs/how-to-keep-your-ember-js-project-up-to-date/</loc>
 <lastmod>2018-07-04T09:28:13+12:00</lastmod>
 </url>
 <url>
-<loc>http://yoember.com/</loc>
+<loc>https://yoember.com/</loc>
 <lastmod>2018-07-05T00:00:00+12:00</lastmod>
 </url>
 <url>
-<loc>http://yoember.com/categories/emberjs/</loc>
+<loc>https://yoember.com/categories/emberjs/</loc>
 </url>
 <url>
-<loc>http://yoember.com/categories/nodejs/</loc>
+<loc>https://yoember.com/categories/nodejs/</loc>
 </url>
 </urlset>
