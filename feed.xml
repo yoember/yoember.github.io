@@ -1,14 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ember.js v3.1 Tutorial - Building a complex web application</title>
-    <description>Free Ember.js tutorial for absolute beginners. Build a CRUD application from step by step with the latest Ember.js v3.1.
+    <title>Ember.js v3.2 Tutorial - Building a complex web application</title>
+    <description>Free Ember.js tutorial for absolute beginners. Build a CRUD application from step by step with the latest Ember.js v3.2.
 </description>
     <link>http://yoember.com/</link>
     <atom:link href="http://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 02 Jun 2018 16:34:55 +1200</pubDate>
-    <lastBuildDate>Sat, 02 Jun 2018 16:34:55 +1200</lastBuildDate>
+    <pubDate>Wed, 04 Jul 2018 23:28:33 +1200</pubDate>
+    <lastBuildDate>Wed, 04 Jul 2018 23:28:33 +1200</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>How To Update Ember.js</title>
+        <description>&lt;p&gt;You can keep your Ember application up-to-date with a few simple steps.&lt;/p&gt;
+
+&lt;h3 id=&quot;use-ember-cli-update&quot;&gt;Use ember-cli-update&lt;/h3&gt;
+
+&lt;p&gt;Update dependencies:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd your-project-directory
+$ npx ember-cli-update
+$ npm install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Test your application, if you are happy commit these changes.&lt;/p&gt;
+
+&lt;p&gt;Let’s run the “codemods”, so it will update our sourcecode to the latest standard.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npx ember-cli-update --run-codemods
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Run your tests, check your project again. I’m sure, it will be perfect.&lt;/p&gt;
+
+&lt;p&gt;Done. ;)&lt;/p&gt;
+
+&lt;p&gt;More details: &lt;a href=&quot;https://github.com/ember-cli/ember-cli-update&quot;&gt;Ember CLI Update addon&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;a-few-maintenance-tip&quot;&gt;A few maintenance tip&lt;/h3&gt;
+
+&lt;p&gt;You can use &lt;code class=&quot;highlighter-rouge&quot;&gt;ncu&lt;/code&gt;, “npm check updates” to see which other package in your project is deprecated.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npx ncu
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Sometimes it is quite useful to clean up your project’s temporary folders (&lt;code class=&quot;highlighter-rouge&quot;&gt;tmp&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;dist&lt;/code&gt;), &lt;code class=&quot;highlighter-rouge&quot;&gt;node_modules&lt;/code&gt;, reinitialise the lock file and reinstall all the packages and rebuild the project.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ rm -rf node_modules package-lock.json tmp dist
+$ npm i
+$ ember build  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Don’t forget to check out the new chapter of the free &lt;a href=&quot;http://yoember.com&quot;&gt;Ember.js&lt;/a&gt; tutorial&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Wed, 04 Jul 2018 09:28:13 +1200</pubDate>
+        <link>http://yoember.com/emberjs/how-to-keep-your-ember-js-project-up-to-date/</link>
+        <guid isPermaLink="true">http://yoember.com/emberjs/how-to-keep-your-ember-js-project-up-to-date/</guid>
+        
+        
+        <category>emberjs</category>
+        
+      </item>
     
       <item>
         <title>The Best Way to Install Node.js</title>
@@ -56,14 +113,14 @@
 
 &lt;p&gt;It is safe if you choose one of the most recent LTS (long time support) version and install it with the following command:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 10.3.0
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 10.5.0
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Setup this version as the default.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm use 10.3.0
-$ nvm alias default 10.3.0
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm use 10.5.0
+$ nvm alias default 10.5.0
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;Check your node version with&lt;/p&gt;
@@ -71,7 +128,7 @@ $ nvm alias default 10.3.0
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ node -v
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;You should see &lt;code class=&quot;highlighter-rouge&quot;&gt;v10.3.0&lt;/code&gt; if you installed the above version.&lt;/p&gt;
+&lt;p&gt;You should see &lt;code class=&quot;highlighter-rouge&quot;&gt;v10.5.0&lt;/code&gt; if you installed the above version.&lt;/p&gt;
 
 &lt;p&gt;You can update your &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; to the latest.&lt;/p&gt;
 
@@ -115,9 +172,9 @@ If you already installed Node.js with the built in package manager, please remov
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm list
 $ nvm ls-remote
-$ nvm install 10.3.0
-$ nvm use 10.3.0
-$ nvm alias default 10.3.0
+$ nvm install 10.5.0
+$ nvm use 10.5.0
+$ nvm alias default 10.5.0
 $ node -v
 $ npm install -g npm
 $ npm -v
@@ -171,41 +228,12 @@ $ npm install -g ember-cli
 
 &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
 </description>
-        <pubDate>Fri, 01 Jun 2018 23:50:00 +1200</pubDate>
+        <pubDate>Tue, 03 Jul 2018 23:50:00 +1200</pubDate>
         <link>http://yoember.com/nodejs/the-best-way-to-install-node-js/</link>
         <guid isPermaLink="true">http://yoember.com/nodejs/the-best-way-to-install-node-js/</guid>
         
         
         <category>nodejs</category>
-        
-      </item>
-    
-      <item>
-        <title>How To Update Ember.js</title>
-        <description>&lt;p&gt;You can keep your Ember application up-to-date with a few simple steps.&lt;/p&gt;
-
-&lt;h3 id=&quot;use-ember-cli-update&quot;&gt;Use ember-cli-update&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cd your-project-directory
-$ ember install ember-cli-update
-$ ember update
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Done. ;)&lt;/p&gt;
-
-&lt;p&gt;More details: &lt;a href=&quot;https://github.com/ember-cli/ember-cli-update&quot;&gt;Ember CLI Update addon&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Don’t forget to check out the new chapter of the free &lt;a href=&quot;http://yoember.com&quot;&gt;Ember.js&lt;/a&gt; tutorial&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Sun, 15 Apr 2018 09:28:13 +1200</pubDate>
-        <link>http://yoember.com/emberjs/how-to-keep-your-ember-js-project-up-to-date/</link>
-        <guid isPermaLink="true">http://yoember.com/emberjs/how-to-keep-your-ember-js-project-up-to-date/</guid>
-        
-        
-        <category>emberjs</category>
         
       </item>
     
