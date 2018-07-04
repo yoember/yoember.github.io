@@ -1,13 +1,13 @@
 ---
 layout: home
-last_modified_at: 02/06/2018
-meta_datetime: '2018-06-02'
-meta_published: '2 Jun 2018'
+last_modified_at: 05/07/2018
+meta_datetime: '2018-07-05'
+meta_published: '5 Jul 2018'
 title: 'Ember.js Tutorial - From beginner to advance'
 identifier: 'library-app'
-ember_cli_version: '3.1.4'
-ember_version: '3.1'
-node_version: '10.3.0'
+ember_cli_version: '3.2'
+ember_version: '3.2'
+node_version: '10.5.0'
 ---
 # Ember.js Tutorial
 ## Building a complex web application with the latest Ember.js {{ page.ember_version }}
@@ -427,7 +427,7 @@ Please note, I will use the new, preferred syntax in our project. You could ask,
 
 Computed properties and observers still could be written in two ways, however the classic syntax will be deprecated soon, but it is important to know the "old" syntax and the "new" syntax, so when you see older project, you will recognise this pattern.
 
-Previously `.property()` and `.observes()` were attached to the end of the functions. Nowadays we use `Ember.computed()` and `Ember.observer()` functions instead. (One more thing. From Ember v2.17 there is a shorter syntax also.) Let's see in examples.
+Previously `.property()` and `.observes()` were attached to the end of the functions. Nowadays we use `Ember.computed()` and `Ember.observer()` functions instead. (Two more things. From Ember v2.17 there is a shorter syntax also. From Ember v3.1 we can simplify further our code. Yey!) Let's see in examples.
 
 Old (with ES5 string concatenation):
 
@@ -465,17 +465,30 @@ fullName: computed('firstName', 'lastName', function() {
 //...
 ```
 
-We will use the new syntax. 
+From Ember v3.1, it will work without `.get()` as well:
 
-The `computed()` function could have more parameters. The first parameters are always variables/properties in string format; what we would like to use inside our function. The last parameter is a `function()`. Inside this function we will have access to the properties with `this.get()`. In Ember.js we read properties with `this.get('propertyName')` and update properties with `this.set('propertyName', newValue)`.
+```javascript
+import { computed } from '@ember/object';
+
+//...
+
+fullName: computed('firstName', 'lastName', function() {
+  return `${this.firstName} ${this.lastName}`;
+})
+//...
+```
+
+The `computed()` function could have more parameters. The first parameters are always variables/properties in string format; what we would like to use inside our function. The last parameter is a `function()`. Inside this function we will have access to the properties with `this.get()` or from Ember v3.1 just simply `this.propertyName`. For example, read `firstName` property with `this.get('firstName')` or (from Ember v3.1) `this.firstName` and update properties with `this.set('firstName', 'someNewValue')`. (Please note, we still have to use `this.set()` in the latest Ember also.)
 
 *From Ember version 2.17, we import directly the `computed` function instead of using the global `Ember` namespace. It means, you will use `computed()` mainly in your codebase and not `Ember.computed()`.*
+
+*From Ember version 3.1, we can omit `.get()` in computed properties. However, there are some special cases when we still have to use it. Please read more about this changes here: [ES5 Getters for Computed Properties](https://www.emberjs.com/blog/2018/04/13/ember-3-1-released.html#toc_es5-getters-for-computed-properties-2-of-4).*
 
 Back to our project. Let's play with these new features.
 
 Update the html code with input component syntax and add a `value` to the email input box.
 
-Modify `<input>` line as follow in `index.hbs`:
+Modify `<input>` line as follow in `index.hbs`, please note we changed our angle brackets to curly braces:
 
 ```hbs {% raw %}
 {{input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"}}{% endraw %}
