@@ -31,14 +31,16 @@ More details: [Ember CLI Update addon](https://github.com/ember-cli/ember-cli-up
 
 ### A few maintenance tip
 
-You can use `ncu`, "npm check updates" to see which other package in your project is deprecated.
+You can use `ncu` (npm check updates) to see which other package is deprecated in your project.
 
     $ npx ncu
+
+More details about `ncu`: <https://github.com/tjunnone/npm-check-updates>
   
-Sometimes it is quite useful to clean up your project's temporary folders (`tmp`, `dist`), `node_modules`, reinitialise the lock file and reinstall all the packages and rebuild the project.
+Sometimes it is quite useful to clean up your project's temporary folders (`tmp`, `dist`), `node_modules`, reinitialise the lock file, reinstall all the packages and rebuild the project.
 
     $ rm -rf node_modules package-lock.json tmp dist
     $ npm i
-    $ ember build  
+    $ ember build
 
-> Don't forget to check out the new chapter of the free [Ember.js](http://yoember.com) tutorial
+> Don't forget to check out the new chapter of the free [Ember.js](https://yoember.com) tutorial

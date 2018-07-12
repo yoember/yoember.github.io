@@ -1,6 +1,6 @@
 # yoember.com
 
-[Ember.js tutorial](http://yoember.com)
+[Ember.js tutorial](https://yoember.com)
 
 ### Launching server and guard
 

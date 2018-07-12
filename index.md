@@ -1,19 +1,19 @@
 ---
 layout: home
-last_modified_at: 05/07/2018
-meta_datetime: '2018-07-05'
-meta_published: '5 Jul 2018'
+last_modified_at: 12/07/2018
+meta_datetime: '2018-07-12'
+meta_published: '12 Jul 2018'
 title: 'Ember.js Tutorial - From beginner to advance'
 identifier: 'library-app'
 ember_cli_version: '3.2'
 ember_version: '3.2'
-node_version: '10.5.0'
+node_version: '10.6.0'
 ---
 # Ember.js Tutorial
 ## Building a complex web application with the latest Ember.js {{ page.ember_version }}
 <p class="blog-post-meta">Latest update: <time datetime="{{ page.meta_datetime }}" itemprop="datePublished">{{ page.meta_published }}</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
-Welcome! This is an [Ember.js tutorial](http://yoember.com) from the absolute beginner level. At the end of the course we touch some advanced topic as well. This tutorial is always up-to-date and compatible with Ember v2 and Ember v3.
+Welcome! This is an [Ember.js tutorial](https://yoember.com) from the absolute beginner level. At the end of the course we touch some advanced topic as well. This tutorial is always up-to-date and compatible with Ember v2 and Ember v3.
 
 Please check the [Live Demo](https://library-app.firebaseapp.com) page and play with the app what we are going to build together.
 
@@ -2862,7 +2862,7 @@ Check out my new tutorial in the following GitHub repository's README, work in p
 
 ## Contributors
 
-Thanks for your help to improve further the most popular [Ember tutorial](http://yoember.com): 
+Thanks for your help to improve further the most popular [Ember tutorial](https://yoember.com): 
 
 * [@jkeat](https://github.com/jkeat) 
 * [@sigu](https://github.com/sigu)
