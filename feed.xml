@@ -6,8 +6,8 @@
 </description>
     <link>https://yoember.com/</link>
     <atom:link href="https://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 22 Jul 2018 15:45:53 +1200</pubDate>
-    <lastBuildDate>Sun, 22 Jul 2018 15:45:53 +1200</lastBuildDate>
+    <pubDate>Sun, 22 Jul 2018 15:46:32 +1200</pubDate>
+    <lastBuildDate>Sun, 22 Jul 2018 15:46:32 +1200</lastBuildDate>
     <generator>Jekyll v3.5.2</generator>
     
       <item>
@@ -171,7 +171,7 @@ $ npm install -g ember-cli
 
 &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
 </description>
-        <pubDate>Wed, 11 Jul 2018 23:50:00 +1200</pubDate>
+        <pubDate>Sat, 21 Jul 2018 23:50:00 +1200</pubDate>
         <link>https://yoember.com/nodejs/the-best-way-to-install-node-js/</link>
         <guid isPermaLink="true">https://yoember.com/nodejs/the-best-way-to-install-node-js/</guid>
         
