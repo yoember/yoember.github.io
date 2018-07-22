@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
-gem 'octopress', '3.0.11'
-gem 'jekyll', '3.4.3'
+gem 'octopress'
+gem 'jekyll'
 
 # Asset pipelines for Jekyll
 gem 'jekyll-assets', '2.2.8', group: 'jekyll_plugins'
