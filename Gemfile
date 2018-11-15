@@ -4,14 +4,10 @@ gem 'octopress'
 gem 'jekyll'
 
 # Asset pipelines for Jekyll
-gem 'jekyll-assets', group: 'jekyll_plugins'
 gem 'uglifier'
 gem 'sass'
 gem 'kramdown'
 gem 'rouge'
-
-# Add bootstrap and font awesome
-gem 'bootstrap'
 
 # Generate sitemap
 gem 'jekyll-sitemap'

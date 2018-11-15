@@ -10,7 +10,7 @@ ember_version: '3.4'
 node_version: '10.11.0'
 ---
 # Ember.js Tutorial
-## Building a complex web application with the latest Ember.js {{ page.ember_version }}
+## Building a complex web application with the latest Ember.js&nbsp;{{ page.ember_version }}
 <p class="blog-post-meta">Latest update: <time datetime="{{ page.meta_datetime }}" itemprop="datePublished">{{ page.meta_published }}</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 Welcome! This is an [Ember.js tutorial](https://yoember.com) from the absolute beginner level. At the end of the course we touch some advanced topic as well. This tutorial is always up-to-date and compatible with Ember v2 and Ember v3.
