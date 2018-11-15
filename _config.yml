@@ -24,18 +24,12 @@ incremental: true
 # Url structure /category-name/title-of-the-post/
 permalink: /:categories/:title/
 
-exclude: ['Gemfile', 'Gemfile.lock', 'Readme.md', 'README.md', 'Guardfile', '.asset-cache', '.sass-cache', '.deploy', '.editorconfig', '.gitignore', 'Procfile']
+exclude: ['Gemfile', 'Gemfile.lock', 'Readme.md', 'README.md', 'Guardfile', '.asset-cache', '.sass-cache', '.deploy', '.editorconfig', '.gitignore', 'Procfile', '_sass']
 include: ['.nojekyll']
 
-assets:
-  prefix: "/assets"
-  compress:
-    js: true
-    css: true
-  sources:
-    - _assets/javascripts
-  features:
-    liquid: true
+sass:
+  sass_dir: _sass
+  style: compressed
 
 compress_html:
   ignore:
