@@ -7,13 +7,13 @@ title: 'Ember.js Tutorial - From beginner to advance'
 identifier: 'library-app'
 ember_cli_version: '3.4'
 ember_version: '3.4'
-node_version: '10.11.0'
+node_version: '10.15.0'
 ---
 # Ember.js Tutorial
 ## Building a complex web application with the latest Ember.js&nbsp;{{ page.ember_version }}
 <p class="blog-post-meta">Latest update: <time datetime="{{ page.meta_datetime }}" itemprop="datePublished">{{ page.meta_published }}</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
-Welcome! This is an [Ember.js tutorial](https://yoember.com) from the absolute beginner level. At the end of the course we touch some advanced topic as well. This tutorial is always up-to-date and compatible with Ember v2 and Ember v3.
+Welcome! This is an [Ember.js tutorial](https://yoember.com) from the absolute beginner level. At the end of the course we touch some advanced topic as well. This tutorial is always up-to-date and compatible with Ember v2 and Ember v3. Please note, we use Ember v3.4, which is the latest long term support version. (I would recommend to play with this version at the moment, because we will use Firebase in this course and the latest version of Firebase supports only Ember v3.4 or earlier.)
 
 Please check the [Live Demo](https://library-app.firebaseapp.com) page and play with the app what we are going to build together.
 
@@ -47,7 +47,7 @@ After you finished this tutorial you can learn more advance topics following the
 
 ## Prerequisites
 
-* Node.js: at least v4.5, but the best if you install the latest long term support version (v8).
+* Node.js: at least v6, but the best if you install the latest long term support version (version 10).
 
 [The best way to install Node.js on Mac, Linux and on Windows]({% post_url 2016-03-20-the-best-way-to-install-node-js %})
 
@@ -64,13 +64,13 @@ Watchman increases the speed of the build process significantly.
 
 ## <a name='lesson-1'></a>Lesson 1
 
-This tutorial uses the latest Ember CLI tool (v{{ page.ember_cli_version }}).
+This tutorial uses the latest long term supported Ember CLI tool (v{{ page.ember_cli_version }}).
 
 ### Install Ember CLI
 
 The following `npm` command installs Ember CLI latest stable version in the global namespace. It generates app with the latest Ember.js and Ember Data. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)
 
-    $ npm install -g ember-cli
+    $ npm install -g ember-cli@{{ page.ember_cli_version }}
 
 You have now a new `ember` command in your console. Check with
 
