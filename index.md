@@ -1,8 +1,8 @@
 ---
 layout: home
-last_modified_at: 22/07/2018
-meta_datetime: '2018-09-29'
-meta_published: '29 Sept 2018'
+last_modified_at: 14/01/2019
+meta_datetime: '2019-01-14'
+meta_published: '14 Jan 2019'
 title: 'Ember.js Tutorial - From beginner to advance'
 identifier: 'library-app'
 ember_cli_version: '3.4'
@@ -10,7 +10,7 @@ ember_version: '3.4'
 node_version: '10.15.0'
 ---
 # Ember.js Tutorial
-## Building a complex web application with the latest Ember.js&nbsp;{{ page.ember_version }}
+## Building a complex web application with the latest Ember.js&nbsp;v3
 <p class="blog-post-meta">Latest update: <time datetime="{{ page.meta_datetime }}" itemprop="datePublished">{{ page.meta_published }}</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
 Welcome! This is an [Ember.js tutorial](https://yoember.com) from the absolute beginner level. At the end of the course we touch some advanced topic as well. This tutorial is always up-to-date and compatible with Ember v2 and Ember v3. Please note, we use Ember v3.4, which is the latest long term support version. (I would recommend to play with this version at the moment, because we will use Firebase in this course and the latest version of Firebase supports only Ember v3.4 or earlier.)

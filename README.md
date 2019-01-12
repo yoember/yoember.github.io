@@ -33,6 +33,6 @@ foreman start
 ### Deploy
 
 ```
-jekyll clean && JEKYLL_ENV=production jekyll build
+bundle exec jekyll clean && JEKYLL_ENV=production bundle exec jekyll build
 octopress deploy
 ```
