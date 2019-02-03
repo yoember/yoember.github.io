@@ -7,7 +7,7 @@ title: 'Ember.js Tutorial - From beginner to advance'
 identifier: 'library-app'
 ember_cli_version: '3.4'
 ember_version: '3.4'
-node_version: '10.15.0'
+node_version: '10.15.1'
 ---
 # Ember.js Tutorial
 ## Building a complex web application with the latest Ember.js&nbsp;3
@@ -777,7 +777,15 @@ Ember.js tried to send that data to a server, but we don't have a server yet. Le
 
 ### Setup a server on Firebase
 
-Firebase is a server and API service. Try it out and you will realize how simple and easy to use. <http://firebase.google.com>
+Important note if you use Ember v3.4 or later with EmberFire. Add `ember-cli-shims` to your project, otherwise you will see the following error in your console, when you try to launch your app: `Uncaught Error: Could not find module 'ember' imported from 'emberfire/initializers/emberfire'`. As you already know, adding a new addon to our project is quite easy. Run the following command in your project folder: 
+
+```bash
+$ ember install ember-cli-shims
+```
+
+It is important to highlight, that EmberFire is compatible only with the latest LTS version of Ember. Probably the best if you keep using Ember v3.4 at the moment and hopefully Google release an updated version from EmberFire soon, so after we can update our Ember version as well.
+
+What is Firebase? Firebase is a server and API service. Try it out and you will realize how simple and easy to use. <http://firebase.google.com>
 
 1. Create an account on Firebase website.
 2. You can learn more about EmberFire addon, which connects your Ember App to the Firebase service here: 
@@ -1555,6 +1563,8 @@ For example:
 ```
 
 In this case the `Closed` text will appear in the panel footer.
+
+Please note that we can use Angle Bracket components from Ember v3.4. The classic handlebar components are not deprecated, so it is up to you which one would you prefer. However Angle Bracket components help to make your template more readable if you have a bigger project. We still use the classic handlebars in this tutorial, because they are compatible with the earlier version of Ember. Don't hesitate to check out [this announcment and learn more about Angle Bracket components](https://www.emberjs.com/blog/2018/10/07/ember-3-4-released.html#toc_new-features-2).
 
 Let's add html to our `library-item-form` component as well.
 
