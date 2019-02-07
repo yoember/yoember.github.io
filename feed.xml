@@ -6,8 +6,8 @@
 </description>
     <link>https://yoember.com/</link>
     <atom:link href="https://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 03 Feb 2019 14:38:51 +1300</pubDate>
-    <lastBuildDate>Sun, 03 Feb 2019 14:38:51 +1300</lastBuildDate>
+    <pubDate>Fri, 08 Feb 2019 11:28:51 +1300</pubDate>
+    <lastBuildDate>Fri, 08 Feb 2019 11:28:51 +1300</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -52,26 +52,26 @@
 
 &lt;p&gt;It is safe if you choose one of the most recent LTS (long time support) version and install it with the following command:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 10.15.0
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 10.15.1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Setup this version as the default.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm use 10.15.0
-$ nvm alias default 10.15.0
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm use 10.15.1
+$ nvm alias default 10.15.1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Check your node version with&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ node -v
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;You should see &lt;code class=&quot;highlighter-rouge&quot;&gt;v10.15.0&lt;/code&gt; if you installed the above version.&lt;/p&gt;
+&lt;p&gt;You should see &lt;code class=&quot;highlighter-rouge&quot;&gt;v10.15.1&lt;/code&gt; if you installed the above version.&lt;/p&gt;
 
 &lt;p&gt;You can update your &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; to the latest.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install -g npm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;After the update, the npm version, &lt;code class=&quot;highlighter-rouge&quot;&gt;npm -v&lt;/code&gt;, should be at least &lt;code class=&quot;highlighter-rouge&quot;&gt;6.5.0&lt;/code&gt; or above.&lt;/p&gt;
+&lt;p&gt;After the update, the npm version, &lt;code class=&quot;highlighter-rouge&quot;&gt;npm -v&lt;/code&gt;, should be at least &lt;code class=&quot;highlighter-rouge&quot;&gt;6.7.0&lt;/code&gt; or above.&lt;/p&gt;
 
 &lt;p&gt;A little extra tip. Remember for the following command because it simplifies the update process. ;)&lt;/p&gt;
 
@@ -105,9 +105,9 @@ If you already installed Node.js with the built in package manager, please remov
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm list
 $ nvm ls-remote
-$ nvm install 10.15.0
-$ nvm use 10.15.0
-$ nvm alias default 10.15.0
+$ nvm install 10.15.1
+$ nvm use 10.15.1
+$ nvm alias default 10.15.1
 $ node -v
 $ npm install -g npm
 $ npm -v
@@ -156,7 +156,7 @@ $ npm install -g ember-cli
 
 &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
 </description>
-        <pubDate>Mon, 14 Jan 2019 00:30:00 +1300</pubDate>
+        <pubDate>Fri, 08 Feb 2019 00:30:00 +1300</pubDate>
         <link>https://yoember.com/nodejs/the-best-way-to-install-node-js/</link>
         <guid isPermaLink="true">https://yoember.com/nodejs/the-best-way-to-install-node-js/</guid>
         
