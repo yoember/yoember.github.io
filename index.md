@@ -1,7 +1,7 @@
 ---
 layout: home
-last_modified_at: 14/01/2019
-meta_datetime: '2019-01-14'
+last_modified_at: 08/02/2019
+meta_datetime: '2019-02-08'
 meta_published: '14 Jan 2019'
 title: 'Ember.js Tutorial - From beginner to advance'
 identifier: 'library-app'
@@ -194,7 +194,7 @@ Above steps in a one liner. Copy-paste in your console (without $). This is usef
 {% raw %}$ ember install ember-cli-sass && ember install ember-cli-bootstrap-sassy && echo '@import "bootstrap";' > ./app/styles/app.scss && rm ./app/styles/app.css{% endraw %}
 ```
 
-### <a name="navigation-bar"></a>Create a navigation partial
+### <a name="navigation-bar"></a>Add navigation
 
 We will use bootstrap navigation bar to create a nice header section for our app.
 
@@ -202,52 +202,36 @@ Update your main template file. Delete the example content and add the following
 
 ```hbs {% raw %}
 <div class="container">
-  {{partial 'navbar'}}
+  
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        {{#link-to 'index' class="navbar-brand"}}Library App{{/link-to}}
+      </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar">
+        <ul class="nav navbar-nav">
+              {{#link-to 'index' tagName="li"}}<a href="">Home</a>{{/link-to}}
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
   {{outlet}}
 </div>{% endraw %}
 ```
 
-*Just a note. Using `partial` is a little bit older concept. We can migrate them to components, however we learn about components a little bit later. To keep it simple, we just use templates and partials here. It can be one of your homework to update them to components. ;)*
-
 Ember uses handlebar syntax in templates. It is almost the same as plain html, but you could have dynamic elements with `{% raw %}{{}}{% endraw %}`.
 
-You can insert snippets from other templates with the `partial` helper.
+Ember provides a bunch of useful handlebar helpers. The `{% raw %}{{#link-to}}{{/link-to}}{% endraw %}` helps to create links. In this case we use as a "block helper". The first parameter is the route name (`index`). Inside the block goes the label of the link. `link-to` uses `<a>` tag as default, but you can set up a different tag with the `tagName` property. We need this slightly hacky solution because of Bootstrap, however later we will implement a [nicer component](#nav-link-to) to manage navigation links.
 
 The `outlet` helper is a general helper, a placeholder, where deeper level content will be inserted. The `outlet` in `application.hbs` means that almost all content from other pages will appear inside this section. For this reason, `application.hbs` is a good place to determine the main structure of our website. In our case we have a `container` div, a navigation bar, and the real content.
-
-As you already realized, Ember CLI is an amazing tool and help us a lot. It has a `generate` command which can create our skeleton files during the development process. List all the options with `ember generate --help`.
-
-Let's generate a `navbar.hbs` file with the following command in you terminal.
-
-```bash
-$ ember generate template navbar
-```
-
-You can open `./app/templates/navbar.hbs` in your editor and add the following lines:
-
-```hbs {% raw %}
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      {{#link-to 'index' class="navbar-brand"}}Library App{{/link-to}}
-    </div>
-
-    <div class="collapse navbar-collapse" id="main-navbar">
-      <ul class="nav navbar-nav">
-            {{#link-to 'index' tagName="li"}}<a href="">Home</a>{{/link-to}}
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>{% endraw %}
-```
-
-Ember provides a bunch of useful handlebar helpers. The `{% raw %}{{#link-to}}{{/link-to}}{% endraw %}` helps to create links. In this case we use as a block helper. The first parameter is the route name (`index`). Inside the block goes the label of the link. `link-to` uses `<a>` tag as default, but you can set up a different tag with the `tagName` property. We need this slightly hacky solution because of Bootstrap, however later we will implement a [nicer component](#nav-link-to) to manage navigation links.
 
 Launch your application with `ember server`. You should see your new navigation bar in your browser.
 
@@ -264,6 +248,8 @@ body {
 ### <a name="about-page"></a>Create a new About page and add the link to the menu bar
 
 Let's create a new About page.
+
+As you already realized, Ember CLI is an amazing tool and help us a lot. It has a `generate` command which can create our skeleton files during the development process. List all the options with `ember generate --help`.
 
 Run the following command in your terminal
 
@@ -293,13 +279,13 @@ Open in your editor the newly generated `./app/templates/index.hbs` file and add
 
 If you launch your app, you should see the above message on your home page, however we still don't have an `About` link in our menu bar.
 
-Open your `./app/templates/navbar.hbs` and add the following line to the `ul` section under the `Home` link:
+Open your `./app/templates/application.hbs` and add the following line to the `ul` section under the `Home` link:
 
 ```hbs
 {% raw %}{{#link-to 'about' tagName="li"}}<a href="">About</a>{{/link-to}}{% endraw %}
 ```
 
-Your `ul` section in `navbar.hbs` should look like this:
+Your `ul` section in `application.hbs` should look like this:
 
 ```hbs
 {% raw %}<ul class="nav navbar-nav">
@@ -967,10 +953,10 @@ Let's create a new route and page what we can reach with the following url: `htt
 
     $ ember g route admin/invitations
 
-Add this new page to the `navbar.hbs` with a dropdown.
+Add this new page to the `application.hbs` with a dropdown.
 
 ```hbs
-<!-- app/templates/navbar.hbs -->
+<!-- app/templates/application.hbs -->
 {% raw %}<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -1097,10 +1083,10 @@ Now we create 3 new templates. Our main `libraries.hbs`, a `libraries/index.hbs`
     $ ember g template libraries/index
     $ ember g template libraries/new
 
-Update your `navbar.hbs` main navigation section as follows.
+Update your `application.hbs` main navigation section as follows.
 
 ```hbs
-<!-- app/templates/navbar.hbs -->
+<!-- app/templates/application.hbs -->
 {% raw %}<ul class="nav navbar-nav">
   {{#link-to 'index' tagName="li"}}<a href="">Home</a>{{/link-to}}
   {{#link-to 'libraries' tagName="li"}}<a href="">Libraries</a>{{/link-to}}
@@ -1820,7 +1806,7 @@ More information about `renderTemplate`: <http://emberjs.com/api/classes/Ember.R
 
 ### <a name='nav-link-to'></a>Create a tiny bootstrap `nav-link-to` component for `<li><a></a></li>`
 
-Time to clean up our navigation template. We'll create a nice component that properly manages bootstrap `navbar` links.
+Time to clean up our application template. We'll create a nice component that properly manages bootstrap `navbar` links.
 
 Open your terminal and generate a new component with Ember CLI.
 
@@ -1847,10 +1833,10 @@ The corresponding `nav-link-to` template will be the following:
 {% raw %}<a href="">{{yield}}</a>{% endraw %}
 ```
 
-Now we are ready to use our component in our `navbar.hbs`.
+Now we are ready to use our component in our navigation bar.
 
 ```hbs
-<!-- app/templates/navbar.hbs -->
+<!-- app/templates/application.hbs -->
 {% raw %}<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -1888,6 +1874,10 @@ Now we are ready to use our component in our `navbar.hbs`.
 ```
 
 *Sidenote*: If you have to solve this problem in a real application, I published an [Ember Addon](https://www.emberobserver.com/addons/ember-bootstrap-nav-link), which automatically adds this component to your project, it is more complex, please use that one. You can check the source code on [Ember Bootstrap Nav Link](https://github.com/zoltan-nz/ember-bootstrap-nav-link) repository.
+
+### Homework
+
+You can try to extract the whole navigation bar segment to a separated component, so the `application.hbs` will be much much smaler.
 
 ## <a name='lesson-6'></a>Lesson 6
 
@@ -1963,10 +1953,10 @@ Router.map(function() {
 export default Router;
 ```
 
-Extend your `navbar.hbs` with the new page.
+Extend your `application.hbs` with the new page.
 
 ```hbs
-<!-- app/templates/navbar.hbs -->
+<!-- app/templates/application.hbs -->
 {% raw %}<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -2649,7 +2639,7 @@ We have two new template files also: `authors.hbs` and `books.hbs`
 
 You can find two new files in `app/routes` folder: `authors.js` and `books.js`
 
-Let's extend our navigation bar. Just add the following two lines to your `navbar.hbs`. I just inserted next to the `Libraries` menu point. (You can move the `About` and `Contact` menu point next to the `Admin` also.)
+Let's extend our navigation bar. Just add the following two lines to your `application.hbs`. I just inserted next to the `Libraries` menu point. (You can move the `About` and `Contact` menu point next to the `Admin` also.)
 
 ```hbs {% raw %}
 {{#nav-link-to 'authors'}}Authors{{/nav-link-to}}
