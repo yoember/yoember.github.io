@@ -10,10 +10,10 @@ ember_version: '3.4'
 node_version: '10.15.0'
 ---
 # Ember.js Tutorial
-## Building a complex web application with the latest Ember.js&nbsp;v3
+## Building a complex web application with the latest Ember.js&nbsp;3
 <p class="blog-post-meta">Latest update: <time datetime="{{ page.meta_datetime }}" itemprop="datePublished">{{ page.meta_published }}</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
-Welcome! This is an [Ember.js tutorial](https://yoember.com) from the absolute beginner level. At the end of the course we touch some advanced topic as well. This tutorial is always up-to-date and compatible with Ember v2 and Ember v3. Please note, we use Ember v3.4, which is the latest long term support version. (I would recommend to play with this version at the moment, because we will use Firebase in this course and the latest version of Firebase supports only Ember v3.4 or earlier.)
+Welcome! This is an [Ember.js tutorial](https://yoember.com) from the absolute beginner level. (At the end of the course we touch some advanced topic.) This tutorial is up-to-date in 2019 as well and compatible with Ember v2 and Ember v3. Please note, we use Ember v3.4, which is the latest long term support version. (I would recommend to play with this version at the moment, because we will use Firebase in this course and the latest version of Firebase supports only Ember v3.4 or earlier.)
 
 Please check the [Live Demo](https://library-app.firebaseapp.com) page and play with the app what we are going to build together.
 
