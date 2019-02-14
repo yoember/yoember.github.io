@@ -157,25 +157,6 @@ Reload your app in your browser. Our favorite Tomster disappeared but we have a 
 
 You can open Ember Inspector in your Browser. Hope you've already installed it. Ember Inspector exists in Chrome and in Firefox as an extension. After installation you should have a new tab in your developer console in your browser. Check it out, look around. [More details about Ember Inspector here](https://guides.emberjs.com/v{{ page.ember_version }}.0/ember-inspector/installation/).
 
-### Turn on a few debugging options
-
-If you would like to see more information in your browser's console about what Ember.js is doing under the hood, you can turn on a few debugging options in your configuration file.
-
-You can find a list of debugging options in `./config/environment.js` file. Remove the comment signs for the code to read as follows:
-
-```js {% raw %}
-//..
-if (environment === 'development') {
-  // ENV.APP.LOG_RESOLVER = true;
-  ENV.APP.LOG_ACTIVE_GENERATION = true;
-  ENV.APP.LOG_TRANSITIONS = true;
-  ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-  ENV.APP.LOG_VIEW_LOOKUPS = true;
-}
-//..{% endraw %}
-```
-Check your app and open the Console in Chrome/Firefox. You will see some extra information about what Ember.js actually does under the hood. Don't worry if you don't understand these debug messages at this stage. As you spend more and more time with Ember.js development, these lines are going to be clearer. (If you prefer to keep your development console clear, just comment out these debugging options. You can turn on and off them, whenever you like.)
-
 ### <a name="ember-bootstrap-sass"></a>Add Bootstrap and Sass to Ember.js App
 
 Let's add some basic styling to our application. We use Bootstrap with Sass. Ember CLI can install for us add-ons and useful packages. These add-ons simplify our development process, because we don't have to reinvent the wheel, we get more out of the box. You can find various packages, add-ons on these websites: <http://www.emberaddons.com> or <http://www.emberobserver.com>
@@ -2851,6 +2832,25 @@ There are two new classes in our stylesheet also, please extend `app/styles/app.
 ```
 
 Now you can try to create a list about books on Books page, with a simple table where you list `book.title` and `book.author.name`. You can use the above logic to update a book title if you click on it. Good luck! :)
+
+## Under the hood
+
+If you would like to see more information in your browser's console about what Ember.js is doing under the hood, you can turn on a few debugging options in your configuration file.
+
+You can find a list of debugging options in `./config/environment.js` file. Remove the comment signs for the code to read as follows:
+
+```js {% raw %}
+//..
+if (environment === 'development') {
+  // ENV.APP.LOG_RESOLVER = true;
+  ENV.APP.LOG_ACTIVE_GENERATION = true;
+  ENV.APP.LOG_TRANSITIONS = true;
+  ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+  ENV.APP.LOG_VIEW_LOOKUPS = true;
+}
+//..{% endraw %}
+```
+Check your app and open the Console in Chrome/Firefox. You will see some extra information about what Ember.js actually does under the hood. Don't worry if you don't understand these debug messages at this stage. As you spend more and more time with Ember.js development, these lines are going to be clearer. (If you prefer to keep your development console clear, just comment out these debugging options. You can turn on and off them, whenever you like.)
 
 ## TBC
 
