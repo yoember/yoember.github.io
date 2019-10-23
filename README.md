@@ -18,6 +18,12 @@ git submodule update --recursive --remote
 bundle install
 ```
 
+- Install `sass` with `yarn`
+
+```
+yarn global add sass
+```
+
 ### Launching server and guard
 
 ```

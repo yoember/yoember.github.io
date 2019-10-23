@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "The Best Way to Install Node.js"
-date: 2019-02-08T00:30:00+13:00
+date: 2019-10-24T00:20:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
-node_version: '10.15.1'
-npm_version: '6.7.0'
-nvm_version: '0.33.11'
+node_version: '12.13.0'
+npm_version: '6.12.0'
+nvm_version: '0.35.00'
 ---
 
 There are a few ways to install Node.js, but it looks like only one way gives you the best experience for long term.
@@ -18,7 +18,7 @@ The best way to install Node.js on Mac is `nvm`.
 
 <https://github.com/creationix/nvm>
 
-You have to have on your Mac the Command Line Tools. Or you install the full XCode from App Store either just use the small Command Line Tools installer:
+You have to have on your Mac the Command Line Tools. Either you install the full XCode from App Store or just use the small Command Line Tools installer:
 
 ```
 $ xcode-select --install
@@ -29,10 +29,10 @@ $ xcode-select --install
 You can use the install script for `nvm` installation.
 
 ```
-$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v{{ page.nvm_version }}/install.sh | bash
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
 ```
 
-However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (`~/.nvm`) Secondly, you add two extra lines to your console script.
+However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (`~/.nvm`) Secondly, you add two extra lines to your console script (to `~/.zshrc` or `~/.bashrc`).
 
 Please follow these steps on NVM Readme: <https://github.com/creationix/nvm#git-install>
 
@@ -50,7 +50,11 @@ List the available node versions in the cloud:
 $ nvm ls-remote
 ```
 
-You can use the combination of this two commands to see only the last 9 lines from the huge list of versions: `$ nvm ls-remote | tail -n9`    
+You can use the combination of this two commands to see only the last 9 lines from the huge list of versions: 
+
+```
+$ nvm ls-remote | tail -n9
+```
 
 It is safe if you choose one of the most recent LTS (long time support) version and install it with the following command:
 
@@ -84,15 +88,71 @@ A little extra tip. Remember for the following command because it simplifies the
 Let's say, you would like to stay on the stable, LTS version and you would like to keep all the global package what you've already installed. Here is the solution:
 
 ```
-$ nvm install 8 --reinstall-packages-from=8 --latest-npm
+$ nvm install 12 --reinstall-packages-from=12 --latest-npm
 ```
 
-It updates your Node.js version to the latest version 8 and install the latest npm, plus it setup all your previously installed global packages.
+It updates your Node.js version to the latest version 12 and install the latest npm, plus it setup all your previously installed global packages.
 
 Alternatives for installing Node.js, but not suggested:
 
 * Official Installer: <https://nodejs.org/en/download/>
 * Using brew: <https://nodejs.org/en/download/package-manager/#osx>
+
+#### Advance tips to setup `yarn`
+
+I use the following steps to keep `yarn` up to date and use only `yarn` global installer instead of `npm`, so if an npm package is installed globally there won't be any surprises and version mismatch in the future.
+
+First of all you should add `yarn` default binary folder to the `$PATH` environment. Add the following to your `~/.zshrc or ~/.bashrc`.
+
+```
+export PATH=$PATH:HOME/.yarn/bin
+```
+
+You can create a shortcut `alias` also, so you can call `yarn` command only with `y` in your terminal.
+
+```
+alias y="yarn"
+```
+
+Don't forget to relaunch your terminal and check out the `PATH` environment variable. (`$ env | grep PATH`)
+
+Now, here is the trick. Install `yarn` using `npm`, after install `yarn` using `yarn`, remove `yarn` from 10npm.
+
+```
+$ npm i -g yarn
+$ yarn global add yarn
+$ npm rm -g yarn
+```
+
+You can also install `npm` with `yarn` and remove the original `npm`. In this case you have only one global copy.
+
+```
+$ yarn global add npm
+$ npm rm -g npm
+```
+
+Advantage of this process, that all your globally installed Node package stays in `yarn`'s folder so if you upgrade your Node.js with `nvm`, you don't have to reinstall them again.
+
+For example install Prettier with yarn.
+
+```
+$ yarn global add prettier
+```
+
+Check how many global packages are installed in `npm` folder and in `yarn`.
+
+```
+$ yarn global list
+$ npm ls -g --depth=0
+```
+
+Yarn should list `npm`, `yarn`, `prettier`, etc... The second command should list empty if you removed all the global packages with `npm rm -g`.
+
+You can always keep up to date your global packages with one simple command.
+
+```
+$ yarn global upgrade
+```
 
 ### On Linux
 

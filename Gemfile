@@ -5,7 +5,7 @@ gem 'jekyll'
 
 # Asset pipelines for Jekyll
 gem 'uglifier'
-gem 'sass'
+gem 'sassc'
 gem 'kramdown'
 gem 'rouge'
 

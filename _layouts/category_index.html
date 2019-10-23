@@ -7,7 +7,7 @@ layout: default
 {% for post in site.posts %}
 <ul>
   {% if post.categories contains page.category %}
-    <li><a href="{{ post.url | prepend: site.baseurl }}">{{post.title}}</a></li>
+    <li><a href="{{ post.url }}">{{post.title}}</a></li>
   {% endif %}
 </ul>
 {% endfor %}

@@ -1,8 +1,13 @@
-@import "bootstrap/scss/functions";
 @import "custom-variables";
+@import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 @import "bootstrap-selected-imports";
 @import "syntax-highlighting";
+
+
+.bg-primary {
+  background-color: #e3583e !important;
+}
 
 html {
   overflow-y: scroll;

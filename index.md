@@ -1,19 +1,19 @@
 ---
 layout: home
-last_modified_at: 08/02/2019
-meta_datetime: '2019-02-08'
-meta_published: '08 Feb 2019'
+last_modified_at: 24/10/2019
+meta_datetime: '2019-10-24'
+meta_published: '24 Oct 2019'
 title: 'Ember.js Tutorial - From beginner to advance'
 identifier: 'library-app'
 ember_cli_version: '3.4'
 ember_version: '3.4'
-node_version: '10.15.1'
+node_version: '12.13.0'
 ---
 # Ember.js Tutorial
-## Building a complex web application with the latest Ember.js&nbsp;3
+## Building a complex web application with Ember.js&nbsp;3
 <p class="blog-post-meta">Latest update: <time datetime="{{ page.meta_datetime }}" itemprop="datePublished">{{ page.meta_published }}</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
-Welcome! This is an [Ember.js tutorial](https://yoember.com) from the absolute beginner level. (At the end of the course we touch some advanced topic.) This tutorial is up-to-date in 2019 as well and compatible with Ember v2 and Ember v3. Please note, we use Ember v3.4, which is the latest long term support version. (I would recommend to play with this version at the moment, because we will use Firebase in this course and the latest version of Firebase supports only Ember v3.4 or earlier.)
+Welcome! This is an [Ember.js tutorial](https://yoember.com) from the absolute beginner level. (At the end of the course we touch some advanced topic.) This tutorial is up-to-date in 2019 as well and compatible with Ember v2 and Ember v3. Please note, we use Ember v3.4, which is a long term support version. (I would recommend to play with this version at the moment, because we will use Firebase in this course and the latest version of Firebase supports only Ember v3.4 or earlier.)
 
 Please check the [Live Demo](https://library-app.firebaseapp.com) page and play with the app what we are going to build together.
 
@@ -47,9 +47,9 @@ After you finished this tutorial you can learn more advance topics following the
 
 ## Prerequisites
 
-* Node.js: at least v6, but the best if you install the latest long term support version (version 10).
+* Node.js: at least v10, but the best if you install the latest long term support version (version 12).
 
-[The best way to install Node.js on Mac, Linux and on Windows]({% post_url 2016-03-20-the-best-way-to-install-node-js %})
+[The best way to install Node.js on Mac, Linux and on Windows]({% post_url 2019-10-24-the-best-way-to-install-node-js %})
 
 * Ember Inspector Chrome Extension
 
@@ -68,9 +68,11 @@ This tutorial uses the latest long term supported Ember CLI tool (v{{ page.ember
 
 ### Install Ember CLI
 
-The following `npm` command installs Ember CLI latest stable version in the global namespace. It generates app with the latest Ember.js and Ember Data. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)
+The following `npm` command installs Ember CLI version {{ page.ember_cli_version }} in the global namespace. It generates app with the Ember.js and Ember Data. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)
 
     $ npm install -g ember-cli@{{ page.ember_cli_version }}
+
+If you use the latest Node.js a few alert message would show up on your console, but don't worry about those, your app will work as expected. ;)
 
 You have now a new `ember` command in your console. Check with
 
@@ -87,6 +89,8 @@ os: darwin x64
 (Node version, npm version and OS version may be different in your configuration.)
 
 Please read more about Ember CLI here: [www.ember-cli.com](http://www.ember-cli.com)
+
+(Please note, that only this version of Ember.js is compatible with the latest stable Firebase package, so if you would like connect to database in Lesson 3, please stay with this version. However, we can update our app and the tutorial soon as EmberFire will be updated.)
 
 ### Create the app
 
