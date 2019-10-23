@@ -5,10 +5,10 @@
     <description>Free Ember.js tutorial for absolute beginners. Build a CRUD application from step by step with the latest Ember.js.
 </description>
     <link>https://yoember.com/</link>
-    <atom:link href="https://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 08 Feb 2019 11:33:17 +1300</pubDate>
-    <lastBuildDate>Fri, 08 Feb 2019 11:33:17 +1300</lastBuildDate>
-    <generator>Jekyll v3.8.5</generator>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 24 Oct 2019 01:13:49 +1300</pubDate>
+    <lastBuildDate>Thu, 24 Oct 2019 01:13:49 +1300</lastBuildDate>
+    <generator>Jekyll v4.0.0</generator>
     
       <item>
         <title>The Best Way to Install Node.js</title>
@@ -20,7 +20,7 @@
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/creationix/nvm&quot;&gt;https://github.com/creationix/nvm&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;You have to have on your Mac the Command Line Tools. Or you install the full XCode from App Store either just use the small Command Line Tools installer:&lt;/p&gt;
+&lt;p&gt;You have to have on your Mac the Command Line Tools. Either you install the full XCode from App Store or just use the small Command Line Tools installer:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ xcode-select --install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -29,10 +29,10 @@
 
 &lt;p&gt;You can use the install script for &lt;code class=&quot;highlighter-rouge&quot;&gt;nvm&lt;/code&gt; installation.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (&lt;code class=&quot;highlighter-rouge&quot;&gt;~/.nvm&lt;/code&gt;) Secondly, you add two extra lines to your console script.&lt;/p&gt;
+&lt;p&gt;However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (&lt;code class=&quot;highlighter-rouge&quot;&gt;~/.nvm&lt;/code&gt;) Secondly, you add two extra lines to your console script (to &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.zshrc&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.bashrc&lt;/code&gt;).&lt;/p&gt;
 
 &lt;p&gt;Please follow these steps on NVM Readme: &lt;a href=&quot;https://github.com/creationix/nvm#git-install&quot;&gt;https://github.com/creationix/nvm#git-install&lt;/a&gt;&lt;/p&gt;
 
@@ -48,39 +48,42 @@
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm ls-remote
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;You can use the combination of this two commands to see only the last 9 lines from the huge list of versions: &lt;code class=&quot;highlighter-rouge&quot;&gt;$ nvm ls-remote | tail -n9&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You can use the combination of this two commands to see only the last 9 lines from the huge list of versions:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm ls-remote | tail -n9
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;It is safe if you choose one of the most recent LTS (long time support) version and install it with the following command:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 10.15.1
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 12.13.0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Setup this version as the default.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm use 10.15.1
-$ nvm alias default 10.15.1
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm use 12.13.0
+$ nvm alias default 12.13.0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Check your node version with&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ node -v
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;You should see &lt;code class=&quot;highlighter-rouge&quot;&gt;v10.15.1&lt;/code&gt; if you installed the above version.&lt;/p&gt;
+&lt;p&gt;You should see &lt;code class=&quot;highlighter-rouge&quot;&gt;v12.13.0&lt;/code&gt; if you installed the above version.&lt;/p&gt;
 
 &lt;p&gt;You can update your &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; to the latest.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install -g npm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;After the update, the npm version, &lt;code class=&quot;highlighter-rouge&quot;&gt;npm -v&lt;/code&gt;, should be at least &lt;code class=&quot;highlighter-rouge&quot;&gt;6.7.0&lt;/code&gt; or above.&lt;/p&gt;
+&lt;p&gt;After the update, the npm version, &lt;code class=&quot;highlighter-rouge&quot;&gt;npm -v&lt;/code&gt;, should be at least &lt;code class=&quot;highlighter-rouge&quot;&gt;6.12.0&lt;/code&gt; or above.&lt;/p&gt;
 
 &lt;p&gt;A little extra tip. Remember for the following command because it simplifies the update process. ;)&lt;/p&gt;
 
 &lt;p&gt;Let’s say, you would like to stay on the stable, LTS version and you would like to keep all the global package what you’ve already installed. Here is the solution:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 8 --reinstall-packages-from=8 --latest-npm
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 12 --reinstall-packages-from=12 --latest-npm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;It updates your Node.js version to the latest version 8 and install the latest npm, plus it setup all your previously installed global packages.&lt;/p&gt;
+&lt;p&gt;It updates your Node.js version to the latest version 12 and install the latest npm, plus it setup all your previously installed global packages.&lt;/p&gt;
 
 &lt;p&gt;Alternatives for installing Node.js, but not suggested:&lt;/p&gt;
 
@@ -88,6 +91,55 @@ $ nvm alias default 10.15.1
   &lt;li&gt;Official Installer: &lt;a href=&quot;https://nodejs.org/en/download/&quot;&gt;https://nodejs.org/en/download/&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Using brew: &lt;a href=&quot;https://nodejs.org/en/download/package-manager/#osx&quot;&gt;https://nodejs.org/en/download/package-manager/#osx&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h4 id=&quot;advance-tips-to-setup-yarn&quot;&gt;Advance tips to setup &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt;&lt;/h4&gt;
+
+&lt;p&gt;I use the following steps to keep &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; up to date and use only &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; global installer instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt;, so if an npm package is installed globally there won’t be any surprises and version mismatch in the future.&lt;/p&gt;
+
+&lt;p&gt;First of all you should add &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; default binary folder to the &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt; environment. Add the following to your &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.zshrc or ~/.bashrc&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export PATH=$PATH:HOME/.yarn/bin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can create a shortcut &lt;code class=&quot;highlighter-rouge&quot;&gt;alias&lt;/code&gt; also, so you can call &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; command only with &lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt; in your terminal.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;alias y=&quot;yarn&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Don’t forget to relaunch your terminal and check out the &lt;code class=&quot;highlighter-rouge&quot;&gt;PATH&lt;/code&gt; environment variable. (&lt;code class=&quot;highlighter-rouge&quot;&gt;$ env | grep PATH&lt;/code&gt;)&lt;/p&gt;
+
+&lt;p&gt;Now, here is the trick. Install &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; using &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt;, after install &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; using &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt;, remove &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; from 10npm.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm i -g yarn
+$ yarn global add yarn
+$ npm rm -g yarn
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can also install &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; and remove the original &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt;. In this case you have only one global copy.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yarn global add npm
+$ npm rm -g npm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Advantage of this process, that all your globally installed Node package stays in &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt;’s folder so if you upgrade your Node.js with &lt;code class=&quot;highlighter-rouge&quot;&gt;nvm&lt;/code&gt;, you don’t have to reinstall them again.&lt;/p&gt;
+
+&lt;p&gt;For example install Prettier with yarn.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yarn global add prettier
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Check how many global packages are installed in &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; folder and in &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yarn global list
+$ npm ls -g --depth=0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Yarn should list &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;prettier&lt;/code&gt;, etc… The second command should list empty if you removed all the global packages with &lt;code class=&quot;highlighter-rouge&quot;&gt;npm rm -g&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can always keep up to date your global packages with one simple command.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yarn global upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;on-linux&quot;&gt;On Linux&lt;/h3&gt;
 
@@ -98,16 +150,16 @@ If you already installed Node.js with the built in package manager, please remov
 
 &lt;p&gt;With the provided script:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.00/install.sh | bash
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;(Please read the instructions under OSX section.)&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm list
 $ nvm ls-remote
-$ nvm install 10.15.1
-$ nvm use 10.15.1
-$ nvm alias default 10.15.1
+$ nvm install 12.13.0
+$ nvm use 12.13.0
+$ nvm alias default 12.13.0
 $ node -v
 $ npm install -g npm
 $ npm -v
@@ -156,9 +208,9 @@ $ npm install -g ember-cli
 
 &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
 </description>
-        <pubDate>Fri, 08 Feb 2019 00:30:00 +1300</pubDate>
-        <link>https://yoember.com/nodejs/the-best-way-to-install-node-js/</link>
-        <guid isPermaLink="true">https://yoember.com/nodejs/the-best-way-to-install-node-js/</guid>
+        <pubDate>Thu, 24 Oct 2019 00:20:00 +1300</pubDate>
+        <link>/nodejs/the-best-way-to-install-node-js/</link>
+        <guid isPermaLink="true">/nodejs/the-best-way-to-install-node-js/</guid>
         
         
         <category>nodejs</category>
@@ -212,8 +264,8 @@ $ ember build
 &lt;/blockquote&gt;
 </description>
         <pubDate>Wed, 04 Jul 2018 09:28:13 +1200</pubDate>
-        <link>https://yoember.com/emberjs/how-to-keep-your-ember-js-project-up-to-date/</link>
-        <guid isPermaLink="true">https://yoember.com/emberjs/how-to-keep-your-ember-js-project-up-to-date/</guid>
+        <link>/emberjs/how-to-keep-your-ember-js-project-up-to-date/</link>
+        <guid isPermaLink="true">/emberjs/how-to-keep-your-ember-js-project-up-to-date/</guid>
         
         
         <category>emberjs</category>
@@ -225,8 +277,8 @@ $ ember build
         <description>
 </description>
         <pubDate>Thu, 01 Sep 2016 00:00:00 +1200</pubDate>
-        <link>https://yoember.com/emberjs/how-you-keep-your-ember-js-project-up-to-date/</link>
-        <guid isPermaLink="true">https://yoember.com/emberjs/how-you-keep-your-ember-js-project-up-to-date/</guid>
+        <link>/emberjs/how-you-keep-your-ember-js-project-up-to-date/</link>
+        <guid isPermaLink="true">/emberjs/how-you-keep-your-ember-js-project-up-to-date/</guid>
         
         
         <category>emberjs</category>
