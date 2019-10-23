@@ -5,9 +5,9 @@
     <description>Free Ember.js tutorial for absolute beginners. Build a CRUD application from step by step with the latest Ember.js.
 </description>
     <link>https://yoember.com/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 24 Oct 2019 01:13:49 +1300</pubDate>
-    <lastBuildDate>Thu, 24 Oct 2019 01:13:49 +1300</lastBuildDate>
+    <atom:link href="https://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 24 Oct 2019 01:16:59 +1300</pubDate>
+    <lastBuildDate>Thu, 24 Oct 2019 01:16:59 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -209,8 +209,8 @@ $ npm install -g ember-cli
 &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
 </description>
         <pubDate>Thu, 24 Oct 2019 00:20:00 +1300</pubDate>
-        <link>/nodejs/the-best-way-to-install-node-js/</link>
-        <guid isPermaLink="true">/nodejs/the-best-way-to-install-node-js/</guid>
+        <link>https://yoember.com/nodejs/the-best-way-to-install-node-js/</link>
+        <guid isPermaLink="true">https://yoember.com/nodejs/the-best-way-to-install-node-js/</guid>
         
         
         <category>nodejs</category>
@@ -264,8 +264,8 @@ $ ember build
 &lt;/blockquote&gt;
 </description>
         <pubDate>Wed, 04 Jul 2018 09:28:13 +1200</pubDate>
-        <link>/emberjs/how-to-keep-your-ember-js-project-up-to-date/</link>
-        <guid isPermaLink="true">/emberjs/how-to-keep-your-ember-js-project-up-to-date/</guid>
+        <link>https://yoember.com/emberjs/how-to-keep-your-ember-js-project-up-to-date/</link>
+        <guid isPermaLink="true">https://yoember.com/emberjs/how-to-keep-your-ember-js-project-up-to-date/</guid>
         
         
         <category>emberjs</category>
@@ -277,8 +277,8 @@ $ ember build
         <description>
 </description>
         <pubDate>Thu, 01 Sep 2016 00:00:00 +1200</pubDate>
-        <link>/emberjs/how-you-keep-your-ember-js-project-up-to-date/</link>
-        <guid isPermaLink="true">/emberjs/how-you-keep-your-ember-js-project-up-to-date/</guid>
+        <link>https://yoember.com/emberjs/how-you-keep-your-ember-js-project-up-to-date/</link>
+        <guid isPermaLink="true">https://yoember.com/emberjs/how-you-keep-your-ember-js-project-up-to-date/</guid>
         
         
         <category>emberjs</category>
