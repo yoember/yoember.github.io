@@ -6,8 +6,8 @@
 </description>
     <link>https://yoember.com/</link>
     <atom:link href="https://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 25 Oct 2019 01:04:41 +1300</pubDate>
-    <lastBuildDate>Fri, 25 Oct 2019 01:04:41 +1300</lastBuildDate>
+    <pubDate>Fri, 25 Oct 2019 01:32:42 +1300</pubDate>
+    <lastBuildDate>Fri, 25 Oct 2019 01:32:42 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -96,29 +96,37 @@ $ nvm alias default 12.13.0
 
 &lt;p&gt;I use the following steps to keep &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; up to date and use only &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; global installer instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt;, so if a Node.js package is installed globally there won’t be any surprise and version mismatch in the future.&lt;/p&gt;
 
-&lt;p&gt;First of all you should add &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; default binary folder to the &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt; environment. Add the following to your &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.zshrc or ~/.bashrc&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;First of all you should add &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; default binary folder to the &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt; environment variable. Add the following to your &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.zshrc&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.bashrc&lt;/code&gt;.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export PATH=$PATH:HOME/.yarn/bin
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export PATH=HOME/.yarn/bin:$PATH
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;You can create a shortcut &lt;code class=&quot;highlighter-rouge&quot;&gt;alias&lt;/code&gt; also, so you can call &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; command only with &lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt; in your terminal.&lt;/p&gt;
+&lt;p&gt;You can create a shortcut &lt;code class=&quot;highlighter-rouge&quot;&gt;alias&lt;/code&gt; also for calling &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; command only with &lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt; in your terminal.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;alias y=&quot;yarn&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Don’t forget to relaunch your terminal and check out the &lt;code class=&quot;highlighter-rouge&quot;&gt;PATH&lt;/code&gt; environment variable. (&lt;code class=&quot;highlighter-rouge&quot;&gt;$ env | grep PATH&lt;/code&gt;)&lt;/p&gt;
 
-&lt;p&gt;Now, here is the trick. Install &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; using &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt;, after install &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; using &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt;, remove &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; from 10npm.&lt;/p&gt;
+&lt;p&gt;Now, here is the trick. Install &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; using &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt;, after install &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; using &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt;, remove &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; from global npm folder.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm i -g yarn
 $ yarn global add yarn
 $ npm rm -g yarn
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;You can also install &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; and remove the original &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt;. In this case you have only one global copy.&lt;/p&gt;
+&lt;p&gt;You can also install &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; and remove the original &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt;. In this case you have only one global copy of &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt;.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yarn global add npm
-$ npm rm -g npm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Double check that your &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.yarn/bin&lt;/code&gt; folder is listed in &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt; environment variable.&lt;/p&gt;
+
+&lt;p&gt;(If you really wanna be sure that the yarn installed npm is gonna work, you can just rename the old npm command to something random and check with &lt;code class=&quot;highlighter-rouge&quot;&gt;witch npm&lt;/code&gt; that your terminal still can see an &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; command.)&lt;/p&gt;
+
+&lt;p&gt;Now, you can safely ask npm to remove itself from the original node folder.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm rm -g npm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Advantage of this process, that all your globally installed Node package stays in &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt;’s folder so if you upgrade your Node.js with &lt;code class=&quot;highlighter-rouge&quot;&gt;nvm&lt;/code&gt;, you don’t have to reinstall them again.&lt;/p&gt;
