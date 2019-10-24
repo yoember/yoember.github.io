@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Best Way to Install Node.js with Yarn"
-date: 2019-10-24T17:20:00+13:00
+date: 2019-10-25T00:57:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
@@ -98,17 +98,17 @@ Alternatives for installing Node.js, but not suggested:
 * Official Installer: <https://nodejs.org/en/download/>
 * Using brew: <https://nodejs.org/en/download/package-manager/#osx>
 
-#### Advance tips to setup `yarn`
+#### Advanced tips for setting up `yarn`
 
-I use the following steps to keep `yarn` up to date and use only `yarn` global installer instead of `npm`, so if an npm package is installed globally there won't be any surprises and version mismatch in the future.
+I use the following steps to keep `yarn` up to date and use only `yarn` global installer instead of `npm`, so if a Node.js package is installed globally there won't be any surprise and version mismatch in the future.
 
-First of all you should add `yarn` default binary folder to the `$PATH` environment. Add the following to your `~/.zshrc or ~/.bashrc`.
+First of all you should add `yarn` default binary folder to the `$PATH` environment variable. Add the following to your `~/.zshrc` or `~/.bashrc`.
 
 ```
-export PATH=$PATH:HOME/.yarn/bin
+export PATH=HOME/.yarn/bin:$PATH
 ```
 
-You can create a shortcut `alias` also, so you can call `yarn` command only with `y` in your terminal.
+You can create a shortcut `alias` also for calling `yarn` command only with `y` in your terminal.
 
 ```
 alias y="yarn"
@@ -116,7 +116,7 @@ alias y="yarn"
 
 Don't forget to relaunch your terminal and check out the `PATH` environment variable. (`$ env | grep PATH`)
 
-Now, here is the trick. Install `yarn` using `npm`, after install `yarn` using `yarn`, remove `yarn` from 10npm.
+Now, here is the trick. Install `yarn` using `npm`, after install `yarn` using `yarn`, remove `yarn` from global npm folder.
 
 ```
 $ npm i -g yarn
@@ -124,10 +124,19 @@ $ yarn global add yarn
 $ npm rm -g yarn
 ```
 
-You can also install `npm` with `yarn` and remove the original `npm`. In this case you have only one global copy.
+You can also install `npm` with `yarn` and remove the original `npm`. In this case you have only one global copy of `yarn` and `npm`.
 
 ```
 $ yarn global add npm
+```
+
+Double check that your `~/.yarn/bin` folder is listed in `$PATH` environment variable.
+
+(If you really wanna be sure that the yarn installed npm is gonna work, you can just rename the old npm command to something random and check with `witch npm` that your terminal still can see an `npm` command.)
+
+Now, you can safely ask npm to remove itself from the original node folder.
+
+```
 $ npm rm -g npm
 ```
 
