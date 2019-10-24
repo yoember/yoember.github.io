@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "The Best Way to Install Node.js"
-date: 2019-10-24T00:20:00+13:00
+title: "The Best Way to Install Node.js with Yarn"
+date: 2019-10-24T17:20:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
@@ -10,7 +10,7 @@ npm_version: '6.12.0'
 nvm_version: '0.35.00'
 ---
 
-There are a few ways to install Node.js, but it looks like only one way gives you the best experience for long term.
+There are a few ways to install Node.js, but it looks like only one way gives you the best experience for long term. Please find a few tips below how could you [setup Yarn](#advance-tips-to-setup-yarn) as well.
 
 ### On Mac
 

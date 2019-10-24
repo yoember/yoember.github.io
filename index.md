@@ -49,7 +49,7 @@ After you finished this tutorial you can learn more advance topics following the
 
 * Node.js: at least v10, but the best if you install the latest long term support version (version 12).
 
-[The best way to install Node.js on Mac, Linux and on Windows]({% post_url 2019-10-24-the-best-way-to-install-node-js %})
+[The best way to install Node.js with Yarn on Mac, Linux and on Windows]({% post_url 2019-10-24-the-best-way-to-install-node-js-with-yarn %})
 
 * Ember Inspector Chrome Extension
 
