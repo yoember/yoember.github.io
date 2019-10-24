@@ -6,8 +6,8 @@
 </description>
     <link>https://yoember.com/</link>
     <atom:link href="https://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 25 Oct 2019 01:00:56 +1300</pubDate>
-    <lastBuildDate>Fri, 25 Oct 2019 01:00:56 +1300</lastBuildDate>
+    <pubDate>Fri, 25 Oct 2019 01:02:56 +1300</pubDate>
+    <lastBuildDate>Fri, 25 Oct 2019 01:02:56 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -92,9 +92,9 @@ $ nvm alias default 12.13.0
   &lt;li&gt;Using brew: &lt;a href=&quot;https://nodejs.org/en/download/package-manager/#osx&quot;&gt;https://nodejs.org/en/download/package-manager/#osx&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;advanced-tips-for-setup-yarn&quot;&gt;Advanced tips for setup &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;advanced-tips-for-setting-up-yarn&quot;&gt;Advanced tips for setting up &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt;&lt;/h4&gt;
 
-&lt;p&gt;I use the following steps to keep &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; up to date and use only &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; global installer instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt;, so if an npm package is installed globally there won’t be any surprises and version mismatch in the future.&lt;/p&gt;
+&lt;p&gt;I use the following steps to keep &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; up to date and use only &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; global installer instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt;, so if an npm package is installed globally there won’t be any surprise and version mismatch in the future.&lt;/p&gt;
 
 &lt;p&gt;First of all you should add &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; default binary folder to the &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt; environment. Add the following to your &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.zshrc or ~/.bashrc&lt;/code&gt;.&lt;/p&gt;
 
