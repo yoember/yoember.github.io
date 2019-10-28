@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Best Way to Install Node.js with Yarn"
-date: 2019-10-25T00:57:00+13:00
+date: 2019-10-28T18:46:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
@@ -102,19 +102,19 @@ Alternatives for installing Node.js, but not suggested:
 
 I use the following steps to keep `yarn` up to date and use only `yarn` global installer instead of `npm`, so if a Node.js package is installed globally there won't be any surprise and version mismatch in the future.
 
-First of all you should add `yarn` default binary folder to the `$PATH` environment variable. Add the following to your `~/.zshrc` or `~/.bashrc`.
+First of all check out that your `yarn` default global binary folder is part of the standard `$PATH`. Usually we don't have to do anything here, because it should be `/usr/local/bin` and it is part of our standard `$PATH` list.
 
 ```
-export PATH=HOME/.yarn/bin:$PATH
+$ yarn global bin
+/usr/local/bin
+$ env | grep PATH
 ```
 
-You can create a shortcut `alias` also for calling `yarn` command only with `y` in your terminal.
+You can create a shortcut `alias` for calling `yarn` command only with `y` in your terminal. Aliases should be placed in your `~/.zshrc` or `~/.bashrc`.
 
 ```
 alias y="yarn"
 ```
-
-Don't forget to relaunch your terminal and check out the `PATH` environment variable. (`$ env | grep PATH`)
 
 Now, here is the trick. Install `yarn` using `npm`, after install `yarn` using `yarn`, remove `yarn` from global npm folder.
 
@@ -129,8 +129,6 @@ You can also install `npm` with `yarn` and remove the original `npm`. In this ca
 ```
 $ yarn global add npm
 ```
-
-Double check that your `~/.yarn/bin` folder is listed in `$PATH` environment variable.
 
 (If you really wanna be sure that the yarn installed npm is gonna work, you can just rename the old npm command to something random and check with `witch npm` that your terminal still can see an `npm` command.)
 
