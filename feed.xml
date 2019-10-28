@@ -6,8 +6,8 @@
 </description>
     <link>https://yoember.com/</link>
     <atom:link href="https://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 25 Oct 2019 01:32:42 +1300</pubDate>
-    <lastBuildDate>Fri, 25 Oct 2019 01:32:42 +1300</lastBuildDate>
+    <pubDate>Mon, 28 Oct 2019 19:01:56 +1300</pubDate>
+    <lastBuildDate>Mon, 28 Oct 2019 19:01:56 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
@@ -96,17 +96,17 @@ $ nvm alias default 12.13.0
 
 &lt;p&gt;I use the following steps to keep &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; up to date and use only &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; global installer instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt;, so if a Node.js package is installed globally there won’t be any surprise and version mismatch in the future.&lt;/p&gt;
 
-&lt;p&gt;First of all you should add &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; default binary folder to the &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt; environment variable. Add the following to your &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.zshrc&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.bashrc&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;First of all check out that your &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; default global binary folder is part of the standard &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt;. Usually we don’t have to do anything here, because it should be &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/bin&lt;/code&gt; and it is part of our standard &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt; list.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export PATH=HOME/.yarn/bin:$PATH
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yarn global bin
+/usr/local/bin
+$ env | grep PATH
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;You can create a shortcut &lt;code class=&quot;highlighter-rouge&quot;&gt;alias&lt;/code&gt; also for calling &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; command only with &lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt; in your terminal.&lt;/p&gt;
+&lt;p&gt;You can create a shortcut &lt;code class=&quot;highlighter-rouge&quot;&gt;alias&lt;/code&gt; for calling &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; command only with &lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt; in your terminal. Aliases should be placed in your &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.zshrc&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.bashrc&lt;/code&gt;.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;alias y=&quot;yarn&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Don’t forget to relaunch your terminal and check out the &lt;code class=&quot;highlighter-rouge&quot;&gt;PATH&lt;/code&gt; environment variable. (&lt;code class=&quot;highlighter-rouge&quot;&gt;$ env | grep PATH&lt;/code&gt;)&lt;/p&gt;
 
 &lt;p&gt;Now, here is the trick. Install &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; using &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt;, after install &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; using &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt;, remove &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt; from global npm folder.&lt;/p&gt;
 
@@ -119,8 +119,6 @@ $ npm rm -g yarn
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yarn global add npm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Double check that your &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.yarn/bin&lt;/code&gt; folder is listed in &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt; environment variable.&lt;/p&gt;
 
 &lt;p&gt;(If you really wanna be sure that the yarn installed npm is gonna work, you can just rename the old npm command to something random and check with &lt;code class=&quot;highlighter-rouge&quot;&gt;witch npm&lt;/code&gt; that your terminal still can see an &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; command.)&lt;/p&gt;
 
@@ -216,7 +214,7 @@ $ npm install -g ember-cli
 
 &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
 </description>
-        <pubDate>Fri, 25 Oct 2019 00:57:00 +1300</pubDate>
+        <pubDate>Mon, 28 Oct 2019 18:46:00 +1300</pubDate>
         <link>https://yoember.com/nodejs/the-best-way-to-install-node-js-with-yarn/</link>
         <guid isPermaLink="true">https://yoember.com/nodejs/the-best-way-to-install-node-js-with-yarn/</guid>
         
