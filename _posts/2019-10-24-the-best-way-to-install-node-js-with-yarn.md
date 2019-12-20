@@ -1,16 +1,16 @@
 ---
 layout: post
 title: "The Best Way to Install Node.js with Yarn"
-date: 2019-10-28T18:46:00+13:00
+date: 2019-12-20T18:46:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
-node_version: '12.13.0'
-npm_version: '6.12.0'
-nvm_version: '0.35.00'
+node_version: '12.14.0'
+npm_version: '6.13.4'
+nvm_version: '0.35.2'
 ---
 
-There are a few ways to install Node.js, but it looks like only one way gives you the best experience for long term. Please find a few tips below how could you [setup Yarn](#advance-tips-to-setup-yarn) as well.
+There are a few ways to install Node.js, but it looks like only one way gives you the best experience for long term. Please find a few tips below how could you [setup Yarn](#advanced-tips-for-setting-up-yarn) as well.
 
 ### On Mac
 
@@ -29,7 +29,7 @@ $ xcode-select --install
 You can use the install script for `nvm` installation.
 
 ```
-$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 ```
 
 However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (`~/.nvm`) Secondly, you add two extra lines to your console script (to `~/.zshrc` or `~/.bashrc`).
@@ -96,7 +96,7 @@ It updates your Node.js version to the latest version 12 and install the latest 
 Alternatives for installing Node.js, but not suggested:
 
 * Official Installer: <https://nodejs.org/en/download/>
-* Using brew: <https://nodejs.org/en/download/package-manager/#osx>
+* Using brew: <https://nodejs.org/en/download/package-manager/#alternatives>
 
 #### Advanced tips for setting up `yarn`
 
@@ -199,7 +199,7 @@ On Windows, if you don't need more version from Node.js, you can use the [offici
 
 Install also [Git for Windows](https://git-for-windows.github.io/).
 
-Additionally, don't forget to read [this instruction](http://ember-cli.com/user-guide/#windows), which is very interesting not just for Ember developers, but for everybody who uses Node.js on Windows.
+Additionally, don't forget to read [this instruction](https://cli.emberjs.com/release/appendix/windows/), which is very interesting not just for Ember developers, but for everybody who uses Node.js on Windows.
 
 Plus install and run `ember-cli-windows`
 
@@ -208,7 +208,7 @@ $ npm install -g ember-cli-windows
 $ ember-cli-windows
 ```
 
-More here: https://github.com/felixrieseberg/ember-cli-windows
+More here: <https://github.com/felixrieseberg/ember-cli-windows>
 
 Always run your PowerShell or CMD.exe as Administrator.
 
