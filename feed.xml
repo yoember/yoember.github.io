@@ -6,13 +6,13 @@
 </description>
     <link>https://yoember.com/</link>
     <atom:link href="https://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 28 Oct 2019 19:01:56 +1300</pubDate>
-    <lastBuildDate>Mon, 28 Oct 2019 19:01:56 +1300</lastBuildDate>
+    <pubDate>Fri, 20 Dec 2019 19:02:59 +1300</pubDate>
+    <lastBuildDate>Fri, 20 Dec 2019 19:02:59 +1300</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
         <title>The Best Way to Install Node.js with Yarn</title>
-        <description>&lt;p&gt;There are a few ways to install Node.js, but it looks like only one way gives you the best experience for long term. Please find a few tips below how could you &lt;a href=&quot;#advance-tips-to-setup-yarn&quot;&gt;setup Yarn&lt;/a&gt; as well.&lt;/p&gt;
+        <description>&lt;p&gt;There are a few ways to install Node.js, but it looks like only one way gives you the best experience for long term. Please find a few tips below how could you &lt;a href=&quot;#advanced-tips-for-setting-up-yarn&quot;&gt;setup Yarn&lt;/a&gt; as well.&lt;/p&gt;
 
 &lt;h3 id=&quot;on-mac&quot;&gt;On Mac&lt;/h3&gt;
 
@@ -29,7 +29,7 @@
 
 &lt;p&gt;You can use the install script for &lt;code class=&quot;highlighter-rouge&quot;&gt;nvm&lt;/code&gt; installation.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (&lt;code class=&quot;highlighter-rouge&quot;&gt;~/.nvm&lt;/code&gt;) Secondly, you add two extra lines to your console script (to &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.zshrc&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.bashrc&lt;/code&gt;).&lt;/p&gt;
@@ -55,26 +55,26 @@
 
 &lt;p&gt;It is safe if you choose one of the most recent LTS (long time support) version and install it with the following command:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 12.13.0
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 12.14.0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Setup this version as the default.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm use 12.13.0
-$ nvm alias default 12.13.0
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm use 12.14.0
+$ nvm alias default 12.14.0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Check your node version with&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ node -v
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;You should see &lt;code class=&quot;highlighter-rouge&quot;&gt;v12.13.0&lt;/code&gt; if you installed the above version.&lt;/p&gt;
+&lt;p&gt;You should see &lt;code class=&quot;highlighter-rouge&quot;&gt;v12.14.0&lt;/code&gt; if you installed the above version.&lt;/p&gt;
 
 &lt;p&gt;You can update your &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; to the latest.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install -g npm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;After the update, the npm version, &lt;code class=&quot;highlighter-rouge&quot;&gt;npm -v&lt;/code&gt;, should be at least &lt;code class=&quot;highlighter-rouge&quot;&gt;6.12.0&lt;/code&gt; or above.&lt;/p&gt;
+&lt;p&gt;After the update, the npm version, &lt;code class=&quot;highlighter-rouge&quot;&gt;npm -v&lt;/code&gt;, should be at least &lt;code class=&quot;highlighter-rouge&quot;&gt;6.13.4&lt;/code&gt; or above.&lt;/p&gt;
 
 &lt;p&gt;A little extra tip. Remember for the following command because it simplifies the update process. ;)&lt;/p&gt;
 
@@ -89,7 +89,7 @@ $ nvm alias default 12.13.0
 
 &lt;ul&gt;
   &lt;li&gt;Official Installer: &lt;a href=&quot;https://nodejs.org/en/download/&quot;&gt;https://nodejs.org/en/download/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Using brew: &lt;a href=&quot;https://nodejs.org/en/download/package-manager/#osx&quot;&gt;https://nodejs.org/en/download/package-manager/#osx&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Using brew: &lt;a href=&quot;https://nodejs.org/en/download/package-manager/#alternatives&quot;&gt;https://nodejs.org/en/download/package-manager/#alternatives&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;advanced-tips-for-setting-up-yarn&quot;&gt;Advanced tips for setting up &lt;code class=&quot;highlighter-rouge&quot;&gt;yarn&lt;/code&gt;&lt;/h4&gt;
@@ -156,16 +156,16 @@ If you already installed Node.js with the built in package manager, please remov
 
 &lt;p&gt;With the provided script:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.00/install.sh | bash
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;(Please read the instructions under OSX section.)&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm list
 $ nvm ls-remote
-$ nvm install 12.13.0
-$ nvm use 12.13.0
-$ nvm alias default 12.13.0
+$ nvm install 12.14.0
+$ nvm use 12.14.0
+$ nvm alias default 12.14.0
 $ node -v
 $ npm install -g npm
 $ npm -v
@@ -182,7 +182,7 @@ $ npm -v
 
 &lt;p&gt;Install also &lt;a href=&quot;https://git-for-windows.github.io/&quot;&gt;Git for Windows&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Additionally, don’t forget to read &lt;a href=&quot;http://ember-cli.com/user-guide/#windows&quot;&gt;this instruction&lt;/a&gt;, which is very interesting not just for Ember developers, but for everybody who uses Node.js on Windows.&lt;/p&gt;
+&lt;p&gt;Additionally, don’t forget to read &lt;a href=&quot;https://cli.emberjs.com/release/appendix/windows/&quot;&gt;this instruction&lt;/a&gt;, which is very interesting not just for Ember developers, but for everybody who uses Node.js on Windows.&lt;/p&gt;
 
 &lt;p&gt;Plus install and run &lt;code class=&quot;highlighter-rouge&quot;&gt;ember-cli-windows&lt;/code&gt;&lt;/p&gt;
 
@@ -190,7 +190,7 @@ $ npm -v
 $ ember-cli-windows
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;More here: https://github.com/felixrieseberg/ember-cli-windows&lt;/p&gt;
+&lt;p&gt;More here: &lt;a href=&quot;https://github.com/felixrieseberg/ember-cli-windows&quot;&gt;https://github.com/felixrieseberg/ember-cli-windows&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Always run your PowerShell or CMD.exe as Administrator.&lt;/p&gt;
 
@@ -214,7 +214,7 @@ $ npm install -g ember-cli
 
 &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
 </description>
-        <pubDate>Mon, 28 Oct 2019 18:46:00 +1300</pubDate>
+        <pubDate>Fri, 20 Dec 2019 18:46:00 +1300</pubDate>
         <link>https://yoember.com/nodejs/the-best-way-to-install-node-js-with-yarn/</link>
         <guid isPermaLink="true">https://yoember.com/nodejs/the-best-way-to-install-node-js-with-yarn/</guid>
         
