@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "The Best Way to Install Node.js with Yarn"
-date: 2019-12-20T18:46:00+13:00
+date: 2020-04-06T14:30:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
-node_version: '12.14.0'
-npm_version: '6.13.4'
-nvm_version: '0.35.2'
+node_version: '12.16.1'
+npm_version: '6.14.4'
+nvm_version: '0.35.3'
 ---
 
 There are a few ways to install Node.js, but it looks like only one way gives you the best experience for long term. Please find a few tips below how could you [setup Yarn](#advanced-tips-for-setting-up-yarn) as well.
@@ -18,7 +18,7 @@ The best way to install Node.js on Mac is `nvm`.
 
 <https://github.com/creationix/nvm>
 
-You have to have on your Mac the Command Line Tools. Either you install the full XCode from App Store or just use the small Command Line Tools installer:
+You have to have the Command Line Tools on your Mac. Either you install the full XCode from App Store or just use the small Command Line Tools installer:
 
 ```
 $ xcode-select --install
@@ -29,12 +29,12 @@ $ xcode-select --install
 You can use the install script for `nvm` installation.
 
 ```
-$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 ```
 
 However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (`~/.nvm`) Secondly, you add two extra lines to your console script (to `~/.zshrc` or `~/.bashrc`).
 
-Please follow these steps on NVM Readme: <https://github.com/creationix/nvm#git-install>
+Please follow these steps as described in `nvm`'s Readme: <https://github.com/creationix/nvm#git-install>
 
 You have to relaunch your Terminals. Maybe you have to log out and log back to activate the new settings.
 
@@ -50,7 +50,7 @@ List the available node versions in the cloud:
 $ nvm ls-remote
 ```
 
-You can use the combination of this two commands to see only the last 9 lines from the huge list of versions: 
+You can use the combination of this two commands to see only the last 9 lines from the huge list of versions:
 
 ```
 $ nvm ls-remote | tail -n9
@@ -68,11 +68,13 @@ Setup this version as the default.
 $ nvm use {{ page.node_version }}
 $ nvm alias default {{ page.node_version }}
 ```
+
 Check your node version with
 
 ```
 $ node -v
 ```
+
 You should see `v{{ page.node_version }}` if you installed the above version.
 
 You can update your `npm` to the latest.

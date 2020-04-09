@@ -1,25 +1,25 @@
 ---
 layout: home
-last_modified_at: 20/12/2019
-meta_datetime: '2019-12-20'
-meta_published: '20 Dec 2019'
-title: 'Ember.js Tutorial - From beginner to advance'
+last_modified_at: 06/04/2020
+meta_datetime: '2020-04-06'
+meta_published: '4 Apr 2020'
+title: 'Ember.js Octane Tutorial - From beginner to advance'
 identifier: 'library-app'
-ember_cli_version: '3.4'
-ember_version: '3.4'
-node_version: '12.14.0'
+ember_cli_version: '3.17'
+ember_version: '3.17'
+node_version: '12.16.1'
 ---
 # Ember.js Tutorial
-## Building a complex web application with Ember.js&nbsp;3
+## Building a complex web application with Ember.js Octane
 <p class="blog-post-meta">Latest update: <time datetime="{{ page.meta_datetime }}" itemprop="datePublished">{{ page.meta_published }}</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
-Welcome! This is an [Ember.js tutorial](https://yoember.com) from the absolute beginner level. (At the end of the course we touch some advanced topic.) This tutorial is up-to-date in 2019 as well and compatible with Ember v2 and Ember v3. Please note, we use Ember v3.4, which is a long term support version. (I would recommend to play with this version at the moment, because we will use Firebase in this course and the latest version of Firebase supports only Ember v3.4 or earlier.)
+Welcome! This is an [Ember.js tutorial](https://yoember.com) from the absolute beginner level. (At the end of the course we touch some advanced topic.) This tutorial is continously improved and updated. The demo application is already updated to Ember Octane (v3.17). The work on documentation below is in progress and will be updated in the next couple of days to cover the latest Ember.js.
 
 Please check the [Live Demo](https://library-app.firebaseapp.com) page and play with the app what we are going to build together.
 
 * Live demo: [library-app.firebaseapp.com](https://library-app.firebaseapp.com/)
 
-You can clone the original repository from GitHub and launch on your desktop anytime.
+You can clone the original repository from GitHub and launch on your desktop anytime. (Already updated to Ember Octane.)
 
 * Original repo: [https://github.com/zoltan-nz/library-app](https://github.com/zoltan-nz/library-app)
 
@@ -27,12 +27,8 @@ If you have any comment, suggestion or you have a question, please feel free to 
 
 * My Twitter: [@zoltan_nz](https://www.twitter.com/zoltan_nz)
 * My Website: [zoltan.nz](http://zoltan.nz)
-* Ember.js Community Slack: [@zoltan](https://embercommunity.slack.com/messages/general/team/zoltan/)
+* Ember.js Community Discord: [@zoltan](https://discordapp.com/invite/emberjs)
 * Or just leave a message in the comment section [at the bottom of this page](#disqus_thread).
-
-After you finished this tutorial you can learn more advance topics following the README of this repository: 
-
-* ProductApp - a tutorial where we build an online store together with Ember.js, WIP: [https://github.com/zoltan-nz/product-app](https://github.com/zoltan-nz/product-app)
 
 ## Contents
 
