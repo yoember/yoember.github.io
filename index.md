@@ -1,13 +1,13 @@
 ---
 layout: home
-last_modified_at: 06/04/2020
-meta_datetime: '2020-04-06'
-meta_published: '4 Apr 2020'
+last_modified_at: 15/05/2020
+meta_datetime: '2020-05-15'
+meta_published: '15 May 2020'
 title: 'Ember.js Octane Tutorial - From beginner to advance'
 identifier: 'library-app'
-ember_cli_version: '3.17'
-ember_version: '3.17'
-node_version: '12.16.1'
+ember_cli_version: '3.19'
+ember_version: '3.19'
+node_version: '14.4.0'
 ---
 # Ember.js Tutorial
 ## Building a complex web application with Ember.js Octane

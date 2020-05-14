@@ -5,8 +5,8 @@ date: 2020-04-06T14:30:00+13:00
 author: Zoltan
 categories: nodejs
 identifier: 'install-nodejs'
-node_version: '12.16.1'
-npm_version: '6.14.4'
+node_version: '14.4.1'
+npm_version: '6.14.5'
 nvm_version: '0.35.3'
 ---
 
