@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ember.js Octane Tutorial - Building a complex web application</title>
-    <description>Free Ember.js tutorial for absolute beginners. Build a CRUD application from step by step with the latest Ember.js.
+    <description>Free Ember.js tutorial for absolute beginners. Build a CRUD application from step by step with the latest Ember.js Octane.
 </description>
     <link>https://yoember.com/</link>
     <atom:link href="https://yoember.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 18 Feb 2020 00:36:20 +1300</pubDate>
-    <lastBuildDate>Tue, 18 Feb 2020 00:36:20 +1300</lastBuildDate>
-    <generator>Jekyll v4.0.0</generator>
+    <pubDate>Mon, 08 Jun 2020 00:45:45 +1200</pubDate>
+    <lastBuildDate>Mon, 08 Jun 2020 00:45:45 +1200</lastBuildDate>
+    <generator>Jekyll v4.0.1</generator>
     
       <item>
         <title>The Best Way to Install Node.js with Yarn</title>
@@ -20,7 +20,7 @@
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/creationix/nvm&quot;&gt;https://github.com/creationix/nvm&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;You have to have on your Mac the Command Line Tools. Either you install the full XCode from App Store or just use the small Command Line Tools installer:&lt;/p&gt;
+&lt;p&gt;You have to have the Command Line Tools on your Mac. Either you install the full XCode from App Store or just use the small Command Line Tools installer:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ xcode-select --install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -29,12 +29,12 @@
 
 &lt;p&gt;You can use the install script for &lt;code class=&quot;highlighter-rouge&quot;&gt;nvm&lt;/code&gt; installation.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;However, I would encourage you to use the manual installation process. Nothing special there. Firstly, you just clone the whole repo in a subfolder in your home directory. (&lt;code class=&quot;highlighter-rouge&quot;&gt;~/.nvm&lt;/code&gt;) Secondly, you add two extra lines to your console script (to &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.zshrc&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.bashrc&lt;/code&gt;).&lt;/p&gt;
 
-&lt;p&gt;Please follow these steps on NVM Readme: &lt;a href=&quot;https://github.com/creationix/nvm#git-install&quot;&gt;https://github.com/creationix/nvm#git-install&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Please follow these steps as described in &lt;code class=&quot;highlighter-rouge&quot;&gt;nvm&lt;/code&gt;’s Readme: &lt;a href=&quot;https://github.com/creationix/nvm#git-install&quot;&gt;https://github.com/creationix/nvm#git-install&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;You have to relaunch your Terminals. Maybe you have to log out and log back to activate the new settings.&lt;/p&gt;
 
@@ -55,26 +55,28 @@
 
 &lt;p&gt;It is safe if you choose one of the most recent LTS (long time support) version and install it with the following command:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 12.16.0
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm install 14.4.1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Setup this version as the default.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm use 12.16.0
-$ nvm alias default 12.16.0
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm use 14.4.1
+$ nvm alias default 14.4.1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;p&gt;Check your node version with&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ node -v
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;You should see &lt;code class=&quot;highlighter-rouge&quot;&gt;v12.16.0&lt;/code&gt; if you installed the above version.&lt;/p&gt;
+
+&lt;p&gt;You should see &lt;code class=&quot;highlighter-rouge&quot;&gt;v14.4.1&lt;/code&gt; if you installed the above version.&lt;/p&gt;
 
 &lt;p&gt;You can update your &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; to the latest.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install -g npm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;After the update, the npm version, &lt;code class=&quot;highlighter-rouge&quot;&gt;npm -v&lt;/code&gt;, should be at least &lt;code class=&quot;highlighter-rouge&quot;&gt;6.13.4&lt;/code&gt; or above.&lt;/p&gt;
+&lt;p&gt;After the update, the npm version, &lt;code class=&quot;highlighter-rouge&quot;&gt;npm -v&lt;/code&gt;, should be at least &lt;code class=&quot;highlighter-rouge&quot;&gt;6.14.5&lt;/code&gt; or above.&lt;/p&gt;
 
 &lt;p&gt;A little extra tip. Remember for the following command because it simplifies the update process. ;)&lt;/p&gt;
 
@@ -156,16 +158,16 @@ If you already installed Node.js with the built in package manager, please remov
 
 &lt;p&gt;With the provided script:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh | bash
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;(Please read the instructions under OSX section.)&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvm list
 $ nvm ls-remote
-$ nvm install 12.16.0
-$ nvm use 12.16.0
-$ nvm alias default 12.16.0
+$ nvm install 14.4.1
+$ nvm use 14.4.1
+$ nvm alias default 14.4.1
 $ node -v
 $ npm install -g npm
 $ npm -v
@@ -214,7 +216,7 @@ $ npm install -g ember-cli
 
 &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
 </description>
-        <pubDate>Tue, 18 Feb 2020 00:30:00 +1300</pubDate>
+        <pubDate>Mon, 06 Apr 2020 13:30:00 +1200</pubDate>
         <link>https://yoember.com/nodejs/the-best-way-to-install-node-js-with-yarn/</link>
         <guid isPermaLink="true">https://yoember.com/nodejs/the-best-way-to-install-node-js-with-yarn/</guid>
         
