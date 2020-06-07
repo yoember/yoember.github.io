@@ -1,8 +1,8 @@
 ---
 layout: home
-last_modified_at: 15/05/2020
-meta_datetime: '2020-05-15'
-meta_published: '15 May 2020'
+last_modified_at: 08/06/2020
+meta_datetime: '2020-06-08'
+meta_published: '8 Jun 2020'
 title: 'Ember.js Octane Tutorial - From beginner to advance'
 identifier: 'library-app'
 ember_cli_version: '3.19'
@@ -13,13 +13,13 @@ node_version: '14.4.0'
 ## Building a complex web application with Ember.js Octane
 <p class="blog-post-meta">Latest update: <time datetime="{{ page.meta_datetime }}" itemprop="datePublished">{{ page.meta_published }}</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href='http://zoltan.nz'>Zoltan</a></span></span></p>
 
-Welcome! This is an [Ember.js tutorial](https://yoember.com) from the absolute beginner level. (At the end of the course we touch some advanced topic.) This tutorial is continously improved and updated. The demo application is already updated to Ember Octane (v3.17). The work on documentation below is in progress and will be updated in the next couple of days to cover the latest Ember.js.
+Welcome! This is an [Ember.js tutorial](https://yoember.com) from the absolute beginner level. This tutorial is continuously improved and updated, it uses Ember Octane (v{{ page.ember_version }}). The work on documentation below is in progress and will be updated in the next couple of days to cover the latest Ember.js.
 
 Please check the [Live Demo](https://library-app.firebaseapp.com) page and play with the app what we are going to build together.
 
 * Live demo: [library-app.firebaseapp.com](https://library-app.firebaseapp.com/)
 
-You can clone the original repository from GitHub and launch on your desktop anytime. (Already updated to Ember Octane.)
+You can clone the original repository from GitHub and launch on your desktop anytime. (Already updated to Ember Octane v{{ page.ember_version }})
 
 * Original repo: [https://github.com/zoltan-nz/library-app](https://github.com/zoltan-nz/library-app)
 
@@ -33,8 +33,7 @@ If you have any comment, suggestion or you have a question, please feel free to 
 ## Contents
 
 * [Lesson 1 - Creating our first static page with Ember.js](#lesson-1)
-  * [Add Bootstrap and Sass to Ember.js App](#ember-bootstrap-sass)
-* [Lesson 2 - Computed property, actions, dynamic content](#lesson-2)
+* [Lesson 2 - Reactive programming in Ember.js](#lesson-2)
 * [Lesson 3 - Models, saving data in database](#lesson-3)
 * [Lesson 4 - Deploy your app and add more CRUD functionality](#lesson-4)
 * [Lesson 5 - Data down actions up, using components](#lesson-5)
@@ -43,36 +42,28 @@ If you have any comment, suggestion or you have a question, please feel free to 
 
 ## Prerequisites
 
-* Node.js: at least v10, but the best if you install the latest long term support version (version 12).
-
-[The best way to install Node.js with Yarn on Mac, Linux and on Windows]({% post_url 2019-10-24-the-best-way-to-install-node-js-with-yarn %})
-
-* Ember Inspector Chrome Extension
-
-Install Ember Inspector Chrome extension in your Chrome Browser: [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi?hl=en)
-
-* (Optional but suggested on Mac and Linux) Watchman from Facebook
-
-Install Watchman on Mac: `brew install watchman`
-More info: <https://facebook.github.io/watchman/>
-
-Watchman increases the speed of the build process significantly.
+* **Node.js**: at least v10, but the best if you install the latest long term support version (version 14): [The best way to install Node.js with Yarn on Mac, Linux and on Windows]({% post_url 2019-10-24-the-best-way-to-install-node-js-with-yarn %})
+* In terms of package management, you can use `npm` or `yarn`, it is up to you. Personally, I prefer **`yarn`** nowadays.
+* Install **Ember Inspector** Chrome extension in your Chrome Browser: [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi?hl=en)
+* (Optional but suggested on Mac and Linux) **Watchman** from Facebook. Watchman increases the speed of the build process significantly. Install Watchman on Mac if you have `brew` on your machine: `$ brew install watchman`. More info: <https://facebook.github.io/watchman/>
 
 ## <a name='lesson-1'></a>Lesson 1
 
-This tutorial uses the latest long term supported Ember CLI tool (v{{ page.ember_cli_version }}).
+This tutorial uses the latest Ember CLI tool (v{{ page.ember_cli_version }}).
 
 ### Install Ember CLI
 
-The following `npm` command installs Ember CLI version {{ page.ember_cli_version }} in the global namespace. It generates app with the Ember.js and Ember Data. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.)
+The following `npm`/`yarn` command installs Ember CLI version {{ page.ember_cli_version }} in the global namespace. Ember CLI generates app with the Ember.js and Ember Data. (If you have an earlier version of Ember CLI, the following command automatically updates it to the latest.) Based on your preference, please use one of the following command.
 
-    $ npm install -g ember-cli@{{ page.ember_cli_version }}
+    $ yarn global add ember-cli
+
+    $ npm install -g ember-cli
 
 If you use the latest Node.js a few alert message would show up on your console, but don't worry about those, your app will work as expected. ;)
 
 You have now a new `ember` command in your console. Check with
 
-    $ ember -v
+    $ ember --version
 
 You should see something similar:
 
@@ -82,11 +73,9 @@ node: {{ page.node_version }}
 os: darwin x64
 ```
 
-(Node version, npm version and OS version may be different in your configuration.)
+(Node version, OS version may be different in your configuration.)
 
-Please read more about Ember CLI here: [www.ember-cli.com](http://www.ember-cli.com)
-
-(Please note, that only this version of Ember.js is compatible with the latest stable Firebase package, so if you would like connect to database in Lesson 3, please stay with this version. However, we can update our app and the tutorial soon as EmberFire will be updated.)
+Please read more about Ember CLI here: [cli.emberjs.com](https://cli.emberjs.com/release/)
 
 ### Create the app
 
@@ -97,10 +86,10 @@ For example, if you have a `projects` folder use
 $ cd ~/projects
 ```
 
-Inside this folder run the following command.
+Inside this folder run the following command. (If you prefer `npm` package manager, please omit `--yarn` parameter.)
 
 ```shell
-$ ember new library-app
+$ ember new library-app --yarn
 ```
 
 This command will create the new app for you.
@@ -131,7 +120,7 @@ You should see the following lines in your `./app/templates/application.hbs`:
 
 ```hbs {% raw %}
 {{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
+<WelcomePage />
 {{!-- Feel free to remove this! --}}
 
 {{outlet}}{% endraw %}
@@ -147,7 +136,7 @@ For example, open this file in your favorite editor and add the following html c
 {{outlet}}{% endraw %}
 ```
 
-With this step, we recreate the same home page, what we had in earlier versions of Ember. Make sure that the development server is still running in your console:
+With this step, you've just learned, how can you create a custom home page. You are amazing! ;) Make sure that the development server is still running in your console:
 
 ```shell
 $ ember server
@@ -155,44 +144,46 @@ $ ember server
 
 Reload your app in your browser. Our favorite Tomster disappeared but we have a clean welcome message in our amazing app.
 
-You can open Ember Inspector in your Browser. Hope you've already installed it. Ember Inspector exists in Chrome and in Firefox as an extension. After installation you should have a new tab in your developer console in your browser. Check it out, look around. [More details about Ember Inspector here](https://guides.emberjs.com/v{{ page.ember_version }}.0/ember-inspector/installation/).
+You can open **Ember Inspector** in your browser. Hope you've already installed it. Ember Inspector exists in Chrome and in Firefox as an extension. After installation you should have a new tab in your developer console in your browser. Check it out, look around. [More details about Ember Inspector here](https://guides.emberjs.com/release/ember-inspector/installation/).
 
-### <a name="ember-bootstrap-sass"></a>Add Bootstrap and Sass to Ember.js App
+For instance, you can click on Info tab in the Ember Inspector, where you can check the version number of Ember and Ember Data. Actually, this trick works on most of the website which built with Ember. Check out LinkedIn.com, Tvnz.co.nz or the famous [Covid-19 Dashboard](http://www.arcgis.com/apps/opsdashboard/index.html#/85320e2ea5424dfaaa75ae62e5c06e61).
 
-Let's add some basic styling to our application. We use Bootstrap with Sass. Ember CLI can install for us add-ons and useful packages. These add-ons simplify our development process, because we don't have to reinvent the wheel, we get more out of the box. You can find various packages, add-ons on these websites: <http://www.emberaddons.com> or <http://www.emberobserver.com>
+### Add Bootstrap and Sass to Ember.js App
 
-We install an add-on for Sass and another for Bootstrap.
+Let's add some basic styling to our application. We use Bootstrap with Sass. Ember CLI can install addons and useful packages. These addons simplify our development process, because we don't have to reinvent the wheel, we get more out of the box automatically. You can find various packages, addons on [Ember Observer](http://www.emberobserver.com). 
 
-Exit your `ember server` with `Ctrl+C` in your terminal.
+ - Please navigate to Ember Observer.
+ - Search for `bootstrap`.
+ - Click on `Bootstrap` category.
+ - Check the first and most popular addon: `ember-bootstrap` 
+
+We are going to use this well rounded `ember-bootstrap` addon in our application.
+
+Please exit your `ember server` with `Ctrl+C` in your terminal.
 
 Run the following two commands:
 
-```
-$ ember install ember-cli-sass
-$ ember install ember-cli-bootstrap-sassy
+```shell
+$ ember install ember-bootstrap
 ```
 
 You will see, that your `./package.json` is extended with a couple of lines.
 
-Rename your `app.css` to `app.scss` with the following terminal command or you can use your editor to rename the `./app/styles/app.css` file:
-
-```
-$ mv app/styles/app.css app/styles/app.scss
-```
-
-Open `./app/styles/app.scss` file in your editor and add the following line:
-
-```scss
-@import "bootstrap";
-```
-
-Relaunch your app with `ember server`. You should see in the browser, that 'Welcome to Ember' uses Bootstrap default font.
-
-Above steps in a one liner. Copy-paste in your console (without $). This is useful if you create a new project and you would like to add Bootstrap in a second.
+We also would like to use Sass as a CSS preprocessor. Our new ember addon can setup our application, just run the following:
 
 ```shell
-{% raw %}$ ember install ember-cli-sass && ember install ember-cli-bootstrap-sassy && echo '@import "bootstrap";' > ./app/styles/app.scss && rm ./app/styles/app.css{% endraw %}
+$ ember generate ember-bootstrap --preprocessor=sass
 ```
+
+It will create our main application scss file: `./app/styles/app.scss`, but it does not delete the original `app.css`, so we have to do it manually:
+
+```shell
+$ rm ./app/styles/app.css
+```
+
+Relaunch your app with `ember server` or with `yarn start`. You should see in the browser, that 'Welcome to Ember' uses Bootstrap default font.
+
+OMG! Have you realized how quickly you have a working application, with a custom home page and with a full Sass and Bootstrap support? Yep, you are amazing! ;)
 
 ### <a name="navigation-bar"></a>Add navigation
 

@@ -8,7 +8,7 @@
 # Site settings
 title: Ember.js Octane Tutorial - Building a complex web application
 description: > # this means to ignore newlines until "baseurl:"
-  Free Ember.js tutorial for absolute beginners. Build a CRUD application from step by step with the latest Ember.js.
+  Free Ember.js tutorial for absolute beginners. Build a CRUD application from step by step with the latest Ember.js Octane.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://yoember.com" # the base hostname & protocol for your site
 twitter_username: zoltan_nz
